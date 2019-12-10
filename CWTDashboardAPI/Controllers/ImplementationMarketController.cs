@@ -48,7 +48,7 @@ namespace CWTDashboardAPI.Controllers
                                               a.Region__Opportunity_,
                                               a.Implementation_Type,
                                               a.iMeet_Milestone___Project_Status,
-                                              //Revenue_Total_Volume_USD = entity.CLRs.Where(x => x.Client == a.Client && x.iMeet_Project_Level == a.iMeet_Project_Level && x.Region__Opportunity_ == a.Region__Opportunity_ && x.Implementation_Type == a.Implementation_Type && x.iMeet_Milestone___Project_Status == a.iMeet_Milestone___Project_Status).Sum(xs => xs.Revenue_Total_Volume_USD),
+                                              Revenue_Total_Volume_USD = entity.CLRs.Where(x => x.Client == a.Client && x.iMeet_Project_Level == a.iMeet_Project_Level && x.Region__Opportunity_ == a.Region__Opportunity_ && x.Implementation_Type == a.Implementation_Type && x.iMeet_Milestone___Project_Status == a.iMeet_Milestone___Project_Status).Sum(xs => xs.Revenue_Total_Volume_USD),
                                               //Revenue_Total_Volume_USD = entity.CLRs.Where(x=>x.Client == a.Client).Where(x2=> x2.iMeet_Project_Level == a.iMeet_Project_Level).Where(x3 => x3.Region__Opportunity_ == a.Region__Opportunity_).Where(x4 => x4.Implementation_Type == a.Implementation_Type).Where(x5 => values.Any(x5s => x5s.Equals(x5.iMeet_Milestone___Project_Status))).Sum(xs => xs.Revenue_Total_Volume_USD),
                                           }).Distinct().OrderBy(x => x.Client);
                 projectstatuscount = projectstatus_list.AsQueryable().Count();
