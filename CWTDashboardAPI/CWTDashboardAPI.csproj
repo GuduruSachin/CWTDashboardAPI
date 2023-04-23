@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -37,29 +37,97 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ActiveUp.Net, Version=2.1.41.0, Culture=neutral, PublicKeyToken=2ff270728258992b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.Net-trunk.2.1.41\lib\net40\ActiveUp.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6cceae6a4844c51b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.NET.2.0.1\lib\ActiveUp.Net.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Dns, Version=5.0.3454.364, Culture=neutral, PublicKeyToken=6fc67824e0089991, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.NET.2.0.1\lib\ActiveUp.Net.Dns.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Groupware, Version=5.0.3454.364, Culture=neutral, PublicKeyToken=db51b95d57ebfe25, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.NET.2.0.1\lib\ActiveUp.Net.Groupware.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Imap4, Version=5.0.3454.364, Culture=neutral, PublicKeyToken=9d424b1770e92b68, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.NET.2.0.1\lib\ActiveUp.Net.Imap4.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Mail, Version=5.0.3454.364, Culture=neutral, PublicKeyToken=851b9e39ef2572fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.NET.2.0.1\lib\ActiveUp.Net.Mail.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Nntp, Version=5.0.3454.364, Culture=neutral, PublicKeyToken=01416978360a49a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.NET.2.0.1\lib\ActiveUp.Net.Nntp.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveUp.Net.OpenPGP, Version=5.0.3454.364, Culture=neutral, PublicKeyToken=0e094b86584219e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.NET.2.0.1\lib\ActiveUp.Net.OpenPGP.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Pop3, Version=5.0.3454.364, Culture=neutral, PublicKeyToken=962567372c07b9fe, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.NET.2.0.1\lib\ActiveUp.Net.Pop3.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveUp.Net.Smtp, Version=5.0.3454.364, Culture=neutral, PublicKeyToken=366752d00f09ae34, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.NET.2.0.1\lib\ActiveUp.Net.Smtp.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiveUp.Net.WhoIs, Version=5.0.3454.364, Culture=neutral, PublicKeyToken=6b9afb81c1de5ed4, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailSystem.NET.2.0.1\lib\ActiveUp.Net.WhoIs.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.5.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.5.0.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
     </Reference>
@@ -68,11 +136,32 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
@@ -85,42 +174,12 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.4\lib\net45\System.Web.Http.WebHost.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.Optimization">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -129,11 +188,6 @@
     <Reference Include="Antlr3.Runtime">
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -169,37 +223,90 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AdhocController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CapacityHierarchyController.cs" />
     <Compile Include="Controllers\CapacityManagementController.cs" />
+    <Compile Include="Controllers\CapacityTrackerController.cs" />
+    <Compile Include="Controllers\ConfigController.cs" />
     <Compile Include="Controllers\CriticalTaskOverDueController.cs" />
+    <Compile Include="Controllers\CRMTeamController.cs" />
+    <Compile Include="Controllers\DigitalReportController.cs" />
     <Compile Include="Controllers\ELTReportController.cs" />
+    <Compile Include="Controllers\ErrorTrackerController.cs" />
     <Compile Include="Controllers\eSOWController.cs" />
+    <Compile Include="Controllers\ImportsController.cs" />
+    <Compile Include="Controllers\HierarchyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HomeScreenController.cs" />
     <Compile Include="Controllers\ImplementationMarketController.cs" />
     <Compile Include="Controllers\ImplementationProjectStatusController.cs" />
     <Compile Include="Controllers\LessonsLearntController.cs" />
+    <Compile Include="Controllers\ManualDataController.cs" />
     <Compile Include="Controllers\MarketChartsController.cs" />
+    <Compile Include="Controllers\NPSImplementationController.cs" />
+    <Compile Include="Controllers\OnlineProjectController.cs" />
+    <Compile Include="Controllers\PerformanceController.cs" />
+    <Compile Include="Controllers\PrioritizationController.cs" />
+    <Compile Include="Controllers\ResourceAssignmentController.cs" />
     <Compile Include="Controllers\StageGateController.cs" />
+    <Compile Include="Controllers\SteeringCommitteeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CapacityFilters.cs" />
-    <Compile Include="Models\CapacityResponse.cs" />
-    <Compile Include="Models\CLR.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Models\Adhoc.cs" />
+    <Compile Include="Models\AdHocProject.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AssignePerson.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AuditEntry.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AuditLog.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AutomatedCLRFilters.cs" />
+    <Compile Include="Models\CandidateLeadsOne.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CapacityFilters.cs" />
+    <Compile Include="Models\CapacityHierarchy.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CapacityHierarchyClass.cs" />
+    <Compile Include="Models\CapacityResponse.cs" />
+    <Compile Include="Models\CHFilter.cs" />
+    <Compile Include="Models\CLRBelowData.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CLRData.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CLRTracker.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Comment.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Config.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConfigModel.cs" />
     <Compile Include="Models\CountryIsoCode.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CountryRegionCode.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CRMX.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Models\CRMData.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CTO.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CTOFilters.cs" />
     <Compile Include="Models\CWT.Context.cs">
@@ -207,62 +314,259 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CWT.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CWT.Designer.cs">
+    <Compile Include="Models\CWTDashboard.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CWT.edmx</DependentUpon>
+      <DependentUpon>CWTDashboard.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CWTDashboard.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CWTDashboard.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CWTDashboard.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataiMeet.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Delta.cs" />
+    <Compile Include="Models\DigitalTeam.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DigitalTeamModel.cs" />
+    <Compile Include="Models\EltDeltaClient.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EltOldCLRData.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EltResponce.cs" />
-    <Compile Include="Models\eSOW.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Models\ErrorTracker.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ErrorTrackerModel.cs" />
+    <Compile Include="Models\eSowData.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\eSOWFilters.cs" />
+    <Compile Include="Models\eSOWNew.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\esowNewData.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ETCountry.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ETFilters.cs" />
+    <Compile Include="Models\ETManager.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ETResource.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Filters.cs" />
+    <Compile Include="Models\GoLive.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Hierarchy.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HierarchyClass.cs" />
+    <Compile Include="Models\HierarchyGraphs.cs" />
+    <Compile Include="Models\HomeModel.cs" />
+    <Compile Include="Models\HomeResponse.cs" />
+    <Compile Include="Models\HostExternal.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\H_Filters.cs" />
+    <Compile Include="Models\iMeetData.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IMP.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IMPSFilters.cs" />
-    <Compile Include="Models\LessonsLearnt.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Models\IMRCResponse.cs" />
+    <Compile Include="Models\JiraData.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Models\KnowledgeBase.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LessonLearnt.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LessonsLearntFilter.cs" />
+    <Compile Include="Models\LoginUser.cs" />
+    <Compile Include="Models\ManualData.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ManualDataClass.cs" />
+    <Compile Include="Models\MarketLeader.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Milestone.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MonthWiseDelta.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NPSData.cs" />
+    <Compile Include="Models\NpsImp.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NPSModel.cs" />
+    <Compile Include="Models\OldCLRData.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OldOldCLRData.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OnlineProjectTracker.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OPTAssignedTo.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OPTCountry.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OPTManager.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PreviousMonthsElt.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Progression.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProjectDueDate.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProjectType.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Prospect.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PSD.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ReplicateManualData.cs" />
+    <Compile Include="Models\ReportUpdatedOn.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\RisksGap.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Role.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StageGate.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StageGateFilters.cs" />
+    <Compile Include="Models\SteeringCommittee.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SteeringCommitteeClass.cs" />
+    <Compile Include="Models\SteeringCommitteeData.cs" />
+    <Compile Include="Models\SteeringCommitteeFilters.cs" />
+    <Compile Include="Models\TargetCycleTime.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_registration.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserReportAccessTicket.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserReportsAccess.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users.cs" />
+    <Compile Include="Models\UsersUsageofReport.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wave.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wavesdata.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Models\Wavesdata.cs.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Models\Wavesdata.cs.designer.cs">
+      <DependentUpon>Wavesdata.cs.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Models\CWT.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>CWT.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model1.tt">
+    <Content Include="Models\CWTDashboard.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-      <DependentUpon>CWT.edmx</DependentUpon>
+      <DependentUpon>CWTDashboard.edmx</DependentUpon>
+      <LastGenOutput>CWTDashboard.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Models\CWTDashboard.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CWTDashboard.edmx</DependentUpon>
+      <LastGenOutput>CWTDashboard.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\CWTDashboard.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CWTDashboard.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CWTDashboard.edmx.diagram">
+      <DependentUpon>CWTDashboard.edmx</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
@@ -282,21 +586,22 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Models\CWT.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CWT.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Models\CWT.edmx.diagram">
-      <DependentUpon>CWT.edmx</DependentUpon>
-    </None>
-    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
-    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Properties\PublishProfiles\CWTDashboard.pubxml" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -305,43 +610,39 @@
     </Content>
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\Site.css" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Imports\Index.cshtml" />
+    <Content Include="Views\Imports\Success.cshtml" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.min.map" />
+    <Content Include="Views\CRMTeam\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\bootstrap.min.css.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\bootstrap.css.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css.map" />
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\CapacityHierarchy\" />
+    <Folder Include="Views\CapacityTracker\" />
+    <Folder Include="Views\ErrorTracker\" />
+    <Folder Include="Views\Hierarchy\" />
+    <Folder Include="Views\HomeScreen\" />
+    <Folder Include="Views\ManualData\" />
+    <Folder Include="Views\OnlineProject\" />
+    <Folder Include="Views\Performance\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -378,8 +679,12 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

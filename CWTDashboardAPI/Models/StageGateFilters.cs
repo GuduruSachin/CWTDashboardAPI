@@ -12,5 +12,6 @@ namespace CWTDashboardAPI.Models
         public object Year { get; set; }
         public object TaskStatus { get; set; }
         public object Months { get; set; }
+        public object ProjectStatus { get; set; }
     }
 }

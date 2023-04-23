@@ -14,5 +14,6 @@ namespace CWTDashboardAPI.Models
         public object Region { get; set; }
         public object Assignee { get; set; }
         public object Assignee_ReportTO { get; set; }
+        public object GroupName { get; set; }
     }
 }

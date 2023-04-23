@@ -11,22 +11,22 @@ namespace CWTDashboardAPI.Controllers
 {
     public class eSOWController : ApiController
     {
-        CWTEntities entity = new CWTEntities();
+        CWTDashboardEntities entity = new CWTDashboardEntities();
         Response re = new Response();
         eSOWFilters fi = new eSOWFilters();
 
         [HttpPost]
         [Route("EssentialTablesFilters")]
-        public eSOWFilters EssentialTablesFilters(eSOW esow)
+        public eSOWFilters EssentialTablesFilters(eSOWNew esow)
         {
-            var FilterProspectType = (from a in entity.eSOWs
+            var FilterProspectType = (from a in entity.eSOWNews
                                       where a.Prospect_Type != null
                                       select new
                                       {
                                           Prospect_Type = a.Prospect_Type,
                                           isSelected = true,
                                       }).Distinct().OrderByDescending(x=>x.Prospect_Type);
-            var FilterSalesLeaderBidType= (from a in entity.eSOWs
+            var FilterSalesLeaderBidType= (from a in entity.eSOWNews
                               select new
                               {
                                   Sales_Leader_type_and_Type_of_bid = a.Sales_Leader_type_and_Type_of_bid,
@@ -41,7 +41,7 @@ namespace CWTDashboardAPI.Controllers
         string[] e_SalesLeaderBidType, e_ProspectType,e_CrmStatusWon,e_CrmStatusLost;
         [HttpPost]
         [Route("EssentialTables")]
-        public Response EssentialTables(eSOW esow)
+        public Response EssentialTables(eSOWNew esow)
         {
             if (esow.Prospect_Type == null || esow.Sales_Leader_type_and_Type_of_bid == null || esow.StartDate == null)
             {
@@ -72,8 +72,8 @@ namespace CWTDashboardAPI.Controllers
                         e_ProspectType[i] = null;
                     }
                 }
-                var Accounts_Volumes = (from a in entity.eSOWs
-                                           where e_ProspectType.Any(val1 => a.Prospect_Type.Equals(val1))
+                var Accounts_Volumes = (from a in entity.eSOWNews
+                                        where e_ProspectType.Any(val1 => a.Prospect_Type.Equals(val1))
                                            where e_SalesLeaderBidType.Any(val2 => a.Sales_Leader_type_and_Type_of_bid.Equals(val2))
                                            where a.Number_of_Countries > 0
                                            //where a.SOW_Creation_Date != null
@@ -109,7 +109,7 @@ namespace CWTDashboardAPI.Controllers
         string[] dsd_CrmStatusLost, dsd_CrmStatusInProgress;
         [HttpPost]
         [Route("DSDmetrics")]
-        public Response DSDmetrics(eSOW esow)
+        public Response DSDmetrics(eSOWNew esow)
         {
             if (esow.StartDate == null)
             {
@@ -125,7 +125,7 @@ namespace CWTDashboardAPI.Controllers
                 //dsd_CrmStatusWon = "Contract Signed,Verbal Award".Split(',');
                 dsd_CrmStatusLost = "Withdrawn,No Go,Closed Lost".Split(',');
                 dsd_CrmStatusInProgress = "Needs are Identified,RFP Received,Proposal Submitted,RFI Received,Negotiations,RFI Submitted".Split(',');
-                var WinRatePerWOVerbalAward = (from a in entity.eSOWs
+                var WinRatePerWOVerbalAward = (from a in entity.eSOWNews
                                                where a.Number_of_Countries > 0
                                                where a.SOW_Creation_Date > ConvertedDate
                                                select a);
@@ -162,7 +162,7 @@ namespace CWTDashboardAPI.Controllers
         string[] ytd_CrmStatusWon,ytd_CrmStatusLost;
         [HttpPost]
         [Route("TotalYTDActivity")]
-        public Response TotalYTDActivity(eSOW esow)
+        public Response TotalYTDActivity(eSOWNew esow)
         {
             if (esow.StartDate == null)
             {
@@ -177,7 +177,7 @@ namespace CWTDashboardAPI.Controllers
                 ytd_CrmStatusWon = "Contract Signed,Verbal Award".Split(',');
                 ytd_CrmStatusLost = "Withdrawn,No Go,Closed Lost".Split(',');
                 dsd_CrmStatusInProgress = "Needs are Identified,RFP Received,Proposal Submitted,RFI Received,Negotiations,RFI Submitted".Split(',');
-                var TotalYTDActivity = (from a in entity.eSOWs
+                var TotalYTDActivity = (from a in entity.eSOWNews
                                         where a.SOW_Creation_Date > ConvertedDate
                                         where a.Number_of_Countries > 0
                                         group a by a.DSD_Lead into g
@@ -199,7 +199,7 @@ namespace CWTDashboardAPI.Controllers
         }
         [HttpPost]
         [Route("DavidData")]
-        public Response DavidData(eSOW esow)
+        public Response DavidData(eSOWNew esow)
         {
             if (esow.StartDate == null || esow.EndDate == null)
             {
@@ -213,7 +213,7 @@ namespace CWTDashboardAPI.Controllers
                 DateTime endDate = Convert.ToDateTime(esow.EndDate);
                 e_CrmStatusWon = "Contract Signed,Verbal Award".Split(',');
                 e_CrmStatusLost = "Withdrawn,No Go,Closed Lost".Split(',');
-                var Accounts_Volumes = (from a in entity.eSOWs
+                var Accounts_Volumes = (from a in entity.eSOWNews
                                         where a.Number_of_Countries > 0
                                         where a.SOW_Creation_Date >= startDate && a.SOW_Creation_Date <= endDate
                                         group a by a.Category into g

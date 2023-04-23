@@ -1,0 +1,307 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ExcelImporting</title>
+    <style>
+        .split {
+            height : 100%;
+            width: 50%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            right: 0;
+        }
+        .labeltext {
+            font-size: 15px;
+            font-weight: bold;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin : 5px 0px 5px 0px;
+            padding-top: 10px
+            display: inline-block;
+        }
+        .labeltextheader {
+            font-size: 19px;
+            font-weight: bold;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin: 5px 0px 5px 0px;
+            padding-top: 10px;
+            display: inline-block;
+            text-decoration: underline;
+        }
+        .choosefile {
+            width: 230px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .buttonstyle {
+            /*background-color: #FF684B;*/
+            /*padding: 16px 32px;*/
+            width: 70px;
+            text-align: center;
+            /*text-decoration: none;*/
+            font-size: 13px;
+            height: 27px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            background-color: white;
+            color: white;
+            border: 2px solid #FF684B;
+            background-color: #FF684B;
+            border-radius: 5px;
+        }
+        .buttonstyle:hover {
+            border-radius: 5px;
+            background-color: white;
+            border: 2px solid #FF684B;
+            color: black;
+        }
+        .mainbutton {
+            width: 150px;
+            border-radius: 5px;
+            text-align: center;
+            /*text-decoration: none;*/
+            font-size: 13px;
+            height: 27px;
+            cursor: pointer;
+            background-color: #FF684B;
+            border: 2px solid #FF684B;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="split left">
+        <div style="margin: 10px 0px 15px 70px;">
+            <div style="width: 100%;padding-left: 50px">
+                <label class="labeltextheader" style="display:inline-block"> CLR Generation</label>
+            </div>
+            <label class="labeltext"> iMeet Import</label>
+            @using (Html.BeginForm("ImeetImport", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div class="choosefile"><input type="file" name="excelfile" /></div>
+                <div style="display:inline-block"><input class="buttonstyle" type="submit" value="Import" /></div>
+                <div style="display:inline-block">@Html.Raw(ViewBag.Error)</div>
+            }
+            <label class="labeltext"> CRM Import</label>
+            @using (Html.BeginForm("CRMImport", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div class="choosefile"><input type="file" name="crmfile" /></div>
+                <div style="display:inline-block"><input class="buttonstyle" type="submit" value="Import" /></div>
+                <div style="display:inline-block">@Html.Raw(ViewBag.Error2)</div>
+            }
+            <label class="labeltext"> Roles Import</label>
+            @using (Html.BeginForm("RolesImport", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div class="choosefile"><input type="file" name="rolesfile" /></div>
+                <div style="display:inline-block"><input class="buttonstyle" type="submit" value="Import" /></div>
+                <div style="display:inline-block">@Html.Raw(ViewBag.Error3)</div>
+            }
+            <label class="labeltext"> PSD Import</label>
+            @using (Html.BeginForm("PSDImport", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div class="choosefile"><input type="file" name="psdfile" /></div>
+                <div style="display:inline-block"><input class="buttonstyle" type="submit" value="Import" /></div>
+                <div style="display:inline-block">@Html.Raw(ViewBag.Error5)</div>
+            }
+            <label class="labeltext"> Assigne Persons Import</label>
+            @using (Html.BeginForm("APImport", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div class="choosefile"><input type="file" name="apfile" /></div>
+                <div style="display:inline-block"><input class="buttonstyle" type="submit" value="Import" /></div>
+                <div style="display:inline-block">@Html.Raw(ViewBag.Error10)</div>
+            }
+            @*<label class="labeltext"> HostExternalKickoff Import</label>
+        @using (Html.BeginForm("HEKOImport", "Imports", FormMethod.Post, new
+        {
+            enctype = "multipart/form-data"
+        }))
+        {
+            <div class="choosefile"><input type="file" name="hekofile" /></div>
+            <div style="display:inline-block"><input class="buttonstyle" type="submit" value="Import" /></div>
+            <div style="display:inline-block">@Html.Raw(ViewBag.Error11)</div>
+        }*@
+            <label class="labeltext"> Project Due Date Import</label>
+            @using (Html.BeginForm("PDDImport", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div class="choosefile"><input type="file" name="pddofile" /></div>
+                <div style="display:inline-block"><input class="buttonstyle" type="submit" value="Import" /></div>
+                <div style="display:inline-block">@Html.Raw(ViewBag.Error12)</div>
+            }
+            <label class="labeltext"> eSOW Data Import</label>
+            @using (Html.BeginForm("eSowImport", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div class="choosefile"><input type="file" name="eSowfile" /></div>
+                <div style="display:inline-block"><input class="buttonstyle" type="submit" value="Import" /></div>
+                <div style="display:inline-block">@Html.Raw(ViewBag.Error18)</div>
+            }
+            <label class="labeltext"> eSOW New Data Import</label>
+            @using (Html.BeginForm("eSowNewImport", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div class="choosefile"><input type="file" name="eSownewfile" /></div>
+                <div style="display:inline-block"><input class="buttonstyle" type="submit" value="Import" /></div>
+                <div style="display:inline-block">@Html.Raw(ViewBag.Error19)</div>
+            }
+            @using (Html.BeginForm("GenerateCLR", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div style="display:inline-block;margin-top: 30px;margin-left:50px"><input class="mainbutton" type="submit" value="Generate CLR" /></div>
+                <div style="display:inline-block;margin-top: 30px">@Html.Raw(ViewBag.Error4)</div>
+            }
+            @using (Html.BeginForm("GenerateTracker", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div style="display:inline-block;margin-top: 30px;margin-left:50px"><input class="mainbutton" type="submit" value="Generate Tracker" /></div>
+                <div style="display:inline-block;margin-top: 30px">@Html.Raw(ViewBag.Error15)</div>
+            }
+            @*<label class="labeltext"> Upload NPS</label>
+        @using (Html.BeginForm("NPSPDF", "Imports", FormMethod.Post, new
+        {
+            enctype = "multipart/form-data"
+        }))
+        {
+            <div class="choosefile"><input type="file" name="npspdffile" /></div>
+            <div style="display:inline-block"><input class="buttonstyle" type="submit" value="Upload" /></div>
+            <div style="display:inline-block">@Html.Raw(ViewBag.Error16)</div>
+        }*@
+        </div>
+    </div>
+    <div class="split right">
+        <div style="margin: 15px 0px 15px 15px;">
+            <div style="width: 100%;padding-left: 50px">
+                <label class="labeltextheader" style="display:inline-block"> Individual Reports</label>
+            </div>
+            <label class="labeltext"> Critical Task Over Due Import</label>
+            @using (Html.BeginForm("CTOImport", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div class="choosefile"><input type="file" name="ctofile" /></div>
+                <div style="display:inline-block"><input class="buttonstyle" type="submit" value="Import" /></div>
+                <div style="display:inline-block">@Html.Raw(ViewBag.Error6)</div>
+            }
+            <label class="labeltext"> Implementation Project Status Import</label>
+            @using (Html.BeginForm("IMPSImport", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div class="choosefile"><input type="file" name="impsfile" /></div>
+                <div style="display:inline-block"><input class="buttonstyle" type="submit" value="Import" /></div>
+                <div style="display:inline-block">@Html.Raw(ViewBag.Error7)</div>
+            }
+            <label class="labeltext"> Lessons Learnt Import</label>
+            @using (Html.BeginForm("LLImport", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div class="choosefile"><input type="file" name="llfile" /></div>
+                <div style="display:inline-block"><input class="buttonstyle" type="submit" value="Import" /></div>
+                <div style="display:inline-block">@Html.Raw(ViewBag.Error8)</div>
+            }
+            @*<label class="labeltext"> Stage Gate Import</label>
+        @using (Html.BeginForm("SGImport", "Imports", FormMethod.Post, new
+        {
+            enctype = "multipart/form-data"
+        }))
+        {
+            <div class="choosefile"><input type="file" name="sgfile" /></div>
+            <div style="display:inline-block"><input class="buttonstyle" type="submit" value="Import" /></div>
+            <div style="display:inline-block">@Html.Raw(ViewBag.Error9)</div>
+        }*@
+            @*<label class="labeltext"> Comments Import</label>
+        @using (Html.BeginForm("CommentsImport", "Imports", FormMethod.Post, new
+        {
+            enctype = "multipart/form-data"
+        }))
+        {
+            <div class="choosefile"><input type="file" name="commentfile" /></div>
+            <div style="display:inline-block"><input class="buttonstyle" type="submit" value="Import" /></div>
+            <div style="display:inline-block">@Html.Raw(ViewBag.Error17)</div>
+        }*@
+            <div style="width: 100%;padding-left: 50px;margin-top: 20px">
+                <label class="labeltextheader" style="display:inline-block"> Generate Delta </label>
+            </div>
+            @using (Html.BeginForm("WeeklyDelta", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div style="display:inline-block;margin-top: 30px;margin-left:50px"><input class="mainbutton" type="submit" value="Weekly Delta" /></div>
+                <div style="display:inline-block;margin-top: 30px">@Html.Raw(ViewBag.Error13)</div>
+            }
+            @using (Html.BeginForm("ELTDelta", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div style="display:inline-block;margin-top: 30px;margin-left:50px"><input class="mainbutton" type="submit" value="Monthly Delta" /></div>
+                <div style="display:inline-block;margin-top: 30px">@Html.Raw(ViewBag.Error14)</div>
+            }
+            <div style="width: 100%;padding-left: 50px;margin-top: 20px">
+                <label class="labeltextheader" style="display:inline-block"> Jira Files Upload </label>
+            </div>
+            <label class="labeltext"> Jira Files Upload </label>
+            @using (Html.BeginForm("JiraData", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div class="choosefile"><input type="file" name="jirafile" /></div>
+                <div style="display:inline-block"><input class="buttonstyle" type="submit" value="Import" /></div>
+                <div style="display:inline-block">@Html.Raw(ViewBag.Error20)</div>
+            }
+            @using (Html.BeginForm("GeteSowData", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div style="display:inline-block;margin-top: 30px;margin-left:50px"><input class="mainbutton" type="submit" value="Get eSow Data" /></div>
+                <div style="display:inline-block;margin-top: 30px">@Html.Raw(ViewBag.Error21)</div>
+            }
+        </div>
+    </div>
+</body>
+</html>

@@ -12,16 +12,17 @@ namespace CWTDashboardAPI.Controllers
 {
     public class ImplementationMarketController : ApiController
     {
-        CWTEntities entity = new CWTEntities();
+        CWTDashboardEntities entity = new CWTDashboardEntities();
         Response re = new Response();
         Filters fi = new Filters();
+
         int projectstatuscount, projectstatus;
-        string[] Projectstatus;
+        string[] Projectstatus, imps_Year, imps_type, imps_months, imps_projectlevel, imps_region, imps_Country,imps_ownership;
         [HttpPost]
         [Route("ImeetMilestoneProjectStatus")]
-        public Response GetImeetMilestoneProjectStatus(CLR clr)
+        public Response GetImeetMilestoneProjectStatus(CLRData clr)
         {
-            if (clr.iMeet_Milestone___Project_Status == "" || clr.iMeet_Milestone___Project_Status == null)
+            if (clr.GoLiveYear == null || clr.GoLiveMonth == null || clr.OwnerShip == null || clr.ProjectLevel == null || clr.Region == null || clr.ProjectStatus == null || clr.ImplementationType == null)
             {
                 re.Data = "";
                 re.code = 100;
@@ -29,28 +30,96 @@ namespace CWTDashboardAPI.Controllers
             }
             else
             {
-                Projectstatus = clr.iMeet_Milestone___Project_Status.Split(',');
+                Projectstatus = clr.ProjectStatus.Split(',');
                 for (int i = 0; i < Projectstatus.Count(); i++)
                 {
-                    if (Projectstatus[i] == "" || Projectstatus[i] == "null")
+                    if (Projectstatus[i] == "" || Projectstatus[i] == "---" || Projectstatus[i] == "null")
                     {
-                        Projectstatus[i] = null;
+                        Projectstatus[i] = "---";
+                    }
+                }
+                imps_Year = clr.GoLiveYear.Split(',');
+                for (int i = 0; i < imps_Year.Count(); i++)
+                {
+                    if (imps_Year[i] == "" || imps_Year[i] == "---" || imps_Year[i] == "null")
+                    {
+                        imps_Year[i] = "---";
+                    }
+                }
+                imps_ownership = clr.OwnerShip.Split(',');
+                for (int i = 0; i < imps_ownership.Count(); i++)
+                {
+                    if (imps_ownership[i] == "" || imps_ownership[i] == "---" || imps_ownership[i] == "null")
+                    {
+                        imps_ownership[i] = "---";
+                    }
+                }
+                imps_type = clr.ImplementationType.Split(',');
+                for (int i = 0; i < imps_type.Count(); i++)
+                {
+                    if (imps_type[i] == "" || imps_type[i] == "---" || imps_type[i] == "null")
+                    {
+                        imps_type[i] = "---";
+                    }
+                }
+                imps_months = clr.GoLiveMonth.Split(',');
+                for (int i = 0; i < imps_months.Count(); i++)
+                {
+                    if (imps_months[i] == "" || imps_months[i] == "---" || imps_months[i] == "null")
+                    {
+                        imps_months[i] = "---";
+                    }
+                }
+                imps_projectlevel = clr.ProjectLevel.Split(',');
+                for (int i = 0; i < imps_projectlevel.Count(); i++)
+                {
+                    if (imps_projectlevel[i] == "" || imps_projectlevel[i] == "---" || imps_projectlevel[i] == "null")
+                    {
+                        imps_projectlevel[i] = "---";
+                    }
+                }
+                imps_region = clr.Region.Split(',');
+                for (int i = 0; i < imps_region.Count(); i++)
+                {
+                    if (imps_region[i] == "" || imps_region[i] == "---" || imps_region[i] == "null")
+                    {
+                        imps_region[i] = "---";
+                    }
+                }
+                imps_Country = clr.Country.Split(',');
+                for (int i = 0; i < imps_Country.Count(); i++)
+                {
+                    if (imps_Country[i] == "" || imps_Country[i] == "---" || imps_Country[i] == "null")
+                    {
+                        imps_Country[i] = "---";
                     }
                 }
                 //IEnumerable<string> values = clr.iMeet_Milestone___Project_Status.Split(',');
-                var projectstatus_list = (from a in entity.CLRs
+                var projectstatus_list = (from a in entity.CLRDatas
+                                          where a.Status == "Active"
                                           //join b in entity.CLRs on new { a.Client, clr.iMeet_Milestone___Project_Status } equals new { b.Client, b.iMeet_Milestone___Project_Status }    
-                                          where Projectstatus.Any(val => a.iMeet_Milestone___Project_Status.Equals(val))
+                                          where Projectstatus.Any(val => a.ProjectStatus.Equals(val))
+                                          where imps_Year.Any( val1 => a.GoLiveYear.Equals(val1))
+                                          where imps_type.Any(val => a.ImplementationType.Equals(val))
+                                          where imps_months.Any(val => a.GoLiveMonth.Equals(val))
+                                          where imps_ownership.Any(val => a.OwnerShip.Equals(val))
+                                          where imps_projectlevel.Any(val => a.ProjectLevel.Equals(val))
+                                          where imps_region.Any(val => a.Region.Equals(val))
+                                          where a.RevenueID < 600000000000000
+                                          //where imps_Country.Any(val => a.Country.Equals(val))
                                           select new
                                           {
-                                              a.Client,
-                                              a.iMeet_Project_Level,
-                                              a.Region__Opportunity_,
-                                              a.Implementation_Type,
-                                              a.iMeet_Milestone___Project_Status,
-                                              Revenue_Total_Volume_USD = entity.CLRs.Where(x => x.Client == a.Client && x.iMeet_Project_Level == a.iMeet_Project_Level && x.Region__Opportunity_ == a.Region__Opportunity_ && x.Implementation_Type == a.Implementation_Type && x.iMeet_Milestone___Project_Status == a.iMeet_Milestone___Project_Status).Sum(xs => xs.Revenue_Total_Volume_USD),
+                                              Client = a.Client == null ? "---" : a.Client ?? "---",
+                                              iMeet_Project_Level = a.ProjectLevel ?? "---",
+                                              Region__Opportunity_ = a.Region ?? "---",
+                                              Implementation_Type = a.ImplementationType ?? "---",
+                                              iMeet_Milestone___Project_Status = a.ProjectStatus ?? "---",
+                                              Revenue_Total_Volume_USD = a.RevenueVolumeUSD ?? 0,
+                                              a.GoLiveDate,
+                                              Country = a.Country ?? "---"
+                                              //Revenue_Total_Volume_USD = entity.CLRDatas.Where(x => x.Client == a.Client && x.iMeet_Project_Level == a.iMeet_Project_Level && x.Region__Opportunity_ == a.Region__Opportunity_ && x.Implementation_Type == a.Implementation_Type && x.iMeet_Milestone___Project_Status == a.ProjectStatus).Sum(xs => xs.Revenue_Total_Volume_USD) ?? 0,
                                               //Revenue_Total_Volume_USD = entity.CLRs.Where(x=>x.Client == a.Client).Where(x2=> x2.iMeet_Project_Level == a.iMeet_Project_Level).Where(x3 => x3.Region__Opportunity_ == a.Region__Opportunity_).Where(x4 => x4.Implementation_Type == a.Implementation_Type).Where(x5 => values.Any(x5s => x5s.Equals(x5.iMeet_Milestone___Project_Status))).Sum(xs => xs.Revenue_Total_Volume_USD),
-                                          }).Distinct().OrderBy(x => x.Client);
+                                          }).OrderBy(x => x.Client);                                               
                 projectstatuscount = projectstatus_list.AsQueryable().Count();
                 if (projectstatuscount.ToString() == "" || projectstatuscount.ToString() == null || projectstatuscount == 0)
                 {
@@ -67,45 +136,155 @@ namespace CWTDashboardAPI.Controllers
             }
             return re;
         }
+        
         [HttpPost]
-        [Route("ProjectStatus")]
-        public Response GetProjectStatus(CLR clr)
+        [Route("MarketGoliveReport")]
+        public Response MarketGoliveReport(CLRData clr)
         {
-            var projectstatusdata = (from a in entity.CLRs
-                                     where a.iMeet_Milestone___Project_Status != null && a.iMeet_Milestone___Project_Status != ""
-                                     select new
-                                     {
-                                         a.iMeet_Milestone___Project_Status,
-                                         isSelected = true,
-                                     }).Distinct();
-            projectstatus = projectstatusdata.AsQueryable().Count();
-            if (projectstatus.ToString() == "" || projectstatus.ToString() == null || projectstatus == 0)
+            if (clr.OwnerShip == null || clr.Region == null || clr.ProjectStatus == null || clr.ImplementationType == null || clr.ProjectLevel == null)
             {
-                re.Data = projectstatusdata;
+                re.Data = "";
                 re.code = 100;
                 re.message = "No Data found";
             }
             else
             {
-                re.Data = projectstatusdata;
+                Projectstatus = clr.ProjectStatus.Split(',');
+                for (int i = 0; i < Projectstatus.Count(); i++)
+                {
+                    if (Projectstatus[i] == "" || Projectstatus[i] == "---" || Projectstatus[i] == "null")
+                    {
+                        Projectstatus[i] = "---";
+                    }
+                }
+                imps_ownership = clr.OwnerShip.Split(',');
+                for (int i = 0; i < imps_ownership.Count(); i++)
+                {
+                    if (imps_ownership[i] == "" || imps_ownership[i] == "---" || imps_ownership[i] == "null")
+                    {
+                        imps_ownership[i] = "---";
+                    }
+                }
+                imps_type = clr.ImplementationType.Split(',');
+                for (int i = 0; i < imps_type.Count(); i++)
+                {
+                    if (imps_type[i] == "" || imps_type[i] == "---" || imps_type[i] == "null")
+                    {
+                        imps_type[i] = "---";
+                    }
+                }
+                imps_projectlevel = clr.ProjectLevel.Split(',');
+                for (int i = 0; i < imps_projectlevel.Count(); i++)
+                {
+                    if (imps_projectlevel[i] == "" || imps_projectlevel[i] == "---" || imps_projectlevel[i] == "null")
+                    {
+                        imps_projectlevel[i] = "---";
+                    }
+                }
+                imps_region = clr.Region.Split(',');
+                for (int i = 0; i < imps_region.Count(); i++)
+                {
+                    if (imps_region[i] == "" || imps_region[i] == "---" || imps_region[i] == "null")
+                    {
+                        imps_region[i] = "---";
+                    }
+                }
+                string C_Month = DateTime.Now.ToString("MMM");
+                string N_Month = DateTime.Now.AddMonths(1).ToString("MMM");
+                string N_Month_POne = DateTime.Now.AddMonths(2).ToString("MMM");
+                string C_Year = DateTime.Now.Year.ToString();
+                string N_Year = DateTime.Now.AddMonths(1).Year.ToString();
+                string N_Year_POne = DateTime.Now.AddMonths(2).Year.ToString();
+                var GoliveFilterData = (from a in entity.CLRDatas
+                                        where a.Status == "Active"
+                                        where ((a.GoLiveYear == C_Year && a.GoLiveMonth == C_Month) || (a.GoLiveMonth == N_Month && a.GoLiveYear == N_Year) || (a.GoLiveMonth == N_Month_POne && a.GoLiveYear == N_Year_POne))
+                                        where imps_projectlevel.Any(val => a.ProjectLevel.Equals(val))
+                                        where Projectstatus.Any(val => a.ProjectStatus.Equals(val))
+                                        where imps_type.Any(val => a.ImplementationType.Equals(val))
+                                        where imps_ownership.Any(val => a.OwnerShip.Equals(val))
+                                        where imps_region.Any(val => a.Region.Equals(val))
+                                        where a.Client != null
+                                        select a).ToList();
+                var Golive_data = (from b in GoliveFilterData
+                                   group b by b.Client into g
+                                   select new
+                                   {
+                                       Client = g.Key,
+                                       Country = "---",
+                                       EltStatus = GoliveFilterData.FirstOrDefault(x => x.Client == g.Key).Workspace__ELT_Overall_Status,
+                                       EltComments = GoliveFilterData.FirstOrDefault(x => x.Client == g.Key).Workspace__ELT_Overall_Comments == "" || GoliveFilterData.FirstOrDefault(x => x.Client == g.Key).Workspace__ELT_Overall_Comments == null ? "---" : GoliveFilterData.FirstOrDefault(x => x.Client == g.Key).Workspace__ELT_Overall_Comments,
+                                       CurrentMonth = GoliveFilterData.Where(x => x.GoLiveMonth == C_Month && x.Client == g.Key).Sum(x => x.RevenueVolumeUSD),
+                                       NextMonth = GoliveFilterData.Where(x => x.GoLiveMonth == N_Month && x.Client == g.Key).Sum(x => x.RevenueVolumeUSD),
+                                       NextMonthPlusOne = GoliveFilterData.Where(x => x.GoLiveMonth == N_Month_POne && x.Client == g.Key).Sum(x => x.RevenueVolumeUSD),
+                                       TotalVolume = GoliveFilterData.Where(x => x.Client == g.Key).Sum(x => x.RevenueVolumeUSD),
+                                       CountrywiseSum = (from c in GoliveFilterData
+                                                         where c.Client == g.Key
+                                                         select new
+                                                         {
+                                                             Client = c.Client,
+                                                             Country = c.Country,
+                                                             EltStatus = c.Workspace__ELT_Overall_Status == "" || c.Workspace__ELT_Overall_Status == null ? "---" : c.Workspace__ELT_Overall_Status,
+                                                             EltComments = c.Workspace__ELT_Overall_Comments == "" || c.Workspace__ELT_Overall_Comments == null ? "---" : c.Workspace__ELT_Overall_Comments,
+                                                             CurrentMonth = GoliveFilterData.Where(x => x.GoLiveMonth == C_Month && x.Client == c.Client && x.Country == c.Country && x.RevenueID == c.RevenueID).Sum(x=> x.RevenueVolumeUSD),
+                                                             NextMonth = GoliveFilterData.Where(x => x.GoLiveMonth == N_Month && x.Client == c.Client && x.Country == c.Country && x.RevenueID == c.RevenueID).Sum(x => x.RevenueVolumeUSD),
+                                                             NextMonthPlusOne = GoliveFilterData.Where(x => x.GoLiveMonth == N_Month_POne && x.Client == c.Client && x.Country == c.Country && x.RevenueID == c.RevenueID).Sum(x => x.RevenueVolumeUSD),
+                                                         }).Distinct(),
+                                   }).Where(x => x.TotalVolume > 0).OrderBy(x => x.Client);
+                re.Data = Golive_data;
                 re.code = 200;
-                re.message = "Data Successfull";
+                re.message = "No Data found" + C_Month + " - " + C_Year + ","  + N_Month + " - " + N_Year + "," + N_Month_POne + " - " + N_Year_POne;
             }
             return re;
         }
-
+        //[HttpPost]
+        //[Route("ProjectStatus")]
+        //public Response GetProjectStatus(CLRData clr)
+        //{
+        //    var projectstatusdata = (from a in entity.CLRDatas
+        //                             where a.Status == "Active"
+        //                             where a.ProjectStatus != null && a.ProjectStatus != ""
+        //                             select new
+        //                             {
+        //                                 iMeet_Milestone___Project_Status = a.ProjectStatus,
+        //                                 isSelected = true,
+        //                             }).Distinct();
+        //    projectstatus = projectstatusdata.AsQueryable().Count();
+        //    if (projectstatus.ToString() == "" || projectstatus.ToString() == null || projectstatus == 0)
+        //    {
+        //        re.Data = projectstatusdata;
+        //        re.code = 100;
+        //        re.message = "No Data found";
+        //    }
+        //    else
+        //    {
+        //        re.Data = projectstatusdata;
+        //        re.code = 200;
+        //        re.message = "Data Successfull";
+        //    }
+        //    return re;
+        //}
         [HttpPost]
         [Route("ImeetImplementationFiltersList")]
-        public Filters GetImeetImplemetationFilters(CLR clr)
+        public Filters GetImeetImplemetationFilters(CLRData clr)
         {
             //var FilterYear = entity.CLRs.Select(a => a.Go_Live_Year).Distinct().OrderByDescending(b => b.Go_Live_Year).ToList();
-            var Filteryear = (from a in entity.CLRs
-                              where a.Go_Live_Year != null && a.Go_Live_Year != "1900" && a.Go_Live_Year != "2050" && a.Go_Live_Year != ""
-                              select new
-                              {
-                                  Go_Live_Year = a.Go_Live_Year,
-                                  isSelected = true,
-                              }).Distinct().OrderBy(x => x.Go_Live_Year);
+            //var Filteryear = (from a in entity.CLRDatas
+            //                  where a.Status == "Active"
+            //                  where a.GoLiveYear != null && a.GoLiveYear != "1900" && a.GoLiveYear != ""
+            //                  select new
+            //                  {
+            //                      Go_Live_Year = a.GoLiveYear,
+            //                      isSelected = true,
+            //                  }).Distinct().OrderBy(x => x.Go_Live_Year);
+            var Filteryears = (from a in entity.CLRDatas
+                               where a.Status == "Active"
+                               where a.GoLiveYear != "2017"
+                               where a.GoLiveYear != "2018"
+                               select new
+                               {
+                                   Go_Live_Year = a.GoLiveYear == null || a.GoLiveYear == "" ? "---" : a.GoLiveYear ?? "---",
+                                   isSelected = true,
+                               }).Distinct().OrderBy(x => x.Go_Live_Year);
             var Months = new List<Months>()
             {
                  new Months() {Go_Live_Month="Jan",isSelected=true},
@@ -128,137 +307,161 @@ namespace CWTDashboardAPI.Controllers
             //                       Go_Live_Month = a.Go_Live_Month ?? "",
             //                       isSelected = true,
             //                   }).Distinct().OrderBy(x => DateTime.ParseExact(x.Go_Live_Month, "MMM", CultureInfo.InvariantCulture).Month);//DateTime.ParseExact(x.Go_Live_Month, "Mmm", CultureInfo.InvariantCulture)
-            var FilterProjectLevel = (from a in entity.CLRs
-                                where a.iMeet_Project_Level != "" && a.iMeet_Project_Level != null
-                                select new
-                                {
-                                    iMeet_Project_Level = a.iMeet_Project_Level ?? "",
-                                    isSelected = true,
-                                }).Distinct().OrderBy(x => x.iMeet_Project_Level);
-            var FilterQuarter = (from a in entity.CLRs
-                                 where a.Quarter != "" && a.Quarter != null
+            var FilterProjectLevel = (from a in entity.CLRDatas
+                                      where a.Status == "Active"
+                                      select new
+                                      {
+                                          iMeet_Project_Level = a.ProjectLevel == null || a.ProjectLevel == "" || a.ProjectLevel == "---" ? "---" : a.ProjectLevel ?? "---",
+                                          isSelected = true,
+                                      }).Distinct().OrderBy(x => x.iMeet_Project_Level);
+            var FilterOwnership = (from a in entity.CLRDatas
+                                      where a.Status == "Active"
+                                      select new
+                                      {
+                                          OwnerShip = a.OwnerShip == null || a.OwnerShip == "" || a.OwnerShip == "---" ? "---" : a.OwnerShip ?? "---",
+                                          isSelected = true,
+                                      }).Distinct().OrderBy(x => x.OwnerShip);
+            var FilterQuarter = (from a in entity.CLRDatas
+                                 where a.Status == "Active"
                                  select new
                                  {
-                                     Quarter = a.Quarter ?? "",
+                                     Quarter = a.Quarter == null || a.Quarter == "" ? "---" : a.Quarter ?? "---",
                                      isSelected = true,
                                  }).Distinct().OrderBy(x => x.Quarter);
-            var FilterImplementationType = (from a in entity.CLRs
+            var FilterImplementationType = (from a in entity.CLRDatas
+                                            where a.Status == "Active"
+                                            select new
+                                            {
+                                                Implementation_Type = a.ImplementationType == null || a.ImplementationType == "" ? "---" : a.ImplementationType ?? "---",
+                                                isSelected = true,
+                                            }).Distinct().OrderBy(x => x.Implementation_Type);
+            var FilterRegion = (from a in entity.CLRDatas
+                                where a.Status == "Active"
                                 select new
                                 {
-                                    Implementation_Type = a.Implementation_Type ?? "",
+                                    Region__Opportunity_ = a.Region == null || a.Region == "" ? "---" : a.Region ?? "---",
                                     isSelected = true,
-                                }).Distinct().OrderByDescending(x => x.Implementation_Type);
-            var FilterRegion = (from a in entity.CLRs
-                                where a.Region__Opportunity_ != "" && a.Region__Opportunity_ != null
-                                select new
-                               {
-                                   Region__Opportunity_ = a.Region__Opportunity_ ?? "",
-                                   isSelected = true,
                                 }).Distinct().OrderBy(x => x.Region__Opportunity_);
-            var FilterStatus = (from a in entity.CLRs
-                                where a.Backlog_Started != "" && a.Backlog_Started != null
-                                select new
-                               {
-                                   Backlog_Started = a.Backlog_Started ?? "",
-                                   isSelected = true,
-                                }).Distinct().OrderBy(x => x.Backlog_Started);
-            var FilterMarketLeaders = (from a in entity.CLRs
+            var FilterStatus = (from a in entity.CLRDatas
+                                where a.Status == "Active"
+                                where a.BacklogStarted != "" && a.BacklogStarted != null
                                 select new
                                 {
-                                    Market_Leader = a.Market_Leader ?? "",
+                                    Backlog_Started = a.BacklogStarted == null || a.BacklogStarted == "" ? "---" : a.BacklogStarted ?? "---",
                                     isSelected = true,
-                                }).Distinct().OrderBy(x => x.Market_Leader);
-            var FilterMilestoneStatus = (from a in entity.CLRs
+                                }).Distinct().OrderBy(x => x.Backlog_Started);
+            var FilterMarketLeaders = (from a in entity.CLRDatas
+                                       where a.Status == "Active"
                                        select new
                                        {
-                                           iMeet_Milestone___Project_Status = a.iMeet_Milestone___Project_Status ?? "",
+                                           Market_Leader = a.MarketLeader == null || a.MarketLeader == "" ? "---" : a.MarketLeader ?? "---",
                                            isSelected = true,
-                                       }).Distinct().OrderByDescending(x => x.iMeet_Milestone___Project_Status);
+                                       }).Distinct().OrderBy(x => x.Market_Leader);
+            var FilterMilestoneStatus = (from a in entity.CLRDatas
+                                         where a.Status == "Active"
+                                         select new
+                                         {
+                                             iMeet_Milestone___Project_Status = a.ProjectStatus == null || a.ProjectStatus == "" ? "---" : a.ProjectStatus ?? "---",
+                                             isSelected = true,
+                                         }).Distinct().OrderBy(x => x.iMeet_Milestone___Project_Status);
+            var Country = (from a in entity.CLRDatas
+                           where a.Status == "Active"
+                           where a.OwnerShip == "WO"
+                           select new
+                           {
+                               Country = a.Country == null || a.Country == "" ? "---" : a.Country ?? "---",
+                               isSelected = true,
+                           }).Distinct().OrderBy(x => x.Country);
             fi.code = 200;
             fi.message = "Data Successfull";
-            fi.Year = Filteryear;
-            fi.c_Year = Filteryear;
+            fi.Year = Filteryears;
+            fi.c_Year = Filteryears;
+            fi.rp_Year = Filteryears;
             fi.Months = Months;
             fi.c_Months = Months;
             fi.ProjectLevel = FilterProjectLevel;
             fi.c_ProjectLevel = FilterProjectLevel;
             fi.Quarter = FilterQuarter;
+            fi.OwnerShip = FilterOwnership;
             fi.ImplementationType = FilterImplementationType;
+            fi.c_ImplementationType = FilterImplementationType;
             fi.Region = FilterRegion;
             fi.Status = FilterStatus;
             fi.MarketLeaders = FilterMarketLeaders;
             fi.MilestoneStatus = FilterMilestoneStatus;
             fi.c_MilestoneStatus = FilterMilestoneStatus;
+            fi.rp_ProjectStatus = FilterMilestoneStatus;
+            fi.rp_ImplementationType = FilterImplementationType;
+            fi.Country = Country;
             return fi;
         }
-        
+
         [HttpPost]
         [Route("MonthlyRevenue")]
-        public Response MonthlyRevenue(CLR clr)
+        public Response MonthlyRevenue(CLRData clr)
         {
-            var year = clr.Go_Live_Year;
+            var year = clr.GoLiveYear;
             //IEnumerable<string> years = clr.Go_Live_Years.Split(',');
-            IEnumerable<string> months = clr.Go_Live_Month.Split(',');
+            IEnumerable<string> months = clr.GoLiveMonth.Split(',');
             IEnumerable<string> quarters = clr.Quarter.Split(',');
-            IEnumerable<string> projectlevel = clr.iMeet_Project_Level.Split(',');
-            IEnumerable<string> status = clr.Backlog_Started.Split(',');
-            IEnumerable<string> region = clr.Region__Opportunity_.Split(',');
-            IEnumerable<string> leaders = clr.Market_Leader.Split(',');
+            IEnumerable<string> projectlevel = clr.ProjectLevel.Split(',');
+            IEnumerable<string> status = clr.BacklogStarted.Split(',');
+            IEnumerable<string> region = clr.Region.Split(',');
+            IEnumerable<string> leaders = clr.MarketLeader.Split(',');
             //IEnumerable<string> implementationtype = clr.Implementation_Type.Split(',');
             IEnumerable<string> project_status = "C-Closed,A-Active/Date Confirmed".Split(',');
-            
-            var TotalMonthlyRevenue = (from a in entity.CLRs
-                                       where a.Go_Live_Year == year
+            var TotalMonthlyRevenue = (from a in entity.CLRDatas
+                                       where a.Status == "Active"
+                                       where a.GoLiveYear == year
                                        //where years.Any(val1 => a.Go_Live_Year.Equals(val1))
-                                       where months.Any(val2 => a.Go_Live_Month.Equals(val2))
+                                       where months.Any(val2 => a.GoLiveMonth.Equals(val2))
                                        where quarters.Any(val3 => a.Quarter.Equals(val3))
-                                       where projectlevel.Any(val4 => a.iMeet_Project_Level.Equals(val4))
-                                       where status.Any(val5 => a.Backlog_Started.Equals(val5))
-                                       where region.Any(val6 => a.Region__Opportunity_.Equals(val6))
-                                       where leaders.Any(val7 => a.Market_Leader.Equals(val7)) || a.Market_Leader == null
+                                       where projectlevel.Any(val4 => a.ProjectLevel.Equals(val4))
+                                       where status.Any(val5 => a.BacklogStarted.Equals(val5))
+                                       where region.Any(val6 => a.Region.Equals(val6))
+                                       where leaders.Any(val7 => a.MarketLeader.Equals(val7)) || a.MarketLeader == null
                                        //where implementationtype.Any(val8 => a.Implementation_Type.Equals(val8)) || a.Implementation_Type == null
-                                       where project_status.Any(val9 => a.iMeet_Milestone___Project_Status.Equals(val9))
+                                       where project_status.Any(val9 => a.ProjectStatus.Equals(val9))
                                        select a).ToList();
-
             var MonthlyRevenue = (from b in TotalMonthlyRevenue
                                   select new
                                   {
-                                      GJanuary = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Global").Where(x1 => x1.Go_Live_Month == "Jan").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      LJanuary = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Local").Where(x1 => x1.Go_Live_Month == "Jan").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      RJanuary = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Regional").Where(x1 => x1.Go_Live_Month == "Jan").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      GFebruary = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Global").Where(x1 => x1.Go_Live_Month == "Feb").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      LFebruary = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Local").Where(x1 => x1.Go_Live_Month == "Feb").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      RFebruary = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Regional").Where(x1 => x1.Go_Live_Month == "Feb").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      GMarch = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Global").Where(x1 => x1.Go_Live_Month == "Mar").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      LMarch = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Local").Where(x1 => x1.Go_Live_Month == "Mar").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      RMarch = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Regional").Where(x1 => x1.Go_Live_Month == "Mar").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      GApril = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Global").Where(x1 => x1.Go_Live_Month == "Apr").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      LApril = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Local").Where(x1 => x1.Go_Live_Month == "Apr").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      RApril = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Regional").Where(x1 => x1.Go_Live_Month == "Apr").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      GMay = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Global").Where(x1 => x1.Go_Live_Month == "May").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      LMay = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Local").Where(x1 => x1.Go_Live_Month == "May").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      RMay = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Regional").Where(x1 => x1.Go_Live_Month == "May").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      GJune = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Global").Where(x1 => x1.Go_Live_Month == "Jun").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      LJune = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Local").Where(x1 => x1.Go_Live_Month == "Jun").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      RJune = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Regional").Where(x1 => x1.Go_Live_Month == "Jun").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      GJuly = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Global").Where(x1 => x1.Go_Live_Month == "Jul").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      LJuly = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Local").Where(x1 => x1.Go_Live_Month == "Jul").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      RJuly = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Regional").Where(x1 => x1.Go_Live_Month == "Jul").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      GAugust = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Global").Where(x1 => x1.Go_Live_Month == "Aug").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      LAugust = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Local").Where(x1 => x1.Go_Live_Month == "Aug").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      RAugust = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Regional").Where(x1 => x1.Go_Live_Month == "Aug").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      GSeptember = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Global").Where(x1 => x1.Go_Live_Month == "Sep").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      LSeptember = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Local").Where(x1 => x1.Go_Live_Month == "Sep").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      RSeptember = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Regional").Where(x1 => x1.Go_Live_Month == "Sep").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      GOctober = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Global").Where(x1 => x1.Go_Live_Month == "Oct").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      LOctober = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Local").Where(x1 => x1.Go_Live_Month == "Oct").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      ROctober = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Regional").Where(x1 => x1.Go_Live_Month == "Oct").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      GNovember = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Global").Where(x1 => x1.Go_Live_Month == "Nov").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      LNovember = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Local").Where(x1 => x1.Go_Live_Month == "Nov").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      RNovember = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Regional").Where(x1 => x1.Go_Live_Month == "Nov").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      GDecember = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Global").Where(x1 => x1.Go_Live_Month == "Dec").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      LDecember = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Local").Where(x1 => x1.Go_Live_Month == "Dec").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                      RDecember = TotalMonthlyRevenue.Where(x2 => x2.iMeet_Project_Level == "Regional").Where(x1 => x1.Go_Live_Month == "Dec").Sum(xs => xs.Revenue_Total_Volume_USD),
+                                      GJanuary = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Global").Where(x1 => x1.GoLiveMonth == "Jan").Sum(xs => xs.RevenueVolumeUSD),
+                                      LJanuary = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Local").Where(x1 => x1.GoLiveMonth == "Jan").Sum(xs => xs.RevenueVolumeUSD),
+                                      RJanuary = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Regional").Where(x1 => x1.GoLiveMonth == "Jan").Sum(xs => xs.RevenueVolumeUSD),
+                                      GFebruary = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Global").Where(x1 => x1.GoLiveMonth == "Feb").Sum(xs => xs.RevenueVolumeUSD),
+                                      LFebruary = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Local").Where(x1 => x1.GoLiveMonth == "Feb").Sum(xs => xs.RevenueVolumeUSD),
+                                      RFebruary = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Regional").Where(x1 => x1.GoLiveMonth == "Feb").Sum(xs => xs.RevenueVolumeUSD),
+                                      GMarch = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Global").Where(x1 => x1.GoLiveMonth == "Mar").Sum(xs => xs.RevenueVolumeUSD),
+                                      LMarch = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Local").Where(x1 => x1.GoLiveMonth == "Mar").Sum(xs => xs.RevenueVolumeUSD),
+                                      RMarch = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Regional").Where(x1 => x1.GoLiveMonth == "Mar").Sum(xs => xs.RevenueVolumeUSD),
+                                      GApril = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Global").Where(x1 => x1.GoLiveMonth == "Apr").Sum(xs => xs.RevenueVolumeUSD),
+                                      LApril = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Local").Where(x1 => x1.GoLiveMonth == "Apr").Sum(xs => xs.RevenueVolumeUSD),
+                                      RApril = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Regional").Where(x1 => x1.GoLiveMonth == "Apr").Sum(xs => xs.RevenueVolumeUSD),
+                                      GMay = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Global").Where(x1 => x1.GoLiveMonth == "May").Sum(xs => xs.RevenueVolumeUSD),
+                                      LMay = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Local").Where(x1 => x1.GoLiveMonth == "May").Sum(xs => xs.RevenueVolumeUSD),
+                                      RMay = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Regional").Where(x1 => x1.GoLiveMonth == "May").Sum(xs => xs.RevenueVolumeUSD),
+                                      GJune = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Global").Where(x1 => x1.GoLiveMonth == "Jun").Sum(xs => xs.RevenueVolumeUSD),
+                                      LJune = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Local").Where(x1 => x1.GoLiveMonth == "Jun").Sum(xs => xs.RevenueVolumeUSD),
+                                      RJune = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Regional").Where(x1 => x1.GoLiveMonth == "Jun").Sum(xs => xs.RevenueVolumeUSD),
+                                      GJuly = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Global").Where(x1 => x1.GoLiveMonth == "Jul").Sum(xs => xs.RevenueVolumeUSD),
+                                      LJuly = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Local").Where(x1 => x1.GoLiveMonth == "Jul").Sum(xs => xs.RevenueVolumeUSD),
+                                      RJuly = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Regional").Where(x1 => x1.GoLiveMonth == "Jul").Sum(xs => xs.RevenueVolumeUSD),
+                                      GAugust = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Global").Where(x1 => x1.GoLiveMonth == "Aug").Sum(xs => xs.RevenueVolumeUSD),
+                                      LAugust = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Local").Where(x1 => x1.GoLiveMonth == "Aug").Sum(xs => xs.RevenueVolumeUSD),
+                                      RAugust = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Regional").Where(x1 => x1.GoLiveMonth == "Aug").Sum(xs => xs.RevenueVolumeUSD),
+                                      GSeptember = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Global").Where(x1 => x1.GoLiveMonth == "Sep").Sum(xs => xs.RevenueVolumeUSD),
+                                      LSeptember = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Local").Where(x1 => x1.GoLiveMonth == "Sep").Sum(xs => xs.RevenueVolumeUSD),
+                                      RSeptember = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Regional").Where(x1 => x1.GoLiveMonth == "Sep").Sum(xs => xs.RevenueVolumeUSD),
+                                      GOctober = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Global").Where(x1 => x1.GoLiveMonth == "Oct").Sum(xs => xs.RevenueVolumeUSD),
+                                      LOctober = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Local").Where(x1 => x1.GoLiveMonth == "Oct").Sum(xs => xs.RevenueVolumeUSD),
+                                      ROctober = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Regional").Where(x1 => x1.GoLiveMonth == "Oct").Sum(xs => xs.RevenueVolumeUSD),
+                                      GNovember = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Global").Where(x1 => x1.GoLiveMonth == "Nov").Sum(xs => xs.RevenueVolumeUSD),
+                                      LNovember = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Local").Where(x1 => x1.GoLiveMonth == "Nov").Sum(xs => xs.RevenueVolumeUSD),
+                                      RNovember = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Regional").Where(x1 => x1.GoLiveMonth == "Nov").Sum(xs => xs.RevenueVolumeUSD),
+                                      GDecember = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Global").Where(x1 => x1.GoLiveMonth == "Dec").Sum(xs => xs.RevenueVolumeUSD),
+                                      LDecember = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Local").Where(x1 => x1.GoLiveMonth == "Dec").Sum(xs => xs.RevenueVolumeUSD),
+                                      RDecember = TotalMonthlyRevenue.Where(x2 => x2.ProjectLevel == "Regional").Where(x1 => x1.GoLiveMonth == "Dec").Sum(xs => xs.RevenueVolumeUSD),
                                   }).Distinct();
             re.code = 200;
             re.message = "Success";
@@ -266,12 +469,12 @@ namespace CWTDashboardAPI.Controllers
             return re;
         }
 
-        string[] y_months, y_quarters, y_projectlevel, y_status, y_region, y_leaders,y_projectStatus;
+        string[] y_months, y_ownership, y_projectlevel, y_status, y_region, y_Country, y_projectStatus, y_type;
         [HttpPost]
         [Route("MonthlyRevenueByYear")]
-        public Response MonthlyRevenueByYear(CLR clr)
+        public Response MonthlyRevenueByYear(CLRData clr)
         {
-            if (clr.Go_Live_Year == null || clr.Go_Live_Month == null || clr.Quarter == null || clr.iMeet_Project_Level == null || clr.Backlog_Started == null || clr.Region__Opportunity_ == null || clr.Market_Leader == null || clr.iMeet_Milestone___Project_Status == null)
+            if (clr.GoLiveYear == null || clr.GoLiveMonth == null || clr.OwnerShip == null || clr.ProjectLevel == null || clr.Region == null || clr.ProjectStatus == null || clr.ImplementationType == null)
             {
                 re.code = 100;
                 re.message = "Please select the values";
@@ -279,114 +482,115 @@ namespace CWTDashboardAPI.Controllers
             }
             else
             {
-                y_months = clr.Go_Live_Month.Split(',');
+                y_months = clr.GoLiveMonth.Split(',');
                 for (int i = 0; i < y_months.Count(); i++)
                 {
-                    if (y_months[i] == "")
+                    if (y_months[i] == "" || y_months[i] == "---" || y_months[i] == "null")
                     {
-                        y_months[i] = null;
+                        y_months[i] = "---";
                     }
                 }
-                y_quarters = clr.Quarter.Split(',');
-                for (int i = 0; i < y_quarters.Count(); i++)
+                y_ownership = clr.OwnerShip.Split(',');
+                for (int i = 0; i < y_ownership.Count(); i++)
                 {
-                    if (y_quarters[i] == "")
+                    if (y_ownership[i] == "" || y_ownership[i] == "---" || y_ownership[i] == "null")
                     {
-                        y_quarters[i] = null;
+                        y_ownership[i] = "---";
                     }
                 }
-                y_projectlevel = clr.iMeet_Project_Level.Split(',');
+                y_projectlevel = clr.ProjectLevel.Split(',');
                 for (int i = 0; i < y_projectlevel.Count(); i++)
                 {
-                    if (y_projectlevel[i] == "")
+                    if (y_projectlevel[i] == "" || y_projectlevel[i] == "---" || y_projectlevel[i] == "null")
                     {
-                        y_projectlevel[i] = null;
+                        y_projectlevel[i] = "---";
                     }
                 }
-                y_status = clr.Backlog_Started.Split(',');
-                for (int i = 0; i < y_status.Count(); i++)
-                {
-                    if (y_status[i] == "")
-                    {
-                        y_status[i] = null;
-                    }
-                }
-                y_region = clr.Region__Opportunity_.Split(',');
+                //y_status = clr.BacklogStarted.Split(',');
+                //for (int i = 0; i < y_status.Count(); i++)
+                //{
+                //    if (y_status[i] == "")
+                //    {
+                //        y_status[i] = null;
+                //    }
+                //}
+                y_region = clr.Region.Split(',');
                 for (int i = 0; i < y_region.Count(); i++)
                 {
-                    if (y_region[i] == "")
+                    if (y_region[i] == "" || y_region[i] == "---" || y_region[i] == "null")
                     {
-                        y_region[i] = null;
+                        y_region[i] = "---";
                     }
                 }
-                y_leaders = clr.Market_Leader.Split(',');
-                for (int i = 0; i < y_leaders.Count(); i++)
+                y_Country = clr.Country.Split(',');
+                for (int i = 0; i < y_Country.Count(); i++)
                 {
-                    if (y_leaders[i] == "")
+                    if (y_Country[i] == "" || y_Country[i] == "---" || y_Country[i] == "null")
                     {
-                        y_leaders[i] = null;
+                        y_Country[i] = "---";
                     }
                 }
-                var year = clr.Go_Live_Year;
-                y_projectStatus = clr.iMeet_Milestone___Project_Status.Split(',');
+                var year = clr.GoLiveYear;
+                y_projectStatus = clr.ProjectStatus.Split(',');
                 for (int i = 0; i < y_projectStatus.Count(); i++)
                 {
-                    if (y_projectStatus[i] == "")
+                    if (y_projectStatus[i] == "" || y_projectStatus[i] == "---" || y_projectStatus[i] == "null")
                     {
-                        y_projectStatus[i] = null;
+                        y_projectStatus[i] = "---";
+                    }
+                }
+                y_type = clr.ImplementationType.Split(',');
+                for (int i = 0; i < y_type.Count(); i++)
+                {
+                    if (y_type[i] == "" || y_type[i] == "---" || y_type[i] == "null")
+                    {
+                        y_type[i] = "---";
                     }
                 }
                 //IEnumerable<string> project_status = "C-Closed,A-Active/Date Confirmed".Split(',');
-                var TotalMonthlyRevenue = (from a in entity.CLRs
-                                           where a.Go_Live_Year == year
+                var TotalMonthlyRevenue = (from a in entity.CLRDatas
+                                           where a.Status == "Active"
+                                           where a.GoLiveYear == year
                                            //where years.Any(val1 => a.Go_Live_Year.Equals(val1))
-                                           where y_months.Any(val2 => a.Go_Live_Month.Equals(val2))
-                                           where y_quarters.Any(val3 => a.Quarter.Equals(val3))
-                                           where y_projectlevel.Any(val4 => a.iMeet_Project_Level.Equals(val4))
-                                           where y_status.Any(val5 => a.Backlog_Started.Equals(val5))
-                                           where y_region.Any(val6 => a.Region__Opportunity_.Equals(val6))
-                                           where y_leaders.Any(val7 => a.Market_Leader.Equals(val7)) || a.Market_Leader == null
-                                           //where implementationtype.Any(val8 => a.Implementation_Type.Equals(val8)) || a.Implementation_Type == null
-                                           where y_projectStatus.Any(val9 => a.iMeet_Milestone___Project_Status.Equals(val9))
+                                           where y_months.Any(val2 => a.GoLiveMonth.Equals(val2))
+                                           where y_ownership.Any(val3 => a.OwnerShip.Equals(val3))
+                                           where y_projectlevel.Any(val4 => a.ProjectLevel.Equals(val4))
+                                           //where y_status.Any(val5 => a.BacklogStarted.Equals(val5))
+                                           where y_region.Any(val6 => a.Region.Equals(val6))
+                                           //where y_Country.Any(val7 => a.Country.Equals(val7))
+                                           where y_type.Any(val8 => a.ImplementationType.Equals(val8))
+                                           where y_projectStatus.Any(val9 => a.ProjectStatus.Equals(val9))
+                                           where a.RevenueID < 600000000000000
                                            select a).ToList();
                 var MonthlyRevenue = (from b in TotalMonthlyRevenue
                                       select new
                                       {
-                                          January = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Jan").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                          February = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Feb").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                          March = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Mar").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                          April = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Apr").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                          May = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "May").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                          June = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Jun").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                          July = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Jul").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                          August = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Aug").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                          September = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Sep").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                          October = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Oct").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                          November = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Nov").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                          December = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Dec").Sum(xs => xs.Revenue_Total_Volume_USD),
+                                          January = TotalMonthlyRevenue.Where(x1 => x1.GoLiveMonth == "Jan").Sum(xs => xs.RevenueVolumeUSD),
+                                          February = TotalMonthlyRevenue.Where(x1 => x1.GoLiveMonth == "Feb").Sum(xs => xs.RevenueVolumeUSD),
+                                          March = TotalMonthlyRevenue.Where(x1 => x1.GoLiveMonth == "Mar").Sum(xs => xs.RevenueVolumeUSD),
+                                          April = TotalMonthlyRevenue.Where(x1 => x1.GoLiveMonth == "Apr").Sum(xs => xs.RevenueVolumeUSD),
+                                          May = TotalMonthlyRevenue.Where(x1 => x1.GoLiveMonth == "May").Sum(xs => xs.RevenueVolumeUSD),
+                                          June = TotalMonthlyRevenue.Where(x1 => x1.GoLiveMonth == "Jun").Sum(xs => xs.RevenueVolumeUSD),
+                                          July = TotalMonthlyRevenue.Where(x1 => x1.GoLiveMonth == "Jul").Sum(xs => xs.RevenueVolumeUSD),
+                                          August = TotalMonthlyRevenue.Where(x1 => x1.GoLiveMonth == "Aug").Sum(xs => xs.RevenueVolumeUSD),
+                                          September = TotalMonthlyRevenue.Where(x1 => x1.GoLiveMonth == "Sep").Sum(xs => xs.RevenueVolumeUSD),
+                                          October = TotalMonthlyRevenue.Where(x1 => x1.GoLiveMonth == "Oct").Sum(xs => xs.RevenueVolumeUSD),
+                                          November = TotalMonthlyRevenue.Where(x1 => x1.GoLiveMonth == "Nov").Sum(xs => xs.RevenueVolumeUSD),
+                                          December = TotalMonthlyRevenue.Where(x1 => x1.GoLiveMonth == "Dec").Sum(xs => xs.RevenueVolumeUSD),
                                       }).Distinct();
-
                 re.code = 200;
                 re.message = "Success";
                 re.Data = MonthlyRevenue;
             }
-            //IEnumerable<string> years = clr.Go_Live_Years.Split(',');
-            //IEnumerable<string> months = clr.Go_Live_Month.Split(',');
-            //IEnumerable<string> quarters = clr.Quarter.Split(',');
-            //IEnumerable<string> projectlevel = clr.iMeet_Project_Level.Split(',');
-            //IEnumerable<string> status = clr.Backlog_Started.Split(',');
-            //IEnumerable<string> region = clr.Region__Opportunity_.Split(',');
-            //IEnumerable<string> leaders = clr.Market_Leader.Split(',');
-            //IEnumerable<string> implementationtype = clr.Implementation_Type.Split(',');
             return re;
         }
 
-        string[] rw_status;
+        string[] rw_status, rw_Year, rw_type, rw_months, rw_projectlevel, rw_region, rw_Country, rw_ownership; 
         [HttpPost]
         [Route("RegionWiseRevenue")]
-        public Response RegionWiseReport(CLR clr)
+        public Response RegionWiseReport(CLRData clr)
         {
-            if (clr.iMeet_Milestone___Project_Status == null)
+            if (clr.GoLiveYear == null || clr.GoLiveMonth == null || clr.OwnerShip == null || clr.ProjectLevel == null || clr.Region == null || clr.ProjectStatus == null || clr.ImplementationType == null)
             {
                 re.code = 100;
                 re.message = "Please select the Project Status";
@@ -394,163 +598,552 @@ namespace CWTDashboardAPI.Controllers
             }
             else
             {
-                rw_status = clr.iMeet_Milestone___Project_Status.Split(',');
+                rw_status = clr.ProjectStatus.Split(',');
                 for (int i = 0; i < rw_status.Count(); i++)
                 {
-                    if (rw_status[i] == "")
+                    if (rw_status[i] == "" || rw_status[i] == "---" || rw_status[i] == "null")
                     {
-                        rw_status[i] = null;
+                        rw_status[i] = "---";
                     }
                 }
-                var Data = (from a in entity.CLRs
-                            where rw_status.Any(val => a.iMeet_Milestone___Project_Status.Equals(val))
-                            select a).ToList();
-                var RegionWiseRevenue = (from a in Data
+                rw_ownership = clr.OwnerShip.Split(',');
+                for (int i = 0; i < rw_ownership.Count(); i++)
+                {
+                    if (rw_ownership[i] == "" || rw_ownership[i] == "---" || rw_ownership[i] == "null")
+                    {
+                        rw_ownership[i] = "---";
+                    }
+                }
+                rw_Year = clr.GoLiveYear.Split(',');
+                for (int i = 0; i < rw_Year.Count(); i++)
+                {
+                    if (rw_Year[i] == "" || rw_Year[i] == "---" || rw_Year[i] == "null")
+                    {
+                        rw_Year[i] = "---";
+                    }
+                }
+                rw_type = clr.ImplementationType.Split(',');
+                for (int i = 0; i < rw_type.Count(); i++)
+                {
+                    if (rw_type[i] == "" || rw_type[i] == "---" || rw_type[i] == "null")
+                    {
+                        rw_type[i] = "---";
+                    }
+                }
+                rw_months = clr.GoLiveMonth.Split(',');
+                for (int i = 0; i < rw_months.Count(); i++)
+                {
+                    if (rw_months[i] == "" || rw_months[i] == "---" || rw_months[i] == "null")
+                    {
+                        rw_months[i] = "---";
+                    }
+                }
+                rw_projectlevel = clr.ProjectLevel.Split(',');
+                for (int i = 0; i < rw_projectlevel.Count(); i++)
+                {
+                    if (rw_projectlevel[i] == "" || rw_projectlevel[i] == "---" || rw_projectlevel[i] == "null")
+                    {
+                        rw_projectlevel[i] = "---";
+                    }
+                }
+                rw_region = clr.Region.Split(',');
+                for (int i = 0; i < rw_region.Count(); i++)
+                {
+                    if (rw_region[i] == "" || rw_region[i] == "---" || rw_region[i] == "null")
+                    {
+                        rw_region[i] = "---";
+                    }
+                }
+                rw_Country = clr.Country.Split(',');
+                for (int i = 0; i < rw_Country.Count(); i++)
+                {
+                    if (rw_Country[i] == "" || rw_Country[i] == "---" || rw_Country[i] == "null")
+                    {
+                        rw_Country[i] = "---";
+                    }
+                }
+                var RegionWiseRevenue = (from a in entity.CLRDatas
+                                         where a.Status == "Active"
+                                         where rw_status.Any(val => a.ProjectStatus.Equals(val))
+                                         where rw_Year.Any(val => a.GoLiveYear.Equals(val))
+                                         where rw_ownership.Any(val => a.OwnerShip.Equals(val))
+                                         where rw_type.Any(val => a.ImplementationType.Equals(val))
+                                         where rw_months.Any(val => a.GoLiveMonth.Equals(val))
+                                         where rw_projectlevel.Any(val => a.ProjectLevel.Equals(val))
+                                         where rw_region.Any(val => a.Region.Equals(val))
+                                         where a.RevenueID < 600000000000000
+                                         //where rw_Country.Any(val => a.Country.Equals(val))
+                                         //where a.Region != null
+                                         group a by a.Region into g
                                          select new
                                          {
-                                             APAC = Data.Where(x2 => x2.Region__Opportunity_ == "APAC").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                             EMEA = Data.Where(x2 => x2.Region__Opportunity_ == "EMEA").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                             LATAM = Data.Where(x2 => x2.Region__Opportunity_ == "LATAM").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                             NORAM = Data.Where(x2 => x2.Region__Opportunity_ == "NORAM").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                             Blanks = Data.Where(x2 => x2.Region__Opportunity_ == null).Sum(xs => xs.Revenue_Total_Volume_USD),
-                                         }).Distinct();
+                                             Region__Opportunity_ = g.Key == null || g.Key == "" ? "---" : g.Key ?? "---",
+                                             RevenueVolume = g.Sum(x => x.RevenueVolumeUSD),
+                                             ProjectsCount = g.Count(),
+                                         }).OrderBy(x => x.Region__Opportunity_).Distinct();
                 re.code = 200;
                 re.message = "Success";
                 re.Data = RegionWiseRevenue;
             }
             return re;
         }
-
-        string[] gt_years, gt_months, gt_quarters, gt_projectlevel, gt_status, gt_region, gt_leaders, gt_projectstatus;
+        
+        string[] PLW_status, PLW_year, PLW_type, PLW_months, PLW_projectlevel, PLW_region, PLW_Country, PLWOwnership;
         [HttpPost]
-        [Route("MonthlyGrandTotalRevenue")]
-        public Response MonthlyGrandTotalRevenue(CLR clr)
+        [Route("ProjectLevelWise")]
+        public Response ProjectLevelWise(CLRData clr)
         {
-            if (clr.Go_Live_Year == null || clr.Go_Live_Month == null || clr.Quarter == null || clr.iMeet_Project_Level == null || clr.Backlog_Started == null || clr.Region__Opportunity_ == null || clr.Market_Leader == null || clr.iMeet_Milestone___Project_Status == null)
+            if (clr.GoLiveYear == null || clr.GoLiveMonth == null || clr.OwnerShip == null || clr.ProjectLevel == null || clr.Region == null || clr.ProjectStatus == null || clr.ImplementationType == null)
             {
                 re.code = 100;
-                re.message = "Please select the values";
+                re.message = "Please select the Project Status";
                 re.Data = null;
             }
             else
             {
-                gt_years = clr.Go_Live_Year.Split(',');
-                for (int i = 0; i < gt_years.Count(); i++)
+                PLW_status = clr.ProjectStatus.Split(',');
+                for (int i = 0; i < PLW_status.Count(); i++)
                 {
-                    if (gt_years[i] == "")
+                    if (PLW_status[i] == "" || PLW_status[i] == "---" || PLW_status[i] == "null")
                     {
-                        gt_years[i] = null;
+                        PLW_status[i] = "---";
                     }
                 }
-                gt_months = clr.Go_Live_Month.Split(',');
-                for (int i = 0; i < gt_months.Count(); i++)
+                PLWOwnership = clr.OwnerShip.Split(',');
+                for (int i = 0; i < PLWOwnership.Count(); i++)
                 {
-                    if (gt_months[i] == "")
+                    if (PLWOwnership[i] == "" || PLWOwnership[i] == "---" || PLWOwnership[i] == "null")
                     {
-                        gt_months[i] = null;
+                        PLWOwnership[i] = "---";
                     }
                 }
-                gt_quarters = clr.Quarter.Split(',');
-                for (int i = 0; i < gt_quarters.Count(); i++)
+                PLW_year = clr.GoLiveYear.Split(',');
+                for (int i = 0; i < PLW_year.Count(); i++)
                 {
-                    if (gt_quarters[i] == "")
+                    if (PLW_year[i] == "" || PLW_year[i] == "---" || PLW_year[i] == "null")
                     {
-                        gt_quarters[i] = null;
+                        PLW_year[i] = "---";
                     }
                 }
-                gt_projectlevel = clr.iMeet_Project_Level.Split(',');
-                for (int i = 0; i < gt_projectlevel.Count(); i++)
+                PLW_type = clr.ImplementationType.Split(',');
+                for (int i = 0; i < PLW_type.Count(); i++)
                 {
-                    if (gt_projectlevel[i] == "")
+                    if (PLW_type[i] == "" || PLW_type[i] == "---" || PLW_type[i] == "null")
                     {
-                        gt_projectlevel[i] = null;
+                        PLW_type[i] = "---";
                     }
                 }
-                gt_status = clr.Backlog_Started.Split(',');
-                for (int i = 0; i < gt_status.Count(); i++)
+                PLW_months = clr.GoLiveMonth.Split(',');
+                for (int i = 0; i < PLW_months.Count(); i++)
                 {
-                    if (gt_status[i] == "")
+                    if (PLW_months[i] == "" || PLW_months[i] == "---" || PLW_months[i] == "null")
                     {
-                        gt_status[i] = null;
+                        PLW_months[i] = "---";
                     }
                 }
-                gt_region = clr.Region__Opportunity_.Split(',');
-                for (int i = 0; i < gt_region.Count(); i++)
+                PLW_projectlevel = clr.ProjectLevel.Split(',');
+                for (int i = 0; i < PLW_projectlevel.Count(); i++)
                 {
-                    if (gt_region[i] == "")
+                    if (PLW_projectlevel[i] == "" || PLW_projectlevel[i] == "---" || PLW_projectlevel[i] == "null")
                     {
-                        gt_region[i] = null;
+                        PLW_projectlevel[i] = "---";
                     }
                 }
-                gt_leaders = clr.Market_Leader.Split(',');
-                for (int i = 0; i < gt_leaders.Count(); i++)
+                PLW_region = clr.Region.Split(',');
+                for (int i = 0; i < PLW_region.Count(); i++)
                 {
-                    if (gt_leaders[i] == "")
+                    if (PLW_region[i] == "" || PLW_region[i] == "---" || PLW_region[i] == "null")
                     {
-                        gt_leaders[i] = null;
+                        PLW_region[i] = "---";
                     }
                 }
-                gt_projectstatus = clr.iMeet_Milestone___Project_Status.Split(',');
-                for (int i = 0; i < gt_projectstatus.Count(); i++)
+                PLW_Country = clr.Country.Split(',');
+                for (int i = 0; i < PLW_Country.Count(); i++)
                 {
-                    if (gt_projectstatus[i] == "")
+                    if (PLW_Country[i] == "" || PLW_Country[i] == "---" || PLW_Country[i] == "null")
                     {
-                        gt_projectstatus[i] = null;
+                        PLW_Country[i] = "---";
                     }
                 }
-                //IEnumerable<string> project_status = "C-Closed,A-Active/Date Confirmed".Split(',');
-                var TotalMonthlyRevenue = (from a in entity.CLRs
-                                           //where a.Go_Live_Year == 2019
-                                           where gt_years.Any(val1 => a.Go_Live_Year.Equals(val1))
-                                           where gt_months.Any(val2 => a.Go_Live_Month.Equals(val2))
-                                           where gt_quarters.Any(val3 => a.Quarter.Equals(val3))
-                                           where gt_projectlevel.Any(val4 => a.iMeet_Project_Level.Equals(val4))
-                                           where gt_status.Any(val5 => a.Backlog_Started.Equals(val5))
-                                           where gt_region.Any(val6 => a.Region__Opportunity_.Equals(val6))
-                                           where gt_leaders.Any(val7 => a.Market_Leader.Equals(val7)) || a.Market_Leader == null
-                                           //where implementationtype.Any(val8 => a.Implementation_Type.Equals(val8)) || a.Implementation_Type == null
-                                           where gt_projectstatus.Any(val9 => a.iMeet_Milestone___Project_Status.Equals(val9))
-                                           select a).ToList();
-                var MonthlyGTRevenue = (from b in TotalMonthlyRevenue
+                var ProjectLevelWise = (from a in entity.CLRDatas
+                                        where a.Status == "Active"
+                                        where PLW_status.Any(val => a.ProjectStatus.Equals(val))
+                                        where PLW_year.Any(val1 => a.GoLiveYear.Equals(val1))
+                                        where PLW_type.Any(val => a.ImplementationType.Equals(val))
+                                        where PLW_months.Any(val => a.GoLiveMonth.Equals(val))
+                                        where PLWOwnership.Any(val => a.OwnerShip.Equals(val))
+                                        where PLW_projectlevel.Any(val => a.ProjectLevel.Equals(val))
+                                        where PLW_region.Any(val => a.Region.Equals(val))
+                                        where a.ProjectLevel != "---"
+                                        where a.RevenueID < 600000000000000
+                                        //where PLW_Country.Any(val => a.Country.Equals(val))
+                                        group a by a.ProjectLevel into g
                                         select new
                                         {
-                                            CWJanuary = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Jan").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            LWJanuary = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Jan").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            CWFebruary = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Feb").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            LWFebruary = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Feb").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            CWMarch = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Mar").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            LWMarch = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Mar").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            CWApril = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Apr").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            LWApril = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Apr").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            CWMay = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "May").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            LWMay = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "May").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            CWJune = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Jun").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            LWJune = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Jun").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            CWJuly = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Jul").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            LWJuly = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Jul").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            CWAugust = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Aug").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            LWAugust = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Aug").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            CWSeptember = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Sep").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            LWSeptember = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Sep").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            CWOctober = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Oct").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            LWOctober = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Oct").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            CWNovember = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Nov").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            LWNovember = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Nov").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            CWDecember = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Dec").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                            LWDecember = TotalMonthlyRevenue.Where(x1 => x1.Go_Live_Month == "Dec").Sum(xs => xs.Revenue_Total_Volume_USD),
-                                        }).Distinct();
+                                            iMeet_Project_Level = g.Key == null || g.Key == "" ? "---"
+                                                : g.Key == "Global" ? "GLobal - GCG"
+                                                : g.Key == "Local" ? "Local - National"
+                                                : g.Key == "Regional" ? "Regional - MCG" : "---" ?? "---",
+                                            ProjectsCount = g.Count(),
+                                            RevenueVolume = g.Sum(x => x.RevenueVolumeUSD),
+                                        }).OrderBy(x => x.iMeet_Project_Level);
                 re.code = 200;
                 re.message = "Success";
-                re.Data = MonthlyGTRevenue;
+                re.Data = ProjectLevelWise;
             }
-            //IEnumerable<string> years = clr.Go_Live_Years.Split(',');
-            //IEnumerable<string> months = clr.Go_Live_Month.Split(',');
-            //IEnumerable<string> quarters = clr.Quarter.Split(',');
-            //IEnumerable<string> projectlevel = clr.iMeet_Project_Level.Split(',');
-            //IEnumerable<string> status = clr.Backlog_Started.Split(',');
-            //IEnumerable<string> region = clr.Region__Opportunity_.Split(',');
-            //IEnumerable<string> leaders = clr.Market_Leader.Split(',');
-            //IEnumerable<string> implementationtype = clr.Implementation_Type.Split(',');
+            return re;
+        }
+        string[] MR_ProjectStatus;
+        string MR_year;
+        string[] MTR_status, MTR_Year, MTR_Month, MTR_Level, MTR_Type, MTR_Region;
+        [HttpPost]
+        [Route("MonthlyTotalRevenue")]
+        public Response MonthlyTotalRevenue(CLRData clr)
+        {
+            var yearcheck = DateTime.Now.Year.ToString();
+            if (DateTime.Now.Month == 1 && entity.MonthWiseDeltas.Where(x => x.Year == yearcheck).Count() < 1)
+            {
+                MR_year = (DateTime.Now.Year - 1) + "";
+            }
+            else
+            {
+                MR_year = DateTime.Now.Year.ToString();
+            }
+            MR_ProjectStatus = "C-Closed,A-Active/Date Confirmed".Split(',');
+            var TotalMonthlyRevenue = (from a in entity.OldCLRDatas
+                                        where a.Status == "Active"
+                                        where a.GoLiveYear == MR_year
+                                        where MR_ProjectStatus.Any(val9 => a.ProjectStatus.Equals(val9))
+                                        select a).ToList();
+            var OLDTotalMonthlyRevenue = (from a in entity.OldOldCLRDatas
+                                        where a.Status == "Active"
+                                            where a.GoLiveYear == MR_year
+                                            where MR_ProjectStatus.Any(val9 => a.ProjectStatus.Equals(val9))
+                                            select a).ToList();
+            var MaxID = entity.MonthWiseDeltas.OrderByDescending(u => u.DeltaID).Select(a => a.DeltaID);
+            int id = MaxID.First();
+            var MonthlyTotalRevenue = (from a in TotalMonthlyRevenue
+                                       join b in entity.MonthWiseDeltas on a.GoLiveYear equals b.Year
+                                       where b.Year == MR_year
+                                       where b.DeltaID == id
+                                       select new
+                                       {
+                                           CWJanuary = b.CV_Jan,
+                                           LWJanuary = b.Jan,
+                                           JanComments = b.Jan_Comments,
+                                           CWFebruary = b.CV_Feb,
+                                           LWFebruary = b.Feb,
+                                           FebComments = b.Feb_Comments,
+                                           CWMarch = b.CV_Mar,
+                                           LWMarch = b.Mar,
+                                           MarComments = b.Mar_Comments,
+                                           CWApril = b.CV_Apr,
+                                           LWApril = b.Apr,
+                                           AprComments = b.Apr_Comments,
+                                           CWMay = b.CV_May,
+                                           LWMay = b.May,
+                                           MayComments = b.May_Comments,
+                                           CWJune = b.CV_Jun,
+                                           LWJune = b.Jun,
+                                           JunComments = b.Jun_Comments,
+                                           CWJuly = b.CV_Jul,
+                                           LWJuly = b.Jul,
+                                           JulComments = b.Jul_Comments,
+                                           CWAugust = b.CV_Aug,
+                                           LWAugust = b.Aug,
+                                           AugComments = b.Aug_Comments,
+                                           CWSeptember = b.CV_Sep,
+                                           LWSeptember = b.Sep,
+                                           SepComments = b.Sep_Comments,
+                                           CWOctober = b.CV_Oct,
+                                           LWOctober = b.Oct,
+                                           OctComments = b.Oct_Comments,
+                                           CWNovember = b.CV_Nov,
+                                           LWNovember = b.Nov,
+                                           NovComments = b.Nov_Comments,
+                                           CWDecember = b.CV_Dec,
+                                           LWDecember = b.Dec,
+                                           DecComments = b.Dec_Comments,
+                                           CWTotal = TotalMonthlyRevenue.Sum(xs => xs.RevenueVolumeUSD),
+                                           LWTotal = b.Jan+b.Feb+b.Mar+b.Apr+b.May+b.Jun+b.Jul+b.Aug+b.Sep+b.Oct+b.Nov+b.Dec,
+                                           b.DeltaID,
+                                       }).Distinct();
+            re.code = 200;
+            re.message = "Please select the values" + MR_year + "" + DateTime.Now.Month;
+            re.Data = MonthlyTotalRevenue;
+            re.GlobalManager = MR_year;
+            re.LastUpdatedOn = entity.ReportUpdatedOns.Where(x => x.ReportName == "WeeklyDelta").Max(x => x.UpdatedOn);
+            return re;
+        }
+
+        [HttpPost]
+        [Route("UpdateMWDeltaComments")]
+        public IHttpActionResult UpdateMWDeltaComments(MonthWiseDelta monthWiseDelta)
+        {
+            Boolean b = new Delta().UpdateDeltaComments(monthWiseDelta);
+            if (b)
+            {
+                re.code = 200;
+                re.message = "Comments are Updated Succesfully";
+                return Content(HttpStatusCode.OK, re);
+            }
+            else
+            {
+                re.code = 100;
+                re.message = "Failed to Update Comments";
+                return Content(HttpStatusCode.OK, re);
+            }
+        }
+
+        int ClrDatacount;
+        string[] CLR_Month;
+        [HttpPost]
+        [Route("MonthWiseClrData")]
+        public Response MonthWiseClrData(CLRData clr)
+        {
+            if(clr.GoLiveMonth == "" || clr.GoLiveMonth == null)
+            {
+                re.code = 100;
+                re.message = "No Data Found";
+                re.Data = null;
+            }
+            else
+            {
+                if(clr.GoLiveMonth == "All")
+                {
+                    CLR_Month = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec".Split(',');
+                }
+                else
+                {
+                    CLR_Month = clr.GoLiveMonth.Split(',');
+
+                }
+                var yearcheck = DateTime.Now.Year.ToString();
+                if (DateTime.Now.Month == 1 && entity.MonthWiseDeltas.Where(x => x.Year == yearcheck).Count() < 1)
+                {
+                    MR_year = (DateTime.Now.Year - 1) + "";
+                }
+                else
+                {
+                    MR_year = DateTime.Now.Year.ToString();
+                }
+                MR_ProjectStatus = "C-Closed,A-Active/Date Confirmed".Split(',');
+                var MonthWiseClr = (from a in entity.OldCLRDatas
+                                    where a.Status == "Active"
+                                    where a.GoLiveYear == MR_year
+                                    where CLR_Month.Any(val => a.GoLiveMonth.Equals(val))
+                                    where MR_ProjectStatus.Any(val9 => a.ProjectStatus.Equals(val9))
+                                    select new
+                                    {
+                                        Client = a.Workspace_Title,
+                                        iMeet_Workspace_Title = a.Workspace_Title,
+                                        Implementation_Type = a.Revenue_Opportunity_Type,
+                                        CLR_Country = a.Country,
+                                        Revenue_Total_Volume_USD = a.RevenueVolumeUSD,
+                                        Region__Opportunity_ = a.Region,
+                                        Country = a.Country,
+                                        Revenue_ID = a.RevenueID,
+                                        Task__Go_Live_Date = a.GoLiveDate,
+                                        iMeet_Milestone___Project_Status = a.ProjectStatus,
+                                        iMeet_Milestone__Country_Status = a.CountryStatus,
+                                        iMeet_Project_Level = a.ProjectLevel,
+                                        //a.iMeet_Milestone__Project_Start_Date,
+                                        //a.iMeet_Milestone___Initial_Go_Live_Date,
+                                        //Milestone__Last_Go_Live_Date,
+                                        Completed_Date = a.CompletedDate,
+                                        Workspace__Project_Owner = a.ProjectOwner,
+                                        Global_Project_Manager = a.GlobalProjectManager,
+                                        //Project_Consultant = a.pro,
+                                        Regional_Project_Manager = a.RegionalProjectManager,
+                                        Milestone_Title = a.MilestoneTitle,
+                                        Record_ID_Key =a.Task__Task_Record_ID_Key,
+                                        //a.Task__Go_Live_Date_Record_ID_Key,
+                                        a.Workspace__ELT_Overall_Status,
+                                        a.Workspace__ELT_Overall_Comments,
+                                        a.Customer_Row_ID,
+                                        a.Opportunity_ID,
+                                        Account = a.Account_Name,
+                                        a.Opportunity_Type,
+                                        a.Revenue_Status,
+                                        Market_Leader = a.MarketLeader,
+                                        Revenue___Total_Transactions = a.Revenue_Total_Transactions,
+                                        Go_Live_Year = a.GoLiveYear,
+                                        a.GoLiveMonth,
+                                        a.DataSourceType,
+                                        Backlog_Started = a.BacklogStarted,
+                                        a.Quarter,
+                                    }).ToList();
+                ClrDatacount = MonthWiseClr.AsQueryable().Count();
+                if (ClrDatacount.ToString() == "" || ClrDatacount.ToString() == null || ClrDatacount == 0)
+                {
+                    re.Data = MonthWiseClr;
+                    re.code = 100;
+                    re.message = "No Data found";
+                }
+                else
+                {
+                    re.Data = MonthWiseClr;
+                    re.code = 200;
+                    re.message = "Data Successfull";
+                }
+            }
+            return re;
+        }
+
+        [HttpPost]
+        [Route("MonthWiseOldClrData")]
+        public Response MonthWiseOldClrData(CLRData clr)
+        {
+            if (clr.GoLiveMonth == "" || clr.GoLiveMonth == null)
+            {
+                re.code = 100;
+                re.message = "No Data Found";
+                re.Data = null;
+            }
+            else
+            {
+                if (clr.GoLiveMonth == "All")
+                {
+                    CLR_Month = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec".Split(',');
+                }
+                else
+                {
+                    CLR_Month = clr.GoLiveMonth.Split(',');
+
+                }
+                MR_year = DateTime.Now.Year.ToString();
+                MR_ProjectStatus = "C-Closed,A-Active/Date Confirmed".Split(',');
+                var MonthWiseClr = (from a in entity.OldOldCLRDatas
+                                    where a.Status == "Active"
+                                    where a.GoLiveYear == MR_year
+                                    where CLR_Month.Any(val => a.GoLiveMonth.Equals(val))
+                                    where MR_ProjectStatus.Any(val9 => a.ProjectStatus.Equals(val9))
+                                    select new
+                                    {
+                                        Client = a.Workspace_Title,
+                                        iMeet_Workspace_Title = a.Workspace_Title,
+                                        Implementation_Type = a.Revenue_Opportunity_Type,
+                                        CLR_Country = a.Country,
+                                        Revenue_Total_Volume_USD = a.RevenueVolumeUSD,
+                                        Region__Opportunity_ = a.Region,
+                                        Country = a.Country,
+                                        Revenue_ID = a.RevenueID,
+                                        Task__Go_Live_Date = a.GoLiveDate,
+                                        iMeet_Milestone___Project_Status = a.ProjectStatus,
+                                        iMeet_Milestone__Country_Status = a.CountryStatus,
+                                        iMeet_Project_Level = a.ProjectLevel,
+                                        //a.iMeet_Milestone__Project_Start_Date,
+                                        //a.iMeet_Milestone___Initial_Go_Live_Date,
+                                        //Milestone__Last_Go_Live_Date,
+                                        Completed_Date = a.CompletedDate,
+                                        Workspace__Project_Owner = a.ProjectOwner,
+                                        Global_Project_Manager = a.GlobalProjectManager,
+                                        //Project_Consultant = a.pro,
+                                        Regional_Project_Manager = a.RegionalProjectManager,
+                                        Milestone_Title = a.MilestoneTitle,
+                                        Record_ID_Key = a.Task__Task_Record_ID_Key,
+                                        //a.Task__Go_Live_Date_Record_ID_Key,
+                                        a.Workspace__ELT_Overall_Status,
+                                        a.Workspace__ELT_Overall_Comments,
+                                        a.Customer_Row_ID,
+                                        a.Opportunity_ID,
+                                        Account = a.Account_Name,
+                                        a.Opportunity_Type,
+                                        a.Revenue_Status,
+                                        Market_Leader = a.MarketLeader,
+                                        Revenue___Total_Transactions = a.Revenue_Total_Transactions,
+                                        Go_Live_Year = a.GoLiveYear,
+                                        a.GoLiveMonth,
+                                        a.DataSourceType,
+                                        Backlog_Started = a.BacklogStarted,
+                                        a.Quarter,
+                                    }).ToList();
+                ClrDatacount = MonthWiseClr.AsQueryable().Count();
+                if (ClrDatacount.ToString() == "" || ClrDatacount.ToString() == null || ClrDatacount == 0)
+                {
+                    re.Data = MonthWiseClr;
+                    re.code = 100;
+                    re.message = "No Data found";
+                }
+                else
+                {
+                    re.Data = MonthWiseClr;
+                    re.code = 200;
+                    re.message = "Data Successfull";
+                }
+            }
+            return re;
+        }
+        int AutomatedCLRDataCount;
+        [HttpPost]
+        [Route("AutomatedCLRData")]
+        public Response CLRData(CLRData cLRData)
+        {
+            var CLRData = (from a in entity.CLRDatas
+                           where a.Status == "Active"
+                           select new
+                                {
+                                    a.CLRID,
+                                    a.RevenueID,
+                                    a.Region,
+                                    a.Country,
+                                    a.OwnerShip,
+                                    GoLiveDate = a.GoLiveDate,
+                                    a.ProjectStatus,
+                                    a.CountryStatus,
+                                    a.ProjectLevel,
+                                    a.CompletedDate,
+                                    a.ProjectOwner,
+                                    a.AssigneeFullName,
+                                    a.MilestoneTitle,
+                                    a.Milestone__Record_ID_Key,
+                                    a.Task__Task_Record_ID_Key,
+                                    a.Group_Name,
+                                    a.Milestone__Project_Notes,
+                                    a.Milestone__Reason_Code,
+                                    a.Milestone__Closed_Loop_Owner,
+                                    a.Workspace_Title,
+                                    a.Workspace__ELT_Overall_Status,
+                                    a.Workspace__ELT_Overall_Comments,
+                                    a.Customer_Row_ID,
+                                    a.Opportunity_ID,
+                                    a.Account_Name,
+                                    a.Sales_Stage_Name,
+                                    a.Opportunity_Type,
+                                    a.Revenue_Opportunity_Type,
+                                    a.Revenue_Status,
+                                    a.Opportunity_Owner,
+                                    a.Opportunity_Category,
+                                    a.Revenue_Total_Transactions,
+                                    a.CountryCode,
+                                    a.RevenueVolumeUSD,
+                                    a.MarketLeader,
+                                    a.GlobalProjectManager,
+                                    a.ProjectConsultant,
+                                    a.RegionalProjectManager,
+                                    a.GlobalCISOBTLead,
+                                    a.GlobalCISHRFeedSpecialist,
+                                    a.GlobalCISPortraitLead,
+                                    a.GoLiveMonth,
+                                    a.GoLiveYear,
+                                    a.BacklogStarted,
+                                    a.Quarter,
+                                    a.CycleTime,
+                                    a.ExternalKickoffDuedate,
+                                }).ToList();
+            AutomatedCLRDataCount = CLRData.AsQueryable().Count();
+            if (AutomatedCLRDataCount.ToString() == "" || AutomatedCLRDataCount.ToString() == null || AutomatedCLRDataCount == 0)
+            {
+                re.Data = CLRData;
+                re.code = 100;
+                re.message = "No Data found";
+            }
+            else
+            {
+                re.Data = CLRData;
+                re.code = 200;
+                re.message = "Data Successfull";
+            }
             return re;
         }
     }

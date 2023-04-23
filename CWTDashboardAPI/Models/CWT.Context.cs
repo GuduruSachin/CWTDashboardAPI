@@ -26,15 +26,10 @@ namespace CWTDashboardAPI.Models
         }
     
         public virtual DbSet<CountryIsoCode> CountryIsoCodes { get; set; }
-        public virtual DbSet<CountryRegionCode> CountryRegionCodes { get; set; }
-        public virtual DbSet<CRMX> CRMXes { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+
         public virtual DbSet<CTO> CTOes { get; set; }
         public virtual DbSet<IMP> IMPS { get; set; }
-        public virtual DbSet<eSOW> eSOWs { get; set; }
-        public virtual DbSet<CLR> CLRs { get; set; }
-        public virtual DbSet<LessonsLearnt> LessonsLearnts { get; set; }
+        public virtual DbSet<eSOWNew> eSOWs { get; set; }
         public virtual DbSet<StageGate> StageGates { get; set; }
     }
 }

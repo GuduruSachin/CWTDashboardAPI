@@ -10,8 +10,10 @@ namespace CWTDashboardAPI.Models
         public string message { get; set; }
         public int code { get; set; }
         public object Year { get; set; }
+        public object rp_Year { get; set; }
         public object c_Year { get; set; }
         public object Quarter { get; set; }
+        public object OwnerShip { get; set; }
         public object Months { get; set; }
         public object c_Months { get; set; }
         public object ProjectLevel { get; set; }
@@ -21,6 +23,10 @@ namespace CWTDashboardAPI.Models
         public object MarketLeaders { get; set; }
         public object MilestoneStatus { get; set; }
         public object c_MilestoneStatus { get; set; }
+        public object rp_ProjectStatus { get; set; }
         public object ImplementationType { get; set; }
+        public object c_ImplementationType { get; set; }
+        public object rp_ImplementationType { get; set; }
+        public object Country { get; set; }
     }
 }
