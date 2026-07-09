@@ -1,0 +1,888 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CWT_DashboardModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CLR">
+    <Key>
+      <PropertyRef Name="CLRID" />
+    </Key>
+    <Property Name="CLRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="iMeet_Workspace_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Date_added_to_the_CLR" Type="DateTime" Precision="3" />
+    <Property Name="Implementation_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CLR_Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Pipeline_status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Pipeline_comments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Service_configuration" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OBT_Reseller___Direct" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Servicing_location" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Assignment_date" Type="DateTime" Precision="3" />
+    <Property Name="New_Business_volume__US__" Type="Double" />
+    <Property Name="Revenue_Total_Volume_USD" Type="Double" />
+    <Property Name="Region__Opportunity_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_ID" Type="Double" />
+    <Property Name="Ownership__Revenue_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Go_Live_Date" Type="DateTime" Precision="3" />
+    <Property Name="iMeet_Milestone___Project_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="iMeet_Milestone__Country_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="iMeet_Project_Level" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="iMeet_Milestone__Project_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="iMeet_Milestone___Initial_Go_Live_Date" Type="DateTime" Precision="3" />
+    <Property Name="Milestone__Last_Go_Live_Date" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Completed_Date" Type="DateTime" Precision="3" />
+    <Property Name="Workspace__Project_Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_Project_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Project_Consultant" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Regional_Project_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Assignee__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_CIS_OBT_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_CIS_HR_Feed_Specialist" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_CIS_Portrait_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_CIS_RoomIT_Integration_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Record_ID_Key" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Go_Live_Date_Record_ID_Key" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace_Group_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Notes___Proposed_Risk_Mitigation_Solution___P" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Reason_Code__H_On_Hold__X_Cancelled_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Closed_Loop_Owner__H_On_Hold__X_Cancelled_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Customer_Row_ID" Type="Double" />
+    <Property Name="Opportunity_ID" Type="Double" />
+    <Property Name="Account" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Sales_Stage_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Opportunity_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Category" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Market_Leader" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue___Total_Transactions" Type="Double" />
+    <Property Name="EMEA_Country_to_charge" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_OBT_standard_fee" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_Included_for_accrual" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_Accrual_date" Type="DateTime" Precision="3" />
+    <Property Name="EMEA_Scope_description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_Billing_notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Survey_recipient_Name_1__Local_client_contact_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Survey_recipient_Email_1__Local_client_contact_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Send_" Type="DateTime" Precision="3" />
+    <Property Name="Survey_recipient_Name_2__global__regional_client_contact_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Survey_recipient_Email_2__Global___Regional_client_contact_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Send_1" Type="DateTime" Precision="3" />
+    <Property Name="Go_Live_Month_Year" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Go_Live_Month" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Go_Live_Year" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Backlog_Started" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Quarter" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone_Due_Date" Type="DateTime" Precision="3" />
+    <Property Name="Global_PL_Leader" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Regional_PL_Leader" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_PL_Leader" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Project_Year" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Completed_Year" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Project_Sum" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C07_Jan" Type="Double" />
+    <Property Name="C14_Jan" Type="Double" />
+    <Property Name="C21_Jan" Type="Double" />
+    <Property Name="C28_Jan" Type="Double" />
+    <Property Name="C04_Feb" Type="Double" />
+    <Property Name="C11_Feb" Type="Double" />
+    <Property Name="C18_Feb" Type="Double" />
+    <Property Name="C25_Feb" Type="Double" />
+    <Property Name="C04_Mar" Type="Double" />
+    <Property Name="C11_Mar" Type="Double" />
+    <Property Name="C18_Mar" Type="Double" />
+    <Property Name="C25_Mar" Type="Double" />
+    <Property Name="C01_Apr" Type="Double" />
+    <Property Name="C08_Apr" Type="Double" />
+    <Property Name="C15_Apr" Type="Double" />
+    <Property Name="C22_Apr" Type="Double" />
+    <Property Name="C29_Apr" Type="Double" />
+    <Property Name="C06_May" Type="Double" />
+    <Property Name="C13_May" Type="Double" />
+    <Property Name="C20_May" Type="Double" />
+    <Property Name="C27_May" Type="Double" />
+    <Property Name="C03_Jun" Type="Double" />
+    <Property Name="C10_Jun" Type="Double" />
+    <Property Name="C17_Jun" Type="Double" />
+    <Property Name="C24_Jun" Type="Double" />
+    <Property Name="C01_Jul" Type="Double" />
+    <Property Name="C08_Jul" Type="Double" />
+    <Property Name="C15_Jul" Type="Double" />
+    <Property Name="C22_Jul" Type="Double" />
+    <Property Name="C29_Jul" Type="Double" />
+    <Property Name="C05_Aug" Type="Double" />
+    <Property Name="C12_Aug" Type="Double" />
+    <Property Name="C19_Aug" Type="Double" />
+    <Property Name="C26_Aug" Type="Double" />
+    <Property Name="C02_Sep" Type="Double" />
+    <Property Name="C09_Sep" Type="Double" />
+    <Property Name="C16_Sep" Type="Double" />
+    <Property Name="C23_Sep" Type="Double" />
+    <Property Name="C30_Sep" Type="Double" />
+    <Property Name="C07_Oct" Type="Double" />
+    <Property Name="C14_Oct" Type="Double" />
+    <Property Name="C21_Oct" Type="Double" />
+    <Property Name="C28_Oct" Type="Double" />
+    <Property Name="C04_Nov" Type="Double" />
+    <Property Name="C11_Nov" Type="Double" />
+    <Property Name="C18_Nov" Type="Double" />
+    <Property Name="C25_Nov" Type="Double" />
+    <Property Name="C02_Dec" Type="Double" />
+    <Property Name="C09_Dec" Type="Double" />
+    <Property Name="C16_Dec" Type="Double" />
+    <Property Name="C23_Dec" Type="Double" />
+    <Property Name="C30_Dec" Type="Double" />
+    <Property Name="Cycle_Time" Type="Double" />
+  </EntityType>
+  <EntityType Name="CountryIsoCode">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CountryCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CountryRegionCode">
+    <Key>
+      <PropertyRef Name="RegionID" />
+    </Key>
+    <Property Name="RegionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryISOCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Region" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CRMX">
+    <Key>
+      <PropertyRef Name="CRMXID" />
+    </Key>
+    <Property Name="CRMXID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Revenue_Id__copy_" Type="Double" Nullable="false" />
+    <Property Name="Account_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Account_Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Customer_Row_ID" Type="Double" />
+    <Property Name="BT_Account_Record_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Company_Alias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_ID" Type="Double" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Industry" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BT_Current_Service_Configuration" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BT_Current_GDS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BT_Current_Online_Booking_Tool" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BT_Incumbent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Line_of_Business" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opportunity_Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Close_Date" Type="DateTime" Precision="3" />
+    <Property Name="Sales_Stage_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Line_Win_Probability" Type="Double" Nullable="false" />
+    <Property Name="Opportunity_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opportunity_Category" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Next_Step" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Country_Scope" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Energy__Resources___Marine" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opportunity_Scope" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Total_Transactions" Type="Double" />
+    <Property Name="Opportunity_Total_Volume_USD" Type="Double" Nullable="false" />
+    <Property Name="Awarded_Date" Type="DateTime" Precision="3" />
+    <Property Name="LOI_Date" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Ownership__Revenue_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Region__Revenue_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Air_Volume_USD" Type="Double" Nullable="false" />
+    <Property Name="Revenue_Car_Volume_USD" Type="Double" Nullable="false" />
+    <Property Name="Revenue_Rail_Volume_USD" Type="Double" Nullable="false" />
+    <Property Name="Revenue_Total_Transactions" Type="Double" />
+    <Property Name="Transactions__Air" Type="Double" />
+    <Property Name="Transactions__Car" Type="Double" />
+    <Property Name="Transactions__Hotel" Type="Double" />
+    <Property Name="Transactions__Rail" Type="Double" />
+    <Property Name="Revenue_Total_Volume_USD" Type="Double" Nullable="false" />
+    <Property Name="Revenue_Hotel_Volume_USD" Type="Double" Nullable="false" />
+    <Property Name="Total_Awarded_Volume_USD" Type="Double" Nullable="false" />
+    <Property Name="Total_Up_Sell_Volume_USD" Type="Double" Nullable="false" />
+    <Property Name="GDS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Estimated_Country_Go_Live_Date" Type="DateTime" Precision="3" />
+    <Property Name="OBT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Estimated_Implementation_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="BT_Incumbent_Agency" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Opportunity_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Revenue_Id" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CTO">
+    <Key>
+      <PropertyRef Name="CTOID" />
+    </Key>
+    <Property Name="CTOID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Milestone_Title_Country___Est_Go_Live_Date" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Critical_Overdue" Type="Double" />
+    <Property Name="Estimated_Go_Live" Type="DateTime" Precision="3" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Group_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Assignee__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone_Due_Date" Type="DateTime" Precision="3" />
+    <Property Name="Milestone__Country_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_List_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Assignee__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Overdue" Type="Double" />
+    <Property Name="Task_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Task_Due_Date" Type="DateTime" Precision="3" />
+    <Property Name="Workspace__Project_Level" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="eSOW">
+    <Key>
+      <PropertyRef Name="eSOWID" />
+    </Key>
+    <Property Name="eSOWID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Essential" Type="Double" />
+    <Property Name="Configurable" Type="Double" />
+    <Property Name="Customizable" Type="Double" />
+    <Property Name="SOW_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CRM_Opportunity_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Required_Configuration" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Client__Prospect" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Sales_Lead_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Sales_Leader_type_and_Type_of_bid" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DSD_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SOW_Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Total_traffic_in_Million_USD__air_rail_only_" Type="Double" />
+    <Property Name="Bid_originated_by_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Geographic_Scope" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Prospect_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CRM_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Client_Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Client_s_Industry" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Date_RFP_Received" Type="DateTime" Precision="3" />
+    <Property Name="SOW_Creation_Date" Type="DateTime" Precision="3" />
+    <Property Name="Date_Decision_Expected" Type="DateTime" Precision="3" />
+    <Property Name="Date_notified_of_win_or_loss" Type="DateTime" Precision="3" />
+    <Property Name="Go_Live_date_estimated_" Type="DateTime" Precision="3" />
+    <Property Name="Number_of_Countries" Type="Double" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="WebPEM_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SOW_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Pricing_Ready" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Implementation_Ready" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Action_Item" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="XYCT_Private_jet_aircraft_charters__non_GDS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CPKI_Client_GDS_access" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UBNQ_Client_owned_booking_request_system" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="VDUE_Itinerary__standard" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UYSN_GDS_waitlists" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="JPZL_Virtual_payment_card__client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS5" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="JAAY_Flight_reservations__GDS___client_fares" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS6" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="XQYJ_Airline_soft_dollar_programs" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS7" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DQLX_Travel_and_ticketing_modifications__counsellor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS8" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GRAZ_CWT_profile__guest_traveler___travel_counselor_creation" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS9" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="JEYQ_Expedited_implementation" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS10" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PJIP_Reason_codes__CWT_defined___hotel_reservations" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS11" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AZBX_Itinerary__client_customized" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS12" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LJHL_CWT_Meetings_and_Events" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS13" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="KMWF_Loyalty_program_cards__i_e__frequent_flyer__hotel_chain__et" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS14" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LKZB_Relocation_services__client_customized" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS15" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UBXF_Flight_reservations__low_cost_carriers___web_bookings" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS16" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RKYA_Lodge_card_business_travel_account__BTA_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS17" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="QHEE_Reason_codes__CWT_defined___car_reservations" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS18" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="VOWW_Approval_process__client_customized_integration" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS19" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="XBVI_Predeparture_email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS20" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OMGO_Client_defined_data__transactional" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS21" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CCGP_Unused_ticket_tracking__manual" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS22" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="HJIO_Credit_card_reconciliation" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS23" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="HCGS_Flight_reservations__scheduled_carriers___web_bookings" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS24" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PODK_Travel_insurance" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS25" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="YNGA_Data_feed__third_party___CWT_standard_feed" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS26" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CGZS_End_to_end_logistics_via_ERM_mobility" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS27" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WHQW_Voice" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS28" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TZUL_Traveler_satisfaction_survey" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS29" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CKWH_Same_flight_reporting__manual_post_booking_process" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS30" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GIBN_Invoicing_billback_on_account__flight_only" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS31" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GIOZ_Itinerary__configurable" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS32" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ZZZI_Travel_policy_compliance__low_air_fare_guarantee" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS33" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UOVS_Bespoke_client_tool_integration_with_booking_process" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS34" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="QZIX_Credit_card" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS35" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OHZH_myCWT_mobile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS36" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WVDN_Rail_bookings__client_customized_integration" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS37" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="YVLO_Airline_upgrade_programs" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS38" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="KHZQ_Flight_reservations__GDS___published_and_CWT_fares" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS39" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MYRU_Duplicate_invoice_requests" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS40" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="QRUE_Management_of_anticipated_seat_reservations" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS41" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OJMQ_Online_booking_tool__offline_module___direct_client_agreeme" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS42" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OXAC_Bespoke_client_processes__i_e__multipax__quality_control__e" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS43" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OHEE_Airfare_shop_and_book__CWT_standard" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS44" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="VINY_CWT_profile__self_service" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS45" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PICY_Service_Level_Agreement__SLA___client_customized" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS46" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TGWG_Approval_process__online_booking_tool__automated_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS47" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LNCL_Fax_reservations" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS48" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MNTG_Travel_manager_satisfaction_survey" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS49" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RARJ_Ground_transportation_reservations__taxi__bus__coach__limo_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS50" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="QQOV_Invoice__traveler_or_company" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS51" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SRYN_Flight_reservation__group_travel___business_travel_commerci" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS52" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="QPCT_Hotel_services_powered_by_RoomIt__published_and_CWT_rates" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS53" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FWEW_ERM_Fares" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS54" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EXLI_Visa_advisory" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS55" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="HBWX_CWT_profile__travel_counselor_updates" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS56" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="VFDI_Flight_reservations__low_cost_carriers___integrated_content" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS57" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LLHS_Invoicing_billback_on_account__car_and_hotel_only" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS58" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FBMC_Safety_and_security__core" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS59" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TCMQ_Hotel_reservations__client_hotel_aggregator___CWT_managed" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS60" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UEJR_Traveler_technical_support" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS61" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="JDNI_ERM_Fares_in_conjunction_with_an_OBT_offline_module_or_PNR_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS62" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BQRQ_Hotel_reviews__enhanced" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS63" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CABH_Price_optimization__flights_post_ticket" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS64" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MJNE_Seat_assignments__automated_and_manual" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS65" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="APRT_Flight_reservations__airline_consolidators___non_GDS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS66" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="HSSR_Safety_and_security__enhanced" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS67" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="HJIC_Travel_policy__CWT_standard" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS68" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="QHPE_Reason_codes__client_customized__flight__car__hotel_only_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS69" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PZSP_Rail_bookings__web___non_GDS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS70" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="VDSK_Hotel_services_powered_by_RoomIt__client_rates" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS71" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SGLF_Unused_ticket_tracking__automated" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS72" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GSWX_myCWT_online" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS73" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PSXB_Enhanced_visa_services" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS74" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WIGN_Travel_policy__multi_level_policy__subunit_and_traveler_typ" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS75" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ZCVT_Email_reservations__unformatted_inbound_emails" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS76" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BDZJ_Approval_process__Concur_request_or_Trondent__automated_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS77" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ZYQO_Rail_bookings__GDS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS78" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="KUYY_myCWT_online__custom_inbound_single_sign_on" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS79" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="VCPH_Reason_codes__CWT_defined___flight_reservations" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS80" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EVZJ_Meal_assignments__automated_and_manual" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS81" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="VWPY_Approval_process__manual_process__CWT_managed" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS82" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GMTR_VIP_services" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS83" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NYBI_Evacuation_business_continuity_services" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS84" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="YCIW_Management_of_airline_seat_allotment_contracts" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS85" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="QADG_myCWT_messaging" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS86" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PAIJ_Business_intelligence_platform" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS87" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="XYBH_Client_selected_GDS_agreement" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS88" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WGCZ_Airfare_shop_and_book__client_customized" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS89" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IIYW_Client_owned_accomodation_management" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS90" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="JAWT_Automated_communication_service__core" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS91" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BTNC_Online_booking_tool__CWT_preferred_reseller" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS92" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OQPL_Visa_procurement" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS93" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AUXU_Car_reservations__GDS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS94" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DGOF_Rail_bookings__CWT_integrated_solution" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS95" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DXLI_Trip_estimator" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS96" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="JPXJ_Price_optimization__hotels" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS97" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="JBFR_ERM24" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS98" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ZXTI_Marine_offshore_fare_qualification_letter" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS99" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EACH_Virtual_payment_card__CWT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS100" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OVRM_Automated_communication_service__enhanced" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS101" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="QJDF_Online_booking_tool__direct_client_agreement" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS102" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SQQQ_Third_party_audit__Topaz" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS103" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="QPGZ_CWT_profile__worldwide_access" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS104" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ARDZ_PNR_acquisition__online_booking_tool" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS105" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RTYP_Bespoke_online_and_or_offline_service_configuration" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS106" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FWGL_Email_reservations__web_form" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS107" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RGPA_Hotel_reviews__core" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS108" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WELE_Travel_policy_compliance__low_hotel_rate_guarantee" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS109" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MOSX_Business_intelligence_platform__simple_language_query" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS110" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RIVT_Ticketing__automated_ticket_issuance" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS111" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="IMP">
+    <Key>
+      <PropertyRef Name="IMPSID" />
+    </Key>
+    <Property Name="IMPSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__CRM_Customer_Row_ID" Type="Double" />
+    <Property Name="Workspace__Project_Level" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Record_ID_Key" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C__Complete" Type="Double" />
+    <Property Name="Milestone__Project_Start_Date" Type="Double" />
+    <Property Name="Milestone__Assignee__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Assignee__Reports_to__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Task_Record_ID_Key" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Start_Date" Type="Double" />
+    <Property Name="Milestone__CRM_Revenue_ID__" Type="Double" />
+    <Property Name="Milestone__Project_Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Reason_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Closed_Loop_Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LessonsLearnt">
+    <Key>
+      <PropertyRef Name="LessonsLearntID" />
+    </Key>
+    <Property Name="LessonsLearntID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="iMeet_Workspace_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Record_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Date_feedback_raised" Type="DateTime" Precision="3" />
+    <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="What_did_not_go_well" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="What_went_well" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Raised_by" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Go_Live_Date" Type="DateTime" Precision="3" />
+    <Property Name="Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Actions" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RolesID" />
+    </Key>
+    <Property Name="RolesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="APAC_CIS_OBT_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="APAC_CIS_Portrait_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="APAC_DQS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="APAC_GDS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="APAC_IMP_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="APAC_Power_Center" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="APAC_Program_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="APAC_Project_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="APAC_Telephony_Team" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="APAC_Training" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="APAC_Traveler_Services" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Client_APAC_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Client_EMEA_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Client_Finance_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Client_Global_Hotels_M_E" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Client_IT_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Client_LATAM_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Client_NORAM_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Client_Travel_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Solution_Engineer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DSD_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DQS_Import" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DQS_Support" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_CIS_OBT_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_CIS_Portrait_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_DQS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_GDS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_IMP_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_Power_Center" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_Program_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_Project_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_Telephony_Team" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_Training" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_Traveler_Services" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ERM24_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ERM_Crew_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ERM_Fares_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ERM_Logistics_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ERM_Project_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ERM_Support_Services" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_3rd_Party_Data_Export_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_3rd_Party_Data_Import_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_CIS_DQS_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_CIS_HR_Feed_Specialist" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_CIS_OBT_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_CIS_Portrait_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_CIS_Product_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_Facilities" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_Hotel_Data_Center" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_Online_Support_Center_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_Power_Base" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_Pre_Trip_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_Program_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_Project_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_Technical_Fullfillment_Center_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_TPSS_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_Training" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GPN_Commercial" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GPN_Operations" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GPN_Partner_Commercial" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GPN_Partner_Operations" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Group_Air_Ops_Mgr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Group_Support_Services" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Group_Transport_Dir" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GSC_Project_Lead_Poland" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Implementation_Architect" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_CIS_OBT_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_CIS_Portrait_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_DQS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Facilitities" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_GDS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_GSC_project_lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_IMP_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_IT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Power_Center" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Program_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Program_Manager_Argentina" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Program_Manager_Bolivia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Program_Manager_Brazil" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Program_Manager_Chile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Program_Manager_Colombia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Program_Manager_Costa_Rica" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Program_Manager_Dominican_Republic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Program_Manager_Ecuador" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Program_Manager_El_Salvador" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Program_Manager_Guatemala" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Program_Manager_Mexico" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Program_Manager_Panama" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Program_Manager_Paraguay" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Program_Manager_Peru" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Program_Manager_Uruguay" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Program_Manager_Venezuela" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Project_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Telephony_Team" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Training" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Traveler_Services" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_TS_Product_Support" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Albania" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Algeria" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Angola" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Argentina" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Australia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Austria" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Azerbaijan" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Bahrain" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Bangladesh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Belarus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Belgium" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Bolivia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Bosnia_and_Herzegovina" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Botswana" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Brazil" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Brunei_Darussalam" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Bulgaria" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Burkina_Faso" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Cambodia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Cameroon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Chile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_China" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Colombia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Costa_Rica" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_CÔTE_D_IVOIRE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Croatia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Cyprus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Czech_Republic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Denmark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Dominican_Republic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Ecuador" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Egypt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_El_Salvador" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Estonia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Ethiopia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Finland" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_France" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Gabon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Georgia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Germany" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Ghana" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Greece" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Guatemala" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Guinea" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Honduras" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Hong_Kong" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Hungary" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_India" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Indonesia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Ireland" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Israel" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Italy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Jamaica" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Japan" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Jordan" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Kazakhstan" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Kenya" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Kuwait" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Latvia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Lebanon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Lithuania" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Luxembourg" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Macedonia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Madagascar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Malawai" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Malaysia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Mali" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Mauritius" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Mexico" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Moldova" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Morocco" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Myanmar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Nepal" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Netherlands" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_New_Zealand" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Nicaragua" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Nigeria" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Norway" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Oman" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Pakistan" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Panama" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Paraguay" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Peru" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Philippines" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Poland" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Portugal" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Qatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Romania" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Russia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Saudi_Arabia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Senegal" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Serbia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Singapore" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Slovakia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Slovenia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_South_Africa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_South_Korea" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Spain" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Sri_Lanka" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Sweden" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Switzerland" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Taiwan" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Tanzania" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Thailand" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Trinidad_and_Tobago" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Tunisia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Turkey" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Uganda" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Ukraine" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_United_Arab_Emirates" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_United_Kingdom" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Uruguay" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Uzbekistan" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Venezuela" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Vietnam" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Zambia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Implementation_Lead_Zimbabwe" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Traveler_Services_Lead_Argentina" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Traveler_Services_Lead_Brazil" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Traveler_Services_Lead_Chile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Traveler_Services_Lead_Colombia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Traveler_Services_Lead_Costa_Rica" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_ARC_Administration" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_CA_Product_and_Business_Support" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_CA_Traveler_Experience" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_CDC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_CIS_OBT_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_CIS_Portrait_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_DQS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_Fare_Tracking" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_GDS_Automation" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_IMP_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_I_T__Connections" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_I_T__Field" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_I_T__Operations" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_NDC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_OFC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_Other" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_Power_Center_Turbo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_Power_Tools" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_Program_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_Project_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_Real_Estate_and_Facilities" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_Scripting" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_Telephony_Team" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_Training" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_U_S_Traveler_Experience" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_US_TS_Automation" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_Vendor_3rd_Party" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_Vendor_Contract_Administration" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Program_Solutions_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DSD_Operations" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Regional_Ops_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_or_Sales_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SSO_Team" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_CIS_RoomIT_Integration_lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StageGate">
+    <Key>
+      <PropertyRef Name="StageGateID" />
+    </Key>
+    <Property Name="StageGateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Task_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Task_Due_Date" Type="DateTime" Precision="3" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Assignee__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Assignee__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Assignee__Reports_to__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Assignee__Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Month" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Year" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserRegion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserRole" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InsertDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UpdateDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="CWT_DashboardEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CLRs" EntityType="Self.CLR" />
+    <EntitySet Name="CountryIsoCodes" EntityType="Self.CountryIsoCode" />
+    <EntitySet Name="CountryRegionCodes" EntityType="Self.CountryRegionCode" />
+    <EntitySet Name="CRMXes" EntityType="Self.CRMX" />
+    <EntitySet Name="CTOes" EntityType="Self.CTO" />
+    <EntitySet Name="eSOWs" EntityType="Self.eSOW" />
+    <EntitySet Name="IMPS" EntityType="Self.IMP" />
+    <EntitySet Name="LessonsLearnts" EntityType="Self.LessonsLearnt" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="StageGates" EntityType="Self.StageGate" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <FunctionImport Name="spTravelerForm">
+      <Parameter Name="act" Mode="In" Type="Int32" />
+      <Parameter Name="ReqId" Mode="In" Type="Int32" />
+      <Parameter Name="clientname" Mode="In" Type="String" />
+      <Parameter Name="travelerFirstName" Mode="In" Type="String" />
+      <Parameter Name="travelerLastName" Mode="In" Type="String" />
+      <Parameter Name="OtherRequester" Mode="In" Type="String" />
+      <Parameter Name="additionalemail" Mode="In" Type="String" />
+      <Parameter Name="PCC" Mode="In" Type="String" />
+      <Parameter Name="MoxieId" Mode="In" Type="String" />
+      <Parameter Name="Options" Mode="In" Type="String" />
+      <Parameter Name="flightoptions" Mode="In" Type="String" />
+      <Parameter Name="Origin" Mode="In" Type="String" />
+      <Parameter Name="Destination" Mode="In" Type="String" />
+      <Parameter Name="DeptDate" Mode="In" Type="String" />
+      <Parameter Name="DeptTime" Mode="In" Type="String" />
+      <Parameter Name="ReturnDate" Mode="In" Type="String" />
+      <Parameter Name="ReturnTime" Mode="In" Type="String" />
+      <Parameter Name="FlightReq" Mode="In" Type="String" />
+      <Parameter Name="AirlineCode" Mode="In" Type="String" />
+      <Parameter Name="Class" Mode="In" Type="String" />
+      <Parameter Name="CheckinDate" Mode="In" Type="String" />
+      <Parameter Name="CheckoutDate" Mode="In" Type="String" />
+      <Parameter Name="Hotel" Mode="In" Type="String" />
+      <Parameter Name="RoomType" Mode="In" Type="String" />
+      <Parameter Name="SmokingPref" Mode="In" Type="String" />
+      <Parameter Name="RequestedBy" Mode="In" Type="String" />
+      <Parameter Name="RequestedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="HotelDestCity" Mode="In" Type="String" />
+      <Parameter Name="HotelLoc" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

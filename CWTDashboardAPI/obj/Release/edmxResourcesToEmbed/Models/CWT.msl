@@ -1,0 +1,857 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CWTModelStoreContainer" CdmEntityContainer="CWTEntities">
+    <EntitySetMapping Name="CountryIsoCodes">
+      <EntityTypeMapping TypeName="CWTModel.CountryIsoCode">
+        <MappingFragment StoreEntitySet="CountryIsoCodes">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CountryRegionCodes">
+      <EntityTypeMapping TypeName="CWTModel.CountryRegionCode">
+        <MappingFragment StoreEntitySet="CountryRegionCodes">
+          <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+          <ScalarProperty Name="CountryISOCode" ColumnName="CountryISOCode" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CRMXes">
+      <EntityTypeMapping TypeName="CWTModel.CRMX">
+        <MappingFragment StoreEntitySet="CRMX">
+          <ScalarProperty Name="Revenue_Id" ColumnName="Revenue Id" />
+          <ScalarProperty Name="Revenue_Status" ColumnName="Revenue Status" />
+          <ScalarProperty Name="Revenue_Opportunity_Type" ColumnName="Revenue Opportunity Type" />
+          <ScalarProperty Name="BT_Incumbent_Agency" ColumnName="BT Incumbent Agency" />
+          <ScalarProperty Name="Estimated_Implementation_Start_Date" ColumnName="Estimated Implementation Start Date" />
+          <ScalarProperty Name="OBT" ColumnName="OBT" />
+          <ScalarProperty Name="Estimated_Country_Go_Live_Date" ColumnName="Estimated Country Go Live Date" />
+          <ScalarProperty Name="GDS" ColumnName="GDS" />
+          <ScalarProperty Name="Total_Up_Sell_Volume_USD" ColumnName="Total Up-Sell Volume USD" />
+          <ScalarProperty Name="Total_Awarded_Volume_USD" ColumnName="Total Awarded Volume USD" />
+          <ScalarProperty Name="Revenue_Hotel_Volume_USD" ColumnName="Revenue Hotel Volume USD" />
+          <ScalarProperty Name="Revenue_Total_Volume_USD" ColumnName="Revenue Total Volume USD" />
+          <ScalarProperty Name="Transactions__Rail" ColumnName="Transactions: Rail" />
+          <ScalarProperty Name="Transactions__Hotel" ColumnName="Transactions: Hotel" />
+          <ScalarProperty Name="Transactions__Car" ColumnName="Transactions: Car" />
+          <ScalarProperty Name="Transactions__Air" ColumnName="Transactions: Air" />
+          <ScalarProperty Name="Revenue_Total_Transactions" ColumnName="Revenue Total Transactions" />
+          <ScalarProperty Name="Revenue_Rail_Volume_USD" ColumnName="Revenue Rail Volume USD" />
+          <ScalarProperty Name="Revenue_Car_Volume_USD" ColumnName="Revenue Car Volume USD" />
+          <ScalarProperty Name="Revenue_Air_Volume_USD" ColumnName="Revenue Air Volume USD" />
+          <ScalarProperty Name="Region__Revenue_" ColumnName="Region (Revenue)" />
+          <ScalarProperty Name="Ownership__Revenue_" ColumnName="Ownership (Revenue)" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="LOI_Date" ColumnName="LOI Date" />
+          <ScalarProperty Name="Awarded_Date" ColumnName="Awarded Date" />
+          <ScalarProperty Name="Opportunity_Total_Volume_USD" ColumnName="Opportunity Total Volume USD" />
+          <ScalarProperty Name="Opportunity_Total_Transactions" ColumnName="Opportunity Total Transactions" />
+          <ScalarProperty Name="Opportunity_Scope" ColumnName="Opportunity Scope" />
+          <ScalarProperty Name="Energy__Resources___Marine" ColumnName="Energy, Resources &amp; Marine" />
+          <ScalarProperty Name="Country_Scope" ColumnName="Country Scope" />
+          <ScalarProperty Name="Next_Step" ColumnName="Next Step" />
+          <ScalarProperty Name="Opportunity_Region" ColumnName="Opportunity Region" />
+          <ScalarProperty Name="Opportunity_Category" ColumnName="Opportunity Category" />
+          <ScalarProperty Name="Opportunity_Type" ColumnName="Opportunity Type" />
+          <ScalarProperty Name="Line_Win_Probability" ColumnName="Line Win Probability" />
+          <ScalarProperty Name="Sales_Stage_Name" ColumnName="Sales Stage Name" />
+          <ScalarProperty Name="Close_Date" ColumnName="Close Date" />
+          <ScalarProperty Name="Opportunity_Owner" ColumnName="Opportunity Owner" />
+          <ScalarProperty Name="Line_of_Business" ColumnName="Line of Business" />
+          <ScalarProperty Name="Opportunity_Name" ColumnName="Opportunity Name" />
+          <ScalarProperty Name="BT_Incumbent" ColumnName="BT Incumbent" />
+          <ScalarProperty Name="BT_Current_Online_Booking_Tool" ColumnName="BT Current Online Booking Tool" />
+          <ScalarProperty Name="BT_Current_GDS" ColumnName="BT Current GDS" />
+          <ScalarProperty Name="BT_Current_Service_Configuration" ColumnName="BT Current Service Configuration" />
+          <ScalarProperty Name="Industry" ColumnName="Industry" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Opportunity_ID" ColumnName="Opportunity ID" />
+          <ScalarProperty Name="Company_Alias" ColumnName="Company Alias" />
+          <ScalarProperty Name="BT_Account_Record_Type" ColumnName="BT Account Record Type" />
+          <ScalarProperty Name="Customer_Row_ID" ColumnName="Customer Row ID" />
+          <ScalarProperty Name="Account_Owner" ColumnName="Account Owner" />
+          <ScalarProperty Name="Account_Name" ColumnName="Account Name" />
+          <ScalarProperty Name="Revenue_Id__copy_" ColumnName="Revenue Id (copy)" />
+          <ScalarProperty Name="CRMXID" ColumnName="CRMXID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="CWTModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Global_CIS_RoomIT_Integration_lead" ColumnName="Global CIS RoomIT Integration lead" />
+          <ScalarProperty Name="SSO_Team" ColumnName="SSO Team" />
+          <ScalarProperty Name="Opportunity_or_Sales_Lead" ColumnName="Opportunity or Sales Lead" />
+          <ScalarProperty Name="Regional_Ops_Manager" ColumnName="Regional Ops Manager" />
+          <ScalarProperty Name="DSD_Operations" ColumnName="DSD Operations" />
+          <ScalarProperty Name="Program_Solutions_Manager" ColumnName="Program Solutions Manager" />
+          <ScalarProperty Name="NORAM_Vendor_Contract_Administration" ColumnName="NORAM Vendor Contract Administration" />
+          <ScalarProperty Name="NORAM_Vendor_3rd_Party" ColumnName="NORAM Vendor 3rd Party" />
+          <ScalarProperty Name="NORAM_US_TS_Automation" ColumnName="NORAM US TS Automation" />
+          <ScalarProperty Name="NORAM_U_S_Traveler_Experience" ColumnName="NORAM U#S#Traveler Experience" />
+          <ScalarProperty Name="NORAM_Training" ColumnName="NORAM Training" />
+          <ScalarProperty Name="NORAM_Telephony_Team" ColumnName="NORAM Telephony Team" />
+          <ScalarProperty Name="NORAM_Scripting" ColumnName="NORAM Scripting" />
+          <ScalarProperty Name="NORAM_Real_Estate_and_Facilities" ColumnName="NORAM Real Estate and Facilities" />
+          <ScalarProperty Name="NORAM_Project_Manager" ColumnName="NORAM Project Manager" />
+          <ScalarProperty Name="NORAM_Program_Manager" ColumnName="NORAM Program Manager" />
+          <ScalarProperty Name="NORAM_Power_Tools" ColumnName="NORAM Power Tools" />
+          <ScalarProperty Name="NORAM_Power_Center_Turbo" ColumnName="NORAM Power Center Turbo" />
+          <ScalarProperty Name="NORAM_Other" ColumnName="NORAM Other" />
+          <ScalarProperty Name="NORAM_OFC" ColumnName="NORAM OFC" />
+          <ScalarProperty Name="NORAM_NDC" ColumnName="NORAM NDC" />
+          <ScalarProperty Name="NORAM_I_T__Operations" ColumnName="NORAM I#T# Operations" />
+          <ScalarProperty Name="NORAM_I_T__Field" ColumnName="NORAM I#T# Field" />
+          <ScalarProperty Name="NORAM_I_T__Connections" ColumnName="NORAM I#T# Connections" />
+          <ScalarProperty Name="NORAM_IMP_Lead" ColumnName="NORAM IMP Lead" />
+          <ScalarProperty Name="NORAM_GDS_Automation" ColumnName="NORAM GDS Automation" />
+          <ScalarProperty Name="NORAM_Fare_Tracking" ColumnName="NORAM Fare Tracking" />
+          <ScalarProperty Name="NORAM_DQS" ColumnName="NORAM DQS" />
+          <ScalarProperty Name="NORAM_CIS_Portrait_Lead" ColumnName="NORAM CIS Portrait Lead" />
+          <ScalarProperty Name="NORAM_CIS_OBT_Lead" ColumnName="NORAM CIS OBT Lead" />
+          <ScalarProperty Name="NORAM_CDC" ColumnName="NORAM CDC" />
+          <ScalarProperty Name="NORAM_CA_Traveler_Experience" ColumnName="NORAM CA Traveler Experience" />
+          <ScalarProperty Name="NORAM_CA_Product_and_Business_Support" ColumnName="NORAM CA Product and Business Support" />
+          <ScalarProperty Name="NORAM_ARC_Administration" ColumnName="NORAM ARC Administration" />
+          <ScalarProperty Name="Local_Traveler_Services_Lead_Costa_Rica" ColumnName="Local Traveler Services Lead Costa Rica" />
+          <ScalarProperty Name="Local_Traveler_Services_Lead_Colombia" ColumnName="Local Traveler Services Lead Colombia" />
+          <ScalarProperty Name="Local_Traveler_Services_Lead_Chile" ColumnName="Local Traveler Services Lead Chile" />
+          <ScalarProperty Name="Local_Traveler_Services_Lead_Brazil" ColumnName="Local Traveler Services Lead Brazil" />
+          <ScalarProperty Name="Local_Traveler_Services_Lead_Argentina" ColumnName="Local Traveler Services Lead Argentina" />
+          <ScalarProperty Name="Local_Implementation_Lead_Zimbabwe" ColumnName="Local Implementation Lead Zimbabwe" />
+          <ScalarProperty Name="Local_Implementation_Lead_Zambia" ColumnName="Local Implementation Lead Zambia" />
+          <ScalarProperty Name="Local_Implementation_Lead_Vietnam" ColumnName="Local Implementation Lead Vietnam" />
+          <ScalarProperty Name="Local_Implementation_Lead_Venezuela" ColumnName="Local Implementation Lead Venezuela" />
+          <ScalarProperty Name="Local_Implementation_Lead_Uzbekistan" ColumnName="Local Implementation Lead Uzbekistan" />
+          <ScalarProperty Name="Local_Implementation_Lead_Uruguay" ColumnName="Local Implementation Lead Uruguay" />
+          <ScalarProperty Name="Local_Implementation_Lead_United_Kingdom" ColumnName="Local Implementation Lead United Kingdom" />
+          <ScalarProperty Name="Local_Implementation_Lead_United_Arab_Emirates" ColumnName="Local Implementation Lead United Arab Emirates" />
+          <ScalarProperty Name="Local_Implementation_Lead_Ukraine" ColumnName="Local Implementation Lead Ukraine" />
+          <ScalarProperty Name="Local_Implementation_Lead_Uganda" ColumnName="Local Implementation Lead Uganda" />
+          <ScalarProperty Name="Local_Implementation_Lead_Turkey" ColumnName="Local Implementation Lead Turkey" />
+          <ScalarProperty Name="Local_Implementation_Lead_Tunisia" ColumnName="Local Implementation Lead Tunisia" />
+          <ScalarProperty Name="Local_Implementation_Lead_Trinidad_and_Tobago" ColumnName="Local Implementation Lead Trinidad and Tobago" />
+          <ScalarProperty Name="Local_Implementation_Lead_Thailand" ColumnName="Local Implementation Lead Thailand" />
+          <ScalarProperty Name="Local_Implementation_Lead_Tanzania" ColumnName="Local Implementation Lead Tanzania" />
+          <ScalarProperty Name="Local_Implementation_Lead_Taiwan" ColumnName="Local Implementation Lead Taiwan" />
+          <ScalarProperty Name="Local_Implementation_Lead_Switzerland" ColumnName="Local Implementation Lead Switzerland" />
+          <ScalarProperty Name="Local_Implementation_Lead_Sweden" ColumnName="Local Implementation Lead Sweden" />
+          <ScalarProperty Name="Local_Implementation_Lead_Sri_Lanka" ColumnName="Local Implementation Lead Sri Lanka" />
+          <ScalarProperty Name="Local_Implementation_Lead_Spain" ColumnName="Local Implementation Lead Spain" />
+          <ScalarProperty Name="Local_Implementation_Lead_South_Korea" ColumnName="Local Implementation Lead South Korea" />
+          <ScalarProperty Name="Local_Implementation_Lead_South_Africa" ColumnName="Local Implementation Lead South Africa" />
+          <ScalarProperty Name="Local_Implementation_Lead_Slovenia" ColumnName="Local Implementation Lead Slovenia" />
+          <ScalarProperty Name="Local_Implementation_Lead_Slovakia" ColumnName="Local Implementation Lead Slovakia" />
+          <ScalarProperty Name="Local_Implementation_Lead_Singapore" ColumnName="Local Implementation Lead Singapore" />
+          <ScalarProperty Name="Local_Implementation_Lead_Serbia" ColumnName="Local Implementation Lead Serbia" />
+          <ScalarProperty Name="Local_Implementation_Lead_Senegal" ColumnName="Local Implementation Lead Senegal" />
+          <ScalarProperty Name="Local_Implementation_Lead_Saudi_Arabia" ColumnName="Local Implementation Lead Saudi Arabia" />
+          <ScalarProperty Name="Local_Implementation_Lead_Russia" ColumnName="Local Implementation Lead Russia" />
+          <ScalarProperty Name="Local_Implementation_Lead_Romania" ColumnName="Local Implementation Lead Romania" />
+          <ScalarProperty Name="Local_Implementation_Lead_Qatar" ColumnName="Local Implementation Lead Qatar" />
+          <ScalarProperty Name="Local_Implementation_Lead_Portugal" ColumnName="Local Implementation Lead Portugal" />
+          <ScalarProperty Name="Local_Implementation_Lead_Poland" ColumnName="Local Implementation Lead Poland" />
+          <ScalarProperty Name="Local_Implementation_Lead_Philippines" ColumnName="Local Implementation Lead Philippines" />
+          <ScalarProperty Name="Local_Implementation_Lead_Peru" ColumnName="Local Implementation Lead Peru" />
+          <ScalarProperty Name="Local_Implementation_Lead_Paraguay" ColumnName="Local Implementation Lead Paraguay" />
+          <ScalarProperty Name="Local_Implementation_Lead_Panama" ColumnName="Local Implementation Lead Panama" />
+          <ScalarProperty Name="Local_Implementation_Lead_Pakistan" ColumnName="Local Implementation Lead Pakistan" />
+          <ScalarProperty Name="Local_Implementation_Lead_Oman" ColumnName="Local Implementation Lead Oman" />
+          <ScalarProperty Name="Local_Implementation_Lead_Norway" ColumnName="Local Implementation Lead Norway" />
+          <ScalarProperty Name="Local_Implementation_Lead_Nigeria" ColumnName="Local Implementation Lead Nigeria" />
+          <ScalarProperty Name="Local_Implementation_Lead_Nicaragua" ColumnName="Local Implementation Lead Nicaragua" />
+          <ScalarProperty Name="Local_Implementation_Lead_New_Zealand" ColumnName="Local Implementation Lead New Zealand" />
+          <ScalarProperty Name="Local_Implementation_Lead_Netherlands" ColumnName="Local Implementation Lead Netherlands" />
+          <ScalarProperty Name="Local_Implementation_Lead_Nepal" ColumnName="Local Implementation Lead Nepal" />
+          <ScalarProperty Name="Local_Implementation_Lead_Myanmar" ColumnName="Local Implementation Lead Myanmar" />
+          <ScalarProperty Name="Local_Implementation_Lead_Morocco" ColumnName="Local Implementation Lead Morocco" />
+          <ScalarProperty Name="Local_Implementation_Lead_Moldova" ColumnName="Local Implementation Lead Moldova" />
+          <ScalarProperty Name="Local_Implementation_Lead_Mexico" ColumnName="Local Implementation Lead Mexico" />
+          <ScalarProperty Name="Local_Implementation_Lead_Mauritius" ColumnName="Local Implementation Lead Mauritius" />
+          <ScalarProperty Name="Local_Implementation_Lead_Mali" ColumnName="Local Implementation Lead Mali" />
+          <ScalarProperty Name="Local_Implementation_Lead_Malaysia" ColumnName="Local Implementation Lead Malaysia" />
+          <ScalarProperty Name="Local_Implementation_Lead_Malawai" ColumnName="Local Implementation Lead Malawai" />
+          <ScalarProperty Name="Local_Implementation_Lead_Madagascar" ColumnName="Local Implementation Lead Madagascar" />
+          <ScalarProperty Name="Local_Implementation_Lead_Macedonia" ColumnName="Local Implementation Lead Macedonia" />
+          <ScalarProperty Name="Local_Implementation_Lead_Luxembourg" ColumnName="Local Implementation Lead Luxembourg" />
+          <ScalarProperty Name="Local_Implementation_Lead_Lithuania" ColumnName="Local Implementation Lead Lithuania" />
+          <ScalarProperty Name="Local_Implementation_Lead_Lebanon" ColumnName="Local Implementation Lead Lebanon" />
+          <ScalarProperty Name="Local_Implementation_Lead_Latvia" ColumnName="Local Implementation Lead Latvia" />
+          <ScalarProperty Name="Local_Implementation_Lead_Kuwait" ColumnName="Local Implementation Lead Kuwait" />
+          <ScalarProperty Name="Local_Implementation_Lead_Kenya" ColumnName="Local Implementation Lead Kenya" />
+          <ScalarProperty Name="Local_Implementation_Lead_Kazakhstan" ColumnName="Local Implementation Lead Kazakhstan" />
+          <ScalarProperty Name="Local_Implementation_Lead_Jordan" ColumnName="Local Implementation Lead Jordan" />
+          <ScalarProperty Name="Local_Implementation_Lead_Japan" ColumnName="Local Implementation Lead Japan" />
+          <ScalarProperty Name="Local_Implementation_Lead_Jamaica" ColumnName="Local Implementation Lead Jamaica" />
+          <ScalarProperty Name="Local_Implementation_Lead_Italy" ColumnName="Local Implementation Lead Italy" />
+          <ScalarProperty Name="Local_Implementation_Lead_Israel" ColumnName="Local Implementation Lead Israel" />
+          <ScalarProperty Name="Local_Implementation_Lead_Ireland" ColumnName="Local Implementation Lead Ireland" />
+          <ScalarProperty Name="Local_Implementation_Lead_Indonesia" ColumnName="Local Implementation Lead Indonesia" />
+          <ScalarProperty Name="Local_Implementation_Lead_India" ColumnName="Local Implementation Lead India" />
+          <ScalarProperty Name="Local_Implementation_Lead_Hungary" ColumnName="Local Implementation Lead Hungary" />
+          <ScalarProperty Name="Local_Implementation_Lead_Hong_Kong" ColumnName="Local Implementation Lead Hong Kong" />
+          <ScalarProperty Name="Local_Implementation_Lead_Honduras" ColumnName="Local Implementation Lead Honduras" />
+          <ScalarProperty Name="Local_Implementation_Lead_Guinea" ColumnName="Local Implementation Lead Guinea" />
+          <ScalarProperty Name="Local_Implementation_Lead_Guatemala" ColumnName="Local Implementation Lead Guatemala" />
+          <ScalarProperty Name="Local_Implementation_Lead_Greece" ColumnName="Local Implementation Lead Greece" />
+          <ScalarProperty Name="Local_Implementation_Lead_Ghana" ColumnName="Local Implementation Lead Ghana" />
+          <ScalarProperty Name="Local_Implementation_Lead_Germany" ColumnName="Local Implementation Lead Germany" />
+          <ScalarProperty Name="Local_Implementation_Lead_Georgia" ColumnName="Local Implementation Lead Georgia" />
+          <ScalarProperty Name="Local_Implementation_Lead_Gabon" ColumnName="Local Implementation Lead Gabon" />
+          <ScalarProperty Name="Local_Implementation_Lead_France" ColumnName="Local Implementation Lead France" />
+          <ScalarProperty Name="Local_Implementation_Lead_Finland" ColumnName="Local Implementation Lead Finland" />
+          <ScalarProperty Name="Local_Implementation_Lead_Ethiopia" ColumnName="Local Implementation Lead Ethiopia" />
+          <ScalarProperty Name="Local_Implementation_Lead_Estonia" ColumnName="Local Implementation Lead Estonia" />
+          <ScalarProperty Name="Local_Implementation_Lead_El_Salvador" ColumnName="Local Implementation Lead El Salvador" />
+          <ScalarProperty Name="Local_Implementation_Lead_Egypt" ColumnName="Local Implementation Lead Egypt" />
+          <ScalarProperty Name="Local_Implementation_Lead_Ecuador" ColumnName="Local Implementation Lead Ecuador" />
+          <ScalarProperty Name="Local_Implementation_Lead_Dominican_Republic" ColumnName="Local Implementation Lead Dominican Republic" />
+          <ScalarProperty Name="Local_Implementation_Lead_Denmark" ColumnName="Local Implementation Lead Denmark" />
+          <ScalarProperty Name="Local_Implementation_Lead_Czech_Republic" ColumnName="Local Implementation Lead Czech Republic" />
+          <ScalarProperty Name="Local_Implementation_Lead_Cyprus" ColumnName="Local Implementation Lead Cyprus" />
+          <ScalarProperty Name="Local_Implementation_Lead_Croatia" ColumnName="Local Implementation Lead Croatia" />
+          <ScalarProperty Name="Local_Implementation_Lead_CÔTE_D_IVOIRE" ColumnName="Local Implementation Lead CÔTE D'IVOIRE" />
+          <ScalarProperty Name="Local_Implementation_Lead_Costa_Rica" ColumnName="Local Implementation Lead Costa Rica" />
+          <ScalarProperty Name="Local_Implementation_Lead_Colombia" ColumnName="Local Implementation Lead Colombia" />
+          <ScalarProperty Name="Local_Implementation_Lead_China" ColumnName="Local Implementation Lead China" />
+          <ScalarProperty Name="Local_Implementation_Lead_Chile" ColumnName="Local Implementation Lead Chile" />
+          <ScalarProperty Name="Local_Implementation_Lead_Cameroon" ColumnName="Local Implementation Lead Cameroon" />
+          <ScalarProperty Name="Local_Implementation_Lead_Cambodia" ColumnName="Local Implementation Lead Cambodia" />
+          <ScalarProperty Name="Local_Implementation_Lead_Burkina_Faso" ColumnName="Local Implementation Lead Burkina Faso" />
+          <ScalarProperty Name="Local_Implementation_Lead_Bulgaria" ColumnName="Local Implementation Lead Bulgaria" />
+          <ScalarProperty Name="Local_Implementation_Lead_Brunei_Darussalam" ColumnName="Local Implementation Lead Brunei Darussalam" />
+          <ScalarProperty Name="Local_Implementation_Lead_Brazil" ColumnName="Local Implementation Lead Brazil" />
+          <ScalarProperty Name="Local_Implementation_Lead_Botswana" ColumnName="Local Implementation Lead Botswana" />
+          <ScalarProperty Name="Local_Implementation_Lead_Bosnia_and_Herzegovina" ColumnName="Local Implementation Lead Bosnia and Herzegovina" />
+          <ScalarProperty Name="Local_Implementation_Lead_Bolivia" ColumnName="Local Implementation Lead Bolivia" />
+          <ScalarProperty Name="Local_Implementation_Lead_Belgium" ColumnName="Local Implementation Lead Belgium" />
+          <ScalarProperty Name="Local_Implementation_Lead_Belarus" ColumnName="Local Implementation Lead Belarus" />
+          <ScalarProperty Name="Local_Implementation_Lead_Bangladesh" ColumnName="Local Implementation Lead Bangladesh" />
+          <ScalarProperty Name="Local_Implementation_Lead_Bahrain" ColumnName="Local Implementation Lead Bahrain" />
+          <ScalarProperty Name="Local_Implementation_Lead_Azerbaijan" ColumnName="Local Implementation Lead Azerbaijan" />
+          <ScalarProperty Name="Local_Implementation_Lead_Austria" ColumnName="Local Implementation Lead Austria" />
+          <ScalarProperty Name="Local_Implementation_Lead_Australia" ColumnName="Local Implementation Lead Australia" />
+          <ScalarProperty Name="Local_Implementation_Lead_Argentina" ColumnName="Local Implementation Lead Argentina" />
+          <ScalarProperty Name="Local_Implementation_Lead_Angola" ColumnName="Local Implementation Lead Angola" />
+          <ScalarProperty Name="Local_Implementation_Lead_Algeria" ColumnName="Local Implementation Lead Algeria" />
+          <ScalarProperty Name="Local_Implementation_Lead_Albania" ColumnName="Local Implementation Lead Albania" />
+          <ScalarProperty Name="Local_Implementation_Lead" ColumnName="Local Implementation Lead" />
+          <ScalarProperty Name="LATAM_TS_Product_Support" ColumnName="LATAM TS Product Support" />
+          <ScalarProperty Name="LATAM_Traveler_Services" ColumnName="LATAM Traveler Services" />
+          <ScalarProperty Name="LATAM_Training" ColumnName="LATAM Training" />
+          <ScalarProperty Name="LATAM_Telephony_Team" ColumnName="LATAM Telephony Team" />
+          <ScalarProperty Name="LATAM_Project_Manager" ColumnName="LATAM Project Manager" />
+          <ScalarProperty Name="LATAM_Program_Manager_Venezuela" ColumnName="LATAM Program Manager Venezuela" />
+          <ScalarProperty Name="LATAM_Program_Manager_Uruguay" ColumnName="LATAM Program Manager Uruguay" />
+          <ScalarProperty Name="LATAM_Program_Manager_Peru" ColumnName="LATAM Program Manager Peru" />
+          <ScalarProperty Name="LATAM_Program_Manager_Paraguay" ColumnName="LATAM Program Manager Paraguay" />
+          <ScalarProperty Name="LATAM_Program_Manager_Panama" ColumnName="LATAM Program Manager Panama" />
+          <ScalarProperty Name="LATAM_Program_Manager_Mexico" ColumnName="LATAM Program Manager Mexico" />
+          <ScalarProperty Name="LATAM_Program_Manager_Guatemala" ColumnName="LATAM Program Manager Guatemala" />
+          <ScalarProperty Name="LATAM_Program_Manager_El_Salvador" ColumnName="LATAM Program Manager El Salvador" />
+          <ScalarProperty Name="LATAM_Program_Manager_Ecuador" ColumnName="LATAM Program Manager Ecuador" />
+          <ScalarProperty Name="LATAM_Program_Manager_Dominican_Republic" ColumnName="LATAM Program Manager Dominican Republic" />
+          <ScalarProperty Name="LATAM_Program_Manager_Costa_Rica" ColumnName="LATAM Program Manager Costa Rica" />
+          <ScalarProperty Name="LATAM_Program_Manager_Colombia" ColumnName="LATAM Program Manager Colombia" />
+          <ScalarProperty Name="LATAM_Program_Manager_Chile" ColumnName="LATAM Program Manager Chile" />
+          <ScalarProperty Name="LATAM_Program_Manager_Brazil" ColumnName="LATAM Program Manager Brazil" />
+          <ScalarProperty Name="LATAM_Program_Manager_Bolivia" ColumnName="LATAM Program Manager Bolivia" />
+          <ScalarProperty Name="LATAM_Program_Manager_Argentina" ColumnName="LATAM Program Manager Argentina" />
+          <ScalarProperty Name="LATAM_Program_Manager" ColumnName="LATAM Program Manager" />
+          <ScalarProperty Name="LATAM_Power_Center" ColumnName="LATAM Power Center" />
+          <ScalarProperty Name="LATAM_IT" ColumnName="LATAM IT" />
+          <ScalarProperty Name="LATAM_IMP_Lead" ColumnName="LATAM IMP Lead" />
+          <ScalarProperty Name="LATAM_GSC_project_lead" ColumnName="LATAM GSC project lead" />
+          <ScalarProperty Name="LATAM_GDS" ColumnName="LATAM GDS" />
+          <ScalarProperty Name="LATAM_Facilitities" ColumnName="LATAM Facilitities" />
+          <ScalarProperty Name="LATAM_DQS" ColumnName="LATAM DQS" />
+          <ScalarProperty Name="LATAM_CIS_Portrait_Lead" ColumnName="LATAM CIS Portrait Lead" />
+          <ScalarProperty Name="LATAM_CIS_OBT_Lead" ColumnName="LATAM CIS OBT Lead" />
+          <ScalarProperty Name="Implementation_Architect" ColumnName="Implementation Architect" />
+          <ScalarProperty Name="GSC_Project_Lead_Poland" ColumnName="GSC Project Lead Poland" />
+          <ScalarProperty Name="Group_Transport_Dir" ColumnName="Group Transport Dir" />
+          <ScalarProperty Name="Group_Support_Services" ColumnName="Group Support Services" />
+          <ScalarProperty Name="Group_Air_Ops_Mgr" ColumnName="Group Air Ops Mgr" />
+          <ScalarProperty Name="GPN_Partner_Operations" ColumnName="GPN Partner Operations" />
+          <ScalarProperty Name="GPN_Partner_Commercial" ColumnName="GPN Partner Commercial" />
+          <ScalarProperty Name="GPN_Operations" ColumnName="GPN Operations" />
+          <ScalarProperty Name="GPN_Commercial" ColumnName="GPN Commercial" />
+          <ScalarProperty Name="Global_Training" ColumnName="Global Training" />
+          <ScalarProperty Name="Global_TPSS_Lead" ColumnName="Global TPSS Lead" />
+          <ScalarProperty Name="Global_Technical_Fullfillment_Center_Lead" ColumnName="Global Technical Fullfillment Center Lead" />
+          <ScalarProperty Name="Global_Project_Manager" ColumnName="Global Project Manager" />
+          <ScalarProperty Name="Global_Program_Manager" ColumnName="Global Program Manager" />
+          <ScalarProperty Name="Global_Pre_Trip_Lead" ColumnName="Global Pre-Trip Lead" />
+          <ScalarProperty Name="Global_Power_Base" ColumnName="Global Power Base" />
+          <ScalarProperty Name="Global_Online_Support_Center_Lead" ColumnName="Global Online Support Center Lead" />
+          <ScalarProperty Name="Global_Hotel_Data_Center" ColumnName="Global Hotel Data Center" />
+          <ScalarProperty Name="Global_Facilities" ColumnName="Global Facilities" />
+          <ScalarProperty Name="Global_CIS_Product_Lead" ColumnName="Global CIS Product Lead" />
+          <ScalarProperty Name="Global_CIS_Portrait_Lead" ColumnName="Global CIS Portrait Lead" />
+          <ScalarProperty Name="Global_CIS_OBT_Lead" ColumnName="Global CIS OBT Lead" />
+          <ScalarProperty Name="Global_CIS_HR_Feed_Specialist" ColumnName="Global CIS HR Feed Specialist" />
+          <ScalarProperty Name="Global_CIS_DQS_Lead" ColumnName="Global CIS DQS Lead" />
+          <ScalarProperty Name="Global_3rd_Party_Data_Import_Lead" ColumnName="Global 3rd Party Data Import Lead" />
+          <ScalarProperty Name="Global_3rd_Party_Data_Export_Lead" ColumnName="Global 3rd Party Data Export Lead" />
+          <ScalarProperty Name="ERM_Support_Services" ColumnName="ERM Support Services" />
+          <ScalarProperty Name="ERM_Project_Lead" ColumnName="ERM Project Lead" />
+          <ScalarProperty Name="ERM_Logistics_Lead" ColumnName="ERM Logistics Lead" />
+          <ScalarProperty Name="ERM_Fares_Lead" ColumnName="ERM Fares Lead" />
+          <ScalarProperty Name="ERM_Crew_Lead" ColumnName="ERM Crew Lead" />
+          <ScalarProperty Name="ERM24_Lead" ColumnName="ERM24 Lead" />
+          <ScalarProperty Name="EMEA_Traveler_Services" ColumnName="EMEA Traveler Services" />
+          <ScalarProperty Name="EMEA_Training" ColumnName="EMEA Training" />
+          <ScalarProperty Name="EMEA_Telephony_Team" ColumnName="EMEA Telephony Team" />
+          <ScalarProperty Name="EMEA_Project_Manager" ColumnName="EMEA Project Manager" />
+          <ScalarProperty Name="EMEA_Program_Manager" ColumnName="EMEA Program Manager" />
+          <ScalarProperty Name="EMEA_Power_Center" ColumnName="EMEA Power Center" />
+          <ScalarProperty Name="EMEA_IMP_Lead" ColumnName="EMEA IMP Lead" />
+          <ScalarProperty Name="EMEA_GDS" ColumnName="EMEA GDS" />
+          <ScalarProperty Name="EMEA_DQS" ColumnName="EMEA DQS" />
+          <ScalarProperty Name="EMEA_CIS_Portrait_Lead" ColumnName="EMEA CIS Portrait Lead" />
+          <ScalarProperty Name="EMEA_CIS_OBT_Lead" ColumnName="EMEA CIS OBT Lead" />
+          <ScalarProperty Name="DQS_Support" ColumnName="DQS Support" />
+          <ScalarProperty Name="DQS_Import" ColumnName="DQS Import" />
+          <ScalarProperty Name="DSD_Lead" ColumnName="DSD Lead" />
+          <ScalarProperty Name="Solution_Engineer" ColumnName="Solution Engineer" />
+          <ScalarProperty Name="Client_Travel_Manager" ColumnName="Client Travel Manager" />
+          <ScalarProperty Name="Client_NORAM_Manager" ColumnName="Client NORAM Manager" />
+          <ScalarProperty Name="Client_LATAM_Manager" ColumnName="Client LATAM Manager" />
+          <ScalarProperty Name="Client_IT_Lead" ColumnName="Client IT Lead" />
+          <ScalarProperty Name="Client_Global_Hotels_M_E" ColumnName="Client Global Hotels M&amp;E" />
+          <ScalarProperty Name="Client_Finance_Lead" ColumnName="Client Finance Lead" />
+          <ScalarProperty Name="Client_EMEA_Manager" ColumnName="Client EMEA Manager" />
+          <ScalarProperty Name="Client_APAC_Manager" ColumnName="Client APAC Manager" />
+          <ScalarProperty Name="APAC_Traveler_Services" ColumnName="APAC Traveler Services" />
+          <ScalarProperty Name="APAC_Training" ColumnName="APAC Training" />
+          <ScalarProperty Name="APAC_Telephony_Team" ColumnName="APAC Telephony Team" />
+          <ScalarProperty Name="APAC_Project_Manager" ColumnName="APAC Project Manager" />
+          <ScalarProperty Name="APAC_Program_Manager" ColumnName="APAC Program Manager" />
+          <ScalarProperty Name="APAC_Power_Center" ColumnName="APAC Power Center" />
+          <ScalarProperty Name="APAC_IMP_Lead" ColumnName="APAC IMP Lead" />
+          <ScalarProperty Name="APAC_GDS" ColumnName="APAC GDS" />
+          <ScalarProperty Name="APAC_DQS" ColumnName="APAC DQS" />
+          <ScalarProperty Name="APAC_CIS_Portrait_Lead" ColumnName="APAC CIS Portrait Lead" />
+          <ScalarProperty Name="APAC_CIS_OBT_Lead" ColumnName="APAC CIS OBT Lead" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace Title" />
+          <ScalarProperty Name="RolesID" ColumnName="RolesID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="CWTModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+          <ScalarProperty Name="UserRegion" ColumnName="UserRegion" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTOes">
+      <EntityTypeMapping TypeName="CWTModel.CTO">
+        <MappingFragment StoreEntitySet="CTO">
+          <ScalarProperty Name="Last_Comment" ColumnName="Last Comment" />
+          <ScalarProperty Name="Milestone__Project_Start_Date" ColumnName="Milestone: Project Start Date" />
+          <ScalarProperty Name="Workspace__Project_Level" ColumnName="Workspace: Project Level" />
+          <ScalarProperty Name="Task_Due_Date" ColumnName="Task Due Date" />
+          <ScalarProperty Name="Task_Start_Date" ColumnName="Task Start Date" />
+          <ScalarProperty Name="Task_Overdue" ColumnName="Task Overdue" />
+          <ScalarProperty Name="Task_Status" ColumnName="Task Status" />
+          <ScalarProperty Name="Task__Assignee__Full_Name" ColumnName="Task: Assignee: Full Name" />
+          <ScalarProperty Name="Task_Title" ColumnName="Task Title" />
+          <ScalarProperty Name="Task_List_Title" ColumnName="Task List Title" />
+          <ScalarProperty Name="Milestone__Country_Status" ColumnName="Milestone: Country Status" />
+          <ScalarProperty Name="Milestone_Due_Date" ColumnName="Milestone Due Date" />
+          <ScalarProperty Name="Milestone__Assignee__Full_Name" ColumnName="Milestone: Assignee: Full Name" />
+          <ScalarProperty Name="Milestone_Title" ColumnName="Milestone Title" />
+          <ScalarProperty Name="Milestone__Country" ColumnName="Milestone: Country" />
+          <ScalarProperty Name="Milestone__Region" ColumnName="Milestone: Region" />
+          <ScalarProperty Name="Group_Name" ColumnName="Group Name" />
+          <ScalarProperty Name="Milestone__Project_Status" ColumnName="Milestone: Project Status" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace Title" />
+          <ScalarProperty Name="Estimated_Go_Live" ColumnName="Estimated Go Live" />
+          <ScalarProperty Name="Critical_Overdue" ColumnName="Critical Overdue" />
+          <ScalarProperty Name="Milestone_Title_Country___Est_Go_Live_Date" ColumnName="Milestone Title-Country:  Est Go Live Date" />
+          <ScalarProperty Name="CTOID" ColumnName="CTOID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMPS">
+      <EntityTypeMapping TypeName="CWTModel.IMP">
+        <MappingFragment StoreEntitySet="IMPS">
+          <ScalarProperty Name="Milestone__Closed_Loop_Owner" ColumnName="Milestone: Closed Loop Owner" />
+          <ScalarProperty Name="Milestone__Reason_Code" ColumnName="Milestone: Reason Code" />
+          <ScalarProperty Name="Milestone__Project_Notes" ColumnName="Milestone: Project Notes" />
+          <ScalarProperty Name="Milestone__CRM_Revenue_ID__" ColumnName="Milestone: CRM Revenue ID #" />
+          <ScalarProperty Name="Task_Start_Date" ColumnName="Task Start Date" />
+          <ScalarProperty Name="Task__Task_Record_ID_Key" ColumnName="Task: Task Record ID Key" />
+          <ScalarProperty Name="Task_Title" ColumnName="Task Title" />
+          <ScalarProperty Name="Milestone__Assignee__Reports_to__Full_Name" ColumnName="Milestone: Assignee: Reports to: Full Name" />
+          <ScalarProperty Name="Milestone__Assignee__Full_Name" ColumnName="Milestone: Assignee: Full Name" />
+          <ScalarProperty Name="Milestone__Project_Start_Date" ColumnName="Milestone: Project Start Date" />
+          <ScalarProperty Name="C__Complete" ColumnName="% Complete" />
+          <ScalarProperty Name="Milestone__Project_Status" ColumnName="Milestone: Project Status" />
+          <ScalarProperty Name="Milestone__Country" ColumnName="Milestone: Country" />
+          <ScalarProperty Name="Milestone__Record_ID_Key" ColumnName="Milestone: Record ID Key" />
+          <ScalarProperty Name="Milestone__Region" ColumnName="Milestone: Region" />
+          <ScalarProperty Name="Milestone_Title" ColumnName="Milestone Title" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Comments" ColumnName="Workspace: ELT Overall Comments" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Status" ColumnName="Workspace: ELT Overall Status" />
+          <ScalarProperty Name="Workspace__Project_Level" ColumnName="Workspace: Project Level" />
+          <ScalarProperty Name="Workspace__CRM_Customer_Row_ID" ColumnName="Workspace: CRM Customer Row ID" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace Title" />
+          <ScalarProperty Name="IMPSID" ColumnName="IMPSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eSOWs">
+      <EntityTypeMapping TypeName="CWTModel.eSOW">
+        <MappingFragment StoreEntitySet="eSOW">
+          <ScalarProperty Name="STATUS111" ColumnName="STATUS111" />
+          <ScalarProperty Name="RIVT_Ticketing__automated_ticket_issuance" ColumnName="RIVT_Ticketing: automated ticket issuance" />
+          <ScalarProperty Name="STATUS110" ColumnName="STATUS110" />
+          <ScalarProperty Name="MOSX_Business_intelligence_platform__simple_language_query" ColumnName="MOSX_Business intelligence platform: simple language query" />
+          <ScalarProperty Name="STATUS109" ColumnName="STATUS109" />
+          <ScalarProperty Name="WELE_Travel_policy_compliance__low_hotel_rate_guarantee" ColumnName="WELE_Travel policy compliance: low hotel rate guarantee" />
+          <ScalarProperty Name="STATUS108" ColumnName="STATUS108" />
+          <ScalarProperty Name="RGPA_Hotel_reviews__core" ColumnName="RGPA_Hotel reviews: core" />
+          <ScalarProperty Name="STATUS107" ColumnName="STATUS107" />
+          <ScalarProperty Name="FWGL_Email_reservations__web_form" ColumnName="FWGL_Email reservations: web form" />
+          <ScalarProperty Name="STATUS106" ColumnName="STATUS106" />
+          <ScalarProperty Name="RTYP_Bespoke_online_and_or_offline_service_configuration" ColumnName="RTYP_Bespoke online and/or offline service configuration" />
+          <ScalarProperty Name="STATUS105" ColumnName="STATUS105" />
+          <ScalarProperty Name="ARDZ_PNR_acquisition__online_booking_tool" ColumnName="ARDZ_PNR acquisition: online booking tool" />
+          <ScalarProperty Name="STATUS104" ColumnName="STATUS104" />
+          <ScalarProperty Name="QPGZ_CWT_profile__worldwide_access" ColumnName="QPGZ_CWT profile: worldwide access" />
+          <ScalarProperty Name="STATUS103" ColumnName="STATUS103" />
+          <ScalarProperty Name="SQQQ_Third_party_audit__Topaz" ColumnName="SQQQ_Third-party audit: Topaz" />
+          <ScalarProperty Name="STATUS102" ColumnName="STATUS102" />
+          <ScalarProperty Name="QJDF_Online_booking_tool__direct_client_agreement" ColumnName="QJDF_Online booking tool: direct client agreement" />
+          <ScalarProperty Name="STATUS101" ColumnName="STATUS101" />
+          <ScalarProperty Name="OVRM_Automated_communication_service__enhanced" ColumnName="OVRM_Automated communication service: enhanced" />
+          <ScalarProperty Name="STATUS100" ColumnName="STATUS100" />
+          <ScalarProperty Name="EACH_Virtual_payment_card__CWT" ColumnName="EACH_Virtual payment card: CWT" />
+          <ScalarProperty Name="STATUS99" ColumnName="STATUS99" />
+          <ScalarProperty Name="ZXTI_Marine_offshore_fare_qualification_letter" ColumnName="ZXTI_Marine/offshore fare qualification letter" />
+          <ScalarProperty Name="STATUS98" ColumnName="STATUS98" />
+          <ScalarProperty Name="JBFR_ERM24" ColumnName="JBFR_ERM24" />
+          <ScalarProperty Name="STATUS97" ColumnName="STATUS97" />
+          <ScalarProperty Name="JPXJ_Price_optimization__hotels" ColumnName="JPXJ_Price optimization: hotels" />
+          <ScalarProperty Name="STATUS96" ColumnName="STATUS96" />
+          <ScalarProperty Name="DXLI_Trip_estimator" ColumnName="DXLI_Trip estimator" />
+          <ScalarProperty Name="STATUS95" ColumnName="STATUS95" />
+          <ScalarProperty Name="DGOF_Rail_bookings__CWT_integrated_solution" ColumnName="DGOF_Rail bookings: CWT integrated solution" />
+          <ScalarProperty Name="STATUS94" ColumnName="STATUS94" />
+          <ScalarProperty Name="AUXU_Car_reservations__GDS" ColumnName="AUXU_Car reservations: GDS" />
+          <ScalarProperty Name="STATUS93" ColumnName="STATUS93" />
+          <ScalarProperty Name="OQPL_Visa_procurement" ColumnName="OQPL_Visa procurement" />
+          <ScalarProperty Name="STATUS92" ColumnName="STATUS92" />
+          <ScalarProperty Name="BTNC_Online_booking_tool__CWT_preferred_reseller" ColumnName="BTNC_Online booking tool: CWT preferred reseller" />
+          <ScalarProperty Name="STATUS91" ColumnName="STATUS91" />
+          <ScalarProperty Name="JAWT_Automated_communication_service__core" ColumnName="JAWT_Automated communication service: core" />
+          <ScalarProperty Name="STATUS90" ColumnName="STATUS90" />
+          <ScalarProperty Name="IIYW_Client_owned_accomodation_management" ColumnName="IIYW_Client owned accomodation management" />
+          <ScalarProperty Name="STATUS89" ColumnName="STATUS89" />
+          <ScalarProperty Name="WGCZ_Airfare_shop_and_book__client_customized" ColumnName="WGCZ_Airfare shop and book: client customized" />
+          <ScalarProperty Name="STATUS88" ColumnName="STATUS88" />
+          <ScalarProperty Name="XYBH_Client_selected_GDS_agreement" ColumnName="XYBH_Client selected GDS agreement" />
+          <ScalarProperty Name="STATUS87" ColumnName="STATUS87" />
+          <ScalarProperty Name="PAIJ_Business_intelligence_platform" ColumnName="PAIJ_Business intelligence platform" />
+          <ScalarProperty Name="STATUS86" ColumnName="STATUS86" />
+          <ScalarProperty Name="QADG_myCWT_messaging" ColumnName="QADG_myCWT messaging" />
+          <ScalarProperty Name="STATUS85" ColumnName="STATUS85" />
+          <ScalarProperty Name="YCIW_Management_of_airline_seat_allotment_contracts" ColumnName="YCIW_Management of airline seat allotment contracts" />
+          <ScalarProperty Name="STATUS84" ColumnName="STATUS84" />
+          <ScalarProperty Name="NYBI_Evacuation_business_continuity_services" ColumnName="NYBI_Evacuation/business continuity services" />
+          <ScalarProperty Name="STATUS83" ColumnName="STATUS83" />
+          <ScalarProperty Name="GMTR_VIP_services" ColumnName="GMTR_VIP services" />
+          <ScalarProperty Name="STATUS82" ColumnName="STATUS82" />
+          <ScalarProperty Name="VWPY_Approval_process__manual_process__CWT_managed" ColumnName="VWPY_Approval process: manual process, CWT managed" />
+          <ScalarProperty Name="STATUS81" ColumnName="STATUS81" />
+          <ScalarProperty Name="EVZJ_Meal_assignments__automated_and_manual" ColumnName="EVZJ_Meal assignments: automated and manual" />
+          <ScalarProperty Name="STATUS80" ColumnName="STATUS80" />
+          <ScalarProperty Name="VCPH_Reason_codes__CWT_defined___flight_reservations" ColumnName="VCPH_Reason codes: CWT defined - flight reservations" />
+          <ScalarProperty Name="STATUS79" ColumnName="STATUS79" />
+          <ScalarProperty Name="KUYY_myCWT_online__custom_inbound_single_sign_on" ColumnName="KUYY_myCWT online: custom inbound single sign-on" />
+          <ScalarProperty Name="STATUS78" ColumnName="STATUS78" />
+          <ScalarProperty Name="ZYQO_Rail_bookings__GDS" ColumnName="ZYQO_Rail bookings: GDS" />
+          <ScalarProperty Name="STATUS77" ColumnName="STATUS77" />
+          <ScalarProperty Name="BDZJ_Approval_process__Concur_request_or_Trondent__automated_" ColumnName="BDZJ_Approval process: Concur request or Trondent (automated)" />
+          <ScalarProperty Name="STATUS76" ColumnName="STATUS76" />
+          <ScalarProperty Name="ZCVT_Email_reservations__unformatted_inbound_emails" ColumnName="ZCVT_Email reservations: unformatted inbound emails" />
+          <ScalarProperty Name="STATUS75" ColumnName="STATUS75" />
+          <ScalarProperty Name="WIGN_Travel_policy__multi_level_policy__subunit_and_traveler_typ" ColumnName="WIGN_Travel policy: multi-level policy (subunit and traveler typ" />
+          <ScalarProperty Name="STATUS74" ColumnName="STATUS74" />
+          <ScalarProperty Name="PSXB_Enhanced_visa_services" ColumnName="PSXB_Enhanced visa services" />
+          <ScalarProperty Name="STATUS73" ColumnName="STATUS73" />
+          <ScalarProperty Name="GSWX_myCWT_online" ColumnName="GSWX_myCWT online" />
+          <ScalarProperty Name="STATUS72" ColumnName="STATUS72" />
+          <ScalarProperty Name="SGLF_Unused_ticket_tracking__automated" ColumnName="SGLF_Unused ticket tracking: automated" />
+          <ScalarProperty Name="STATUS71" ColumnName="STATUS71" />
+          <ScalarProperty Name="VDSK_Hotel_services_powered_by_RoomIt__client_rates" ColumnName="VDSK_Hotel services powered by RoomIt: client rates" />
+          <ScalarProperty Name="STATUS70" ColumnName="STATUS70" />
+          <ScalarProperty Name="PZSP_Rail_bookings__web___non_GDS" ColumnName="PZSP_Rail bookings: web - non GDS" />
+          <ScalarProperty Name="STATUS69" ColumnName="STATUS69" />
+          <ScalarProperty Name="QHPE_Reason_codes__client_customized__flight__car__hotel_only_" ColumnName="QHPE_Reason codes: client customized (flight, car, hotel only)" />
+          <ScalarProperty Name="STATUS68" ColumnName="STATUS68" />
+          <ScalarProperty Name="HJIC_Travel_policy__CWT_standard" ColumnName="HJIC_Travel policy: CWT standard" />
+          <ScalarProperty Name="STATUS67" ColumnName="STATUS67" />
+          <ScalarProperty Name="HSSR_Safety_and_security__enhanced" ColumnName="HSSR_Safety and security: enhanced" />
+          <ScalarProperty Name="STATUS66" ColumnName="STATUS66" />
+          <ScalarProperty Name="APRT_Flight_reservations__airline_consolidators___non_GDS" ColumnName="APRT_Flight reservations: airline consolidators - non GDS" />
+          <ScalarProperty Name="STATUS65" ColumnName="STATUS65" />
+          <ScalarProperty Name="MJNE_Seat_assignments__automated_and_manual" ColumnName="MJNE_Seat assignments: automated and manual" />
+          <ScalarProperty Name="STATUS64" ColumnName="STATUS64" />
+          <ScalarProperty Name="CABH_Price_optimization__flights_post_ticket" ColumnName="CABH_Price optimization: flights post-ticket" />
+          <ScalarProperty Name="STATUS63" ColumnName="STATUS63" />
+          <ScalarProperty Name="BQRQ_Hotel_reviews__enhanced" ColumnName="BQRQ_Hotel reviews: enhanced" />
+          <ScalarProperty Name="STATUS62" ColumnName="STATUS62" />
+          <ScalarProperty Name="JDNI_ERM_Fares_in_conjunction_with_an_OBT_offline_module_or_PNR_" ColumnName="JDNI_ERM Fares in conjunction with an OBT offline module or PNR " />
+          <ScalarProperty Name="STATUS61" ColumnName="STATUS61" />
+          <ScalarProperty Name="UEJR_Traveler_technical_support" ColumnName="UEJR_Traveler technical support" />
+          <ScalarProperty Name="STATUS60" ColumnName="STATUS60" />
+          <ScalarProperty Name="TCMQ_Hotel_reservations__client_hotel_aggregator___CWT_managed" ColumnName="TCMQ_Hotel reservations: client hotel aggregator - CWT managed" />
+          <ScalarProperty Name="STATUS59" ColumnName="STATUS59" />
+          <ScalarProperty Name="FBMC_Safety_and_security__core" ColumnName="FBMC_Safety and security: core" />
+          <ScalarProperty Name="STATUS58" ColumnName="STATUS58" />
+          <ScalarProperty Name="LLHS_Invoicing_billback_on_account__car_and_hotel_only" ColumnName="LLHS_Invoicing/billback/on-account: car and hotel only" />
+          <ScalarProperty Name="STATUS57" ColumnName="STATUS57" />
+          <ScalarProperty Name="VFDI_Flight_reservations__low_cost_carriers___integrated_content" ColumnName="VFDI_Flight reservations: low cost carriers - integrated content" />
+          <ScalarProperty Name="STATUS56" ColumnName="STATUS56" />
+          <ScalarProperty Name="HBWX_CWT_profile__travel_counselor_updates" ColumnName="HBWX_CWT profile: travel counselor updates" />
+          <ScalarProperty Name="STATUS55" ColumnName="STATUS55" />
+          <ScalarProperty Name="EXLI_Visa_advisory" ColumnName="EXLI_Visa advisory" />
+          <ScalarProperty Name="STATUS54" ColumnName="STATUS54" />
+          <ScalarProperty Name="FWEW_ERM_Fares" ColumnName="FWEW_ERM Fares" />
+          <ScalarProperty Name="STATUS53" ColumnName="STATUS53" />
+          <ScalarProperty Name="QPCT_Hotel_services_powered_by_RoomIt__published_and_CWT_rates" ColumnName="QPCT_Hotel services powered by RoomIt: published and CWT rates" />
+          <ScalarProperty Name="STATUS52" ColumnName="STATUS52" />
+          <ScalarProperty Name="SRYN_Flight_reservation__group_travel___business_travel_commerci" ColumnName="SRYN_Flight reservation: group travel - business travel/commerci" />
+          <ScalarProperty Name="STATUS51" ColumnName="STATUS51" />
+          <ScalarProperty Name="QQOV_Invoice__traveler_or_company" ColumnName="QQOV_Invoice: traveler or company" />
+          <ScalarProperty Name="STATUS50" ColumnName="STATUS50" />
+          <ScalarProperty Name="RARJ_Ground_transportation_reservations__taxi__bus__coach__limo_" ColumnName="RARJ_Ground transportation reservations: taxi, bus, coach, limo," />
+          <ScalarProperty Name="STATUS49" ColumnName="STATUS49" />
+          <ScalarProperty Name="MNTG_Travel_manager_satisfaction_survey" ColumnName="MNTG_Travel manager satisfaction survey" />
+          <ScalarProperty Name="STATUS48" ColumnName="STATUS48" />
+          <ScalarProperty Name="LNCL_Fax_reservations" ColumnName="LNCL_Fax reservations" />
+          <ScalarProperty Name="STATUS47" ColumnName="STATUS47" />
+          <ScalarProperty Name="TGWG_Approval_process__online_booking_tool__automated_" ColumnName="TGWG_Approval process: online booking tool (automated)" />
+          <ScalarProperty Name="STATUS46" ColumnName="STATUS46" />
+          <ScalarProperty Name="PICY_Service_Level_Agreement__SLA___client_customized" ColumnName="PICY_Service Level Agreement (SLA): client customized" />
+          <ScalarProperty Name="STATUS45" ColumnName="STATUS45" />
+          <ScalarProperty Name="VINY_CWT_profile__self_service" ColumnName="VINY_CWT profile: self service" />
+          <ScalarProperty Name="STATUS44" ColumnName="STATUS44" />
+          <ScalarProperty Name="OHEE_Airfare_shop_and_book__CWT_standard" ColumnName="OHEE_Airfare shop and book: CWT standard" />
+          <ScalarProperty Name="STATUS43" ColumnName="STATUS43" />
+          <ScalarProperty Name="OXAC_Bespoke_client_processes__i_e__multipax__quality_control__e" ColumnName="OXAC_Bespoke client processes: i#e# multipax, quality control, e" />
+          <ScalarProperty Name="STATUS42" ColumnName="STATUS42" />
+          <ScalarProperty Name="OJMQ_Online_booking_tool__offline_module___direct_client_agreeme" ColumnName="OJMQ_Online booking tool: offline module - direct client agreeme" />
+          <ScalarProperty Name="STATUS41" ColumnName="STATUS41" />
+          <ScalarProperty Name="QRUE_Management_of_anticipated_seat_reservations" ColumnName="QRUE_Management of anticipated seat reservations" />
+          <ScalarProperty Name="STATUS40" ColumnName="STATUS40" />
+          <ScalarProperty Name="MYRU_Duplicate_invoice_requests" ColumnName="MYRU_Duplicate invoice requests" />
+          <ScalarProperty Name="STATUS39" ColumnName="STATUS39" />
+          <ScalarProperty Name="KHZQ_Flight_reservations__GDS___published_and_CWT_fares" ColumnName="KHZQ_Flight reservations: GDS - published and CWT fares" />
+          <ScalarProperty Name="STATUS38" ColumnName="STATUS38" />
+          <ScalarProperty Name="YVLO_Airline_upgrade_programs" ColumnName="YVLO_Airline upgrade programs" />
+          <ScalarProperty Name="STATUS37" ColumnName="STATUS37" />
+          <ScalarProperty Name="WVDN_Rail_bookings__client_customized_integration" ColumnName="WVDN_Rail bookings: client customized integration" />
+          <ScalarProperty Name="STATUS36" ColumnName="STATUS36" />
+          <ScalarProperty Name="OHZH_myCWT_mobile" ColumnName="OHZH_myCWT mobile" />
+          <ScalarProperty Name="STATUS35" ColumnName="STATUS35" />
+          <ScalarProperty Name="QZIX_Credit_card" ColumnName="QZIX_Credit card" />
+          <ScalarProperty Name="STATUS34" ColumnName="STATUS34" />
+          <ScalarProperty Name="UOVS_Bespoke_client_tool_integration_with_booking_process" ColumnName="UOVS_Bespoke client tool integration with booking process" />
+          <ScalarProperty Name="STATUS33" ColumnName="STATUS33" />
+          <ScalarProperty Name="ZZZI_Travel_policy_compliance__low_air_fare_guarantee" ColumnName="ZZZI_Travel policy compliance: low air fare guarantee" />
+          <ScalarProperty Name="STATUS32" ColumnName="STATUS32" />
+          <ScalarProperty Name="GIOZ_Itinerary__configurable" ColumnName="GIOZ_Itinerary: configurable" />
+          <ScalarProperty Name="STATUS31" ColumnName="STATUS31" />
+          <ScalarProperty Name="GIBN_Invoicing_billback_on_account__flight_only" ColumnName="GIBN_Invoicing/billback/on-account: flight only" />
+          <ScalarProperty Name="STATUS30" ColumnName="STATUS30" />
+          <ScalarProperty Name="CKWH_Same_flight_reporting__manual_post_booking_process" ColumnName="CKWH_Same flight reporting: manual post-booking process" />
+          <ScalarProperty Name="STATUS29" ColumnName="STATUS29" />
+          <ScalarProperty Name="TZUL_Traveler_satisfaction_survey" ColumnName="TZUL_Traveler satisfaction survey" />
+          <ScalarProperty Name="STATUS28" ColumnName="STATUS28" />
+          <ScalarProperty Name="WHQW_Voice" ColumnName="WHQW_Voice" />
+          <ScalarProperty Name="STATUS27" ColumnName="STATUS27" />
+          <ScalarProperty Name="CGZS_End_to_end_logistics_via_ERM_mobility" ColumnName="CGZS_End-to-end logistics via ERM mobility" />
+          <ScalarProperty Name="STATUS26" ColumnName="STATUS26" />
+          <ScalarProperty Name="YNGA_Data_feed__third_party___CWT_standard_feed" ColumnName="YNGA_Data feed: third-party - CWT standard feed" />
+          <ScalarProperty Name="STATUS25" ColumnName="STATUS25" />
+          <ScalarProperty Name="PODK_Travel_insurance" ColumnName="PODK_Travel insurance" />
+          <ScalarProperty Name="STATUS24" ColumnName="STATUS24" />
+          <ScalarProperty Name="HCGS_Flight_reservations__scheduled_carriers___web_bookings" ColumnName="HCGS_Flight reservations: scheduled carriers - web bookings" />
+          <ScalarProperty Name="STATUS23" ColumnName="STATUS23" />
+          <ScalarProperty Name="HJIO_Credit_card_reconciliation" ColumnName="HJIO_Credit card reconciliation" />
+          <ScalarProperty Name="STATUS22" ColumnName="STATUS22" />
+          <ScalarProperty Name="CCGP_Unused_ticket_tracking__manual" ColumnName="CCGP_Unused ticket tracking: manual" />
+          <ScalarProperty Name="STATUS21" ColumnName="STATUS21" />
+          <ScalarProperty Name="OMGO_Client_defined_data__transactional" ColumnName="OMGO_Client defined data: transactional" />
+          <ScalarProperty Name="STATUS20" ColumnName="STATUS20" />
+          <ScalarProperty Name="XBVI_Predeparture_email" ColumnName="XBVI_Predeparture email" />
+          <ScalarProperty Name="STATUS19" ColumnName="STATUS19" />
+          <ScalarProperty Name="VOWW_Approval_process__client_customized_integration" ColumnName="VOWW_Approval process: client customized integration" />
+          <ScalarProperty Name="STATUS18" ColumnName="STATUS18" />
+          <ScalarProperty Name="QHEE_Reason_codes__CWT_defined___car_reservations" ColumnName="QHEE_Reason codes: CWT defined - car reservations" />
+          <ScalarProperty Name="STATUS17" ColumnName="STATUS17" />
+          <ScalarProperty Name="RKYA_Lodge_card_business_travel_account__BTA_" ColumnName="RKYA_Lodge card/business travel account (BTA)" />
+          <ScalarProperty Name="STATUS16" ColumnName="STATUS16" />
+          <ScalarProperty Name="UBXF_Flight_reservations__low_cost_carriers___web_bookings" ColumnName="UBXF_Flight reservations: low cost carriers - web bookings" />
+          <ScalarProperty Name="STATUS15" ColumnName="STATUS15" />
+          <ScalarProperty Name="LKZB_Relocation_services__client_customized" ColumnName="LKZB_Relocation services: client customized" />
+          <ScalarProperty Name="STATUS14" ColumnName="STATUS14" />
+          <ScalarProperty Name="KMWF_Loyalty_program_cards__i_e__frequent_flyer__hotel_chain__et" ColumnName="KMWF_Loyalty program cards: i#e# frequent flyer, hotel chain, et" />
+          <ScalarProperty Name="STATUS13" ColumnName="STATUS13" />
+          <ScalarProperty Name="LJHL_CWT_Meetings_and_Events" ColumnName="LJHL_CWT Meetings and Events" />
+          <ScalarProperty Name="STATUS12" ColumnName="STATUS12" />
+          <ScalarProperty Name="AZBX_Itinerary__client_customized" ColumnName="AZBX_Itinerary: client customized" />
+          <ScalarProperty Name="STATUS11" ColumnName="STATUS11" />
+          <ScalarProperty Name="PJIP_Reason_codes__CWT_defined___hotel_reservations" ColumnName="PJIP_Reason codes: CWT defined - hotel reservations" />
+          <ScalarProperty Name="STATUS10" ColumnName="STATUS10" />
+          <ScalarProperty Name="JEYQ_Expedited_implementation" ColumnName="JEYQ_Expedited implementation" />
+          <ScalarProperty Name="STATUS9" ColumnName="STATUS9" />
+          <ScalarProperty Name="GRAZ_CWT_profile__guest_traveler___travel_counselor_creation" ColumnName="GRAZ_CWT profile: guest traveler - travel counselor creation" />
+          <ScalarProperty Name="STATUS8" ColumnName="STATUS8" />
+          <ScalarProperty Name="DQLX_Travel_and_ticketing_modifications__counsellor" ColumnName="DQLX_Travel and ticketing modifications: counsellor" />
+          <ScalarProperty Name="STATUS7" ColumnName="STATUS7" />
+          <ScalarProperty Name="XQYJ_Airline_soft_dollar_programs" ColumnName="XQYJ_Airline soft dollar programs" />
+          <ScalarProperty Name="STATUS6" ColumnName="STATUS6" />
+          <ScalarProperty Name="JAAY_Flight_reservations__GDS___client_fares" ColumnName="JAAY_Flight reservations: GDS - client fares" />
+          <ScalarProperty Name="STATUS5" ColumnName="STATUS5" />
+          <ScalarProperty Name="JPZL_Virtual_payment_card__client" ColumnName="JPZL_Virtual payment card: client" />
+          <ScalarProperty Name="STATUS4" ColumnName="STATUS4" />
+          <ScalarProperty Name="UYSN_GDS_waitlists" ColumnName="UYSN_GDS waitlists" />
+          <ScalarProperty Name="STATUS3" ColumnName="STATUS3" />
+          <ScalarProperty Name="VDUE_Itinerary__standard" ColumnName="VDUE_Itinerary: standard" />
+          <ScalarProperty Name="STATUS2" ColumnName="STATUS2" />
+          <ScalarProperty Name="UBNQ_Client_owned_booking_request_system" ColumnName="UBNQ_Client-owned booking request system" />
+          <ScalarProperty Name="STATUS1" ColumnName="STATUS1" />
+          <ScalarProperty Name="CPKI_Client_GDS_access" ColumnName="CPKI_Client GDS access" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="XYCT_Private_jet_aircraft_charters__non_GDS" ColumnName="XYCT_Private jet-aircraft charters: non GDS" />
+          <ScalarProperty Name="Action_Item" ColumnName="Action Item" />
+          <ScalarProperty Name="Implementation_Ready" ColumnName="Implementation Ready" />
+          <ScalarProperty Name="Pricing_Ready" ColumnName="Pricing Ready" />
+          <ScalarProperty Name="SOW_Status" ColumnName="SOW Status" />
+          <ScalarProperty Name="WebPEM_Status" ColumnName="WebPEM Status" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last Modified Date" />
+          <ScalarProperty Name="Number_of_Countries" ColumnName="Number of Countries" />
+          <ScalarProperty Name="Go_Live_date_estimated_" ColumnName="Go-Live date estimated " />
+          <ScalarProperty Name="Date_notified_of_win_or_loss" ColumnName="Date notified of win or loss" />
+          <ScalarProperty Name="Date_Decision_Expected" ColumnName="Date Decision Expected" />
+          <ScalarProperty Name="SOW_Creation_Date" ColumnName="SOW Creation Date" />
+          <ScalarProperty Name="Date_RFP_Received" ColumnName="Date RFP Received" />
+          <ScalarProperty Name="Client_s_Industry" ColumnName="Client's Industry" />
+          <ScalarProperty Name="Client_Region" ColumnName="Client Region" />
+          <ScalarProperty Name="CRM_Status" ColumnName="CRM Status" />
+          <ScalarProperty Name="Prospect_Type" ColumnName="Prospect Type" />
+          <ScalarProperty Name="Geographic_Scope" ColumnName="Geographic Scope" />
+          <ScalarProperty Name="Bid_originated_by_" ColumnName="Bid originated by:" />
+          <ScalarProperty Name="Total_traffic_in_Million_USD__air_rail_only_" ColumnName="Total traffic in Million USD (air+rail only)" />
+          <ScalarProperty Name="SOW_Owner" ColumnName="SOW Owner" />
+          <ScalarProperty Name="DSD_Lead" ColumnName="DSD Lead" />
+          <ScalarProperty Name="Sales_Leader_type_and_Type_of_bid" ColumnName="Sales Leader type and Type of bid" />
+          <ScalarProperty Name="Sales_Lead_Name" ColumnName="Sales Lead Name" />
+          <ScalarProperty Name="Client__Prospect" ColumnName="Client/ Prospect" />
+          <ScalarProperty Name="Required_Configuration" ColumnName="Required Configuration" />
+          <ScalarProperty Name="CRM_Opportunity_ID" ColumnName="CRM Opportunity ID" />
+          <ScalarProperty Name="SOW_Name" ColumnName="SOW Name" />
+          <ScalarProperty Name="Customizable" ColumnName="Customizable" />
+          <ScalarProperty Name="Configurable" ColumnName="Configurable" />
+          <ScalarProperty Name="Essential" ColumnName="Essential" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="eSOWID" ColumnName="eSOWID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLRs">
+      <EntityTypeMapping TypeName="CWTModel.CLR">
+        <MappingFragment StoreEntitySet="CLR">
+          <ScalarProperty Name="Cycle_Time" ColumnName="Cycle Time" />
+          <ScalarProperty Name="C30_Dec" ColumnName="30-Dec" />
+          <ScalarProperty Name="C23_Dec" ColumnName="23-Dec" />
+          <ScalarProperty Name="C16_Dec" ColumnName="16-Dec" />
+          <ScalarProperty Name="C09_Dec" ColumnName="09-Dec" />
+          <ScalarProperty Name="C02_Dec" ColumnName="02-Dec" />
+          <ScalarProperty Name="C25_Nov" ColumnName="25-Nov" />
+          <ScalarProperty Name="C18_Nov" ColumnName="18-Nov" />
+          <ScalarProperty Name="C11_Nov" ColumnName="11-Nov" />
+          <ScalarProperty Name="C04_Nov" ColumnName="04-Nov" />
+          <ScalarProperty Name="C28_Oct" ColumnName="28-Oct" />
+          <ScalarProperty Name="C21_Oct" ColumnName="21-Oct" />
+          <ScalarProperty Name="C14_Oct" ColumnName="14-Oct" />
+          <ScalarProperty Name="C07_Oct" ColumnName="07-Oct" />
+          <ScalarProperty Name="C30_Sep" ColumnName="30-Sep" />
+          <ScalarProperty Name="C23_Sep" ColumnName="23-Sep" />
+          <ScalarProperty Name="C16_Sep" ColumnName="16-Sep" />
+          <ScalarProperty Name="C09_Sep" ColumnName="09-Sep" />
+          <ScalarProperty Name="C02_Sep" ColumnName="02-Sep" />
+          <ScalarProperty Name="C26_Aug" ColumnName="26-Aug" />
+          <ScalarProperty Name="C19_Aug" ColumnName="19-Aug" />
+          <ScalarProperty Name="C12_Aug" ColumnName="12-Aug" />
+          <ScalarProperty Name="C05_Aug" ColumnName="05-Aug" />
+          <ScalarProperty Name="C29_Jul" ColumnName="29-Jul" />
+          <ScalarProperty Name="C22_Jul" ColumnName="22-Jul" />
+          <ScalarProperty Name="C15_Jul" ColumnName="15-Jul" />
+          <ScalarProperty Name="C08_Jul" ColumnName="08-Jul" />
+          <ScalarProperty Name="C01_Jul" ColumnName="01-Jul" />
+          <ScalarProperty Name="C24_Jun" ColumnName="24-Jun" />
+          <ScalarProperty Name="C17_Jun" ColumnName="17-Jun" />
+          <ScalarProperty Name="C10_Jun" ColumnName="10-Jun" />
+          <ScalarProperty Name="C03_Jun" ColumnName="03-Jun" />
+          <ScalarProperty Name="C27_May" ColumnName="27-May" />
+          <ScalarProperty Name="C20_May" ColumnName="20-May" />
+          <ScalarProperty Name="C13_May" ColumnName="13-May" />
+          <ScalarProperty Name="C06_May" ColumnName="06-May" />
+          <ScalarProperty Name="C29_Apr" ColumnName="29-Apr" />
+          <ScalarProperty Name="C22_Apr" ColumnName="22-Apr" />
+          <ScalarProperty Name="C15_Apr" ColumnName="15-Apr" />
+          <ScalarProperty Name="C08_Apr" ColumnName="08-Apr" />
+          <ScalarProperty Name="C01_Apr" ColumnName="01-Apr" />
+          <ScalarProperty Name="C25_Mar" ColumnName="25-Mar" />
+          <ScalarProperty Name="C18_Mar" ColumnName="18-Mar" />
+          <ScalarProperty Name="C11_Mar" ColumnName="11-Mar" />
+          <ScalarProperty Name="C04_Mar" ColumnName="04-Mar" />
+          <ScalarProperty Name="C25_Feb" ColumnName="25-Feb" />
+          <ScalarProperty Name="C18_Feb" ColumnName="18-Feb" />
+          <ScalarProperty Name="C11_Feb" ColumnName="11-Feb" />
+          <ScalarProperty Name="C04_Feb" ColumnName="04-Feb" />
+          <ScalarProperty Name="C28_Jan" ColumnName="28-Jan" />
+          <ScalarProperty Name="C21_Jan" ColumnName="21-Jan" />
+          <ScalarProperty Name="C14_Jan" ColumnName="14-Jan" />
+          <ScalarProperty Name="C07_Jan" ColumnName="07-Jan" />
+          <ScalarProperty Name="Project_Sum" ColumnName="Project Sum" />
+          <ScalarProperty Name="Completed_Year" ColumnName="Completed Year" />
+          <ScalarProperty Name="Project_Year" ColumnName="Project Year" />
+          <ScalarProperty Name="Local_PL_Leader" ColumnName="Local PL Leader" />
+          <ScalarProperty Name="Regional_PL_Leader" ColumnName="Regional PL Leader" />
+          <ScalarProperty Name="Global_PL_Leader" ColumnName="Global PL Leader" />
+          <ScalarProperty Name="Milestone_Due_Date" ColumnName="Milestone Due Date" />
+          <ScalarProperty Name="Quarter" ColumnName="Quarter" />
+          <ScalarProperty Name="Backlog_Started" ColumnName="Backlog/Started" />
+          <ScalarProperty Name="Go_Live_Year" ColumnName="Go Live Year" />
+          <ScalarProperty Name="Go_Live_Month" ColumnName="Go Live Month" />
+          <ScalarProperty Name="Go_Live_Month_Year" ColumnName="Go-Live Month-Year" />
+          <ScalarProperty Name="Send_1" ColumnName="Send?1" />
+          <ScalarProperty Name="Survey_recipient_Email_2__Global___Regional_client_contact_" ColumnName="Survey recipient Email 2 (Global / Regional client contact)" />
+          <ScalarProperty Name="Survey_recipient_Name_2__global__regional_client_contact_" ColumnName="Survey recipient Name 2 (global/ regional client contact)" />
+          <ScalarProperty Name="Send_" ColumnName="Send?" />
+          <ScalarProperty Name="Survey_recipient_Email_1__Local_client_contact_" ColumnName="Survey recipient Email 1 (Local client contact)" />
+          <ScalarProperty Name="Survey_recipient_Name_1__Local_client_contact_" ColumnName="Survey recipient Name 1 (Local client contact)" />
+          <ScalarProperty Name="EMEA_Billing_notes" ColumnName="EMEA Billing notes" />
+          <ScalarProperty Name="EMEA_Scope_description" ColumnName="EMEA Scope description" />
+          <ScalarProperty Name="EMEA_Accrual_date" ColumnName="EMEA Accrual date" />
+          <ScalarProperty Name="EMEA_Included_for_accrual" ColumnName="EMEA Included for accrual" />
+          <ScalarProperty Name="EMEA_OBT_standard_fee" ColumnName="EMEA OBT standard fee" />
+          <ScalarProperty Name="EMEA_Client" ColumnName="EMEA Client" />
+          <ScalarProperty Name="EMEA_Country_to_charge" ColumnName="EMEA Country to charge" />
+          <ScalarProperty Name="Revenue___Total_Transactions" ColumnName="Revenue - Total Transactions" />
+          <ScalarProperty Name="Market_Leader" ColumnName="Market Leader" />
+          <ScalarProperty Name="Opportunity_Category" ColumnName="Opportunity Category" />
+          <ScalarProperty Name="Opportunity_Owner" ColumnName="Opportunity Owner" />
+          <ScalarProperty Name="Revenue_Opportunity_Type" ColumnName="Revenue Opportunity Type" />
+          <ScalarProperty Name="Revenue_Status" ColumnName="Revenue Status" />
+          <ScalarProperty Name="Opportunity_Type" ColumnName="Opportunity Type" />
+          <ScalarProperty Name="Sales_Stage_Name" ColumnName="Sales Stage Name" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Opportunity_ID" ColumnName="Opportunity ID" />
+          <ScalarProperty Name="Customer_Row_ID" ColumnName="Customer Row ID" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Comments" ColumnName="Workspace: ELT Overall Comments" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Status" ColumnName="Workspace: ELT Overall Status" />
+          <ScalarProperty Name="Milestone__Closed_Loop_Owner__H_On_Hold__X_Cancelled_" ColumnName="Milestone: Closed Loop Owner (H-On Hold, X-Cancelled)" />
+          <ScalarProperty Name="Milestone__Reason_Code__H_On_Hold__X_Cancelled_" ColumnName="Milestone: Reason Code (H-On Hold, X-Cancelled)" />
+          <ScalarProperty Name="Milestone__Project_Notes___Proposed_Risk_Mitigation_Solution___P" ColumnName="Milestone: Project Notes | Proposed Risk Mitigation Solution - P" />
+          <ScalarProperty Name="Workspace_Group_Name" ColumnName="Workspace Group Name" />
+          <ScalarProperty Name="Task__Go_Live_Date_Record_ID_Key" ColumnName="Task: Go-Live Date Record ID Key" />
+          <ScalarProperty Name="Record_ID_Key" ColumnName="Record ID Key" />
+          <ScalarProperty Name="Milestone_Title" ColumnName="Milestone Title" />
+          <ScalarProperty Name="Global_CIS_RoomIT_Integration_Lead" ColumnName="Global CIS RoomIT Integration Lead" />
+          <ScalarProperty Name="Global_CIS_Portrait_Lead" ColumnName="Global CIS Portrait Lead" />
+          <ScalarProperty Name="Global_CIS_HR_Feed_Specialist" ColumnName="Global CIS HR Feed Specialist" />
+          <ScalarProperty Name="Global_CIS_OBT_Lead" ColumnName="Global CIS OBT Lead" />
+          <ScalarProperty Name="Milestone__Assignee__Full_Name" ColumnName="Milestone: Assignee: Full Name" />
+          <ScalarProperty Name="Regional_Project_Manager" ColumnName="Regional Project Manager" />
+          <ScalarProperty Name="Project_Consultant" ColumnName="Project Consultant" />
+          <ScalarProperty Name="Global_Project_Manager" ColumnName="Global Project Manager" />
+          <ScalarProperty Name="Workspace__Project_Owner" ColumnName="Workspace: Project Owner" />
+          <ScalarProperty Name="Completed_Date" ColumnName="Completed Date" />
+          <ScalarProperty Name="Milestone__Last_Go_Live_Date" ColumnName="Milestone: Last Go-Live Date" />
+          <ScalarProperty Name="iMeet_Milestone___Initial_Go_Live_Date" ColumnName="iMeet Milestone:  Initial Go-Live Date" />
+          <ScalarProperty Name="iMeet_Milestone__Project_Start_Date" ColumnName="iMeet Milestone: Project Start Date" />
+          <ScalarProperty Name="iMeet_Project_Level" ColumnName="iMeet Project Level" />
+          <ScalarProperty Name="iMeet_Milestone__Country_Status" ColumnName="iMeet Milestone: Country Status" />
+          <ScalarProperty Name="iMeet_Milestone___Project_Status" ColumnName="iMeet Milestone: _Project Status" />
+          <ScalarProperty Name="Task__Go_Live_Date" ColumnName="Task: Go-Live Date" />
+          <ScalarProperty Name="Ownership__Revenue_" ColumnName="Ownership (Revenue)" />
+          <ScalarProperty Name="Revenue_ID" ColumnName="Revenue ID" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Region__Opportunity_" ColumnName="Region (Opportunity)" />
+          <ScalarProperty Name="Revenue_Total_Volume_USD" ColumnName="Revenue Total Volume USD" />
+          <ScalarProperty Name="New_Business_volume__US__" ColumnName="New Business volume (US$)" />
+          <ScalarProperty Name="Assignment_date" ColumnName="Assignment date" />
+          <ScalarProperty Name="Servicing_location" ColumnName="Servicing location" />
+          <ScalarProperty Name="OBT_Reseller___Direct" ColumnName="OBT Reseller / Direct" />
+          <ScalarProperty Name="Service_configuration" ColumnName="Service configuration" />
+          <ScalarProperty Name="Pipeline_comments" ColumnName="Pipeline comments" />
+          <ScalarProperty Name="Pipeline_status" ColumnName="Pipeline_status" />
+          <ScalarProperty Name="CLR_Country" ColumnName="CLR Country" />
+          <ScalarProperty Name="Implementation_Type" ColumnName="Implementation Type" />
+          <ScalarProperty Name="Date_added_to_the_CLR" ColumnName="Date added to the CLR" />
+          <ScalarProperty Name="iMeet_Workspace_Title" ColumnName="iMeet Workspace Title" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="CLRID" ColumnName="CLRID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LessonsLearnts">
+      <EntityTypeMapping TypeName="CWTModel.LessonsLearnt">
+        <MappingFragment StoreEntitySet="LessonsLearnt">
+          <ScalarProperty Name="Actions" ColumnName="Actions" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="Go_Live_Date" ColumnName="Go Live Date" />
+          <ScalarProperty Name="Raised_by" ColumnName="Raised by" />
+          <ScalarProperty Name="What_went_well" ColumnName="What went well" />
+          <ScalarProperty Name="What_did_not_go_well" ColumnName="What did not go well" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Date_feedback_raised" ColumnName="Date feedback raised" />
+          <ScalarProperty Name="Record_ID" ColumnName="Record ID" />
+          <ScalarProperty Name="iMeet_Workspace_Title" ColumnName="iMeet Workspace Title" />
+          <ScalarProperty Name="LessonsLearntID" ColumnName="LessonsLearntID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StageGates">
+      <EntityTypeMapping TypeName="CWTModel.StageGate">
+        <MappingFragment StoreEntitySet="StageGate">
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Milestone__Assignee__Country" ColumnName="Milestone: Assignee: Country" />
+          <ScalarProperty Name="Task_Status" ColumnName="Task Status" />
+          <ScalarProperty Name="Milestone__Assignee__Reports_to__Full_Name" ColumnName="Milestone: Assignee: Reports to: Full Name" />
+          <ScalarProperty Name="Milestone__Assignee__Full_Name" ColumnName="Milestone: Assignee: Full Name" />
+          <ScalarProperty Name="Task__Assignee__Full_Name" ColumnName="Task: Assignee: Full Name" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace Title" />
+          <ScalarProperty Name="Task_Due_Date" ColumnName="Task Due Date" />
+          <ScalarProperty Name="Task_Start_Date" ColumnName="Task Start Date" />
+          <ScalarProperty Name="Task_Title" ColumnName="Task Title" />
+          <ScalarProperty Name="StageGateID" ColumnName="StageGateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

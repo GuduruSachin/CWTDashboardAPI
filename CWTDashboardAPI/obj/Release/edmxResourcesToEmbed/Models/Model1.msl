@@ -1,0 +1,2155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CWTDashboardModelStoreContainer" CdmEntityContainer="CWTDashboardEntities">
+    <EntitySetMapping Name="AdHocProjects">
+      <EntityTypeMapping TypeName="CWTDashboardModel.AdHocProject">
+        <MappingFragment StoreEntitySet="AdHocProjects">
+          <ScalarProperty Name="AHID" ColumnName="AHID" />
+          <ScalarProperty Name="RevenueID" ColumnName="RevenueID" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="GoLiveDate" ColumnName="GoLiveDate" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="GlobalCISOBTLead" ColumnName="GlobalCISOBTLead" />
+          <ScalarProperty Name="RegionalCISOBTLead" ColumnName="RegionalCISOBTLead" />
+          <ScalarProperty Name="LocalDigitalOBTLead" ColumnName="LocalDigitalOBTLead" />
+          <ScalarProperty Name="GlobalCISPortraitLead" ColumnName="GlobalCISPortraitLead" />
+          <ScalarProperty Name="RegionalCISPortraitLead" ColumnName="RegionalCISPortraitLead" />
+          <ScalarProperty Name="GlobalCISHRFeedSpecialist" ColumnName="GlobalCISHRFeedSpecialist" />
+          <ScalarProperty Name="GDS" ColumnName="GDS" />
+          <ScalarProperty Name="ComplexityScore" ColumnName="ComplexityScore" />
+          <ScalarProperty Name="ActivityType" ColumnName="ActivityType" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+          <ScalarProperty Name="GlobalDQSLead" ColumnName="GlobalDQSLead" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssignePersons">
+      <EntityTypeMapping TypeName="CWTDashboardModel.AssignePerson">
+        <MappingFragment StoreEntitySet="AssignePersons">
+          <ScalarProperty Name="AssigneID" ColumnName="AssigneID" />
+          <ScalarProperty Name="Task_Title" ColumnName="Task Title" />
+          <ScalarProperty Name="Task_Start_Date" ColumnName="Task Start Date" />
+          <ScalarProperty Name="Task_Due_Date" ColumnName="Task Due Date" />
+          <ScalarProperty Name="Milestone_Title" ColumnName="Milestone Title" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace Title" />
+          <ScalarProperty Name="Task__Assigned_Role__Name" ColumnName="Task: Assigned Role: Name" />
+          <ScalarProperty Name="Task__Assignee__Reports_to__Full_Name" ColumnName="Task: Assignee: Reports to: Full Name" />
+          <ScalarProperty Name="Task__Task_Type" ColumnName="Task: Task Type" />
+          <ScalarProperty Name="Task__Task_Record_ID_Key" ColumnName="Task: Task Record ID Key" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Status" ColumnName="Workspace: ELT Overall Status" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Comments" ColumnName="Workspace: ELT Overall Comments" />
+          <ScalarProperty Name="Workspace__Project_Level" ColumnName="Workspace: Project Level" />
+          <ScalarProperty Name="Workspace__Project_Owner__Full_Name" ColumnName="Workspace: Project Owner: Full Name" />
+          <ScalarProperty Name="Milestone__CRM_Revenue_ID__" ColumnName="Milestone: CRM Revenue ID #" />
+          <ScalarProperty Name="Milestone__Assignee__Reports_to__Full_Name" ColumnName="Milestone: Assignee: Reports to: Full Name" />
+          <ScalarProperty Name="Milestone__Country" ColumnName="Milestone: Country" />
+          <ScalarProperty Name="Milestone__Project_Status" ColumnName="Milestone: Project Status" />
+          <ScalarProperty Name="Milestone__Country_Status" ColumnName="Milestone: Country Status" />
+          <ScalarProperty Name="Completed_Date" ColumnName="Completed Date" />
+          <ScalarProperty Name="C__Complete" ColumnName="% Complete" />
+          <ScalarProperty Name="Milestone_Due_Date" ColumnName="Milestone Due Date" />
+          <ScalarProperty Name="Milestone_Start_Date" ColumnName="Milestone Start Date" />
+          <ScalarProperty Name="Task_Overdue" ColumnName="Task Overdue" />
+          <ScalarProperty Name="Task__Record_ID" ColumnName="Task: Record ID" />
+          <ScalarProperty Name="Milestone__Region" ColumnName="Milestone: Region" />
+          <ScalarProperty Name="Milestone__Record_ID" ColumnName="Milestone: Record ID" />
+          <ScalarProperty Name="Milestone__Record_ID_Key" ColumnName="Milestone: Record ID Key" />
+          <ScalarProperty Name="Milestone__Project_Notes" ColumnName="Milestone: Project Notes" />
+          <ScalarProperty Name="Milestone__Reason_Code" ColumnName="Milestone: Reason Code" />
+          <ScalarProperty Name="Group_Name" ColumnName="Group Name" />
+          <ScalarProperty Name="Milestone__Closed_Loop_Owner" ColumnName="Milestone: Closed Loop Owner" />
+          <ScalarProperty Name="Milestone__Assignee__Full_Name" ColumnName="Milestone: Assignee: Full Name" />
+          <ScalarProperty Name="Milestone__Override_Regional_Digital_OBT_Lead__Full_Name" ColumnName="Milestone: Override Regional Digital OBT Lead: Full Name" />
+          <ScalarProperty Name="Milestone__Override_Regional_Digital_Portrait_Lead__Full_Name" ColumnName="Milestone: Override Regional Digital Portrait Lead: Full Name" />
+          <ScalarProperty Name="Milestone__Local_Digital_OBT_Lead" ColumnName="Milestone: Local Digital OBT Lead" />
+          <ScalarProperty Name="Milestone__Local_Digital_Ad_Hoc_Support" ColumnName="Milestone: Local Digital Ad Hoc Support" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuditEntries">
+      <EntityTypeMapping TypeName="CWTDashboardModel.AuditEntry">
+        <MappingFragment StoreEntitySet="AuditEntry">
+          <ScalarProperty Name="AuditEntryId" ColumnName="AuditEntryId" />
+          <ScalarProperty Name="ReportName" ColumnName="ReportName" />
+          <ScalarProperty Name="Record" ColumnName="Record" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuditLogs">
+      <EntityTypeMapping TypeName="CWTDashboardModel.AuditLog">
+        <MappingFragment StoreEntitySet="AuditLog">
+          <ScalarProperty Name="AuditID" ColumnName="AuditID" />
+          <ScalarProperty Name="RevenueID" ColumnName="RevenueID" />
+          <ScalarProperty Name="UsedPlatForm" ColumnName="UsedPlatForm" />
+          <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+          <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+          <ScalarProperty Name="Field" ColumnName="Field" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="TaskRecordIDKey" ColumnName="TaskRecordIDKey" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AuditEntryId" ColumnName="AuditEntryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CandidateLeadsOnes">
+      <EntityTypeMapping TypeName="CWTDashboardModel.CandidateLeadsOne">
+        <MappingFragment StoreEntitySet="CandidateLeadsOne">
+          <ScalarProperty Name="CLOID" ColumnName="CLOID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Follow_Up" ColumnName="Follow Up" />
+          <ScalarProperty Name="Recruiter" ColumnName="Recruiter" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Candidate_Name" ColumnName="Candidate Name" />
+          <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Zip_code" ColumnName="Zip code" />
+          <ScalarProperty Name="Quality" ColumnName="Quality" />
+          <ScalarProperty Name="State_1_" ColumnName="State(1)" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Open_Jobs" ColumnName="Open Jobs" />
+          <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CapacityHierarchies">
+      <EntityTypeMapping TypeName="CWTDashboardModel.CapacityHierarchy">
+        <MappingFragment StoreEntitySet="CapacityHierarchy">
+          <ScalarProperty Name="HID" ColumnName="HID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Leader" ColumnName="Leader" />
+          <ScalarProperty Name="WorkShedule" ColumnName="WorkShedule" />
+          <ScalarProperty Name="Monday" ColumnName="Monday" />
+          <ScalarProperty Name="Tuesday" ColumnName="Tuesday" />
+          <ScalarProperty Name="Wednesday" ColumnName="Wednesday" />
+          <ScalarProperty Name="Thursday" ColumnName="Thursday" />
+          <ScalarProperty Name="Friday" ColumnName="Friday" />
+          <ScalarProperty Name="Manager" ColumnName="Manager" />
+          <ScalarProperty Name="ProjectLevel" ColumnName="ProjectLevel" />
+          <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="PLevel" ColumnName="PLevel" />
+          <ScalarProperty Name="TargetedUtilization" ColumnName="TargetedUtilization" />
+          <ScalarProperty Name="ManagerStatus" ColumnName="ManagerStatus" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLRActivities">
+      <EntityTypeMapping TypeName="CWTDashboardModel.CLRActivity">
+        <MappingFragment StoreEntitySet="CLRActivity">
+          <ScalarProperty Name="A_ID" ColumnName="A_ID" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="Revenue_ID" ColumnName="Revenue_ID" />
+          <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+          <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="ColumnName" ColumnName="ColumnName" />
+          <ScalarProperty Name="TaskRecordIDKey" ColumnName="TaskRecordIDKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLRBelowDatas">
+      <EntityTypeMapping TypeName="CWTDashboardModel.CLRBelowData">
+        <MappingFragment StoreEntitySet="CLRBelowData">
+          <ScalarProperty Name="CLRID" ColumnName="CLRID" />
+          <ScalarProperty Name="RevenueID" ColumnName="RevenueID" />
+          <ScalarProperty Name="RevenueVolumeUSD" ColumnName="RevenueVolumeUSD" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="OwnerShip" ColumnName="OwnerShip" />
+          <ScalarProperty Name="GoLiveDate" ColumnName="GoLiveDate" />
+          <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+          <ScalarProperty Name="Milestone__Reason_Code" ColumnName="Milestone__Reason_Code" />
+          <ScalarProperty Name="PerCompleted" ColumnName="PerCompleted" />
+          <ScalarProperty Name="CountryStatus" ColumnName="CountryStatus" />
+          <ScalarProperty Name="ProjectLevel" ColumnName="ProjectLevel" />
+          <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+          <ScalarProperty Name="MilestoneDueDate" ColumnName="MilestoneDueDate" />
+          <ScalarProperty Name="ProjectOwner" ColumnName="ProjectOwner" />
+          <ScalarProperty Name="GlobalProjectManager" ColumnName="GlobalProjectManager" />
+          <ScalarProperty Name="ProjectConsultant" ColumnName="ProjectConsultant" />
+          <ScalarProperty Name="RegionalProjectManager" ColumnName="RegionalProjectManager" />
+          <ScalarProperty Name="AssigneeFullName" ColumnName="AssigneeFullName" />
+          <ScalarProperty Name="GlobalCISOBTLead" ColumnName="GlobalCISOBTLead" />
+          <ScalarProperty Name="RegionalCISOBTLead" ColumnName="RegionalCISOBTLead" />
+          <ScalarProperty Name="GlobalCISHRFeedSpecialist" ColumnName="GlobalCISHRFeedSpecialist" />
+          <ScalarProperty Name="GlobalCISPortraitLead" ColumnName="GlobalCISPortraitLead" />
+          <ScalarProperty Name="RegionalCISPortraitLead" ColumnName="RegionalCISPortraitLead" />
+          <ScalarProperty Name="GlobalCISRoomITIntegrationLead" ColumnName="GlobalCISRoomITIntegrationLead" />
+          <ScalarProperty Name="MilestoneTitle" ColumnName="MilestoneTitle" />
+          <ScalarProperty Name="Milestone__Record_ID_Key" ColumnName="Milestone__Record_ID_Key" />
+          <ScalarProperty Name="Task__Task_Record_ID_Key" ColumnName="Task__Task_Record_ID_Key" />
+          <ScalarProperty Name="Group_Name" ColumnName="Group_Name" />
+          <ScalarProperty Name="Milestone__Project_Notes" ColumnName="Milestone__Project_Notes" />
+          <ScalarProperty Name="Milestone__Closed_Loop_Owner" ColumnName="Milestone__Closed_Loop_Owner" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace_Title" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Status" ColumnName="Workspace__ELT_Overall_Status" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Comments" ColumnName="Workspace__ELT_Overall_Comments" />
+          <ScalarProperty Name="Customer_Row_ID" ColumnName="Customer_Row_ID" />
+          <ScalarProperty Name="Opportunity_ID" ColumnName="Opportunity_ID" />
+          <ScalarProperty Name="Account_Name" ColumnName="Account_Name" />
+          <ScalarProperty Name="Sales_Stage_Name" ColumnName="Sales_Stage_Name" />
+          <ScalarProperty Name="Opportunity_Type" ColumnName="Opportunity_Type" />
+          <ScalarProperty Name="Revenue_Status" ColumnName="Revenue_Status" />
+          <ScalarProperty Name="Revenue_Opportunity_Type" ColumnName="Revenue_Opportunity_Type" />
+          <ScalarProperty Name="Opportunity_Owner" ColumnName="Opportunity_Owner" />
+          <ScalarProperty Name="Opportunity_Category" ColumnName="Opportunity_Category" />
+          <ScalarProperty Name="MarketLeader" ColumnName="MarketLeader" />
+          <ScalarProperty Name="Revenue_Total_Transactions" ColumnName="Revenue_Total_Transactions" />
+          <ScalarProperty Name="Line_Win_Probability" ColumnName="Line_Win_Probability" />
+          <ScalarProperty Name="Next_Step" ColumnName="Next_Step" />
+          <ScalarProperty Name="Implementation_Fee_PSD" ColumnName="Implementation_Fee_PSD" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="GoLiveMonth" ColumnName="GoLiveMonth" />
+          <ScalarProperty Name="GoLiveYear" ColumnName="GoLiveYear" />
+          <ScalarProperty Name="BacklogStarted" ColumnName="BacklogStarted" />
+          <ScalarProperty Name="Quarter" ColumnName="Quarter" />
+          <ScalarProperty Name="CycleTime" ColumnName="CycleTime" />
+          <ScalarProperty Name="ExternalKickoffDuedate" ColumnName="ExternalKickoffDuedate" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="ProjectStartForCycleTime" ColumnName="ProjectStartForCycleTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLRDatas">
+      <EntityTypeMapping TypeName="CWTDashboardModel.CLRData">
+        <MappingFragment StoreEntitySet="CLRData">
+          <ScalarProperty Name="CLRID" ColumnName="CLRID" />
+          <ScalarProperty Name="RevenueID" ColumnName="RevenueID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="OwnerShip" ColumnName="OwnerShip" />
+          <ScalarProperty Name="GoLiveDate" ColumnName="GoLiveDate" />
+          <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+          <ScalarProperty Name="CountryStatus" ColumnName="CountryStatus" />
+          <ScalarProperty Name="ProjectLevel" ColumnName="ProjectLevel" />
+          <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+          <ScalarProperty Name="ProjectOwner" ColumnName="ProjectOwner" />
+          <ScalarProperty Name="AssigneeFullName" ColumnName="AssigneeFullName" />
+          <ScalarProperty Name="MilestoneTitle" ColumnName="MilestoneTitle" />
+          <ScalarProperty Name="Milestone__Record_ID_Key" ColumnName="Milestone__Record_ID_Key" />
+          <ScalarProperty Name="Task__Task_Record_ID_Key" ColumnName="Task__Task_Record_ID_Key" />
+          <ScalarProperty Name="Group_Name" ColumnName="Group_Name" />
+          <ScalarProperty Name="Milestone__Project_Notes" ColumnName="Milestone__Project_Notes" />
+          <ScalarProperty Name="Milestone__Reason_Code" ColumnName="Milestone__Reason_Code" />
+          <ScalarProperty Name="Milestone__Closed_Loop_Owner" ColumnName="Milestone__Closed_Loop_Owner" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace_Title" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Status" ColumnName="Workspace__ELT_Overall_Status" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Comments" ColumnName="Workspace__ELT_Overall_Comments" />
+          <ScalarProperty Name="Customer_Row_ID" ColumnName="Customer_Row_ID" />
+          <ScalarProperty Name="Opportunity_ID" ColumnName="Opportunity_ID" />
+          <ScalarProperty Name="Account_Name" ColumnName="Account_Name" />
+          <ScalarProperty Name="Sales_Stage_Name" ColumnName="Sales_Stage_Name" />
+          <ScalarProperty Name="Opportunity_Type" ColumnName="Opportunity_Type" />
+          <ScalarProperty Name="Revenue_Opportunity_Type" ColumnName="Revenue_Opportunity_Type" />
+          <ScalarProperty Name="Revenue_Status" ColumnName="Revenue_Status" />
+          <ScalarProperty Name="Opportunity_Owner" ColumnName="Opportunity_Owner" />
+          <ScalarProperty Name="Opportunity_Category" ColumnName="Opportunity_Category" />
+          <ScalarProperty Name="Revenue_Total_Transactions" ColumnName="Revenue_Total_Transactions" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="RevenueVolumeUSD" ColumnName="RevenueVolumeUSD" />
+          <ScalarProperty Name="MarketLeader" ColumnName="MarketLeader" />
+          <ScalarProperty Name="GlobalProjectManager" ColumnName="GlobalProjectManager" />
+          <ScalarProperty Name="ProjectConsultant" ColumnName="ProjectConsultant" />
+          <ScalarProperty Name="RegionalProjectManager" ColumnName="RegionalProjectManager" />
+          <ScalarProperty Name="GlobalCISOBTLead" ColumnName="GlobalCISOBTLead" />
+          <ScalarProperty Name="GlobalCISHRFeedSpecialist" ColumnName="GlobalCISHRFeedSpecialist" />
+          <ScalarProperty Name="GlobalCISPortraitLead" ColumnName="GlobalCISPortraitLead" />
+          <ScalarProperty Name="GoLiveMonth" ColumnName="GoLiveMonth" />
+          <ScalarProperty Name="GoLiveYear" ColumnName="GoLiveYear" />
+          <ScalarProperty Name="BacklogStarted" ColumnName="BacklogStarted" />
+          <ScalarProperty Name="Quarter" ColumnName="Quarter" />
+          <ScalarProperty Name="CycleTime" ColumnName="CycleTime" />
+          <ScalarProperty Name="ExternalKickoffDuedate" ColumnName="ExternalKickoffDuedate" />
+          <ScalarProperty Name="PerCompleted" ColumnName="PerCompleted" />
+          <ScalarProperty Name="MilestoneDueDate" ColumnName="MilestoneDueDate" />
+          <ScalarProperty Name="Next_Step" ColumnName="Next_Step" />
+          <ScalarProperty Name="Line_Win_Probability" ColumnName="Line_Win_Probability" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="RegionalCISOBTLead" ColumnName="RegionalCISOBTLead" />
+          <ScalarProperty Name="RegionalCISPortraitLead" ColumnName="RegionalCISPortraitLead" />
+          <ScalarProperty Name="ProjectStart_ForCycleTime" ColumnName="ProjectStart_ForCycleTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ImplementationType" ColumnName="ImplementationType" />
+          <ScalarProperty Name="DataSourceType" ColumnName="DataSourceType" />
+          <ScalarProperty Name="DataDescription" ColumnName="DataDescription" />
+          <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+          <ScalarProperty Name="AwardedDate" ColumnName="AwardedDate" />
+          <ScalarProperty Name="MilestoneType" ColumnName="MilestoneType" />
+          <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+          <ScalarProperty Name="ImplementationFeePsd" ColumnName="ImplementationFeePsd" />
+          <ScalarProperty Name="AccountOwner" ColumnName="AccountOwner" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CycleTimeCategories" ColumnName="CycleTimeCategories" />
+          <ScalarProperty Name="LocalDigitalOBTLead" ColumnName="LocalDigitalOBTLead" />
+          <ScalarProperty Name="GDS" ColumnName="GDS" />
+          <ScalarProperty Name="TaskStatus" ColumnName="TaskStatus" />
+          <ScalarProperty Name="ComplexityScore" ColumnName="ComplexityScore" />
+          <ScalarProperty Name="YearMonth" ColumnName="YearMonth" />
+          <ScalarProperty Name="OBTReseller" ColumnName="OBTReseller" />
+          <ScalarProperty Name="DigitalGDS" ColumnName="DigitalGDS" />
+          <ScalarProperty Name="DigitalActivityType" ColumnName="DigitalActivityType" />
+          <ScalarProperty Name="SOWStatus" ColumnName="SOWStatus" />
+          <ScalarProperty Name="ImplementationReady" ColumnName="ImplementationReady" />
+          <ScalarProperty Name="AccountCategory" ColumnName="AccountCategory" />
+          <ScalarProperty Name="OppTOtalVolume" ColumnName="OppTOtalVolume" />
+          <ScalarProperty Name="eSowGDS" ColumnName="eSowGDS" />
+          <ScalarProperty Name="Service_Configuration" ColumnName="Service_Configuration" />
+          <ScalarProperty Name="LocalDigitalAdHocSupport" ColumnName="LocalDigitalAdHocSupport" />
+          <ScalarProperty Name="Project_Level" ColumnName="Project_Level" />
+          <ScalarProperty Name="GlobalCISDQSLead" ColumnName="GlobalCISDQSLead" />
+          <ScalarProperty Name="Service_Location" ColumnName="Service_Location" />
+          <ScalarProperty Name="OBTAdoptionRate" ColumnName="OBTAdoptionRate" />
+          <ScalarProperty Name="CycleTimeDelayCode" ColumnName="CycleTimeDelayCode" />
+          <ScalarProperty Name="APAC_DQS" ColumnName="APAC_DQS" />
+          <ScalarProperty Name="DQS_Import" ColumnName="DQS_Import" />
+          <ScalarProperty Name="DQS_Support" ColumnName="DQS_Support" />
+          <ScalarProperty Name="LATAM_DQS" ColumnName="LATAM_DQS" />
+          <ScalarProperty Name="NORAM_DQS" ColumnName="NORAM_DQS" />
+          <ScalarProperty Name="DQS_Operations" ColumnName="DQS_Operations" />
+          <ScalarProperty Name="EltClientDelayDescription" ColumnName="EltClientDelayDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLRResourceUtilizations">
+      <EntityTypeMapping TypeName="CWTDashboardModel.CLRResourceUtilization">
+        <MappingFragment StoreEntitySet="CLRResourceUtilization">
+          <ScalarProperty Name="RUid" ColumnName="RUid" />
+          <ScalarProperty Name="HierarchyID" ColumnName="HierarchyID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="ProjectLevel" ColumnName="ProjectLevel" />
+          <ScalarProperty Name="Leader" ColumnName="Leader" />
+          <ScalarProperty Name="Manager" ColumnName="Manager" />
+          <ScalarProperty Name="WorkShedule" ColumnName="WorkShedule" />
+          <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
+          <ScalarProperty Name="Monday" ColumnName="Monday" />
+          <ScalarProperty Name="Tuesday" ColumnName="Tuesday" />
+          <ScalarProperty Name="Wednesday" ColumnName="Wednesday" />
+          <ScalarProperty Name="Thursday" ColumnName="Thursday" />
+          <ScalarProperty Name="Friday" ColumnName="Friday" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="TargetedUtilization" ColumnName="TargetedUtilization" />
+          <ScalarProperty Name="C1stweek" ColumnName="C1stweek" />
+          <ScalarProperty Name="C2ndweek" ColumnName="C2ndweek" />
+          <ScalarProperty Name="C3rdweek" ColumnName="C3rdweek" />
+          <ScalarProperty Name="C4thweek" ColumnName="C4thweek" />
+          <ScalarProperty Name="C5thweek" ColumnName="C5thweek" />
+          <ScalarProperty Name="C6thweek" ColumnName="C6thweek" />
+          <ScalarProperty Name="C7thweek" ColumnName="C7thweek" />
+          <ScalarProperty Name="C8thweek" ColumnName="C8thweek" />
+          <ScalarProperty Name="AvgUtil" ColumnName="AvgUtil" />
+          <ScalarProperty Name="TUWorkingDays" ColumnName="TUWorkingDays" />
+          <ScalarProperty Name="CapacityAvailable" ColumnName="CapacityAvailable" />
+          <ScalarProperty Name="CapacityAvailableTUWorkingDays" ColumnName="CapacityAvailableTUWorkingDays" />
+          <ScalarProperty Name="C9thweek" ColumnName="C9thweek" />
+          <ScalarProperty Name="C10thweek" ColumnName="C10thweek" />
+          <ScalarProperty Name="C11thweek" ColumnName="C11thweek" />
+          <ScalarProperty Name="C12thweek" ColumnName="C12thweek" />
+          <ScalarProperty Name="c13thweek" ColumnName="c13thweek" />
+          <ScalarProperty Name="c14thweek" ColumnName="c14thweek" />
+          <ScalarProperty Name="c15thweek" ColumnName="c15thweek" />
+          <ScalarProperty Name="c16thweek" ColumnName="c16thweek" />
+          <ScalarProperty Name="c17thweek" ColumnName="c17thweek" />
+          <ScalarProperty Name="c18thweek" ColumnName="c18thweek" />
+          <ScalarProperty Name="c19thweek" ColumnName="c19thweek" />
+          <ScalarProperty Name="c20thweek" ColumnName="c20thweek" />
+          <ScalarProperty Name="c21thweek" ColumnName="c21thweek" />
+          <ScalarProperty Name="c22thweek" ColumnName="c22thweek" />
+          <ScalarProperty Name="c23thweek" ColumnName="c23thweek" />
+          <ScalarProperty Name="c24thweek" ColumnName="c24thweek" />
+          <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLRTrackers">
+      <EntityTypeMapping TypeName="CWTDashboardModel.CLRTracker">
+        <MappingFragment StoreEntitySet="CLRTracker">
+          <ScalarProperty Name="TrackerId" ColumnName="TrackerId" />
+          <ScalarProperty Name="RevenueID" ColumnName="RevenueID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="GlobalProjectManager" ColumnName="GlobalProjectManager" />
+          <ScalarProperty Name="RegionalProjectManager" ColumnName="RegionalProjectManager" />
+          <ScalarProperty Name="LocalProjectManager" ColumnName="LocalProjectManager" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="iMeetWorkspaceTitle" ColumnName="iMeetWorkspaceTitle" />
+          <ScalarProperty Name="OwnershipType" ColumnName="OwnershipType" />
+          <ScalarProperty Name="PriorityCustomer" ColumnName="PriorityCustomer" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="ProjectLevel" ColumnName="ProjectLevel" />
+          <ScalarProperty Name="ImplementationType" ColumnName="ImplementationType" />
+          <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+          <ScalarProperty Name="GlobalDigitalOBTLead" ColumnName="GlobalDigitalOBTLead" />
+          <ScalarProperty Name="RegionalDigitalOBTLead" ColumnName="RegionalDigitalOBTLead" />
+          <ScalarProperty Name="GlobalDigitalPortraitLead" ColumnName="GlobalDigitalPortraitLead" />
+          <ScalarProperty Name="RegionalDigitalPortraitLead" ColumnName="RegionalDigitalPortraitLead" />
+          <ScalarProperty Name="GlobalDigitalHRFeedSpeciallist" ColumnName="GlobalDigitalHRFeedSpeciallist" />
+          <ScalarProperty Name="MilestoneProjectNotes" ColumnName="MilestoneProjectNotes" />
+          <ScalarProperty Name="ProjectEffort" ColumnName="ProjectEffort" />
+          <ScalarProperty Name="KickOff_ProposedStartDate" ColumnName="KickOff_ProposedStartDate" />
+          <ScalarProperty Name="GoLiveDate" ColumnName="GoLiveDate" />
+          <ScalarProperty Name="EndofHypercare" ColumnName="EndofHypercare" />
+          <ScalarProperty Name="CompleteDuration" ColumnName="CompleteDuration" />
+          <ScalarProperty Name="PerCompleted" ColumnName="PerCompleted" />
+          <ScalarProperty Name="ProjectStartDate" ColumnName="ProjectStartDate" />
+          <ScalarProperty Name="MilestoneDueDate" ColumnName="MilestoneDueDate" />
+          <ScalarProperty Name="ProjectDelay" ColumnName="ProjectDelay" />
+          <ScalarProperty Name="C1stweek" ColumnName="1stweek" />
+          <ScalarProperty Name="C2ndweek" ColumnName="2ndweek" />
+          <ScalarProperty Name="C3rdweek" ColumnName="3rdweek" />
+          <ScalarProperty Name="C4thweek" ColumnName="4thweek" />
+          <ScalarProperty Name="C5thweek" ColumnName="5thweek" />
+          <ScalarProperty Name="C6thweek" ColumnName="6thweek" />
+          <ScalarProperty Name="C7thweek" ColumnName="7thweek" />
+          <ScalarProperty Name="C8thweek" ColumnName="8thweek" />
+          <ScalarProperty Name="C9thweek" ColumnName="9thweek" />
+          <ScalarProperty Name="C10thweek" ColumnName="10thweek" />
+          <ScalarProperty Name="C11thweek" ColumnName="11thweek" />
+          <ScalarProperty Name="C12thweek" ColumnName="12thweek" />
+          <ScalarProperty Name="c13thweek" ColumnName="c13thweek" />
+          <ScalarProperty Name="c14thweek" ColumnName="c14thweek" />
+          <ScalarProperty Name="c15thweek" ColumnName="c15thweek" />
+          <ScalarProperty Name="c16thweek" ColumnName="c16thweek" />
+          <ScalarProperty Name="c17thweek" ColumnName="c17thweek" />
+          <ScalarProperty Name="c18thweek" ColumnName="c18thweek" />
+          <ScalarProperty Name="c19thweek" ColumnName="c19thweek" />
+          <ScalarProperty Name="c20thweek" ColumnName="c20thweek" />
+          <ScalarProperty Name="c21thweek" ColumnName="c21thweek" />
+          <ScalarProperty Name="c22thweek" ColumnName="c22thweek" />
+          <ScalarProperty Name="c23thweek" ColumnName="c23thweek" />
+          <ScalarProperty Name="c24thweek" ColumnName="c24thweek" />
+          <ScalarProperty Name="Jan" ColumnName="Jan" />
+          <ScalarProperty Name="Feb" ColumnName="Feb" />
+          <ScalarProperty Name="Mar" ColumnName="Mar" />
+          <ScalarProperty Name="Apr" ColumnName="Apr" />
+          <ScalarProperty Name="May" ColumnName="May" />
+          <ScalarProperty Name="Jun" ColumnName="Jun" />
+          <ScalarProperty Name="Jul" ColumnName="Jul" />
+          <ScalarProperty Name="Aug" ColumnName="Aug" />
+          <ScalarProperty Name="Sep" ColumnName="Sep" />
+          <ScalarProperty Name="Oct" ColumnName="Oct" />
+          <ScalarProperty Name="Nov" ColumnName="Nov" />
+          <ScalarProperty Name="Dec" ColumnName="Dec" />
+          <ScalarProperty Name="LocalDigitalOBTLead" ColumnName="LocalDigitalOBTLead" />
+          <ScalarProperty Name="GDS" ColumnName="GDS" />
+          <ScalarProperty Name="ComplexityScore" ColumnName="ComplexityScore" />
+          <ScalarProperty Name="TaskRecordIdKey" ColumnName="TaskRecordIdKey" />
+          <ScalarProperty Name="MilestoneDueDateByLevel" ColumnName="MilestoneDueDateByLevel" />
+          <ScalarProperty Name="AssignmentDate" ColumnName="AssignmentDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="CWTDashboardModel.Comment">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Row" ColumnName="Row" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Configs">
+      <EntityTypeMapping TypeName="CWTDashboardModel.Config">
+        <MappingFragment StoreEntitySet="Config">
+          <ScalarProperty Name="ConfigID" ColumnName="ConfigID" />
+          <ScalarProperty Name="ProjectType" ColumnName="ProjectType" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CountryIsoCodes">
+      <EntityTypeMapping TypeName="CWTDashboardModel.CountryIsoCode">
+        <MappingFragment StoreEntitySet="CountryIsoCodes">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CountryISORegionCodes">
+      <EntityTypeMapping TypeName="CWTDashboardModel.CountryISORegionCode">
+        <MappingFragment StoreEntitySet="CountryISORegionCodes">
+          <ScalarProperty Name="Country_ID" ColumnName="Country_ID" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CRMDatas">
+      <EntityTypeMapping TypeName="CWTDashboardModel.CRMData">
+        <MappingFragment StoreEntitySet="CRMData">
+          <ScalarProperty Name="CRMID" ColumnName="CRMID" />
+          <ScalarProperty Name="Revenue_Id" ColumnName="Revenue Id" />
+          <ScalarProperty Name="Account_Name" ColumnName="Account Name" />
+          <ScalarProperty Name="Account_Owner" ColumnName="Account Owner" />
+          <ScalarProperty Name="Customer_Row_ID" ColumnName="Customer Row ID" />
+          <ScalarProperty Name="BT_Account_Record_Type" ColumnName="BT Account Record Type" />
+          <ScalarProperty Name="Company_Alias" ColumnName="Company Alias" />
+          <ScalarProperty Name="Opportunity_ID" ColumnName="Opportunity ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Industry" ColumnName="Industry" />
+          <ScalarProperty Name="BT_Current_Service_Configuration" ColumnName="BT Current Service Configuration" />
+          <ScalarProperty Name="BT_Current_GDS" ColumnName="BT Current GDS" />
+          <ScalarProperty Name="BT_Current_Online_Booking_Tool" ColumnName="BT Current Online Booking Tool" />
+          <ScalarProperty Name="BT_Incumbent" ColumnName="BT Incumbent" />
+          <ScalarProperty Name="Opportunity_Name" ColumnName="Opportunity Name" />
+          <ScalarProperty Name="Line_of_Business" ColumnName="Line of Business" />
+          <ScalarProperty Name="Opportunity_Owner" ColumnName="Opportunity Owner" />
+          <ScalarProperty Name="Close_Date" ColumnName="Close Date" />
+          <ScalarProperty Name="Sales_Stage_Name" ColumnName="Sales Stage Name" />
+          <ScalarProperty Name="Line_Win_Probability" ColumnName="Line Win Probability" />
+          <ScalarProperty Name="Opportunity_Type" ColumnName="Opportunity Type" />
+          <ScalarProperty Name="Opportunity_Category" ColumnName="Opportunity Category" />
+          <ScalarProperty Name="Opportunity_Region" ColumnName="Opportunity Region" />
+          <ScalarProperty Name="Next_Step" ColumnName="Next Step" />
+          <ScalarProperty Name="Country_Scope" ColumnName="Country Scope" />
+          <ScalarProperty Name="Energy__Resources___Marine" ColumnName="Energy, Resources &amp; Marine" />
+          <ScalarProperty Name="Opportunity_Scope" ColumnName="Opportunity Scope" />
+          <ScalarProperty Name="Opportunity_Total_Transactions" ColumnName="Opportunity Total Transactions" />
+          <ScalarProperty Name="Opportunity_Total_Volume_USD" ColumnName="Opportunity Total Volume USD" />
+          <ScalarProperty Name="Awarded_Date" ColumnName="Awarded Date" />
+          <ScalarProperty Name="LOI_Date" ColumnName="LOI Date" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Ownership__Revenue_" ColumnName="Ownership (Revenue)" />
+          <ScalarProperty Name="Region__Revenue_" ColumnName="Region (Revenue)" />
+          <ScalarProperty Name="Revenue_Air_Volume_USD" ColumnName="Revenue Air Volume USD" />
+          <ScalarProperty Name="Revenue_Car_Volume_USD" ColumnName="Revenue Car Volume USD" />
+          <ScalarProperty Name="Revenue_Rail_Volume_USD" ColumnName="Revenue Rail Volume USD" />
+          <ScalarProperty Name="Revenue_Total_Transactions" ColumnName="Revenue Total Transactions" />
+          <ScalarProperty Name="Transactions__Air" ColumnName="Transactions: Air" />
+          <ScalarProperty Name="Transactions__Car" ColumnName="Transactions: Car" />
+          <ScalarProperty Name="Transactions__Hotel" ColumnName="Transactions: Hotel" />
+          <ScalarProperty Name="Transactions__Rail" ColumnName="Transactions: Rail" />
+          <ScalarProperty Name="Revenue_Total_Volume_USD" ColumnName="Revenue Total Volume USD" />
+          <ScalarProperty Name="Revenue_Hotel_Volume_USD" ColumnName="Revenue Hotel Volume USD" />
+          <ScalarProperty Name="Total_Awarded_Volume_USD" ColumnName="Total Awarded Volume USD" />
+          <ScalarProperty Name="Total_Up_Sell_Volume_USD" ColumnName="Total Up-Sell Volume USD" />
+          <ScalarProperty Name="GDS" ColumnName="GDS" />
+          <ScalarProperty Name="Estimated_Country_Go_Live_Date" ColumnName="Estimated Country Go Live Date" />
+          <ScalarProperty Name="OBT" ColumnName="OBT" />
+          <ScalarProperty Name="Estimated_Implementation_Start_Date" ColumnName="Estimated Implementation Start Date" />
+          <ScalarProperty Name="BT_Incumbent_Agency" ColumnName="BT Incumbent Agency" />
+          <ScalarProperty Name="Revenue_Opportunity_Type" ColumnName="Revenue Opportunity Type" />
+          <ScalarProperty Name="Revenue_Status" ColumnName="Revenue Status" />
+          <ScalarProperty Name="Last_Update_Date" ColumnName="Last Update Date" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created Date" />
+          <ScalarProperty Name="Client_Segment" ColumnName="Client Segment" />
+          <ScalarProperty Name="Client_Management_Group" ColumnName="Client Management Group" />
+          <ScalarProperty Name="Account_Management_Group" ColumnName="Account Management Group" />
+          <ScalarProperty Name="IsImplementationTeamsupport" ColumnName="IsImplementationTeamsupport" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTOes">
+      <EntityTypeMapping TypeName="CWTDashboardModel.CTO">
+        <MappingFragment StoreEntitySet="CTO">
+          <ScalarProperty Name="CTOID" ColumnName="CTOID" />
+          <ScalarProperty Name="Milestone_Title_Country___Est_Go_Live_Date" ColumnName="Milestone Title-Country:  Est Go Live Date" />
+          <ScalarProperty Name="Critical_Overdue" ColumnName="Critical Overdue" />
+          <ScalarProperty Name="Estimated_Go_Live" ColumnName="Estimated Go Live" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace Title" />
+          <ScalarProperty Name="Milestone__Project_Status" ColumnName="Milestone: Project Status" />
+          <ScalarProperty Name="Group_Name" ColumnName="Group Name" />
+          <ScalarProperty Name="Milestone__Region" ColumnName="Milestone: Region" />
+          <ScalarProperty Name="Milestone_Title" ColumnName="Milestone Title" />
+          <ScalarProperty Name="Milestone__Assignee__Full_Name" ColumnName="Milestone: Assignee: Full Name" />
+          <ScalarProperty Name="Milestone_Due_Date" ColumnName="Milestone Due Date" />
+          <ScalarProperty Name="Milestone__Country_Status" ColumnName="Milestone: Country Status" />
+          <ScalarProperty Name="Task_List_Title" ColumnName="Task List Title" />
+          <ScalarProperty Name="Task_Title" ColumnName="Task Title" />
+          <ScalarProperty Name="Task__Assignee__Full_Name" ColumnName="Task: Assignee: Full Name" />
+          <ScalarProperty Name="Task_Status" ColumnName="Task Status" />
+          <ScalarProperty Name="Task_Overdue" ColumnName="Task Overdue" />
+          <ScalarProperty Name="Task_Start_Date" ColumnName="Task Start Date" />
+          <ScalarProperty Name="Task_Due_Date" ColumnName="Task Due Date" />
+          <ScalarProperty Name="Workspace__Project_Level" ColumnName="Workspace: Project Level" />
+          <ScalarProperty Name="Milestone__Project_Start_Date" ColumnName="Milestone: Project Start Date" />
+          <ScalarProperty Name="Milestone__Country" ColumnName="Milestone: Country" />
+          <ScalarProperty Name="Last_Comment" ColumnName="Last Comment" />
+          <ScalarProperty Name="RevenurID" ColumnName="RevenurID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DataiMeets">
+      <EntityTypeMapping TypeName="CWTDashboardModel.DataiMeet">
+        <MappingFragment StoreEntitySet="DataiMeet">
+          <ScalarProperty Name="iMeetID" ColumnName="iMeetID" />
+          <ScalarProperty Name="Task_Start_Date" ColumnName="Task Start Date" />
+          <ScalarProperty Name="Task_Due_Date" ColumnName="Task Due Date" />
+          <ScalarProperty Name="Milestone_Title" ColumnName="Milestone Title" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace Title" />
+          <ScalarProperty Name="Milestone__Country" ColumnName="Milestone: Country" />
+          <ScalarProperty Name="Task__Task_Type" ColumnName="Task: Task Type" />
+          <ScalarProperty Name="Milestone__Record_ID_Key" ColumnName="Milestone: Record ID Key" />
+          <ScalarProperty Name="Task__Task_Record_ID_Key" ColumnName="Task: Task Record ID Key" />
+          <ScalarProperty Name="Milestone__CRM_Revenue_ID__" ColumnName="Milestone: CRM Revenue ID #" />
+          <ScalarProperty Name="Milestone__Project_Status" ColumnName="Milestone: Project Status" />
+          <ScalarProperty Name="Milestone__Reason_Code" ColumnName="Milestone: Reason Code" />
+          <ScalarProperty Name="C__Complete" ColumnName="% Complete" />
+          <ScalarProperty Name="Milestone__Country_Status" ColumnName="Milestone: Country Status" />
+          <ScalarProperty Name="Workspace__Project_Level" ColumnName="Workspace: Project Level" />
+          <ScalarProperty Name="Milestone_Due_Date" ColumnName="Milestone Due Date" />
+          <ScalarProperty Name="Workspace__Project_Owner__Full_Name" ColumnName="Workspace: Project Owner: Full Name" />
+          <ScalarProperty Name="Group_Name" ColumnName="Group Name" />
+          <ScalarProperty Name="Milestone__Project_Notes" ColumnName="Milestone: Project Notes" />
+          <ScalarProperty Name="Milestone__Closed_Loop_Owner" ColumnName="Milestone: Closed Loop Owner" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Status" ColumnName="Workspace: ELT Overall Status" />
+          <ScalarProperty Name="Completed_Date" ColumnName="Completed Date" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Comments" ColumnName="Workspace: ELT Overall Comments" />
+          <ScalarProperty Name="Task_Status" ColumnName="Task Status" />
+          <ScalarProperty Name="Task_Completed_Date" ColumnName="Task Completed Date" />
+          <ScalarProperty Name="Milestone__Milestone_type" ColumnName="Milestone: Milestone type" />
+          <ScalarProperty Name="Milestone__Region" ColumnName="Milestone: Region" />
+          <ScalarProperty Name="Milestone__Cycle_Time_Delay_Code" ColumnName="Milestone: Cycle Time Delay Code" />
+          <ScalarProperty Name="EltClientDelayDescription" ColumnName="EltClientDelayDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DigitalTeams">
+      <EntityTypeMapping TypeName="CWTDashboardModel.DigitalTeam">
+        <MappingFragment StoreEntitySet="DigitalTeam">
+          <ScalarProperty Name="DTID" ColumnName="DTID" />
+          <ScalarProperty Name="RevenueID" ColumnName="RevenueID" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="GlobalCISOBTLead" ColumnName="GlobalCISOBTLead" />
+          <ScalarProperty Name="RegionalCISOBTLead" ColumnName="RegionalCISOBTLead" />
+          <ScalarProperty Name="LocalDigitalOBTLead" ColumnName="LocalDigitalOBTLead" />
+          <ScalarProperty Name="GlobalCISPortraitLead" ColumnName="GlobalCISPortraitLead" />
+          <ScalarProperty Name="RegionalCISPortraitLead" ColumnName="RegionalCISPortraitLead" />
+          <ScalarProperty Name="GlobalCISHRFeedSpecialist" ColumnName="GlobalCISHRFeedSpecialist" />
+          <ScalarProperty Name="GDS" ColumnName="GDS" />
+          <ScalarProperty Name="ComplexityScore" ColumnName="ComplexityScore" />
+          <ScalarProperty Name="TaskRecordIdKey" ColumnName="TaskRecordIdKey" />
+          <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="ActivityType" ColumnName="ActivityType" />
+          <ScalarProperty Name="GlobalCISDQSLead" ColumnName="GlobalCISDQSLead" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DQSTests">
+      <EntityTypeMapping TypeName="CWTDashboardModel.DQSTest">
+        <MappingFragment StoreEntitySet="DQSTest">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SOURCE" ColumnName="SOURCE" />
+          <ScalarProperty Name="TRANS_NUM" ColumnName="TRANS_NUM" />
+          <ScalarProperty Name="Formated_LOAD_DATE" ColumnName="Formated_LOAD_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EltDeltaClients">
+      <EntityTypeMapping TypeName="CWTDashboardModel.EltDeltaClient">
+        <MappingFragment StoreEntitySet="EltDeltaClients">
+          <ScalarProperty Name="EltID" ColumnName="EltID" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Revenue" ColumnName="Revenue" />
+          <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EltOldCLRDatas">
+      <EntityTypeMapping TypeName="CWTDashboardModel.EltOldCLRData">
+        <MappingFragment StoreEntitySet="EltOldCLRData">
+          <ScalarProperty Name="CLRID" ColumnName="CLRID" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="RevenueID" ColumnName="RevenueID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="OwnerShip" ColumnName="OwnerShip" />
+          <ScalarProperty Name="GoLiveDate" ColumnName="GoLiveDate" />
+          <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+          <ScalarProperty Name="ProjectLevel" ColumnName="ProjectLevel" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace_Title" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Status" ColumnName="Workspace__ELT_Overall_Status" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Comments" ColumnName="Workspace__ELT_Overall_Comments" />
+          <ScalarProperty Name="Opportunity_Type" ColumnName="Opportunity_Type" />
+          <ScalarProperty Name="RevenueVolumeUSD" ColumnName="RevenueVolumeUSD" />
+          <ScalarProperty Name="GoLiveMonth" ColumnName="GoLiveMonth" />
+          <ScalarProperty Name="GoLiveYear" ColumnName="GoLiveYear" />
+          <ScalarProperty Name="Quarter" ColumnName="Quarter" />
+          <ScalarProperty Name="CycleTime" ColumnName="CycleTime" />
+          <ScalarProperty Name="ProjectStart_ForCycleTime" ColumnName="ProjectStart_ForCycleTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ImplementationType" ColumnName="ImplementationType" />
+          <ScalarProperty Name="DataSourceType" ColumnName="DataSourceType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ErrorTrackers">
+      <EntityTypeMapping TypeName="CWTDashboardModel.ErrorTracker">
+        <MappingFragment StoreEntitySet="ErrorTracker">
+          <ScalarProperty Name="TrackerID" ColumnName="TrackerID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="Manager" ColumnName="Manager" />
+          <ScalarProperty Name="ProjectLevel" ColumnName="ProjectLevel" />
+          <ScalarProperty Name="OBT" ColumnName="OBT" />
+          <ScalarProperty Name="OBTUsed" ColumnName="OBTUsed" />
+          <ScalarProperty Name="TypeofError" ColumnName="TypeofError" />
+          <ScalarProperty Name="FinancialImpact" ColumnName="FinancialImpact" />
+          <ScalarProperty Name="FIDescription" ColumnName="FIDescription" />
+          <ScalarProperty Name="ValueofLoss" ColumnName="ValueofLoss" />
+          <ScalarProperty Name="ErrorDescription" ColumnName="ErrorDescription" />
+          <ScalarProperty Name="ErrorReason" ColumnName="ErrorReason" />
+          <ScalarProperty Name="WhoReportedError" ColumnName="WhoReportedError" />
+          <ScalarProperty Name="ErrorComplexityRating" ColumnName="ErrorComplexityRating" />
+          <ScalarProperty Name="IssueResolved" ColumnName="IssueResolved" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="FMEA" ColumnName="FMEA" />
+          <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eSowDatas">
+      <EntityTypeMapping TypeName="CWTDashboardModel.eSowData">
+        <MappingFragment StoreEntitySet="eSowData">
+          <ScalarProperty Name="eSowID" ColumnName="eSowID" />
+          <ScalarProperty Name="SOWName" ColumnName="SOWName" />
+          <ScalarProperty Name="ServiceModel" ColumnName="ServiceModel" />
+          <ScalarProperty Name="LanguageRequirement" ColumnName="LanguageRequirement" />
+          <ScalarProperty Name="DSDLead" ColumnName="DSDLead" />
+          <ScalarProperty Name="SOWOwner" ColumnName="SOWOwner" />
+          <ScalarProperty Name="ImplementationLead" ColumnName="ImplementationLead" />
+          <ScalarProperty Name="PricingLead" ColumnName="PricingLead" />
+          <ScalarProperty Name="PricingLeadregion" ColumnName="PricingLeadregion" />
+          <ScalarProperty Name="GeographicScope" ColumnName="GeographicScope" />
+          <ScalarProperty Name="ProspectType" ColumnName="ProspectType" />
+          <ScalarProperty Name="CRMStatus" ColumnName="CRMStatus" />
+          <ScalarProperty Name="ClientRegion" ColumnName="ClientRegion" />
+          <ScalarProperty Name="DateRFPReceived" ColumnName="DateRFPReceived" />
+          <ScalarProperty Name="SOWCreationDate" ColumnName="SOWCreationDate" />
+          <ScalarProperty Name="DateDecisionExpected" ColumnName="DateDecisionExpected" />
+          <ScalarProperty Name="Datenotifiedofwinorloss" ColumnName="Datenotifiedofwinorloss" />
+          <ScalarProperty Name="GoLivedateestimated" ColumnName="GoLivedateestimated" />
+          <ScalarProperty Name="NumberofCountries" ColumnName="NumberofCountries" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="WebPEMStatus" ColumnName="WebPEMStatus" />
+          <ScalarProperty Name="SOWStatus" ColumnName="SOWStatus" />
+          <ScalarProperty Name="SLAInScope" ColumnName="SLAInScope" />
+          <ScalarProperty Name="PricingReady" ColumnName="PricingReady" />
+          <ScalarProperty Name="ImplementationReady" ColumnName="ImplementationReady" />
+          <ScalarProperty Name="AccountCategory" ColumnName="AccountCategory" />
+          <ScalarProperty Name="PenaltyRewardSLA" ColumnName="PenaltyRewardSLA" />
+          <ScalarProperty Name="SLAReporting" ColumnName="SLAReporting" />
+          <ScalarProperty Name="CRMOpportunityID" ColumnName="CRMOpportunityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eSOWNews">
+      <EntityTypeMapping TypeName="CWTDashboardModel.eSOWNew">
+        <MappingFragment StoreEntitySet="eSOWNew">
+          <ScalarProperty Name="eSOWID" ColumnName="eSOWID" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Essential" ColumnName="Essential" />
+          <ScalarProperty Name="Configurable" ColumnName="Configurable" />
+          <ScalarProperty Name="Customizable" ColumnName="Customizable" />
+          <ScalarProperty Name="SOW_Name" ColumnName="SOW Name" />
+          <ScalarProperty Name="CRM_Opportunity_ID" ColumnName="CRM Opportunity ID" />
+          <ScalarProperty Name="Service_Model" ColumnName="Service Model" />
+          <ScalarProperty Name="Language_Model" ColumnName="Language Model" />
+          <ScalarProperty Name="Client__Prospect" ColumnName="Client/ Prospect" />
+          <ScalarProperty Name="Sales_Lead_Name" ColumnName="Sales Lead Name" />
+          <ScalarProperty Name="Sales_Leader_type_and_Type_of_bid" ColumnName="Sales Leader type and Type of bid" />
+          <ScalarProperty Name="DSD_Lead" ColumnName="DSD Lead" />
+          <ScalarProperty Name="SOW_Owner" ColumnName="SOW Owner" />
+          <ScalarProperty Name="Total_traffic_in_Million_USD__air_rail_only_" ColumnName="Total traffic in Million USD (air+rail only)" />
+          <ScalarProperty Name="Bid_originated_by_" ColumnName="Bid originated by:" />
+          <ScalarProperty Name="Geographic_Scope" ColumnName="Geographic Scope" />
+          <ScalarProperty Name="Prospect_Type" ColumnName="Prospect Type" />
+          <ScalarProperty Name="CRM_Status" ColumnName="CRM Status" />
+          <ScalarProperty Name="Client_Region" ColumnName="Client Region" />
+          <ScalarProperty Name="Client_s_Industry" ColumnName="Client's Industry" />
+          <ScalarProperty Name="Date_RFP_Received" ColumnName="Date RFP Received" />
+          <ScalarProperty Name="SOW_Creation_Date" ColumnName="SOW Creation Date" />
+          <ScalarProperty Name="Date_Decision_Expected" ColumnName="Date Decision Expected" />
+          <ScalarProperty Name="Date_notified_of_win_or_loss" ColumnName="Date notified of win or loss" />
+          <ScalarProperty Name="Go_Live_date_estimated_" ColumnName="Go-Live date estimated " />
+          <ScalarProperty Name="Number_of_Countries" ColumnName="Number of Countries" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last Modified Date" />
+          <ScalarProperty Name="WebPEM_Status" ColumnName="WebPEM Status" />
+          <ScalarProperty Name="SOW_Status" ColumnName="SOW Status" />
+          <ScalarProperty Name="SLA_In_Scope" ColumnName="SLA In Scope" />
+          <ScalarProperty Name="Pricing_Ready" ColumnName="Pricing Ready" />
+          <ScalarProperty Name="Implementation_Ready" ColumnName="Implementation Ready" />
+          <ScalarProperty Name="Action_Item" ColumnName="Action Item" />
+          <ScalarProperty Name="XYCT_Private_jet_aircraft_charters__non_GDS" ColumnName="XYCT_Private jet-aircraft charters: non GDS" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CPKI_Client_GDS_access" ColumnName="CPKI_Client GDS access" />
+          <ScalarProperty Name="STATUS1" ColumnName="STATUS1" />
+          <ScalarProperty Name="UBNQ_Client_owned_booking_request_system" ColumnName="UBNQ_Client-owned booking request system" />
+          <ScalarProperty Name="STATUS2" ColumnName="STATUS2" />
+          <ScalarProperty Name="VDUE_Itinerary__standard" ColumnName="VDUE_Itinerary: standard" />
+          <ScalarProperty Name="STATUS3" ColumnName="STATUS3" />
+          <ScalarProperty Name="UYSN_GDS_waitlists" ColumnName="UYSN_GDS waitlists" />
+          <ScalarProperty Name="STATUS4" ColumnName="STATUS4" />
+          <ScalarProperty Name="JPZL_Virtual_payment_card__client" ColumnName="JPZL_Virtual payment card: client" />
+          <ScalarProperty Name="STATUS5" ColumnName="STATUS5" />
+          <ScalarProperty Name="JAAY_Flight_reservations__GDS___client_fares" ColumnName="JAAY_Flight reservations: GDS - client fares" />
+          <ScalarProperty Name="STATUS6" ColumnName="STATUS6" />
+          <ScalarProperty Name="XQYJ_Airline_soft_dollar_programs" ColumnName="XQYJ_Airline soft dollar programs" />
+          <ScalarProperty Name="STATUS7" ColumnName="STATUS7" />
+          <ScalarProperty Name="DQLX_Travel_and_ticketing_modifications__counsellor" ColumnName="DQLX_Travel and ticketing modifications: counsellor" />
+          <ScalarProperty Name="STATUS8" ColumnName="STATUS8" />
+          <ScalarProperty Name="GRAZ_CWT_profile__guest_traveler___travel_counselor_creation" ColumnName="GRAZ_CWT profile: guest traveler - travel counselor creation" />
+          <ScalarProperty Name="STATUS9" ColumnName="STATUS9" />
+          <ScalarProperty Name="JEYQ_Expedited_implementation" ColumnName="JEYQ_Expedited implementation" />
+          <ScalarProperty Name="STATUS10" ColumnName="STATUS10" />
+          <ScalarProperty Name="PJIP_Reason_codes__CWT_defined___hotel_reservations" ColumnName="PJIP_Reason codes: CWT defined - hotel reservations" />
+          <ScalarProperty Name="STATUS11" ColumnName="STATUS11" />
+          <ScalarProperty Name="AZBX_Itinerary__client_customized" ColumnName="AZBX_Itinerary: client customized" />
+          <ScalarProperty Name="STATUS12" ColumnName="STATUS12" />
+          <ScalarProperty Name="LJHL_CWT_Meetings_and_Events" ColumnName="LJHL_CWT Meetings and Events" />
+          <ScalarProperty Name="STATUS13" ColumnName="STATUS13" />
+          <ScalarProperty Name="KMWF_Loyalty_program_cards__i_e__frequent_flyer__hotel_chain__et" ColumnName="KMWF_Loyalty program cards: i#e# frequent flyer, hotel chain, et" />
+          <ScalarProperty Name="STATUS14" ColumnName="STATUS14" />
+          <ScalarProperty Name="LKZB_Relocation_services__client_customized" ColumnName="LKZB_Relocation services: client customized" />
+          <ScalarProperty Name="STATUS15" ColumnName="STATUS15" />
+          <ScalarProperty Name="UBXF_Flight_reservations__low_cost_carriers___web_bookings" ColumnName="UBXF_Flight reservations: low cost carriers - web bookings" />
+          <ScalarProperty Name="STATUS16" ColumnName="STATUS16" />
+          <ScalarProperty Name="RKYA_Lodge_card_business_travel_account__BTA_" ColumnName="RKYA_Lodge card/business travel account (BTA)" />
+          <ScalarProperty Name="STATUS17" ColumnName="STATUS17" />
+          <ScalarProperty Name="QHEE_Reason_codes__CWT_defined___car_reservations" ColumnName="QHEE_Reason codes: CWT defined - car reservations" />
+          <ScalarProperty Name="STATUS18" ColumnName="STATUS18" />
+          <ScalarProperty Name="VOWW_Approval_process__client_customized_integration" ColumnName="VOWW_Approval process: client customized integration" />
+          <ScalarProperty Name="STATUS19" ColumnName="STATUS19" />
+          <ScalarProperty Name="XBVI_Predeparture_email" ColumnName="XBVI_Predeparture email" />
+          <ScalarProperty Name="STATUS20" ColumnName="STATUS20" />
+          <ScalarProperty Name="OMGO_Client_defined_data__transactional" ColumnName="OMGO_Client defined data: transactional" />
+          <ScalarProperty Name="STATUS21" ColumnName="STATUS21" />
+          <ScalarProperty Name="CCGP_Unused_ticket_tracking__manual" ColumnName="CCGP_Unused ticket tracking: manual" />
+          <ScalarProperty Name="STATUS22" ColumnName="STATUS22" />
+          <ScalarProperty Name="HJIO_Credit_card_reconciliation" ColumnName="HJIO_Credit card reconciliation" />
+          <ScalarProperty Name="STATUS23" ColumnName="STATUS23" />
+          <ScalarProperty Name="HCGS_Flight_reservations__scheduled_carriers___web_bookings" ColumnName="HCGS_Flight reservations: scheduled carriers - web bookings" />
+          <ScalarProperty Name="STATUS24" ColumnName="STATUS24" />
+          <ScalarProperty Name="PODK_Travel_insurance" ColumnName="PODK_Travel insurance" />
+          <ScalarProperty Name="STATUS25" ColumnName="STATUS25" />
+          <ScalarProperty Name="YNGA_Data_feed__third_party___CWT_standard_feed" ColumnName="YNGA_Data feed: third-party - CWT standard feed" />
+          <ScalarProperty Name="STATUS26" ColumnName="STATUS26" />
+          <ScalarProperty Name="CGZS_End_to_end_logistics_via_ERM_mobility" ColumnName="CGZS_End-to-end logistics via ERM mobility" />
+          <ScalarProperty Name="STATUS27" ColumnName="STATUS27" />
+          <ScalarProperty Name="WHQW_Voice" ColumnName="WHQW_Voice" />
+          <ScalarProperty Name="STATUS28" ColumnName="STATUS28" />
+          <ScalarProperty Name="TZUL_Traveler_satisfaction_survey" ColumnName="TZUL_Traveler satisfaction survey" />
+          <ScalarProperty Name="STATUS29" ColumnName="STATUS29" />
+          <ScalarProperty Name="CKWH_Same_flight_reporting__manual_post_booking_process" ColumnName="CKWH_Same flight reporting: manual post-booking process" />
+          <ScalarProperty Name="STATUS30" ColumnName="STATUS30" />
+          <ScalarProperty Name="GIBN_Invoicing_billback_on_account__flight_only" ColumnName="GIBN_Invoicing/billback/on-account: flight only" />
+          <ScalarProperty Name="STATUS31" ColumnName="STATUS31" />
+          <ScalarProperty Name="GIOZ_Itinerary__configurable" ColumnName="GIOZ_Itinerary: configurable" />
+          <ScalarProperty Name="STATUS32" ColumnName="STATUS32" />
+          <ScalarProperty Name="ZZZI_Travel_policy_compliance__low_air_fare_guarantee" ColumnName="ZZZI_Travel policy compliance: low air fare guarantee" />
+          <ScalarProperty Name="STATUS33" ColumnName="STATUS33" />
+          <ScalarProperty Name="UOVS_Bespoke_client_tool_integration_with_booking_process" ColumnName="UOVS_Bespoke client tool integration with booking process" />
+          <ScalarProperty Name="STATUS34" ColumnName="STATUS34" />
+          <ScalarProperty Name="QZIX_Credit_card" ColumnName="QZIX_Credit card" />
+          <ScalarProperty Name="STATUS35" ColumnName="STATUS35" />
+          <ScalarProperty Name="OHZH_myCWT_mobile" ColumnName="OHZH_myCWT mobile" />
+          <ScalarProperty Name="STATUS36" ColumnName="STATUS36" />
+          <ScalarProperty Name="WVDN_Rail_bookings__client_customized_integration" ColumnName="WVDN_Rail bookings: client customized integration" />
+          <ScalarProperty Name="STATUS37" ColumnName="STATUS37" />
+          <ScalarProperty Name="YVLO_Airline_upgrade_programs" ColumnName="YVLO_Airline upgrade programs" />
+          <ScalarProperty Name="STATUS38" ColumnName="STATUS38" />
+          <ScalarProperty Name="KHZQ_Flight_reservations__GDS___published_and_CWT_fares" ColumnName="KHZQ_Flight reservations: GDS - published and CWT fares" />
+          <ScalarProperty Name="STATUS39" ColumnName="STATUS39" />
+          <ScalarProperty Name="MYRU_Duplicate_invoice_requests" ColumnName="MYRU_Duplicate invoice requests" />
+          <ScalarProperty Name="STATUS40" ColumnName="STATUS40" />
+          <ScalarProperty Name="QRUE_Management_of_anticipated_seat_reservations" ColumnName="QRUE_Management of anticipated seat reservations" />
+          <ScalarProperty Name="STATUS41" ColumnName="STATUS41" />
+          <ScalarProperty Name="OJMQ_Online_booking_tool__offline_module___direct_client_agreeme" ColumnName="OJMQ_Online booking tool: offline module - direct client agreeme" />
+          <ScalarProperty Name="STATUS42" ColumnName="STATUS42" />
+          <ScalarProperty Name="OXAC_Bespoke_client_processes__i_e__multipax__quality_control__e" ColumnName="OXAC_Bespoke client processes: i#e# multipax, quality control, e" />
+          <ScalarProperty Name="STATUS43" ColumnName="STATUS43" />
+          <ScalarProperty Name="OHEE_Airfare_shop_and_book__CWT_standard" ColumnName="OHEE_Airfare shop and book: CWT standard" />
+          <ScalarProperty Name="STATUS44" ColumnName="STATUS44" />
+          <ScalarProperty Name="VINY_CWT_profile__self_service" ColumnName="VINY_CWT profile: self service" />
+          <ScalarProperty Name="STATUS45" ColumnName="STATUS45" />
+          <ScalarProperty Name="PICY_Service_Level_Agreement__SLA___client_customized" ColumnName="PICY_Service Level Agreement (SLA): client customized" />
+          <ScalarProperty Name="STATUS46" ColumnName="STATUS46" />
+          <ScalarProperty Name="TGWG_Approval_process__online_booking_tool__automated_" ColumnName="TGWG_Approval process: online booking tool (automated)" />
+          <ScalarProperty Name="STATUS47" ColumnName="STATUS47" />
+          <ScalarProperty Name="LNCL_Fax_reservations" ColumnName="LNCL_Fax reservations" />
+          <ScalarProperty Name="STATUS48" ColumnName="STATUS48" />
+          <ScalarProperty Name="MNTG_Travel_manager_satisfaction_survey" ColumnName="MNTG_Travel manager satisfaction survey" />
+          <ScalarProperty Name="STATUS49" ColumnName="STATUS49" />
+          <ScalarProperty Name="RARJ_Ground_transportation_reservations__taxi__bus__coach__limo_" ColumnName="RARJ_Ground transportation reservations: taxi, bus, coach, limo," />
+          <ScalarProperty Name="STATUS50" ColumnName="STATUS50" />
+          <ScalarProperty Name="QQOV_Invoice__traveler_or_company" ColumnName="QQOV_Invoice: traveler or company" />
+          <ScalarProperty Name="STATUS51" ColumnName="STATUS51" />
+          <ScalarProperty Name="SRYN_Flight_reservation__group_travel___business_travel_commerci" ColumnName="SRYN_Flight reservation: group travel - business travel/commerci" />
+          <ScalarProperty Name="STATUS52" ColumnName="STATUS52" />
+          <ScalarProperty Name="QPCT_Hotel_services_powered_by_RoomIt__published_and_CWT_rates" ColumnName="QPCT_Hotel services powered by RoomIt: published and CWT rates" />
+          <ScalarProperty Name="STATUS53" ColumnName="STATUS53" />
+          <ScalarProperty Name="FWEW_ERM_Fares" ColumnName="FWEW_ERM Fares" />
+          <ScalarProperty Name="STATUS54" ColumnName="STATUS54" />
+          <ScalarProperty Name="EXLI_Visa_advisory" ColumnName="EXLI_Visa advisory" />
+          <ScalarProperty Name="STATUS55" ColumnName="STATUS55" />
+          <ScalarProperty Name="HBWX_CWT_profile__travel_counselor_updates" ColumnName="HBWX_CWT profile: travel counselor updates" />
+          <ScalarProperty Name="STATUS56" ColumnName="STATUS56" />
+          <ScalarProperty Name="VFDI_Flight_reservations__low_cost_carriers___integrated_content" ColumnName="VFDI_Flight reservations: low cost carriers - integrated content" />
+          <ScalarProperty Name="STATUS57" ColumnName="STATUS57" />
+          <ScalarProperty Name="LLHS_Invoicing_billback_on_account__car_and_hotel_only" ColumnName="LLHS_Invoicing/billback/on-account: car and hotel only" />
+          <ScalarProperty Name="STATUS58" ColumnName="STATUS58" />
+          <ScalarProperty Name="FBMC_Safety_and_security__core" ColumnName="FBMC_Safety and security: core" />
+          <ScalarProperty Name="STATUS59" ColumnName="STATUS59" />
+          <ScalarProperty Name="TCMQ_Hotel_reservations__client_hotel_aggregator___CWT_managed" ColumnName="TCMQ_Hotel reservations: client hotel aggregator - CWT managed" />
+          <ScalarProperty Name="STATUS60" ColumnName="STATUS60" />
+          <ScalarProperty Name="UEJR_Traveler_technical_support" ColumnName="UEJR_Traveler technical support" />
+          <ScalarProperty Name="STATUS61" ColumnName="STATUS61" />
+          <ScalarProperty Name="JDNI_ERM_Fares_in_conjunction_with_an_OBT_offline_module_or_PNR_" ColumnName="JDNI_ERM Fares in conjunction with an OBT offline module or PNR " />
+          <ScalarProperty Name="STATUS62" ColumnName="STATUS62" />
+          <ScalarProperty Name="AFGS_High_risk_customer" ColumnName="AFGS_High risk customer" />
+          <ScalarProperty Name="STATUS63" ColumnName="STATUS63" />
+          <ScalarProperty Name="BQRQ_Hotel_reviews__enhanced" ColumnName="BQRQ_Hotel reviews: enhanced" />
+          <ScalarProperty Name="STATUS64" ColumnName="STATUS64" />
+          <ScalarProperty Name="CABH_Price_optimization__flights_post_ticket" ColumnName="CABH_Price optimization: flights post-ticket" />
+          <ScalarProperty Name="STATUS65" ColumnName="STATUS65" />
+          <ScalarProperty Name="MJNE_Seat_assignments__automated_and_manual" ColumnName="MJNE_Seat assignments: automated and manual" />
+          <ScalarProperty Name="STATUS66" ColumnName="STATUS66" />
+          <ScalarProperty Name="APRT_Flight_reservations__airline_consolidators___non_GDS" ColumnName="APRT_Flight reservations: airline consolidators - non GDS" />
+          <ScalarProperty Name="STATUS67" ColumnName="STATUS67" />
+          <ScalarProperty Name="HSSR_Safety_and_security__enhanced" ColumnName="HSSR_Safety and security: enhanced" />
+          <ScalarProperty Name="STATUS68" ColumnName="STATUS68" />
+          <ScalarProperty Name="HJIC_Travel_policy__CWT_standard" ColumnName="HJIC_Travel policy: CWT standard" />
+          <ScalarProperty Name="STATUS69" ColumnName="STATUS69" />
+          <ScalarProperty Name="QHPE_Reason_codes__client_customized__flight__car__hotel_only_" ColumnName="QHPE_Reason codes: client customized (flight, car, hotel only)" />
+          <ScalarProperty Name="STATUS70" ColumnName="STATUS70" />
+          <ScalarProperty Name="PZSP_Rail_bookings__web___non_GDS" ColumnName="PZSP_Rail bookings: web - non GDS" />
+          <ScalarProperty Name="STATUS71" ColumnName="STATUS71" />
+          <ScalarProperty Name="VDSK_Hotel_services_powered_by_RoomIt__client_rates" ColumnName="VDSK_Hotel services powered by RoomIt: client rates" />
+          <ScalarProperty Name="STATUS72" ColumnName="STATUS72" />
+          <ScalarProperty Name="SGLF_Unused_ticket_tracking__automated" ColumnName="SGLF_Unused ticket tracking: automated" />
+          <ScalarProperty Name="STATUS73" ColumnName="STATUS73" />
+          <ScalarProperty Name="GSWX_myCWT_online" ColumnName="GSWX_myCWT online" />
+          <ScalarProperty Name="STATUS74" ColumnName="STATUS74" />
+          <ScalarProperty Name="PSXB_Enhanced_visa_services" ColumnName="PSXB_Enhanced visa services" />
+          <ScalarProperty Name="STATUS75" ColumnName="STATUS75" />
+          <ScalarProperty Name="WIGN_Travel_policy__multi_level_policy__subunit_and_traveler_typ" ColumnName="WIGN_Travel policy: multi-level policy (subunit and traveler typ" />
+          <ScalarProperty Name="STATUS76" ColumnName="STATUS76" />
+          <ScalarProperty Name="ZCVT_Email_reservations__unformatted_inbound_emails" ColumnName="ZCVT_Email reservations: unformatted inbound emails" />
+          <ScalarProperty Name="STATUS77" ColumnName="STATUS77" />
+          <ScalarProperty Name="BDZJ_Approval_process__Concur_request_or_Trondent__automated_" ColumnName="BDZJ_Approval process: Concur request or Trondent (automated)" />
+          <ScalarProperty Name="STATUS78" ColumnName="STATUS78" />
+          <ScalarProperty Name="ZYQO_Rail_bookings__GDS" ColumnName="ZYQO_Rail bookings: GDS" />
+          <ScalarProperty Name="STATUS79" ColumnName="STATUS79" />
+          <ScalarProperty Name="KUYY_myCWT_online__custom_inbound_single_sign_on" ColumnName="KUYY_myCWT online: custom inbound single sign-on" />
+          <ScalarProperty Name="STATUS80" ColumnName="STATUS80" />
+          <ScalarProperty Name="VCPH_Reason_codes__CWT_defined___flight_reservations" ColumnName="VCPH_Reason codes: CWT defined - flight reservations" />
+          <ScalarProperty Name="STATUS81" ColumnName="STATUS81" />
+          <ScalarProperty Name="EVZJ_Meal_assignments__automated_and_manual" ColumnName="EVZJ_Meal assignments: automated and manual" />
+          <ScalarProperty Name="STATUS82" ColumnName="STATUS82" />
+          <ScalarProperty Name="VWPY_Approval_process__manual_process__CWT_managed" ColumnName="VWPY_Approval process: manual process, CWT managed" />
+          <ScalarProperty Name="STATUS83" ColumnName="STATUS83" />
+          <ScalarProperty Name="GMTR_VIP_services" ColumnName="GMTR_VIP services" />
+          <ScalarProperty Name="STATUS84" ColumnName="STATUS84" />
+          <ScalarProperty Name="NYBI_Evacuation_business_continuity_services" ColumnName="NYBI_Evacuation/business continuity services" />
+          <ScalarProperty Name="STATUS85" ColumnName="STATUS85" />
+          <ScalarProperty Name="YCIW_Management_of_airline_seat_allotment_contracts" ColumnName="YCIW_Management of airline seat allotment contracts" />
+          <ScalarProperty Name="STATUS86" ColumnName="STATUS86" />
+          <ScalarProperty Name="QADG_myCWT_messaging" ColumnName="QADG_myCWT messaging" />
+          <ScalarProperty Name="STATUS87" ColumnName="STATUS87" />
+          <ScalarProperty Name="PAIJ_Business_intelligence_platform" ColumnName="PAIJ_Business intelligence platform" />
+          <ScalarProperty Name="STATUS88" ColumnName="STATUS88" />
+          <ScalarProperty Name="XYBH_Client_selected_GDS_agreement" ColumnName="XYBH_Client selected GDS agreement" />
+          <ScalarProperty Name="STATUS89" ColumnName="STATUS89" />
+          <ScalarProperty Name="WGCZ_Airfare_shop_and_book__client_customized" ColumnName="WGCZ_Airfare shop and book: client customized" />
+          <ScalarProperty Name="STATUS90" ColumnName="STATUS90" />
+          <ScalarProperty Name="IIYW_Client_owned_accomodation_management" ColumnName="IIYW_Client owned accomodation management" />
+          <ScalarProperty Name="STATUS91" ColumnName="STATUS91" />
+          <ScalarProperty Name="JAWT_Automated_communication_service__core" ColumnName="JAWT_Automated communication service: core" />
+          <ScalarProperty Name="STATUS92" ColumnName="STATUS92" />
+          <ScalarProperty Name="BTNC_Online_booking_tool__CWT_preferred_reseller" ColumnName="BTNC_Online booking tool: CWT preferred reseller" />
+          <ScalarProperty Name="STATUS93" ColumnName="STATUS93" />
+          <ScalarProperty Name="OQPL_Visa_procurement" ColumnName="OQPL_Visa procurement" />
+          <ScalarProperty Name="STATUS94" ColumnName="STATUS94" />
+          <ScalarProperty Name="AUXU_Car_reservations__GDS" ColumnName="AUXU_Car reservations: GDS" />
+          <ScalarProperty Name="STATUS95" ColumnName="STATUS95" />
+          <ScalarProperty Name="DGOF_Rail_bookings__CWT_integrated_solution" ColumnName="DGOF_Rail bookings: CWT integrated solution" />
+          <ScalarProperty Name="STATUS96" ColumnName="STATUS96" />
+          <ScalarProperty Name="DXLI_Trip_estimator" ColumnName="DXLI_Trip estimator" />
+          <ScalarProperty Name="STATUS97" ColumnName="STATUS97" />
+          <ScalarProperty Name="JPXJ_Price_optimization__hotels" ColumnName="JPXJ_Price optimization: hotels" />
+          <ScalarProperty Name="STATUS98" ColumnName="STATUS98" />
+          <ScalarProperty Name="JBFR_ERM24" ColumnName="JBFR_ERM24" />
+          <ScalarProperty Name="STATUS99" ColumnName="STATUS99" />
+          <ScalarProperty Name="XSTJ_Extended_Hours_of_Service" ColumnName="XSTJ_Extended Hours of Service" />
+          <ScalarProperty Name="STATUS100" ColumnName="STATUS100" />
+          <ScalarProperty Name="ZXTI_Marine_offshore_fare_qualification_letter" ColumnName="ZXTI_Marine/offshore fare qualification letter" />
+          <ScalarProperty Name="STATUS101" ColumnName="STATUS101" />
+          <ScalarProperty Name="EACH_Virtual_payment_card__CWT" ColumnName="EACH_Virtual payment card: CWT" />
+          <ScalarProperty Name="STATUS102" ColumnName="STATUS102" />
+          <ScalarProperty Name="OVRM_Automated_communication_service__enhanced" ColumnName="OVRM_Automated communication service: enhanced" />
+          <ScalarProperty Name="STATUS103" ColumnName="STATUS103" />
+          <ScalarProperty Name="QJDF_Online_booking_tool__direct_client_agreement" ColumnName="QJDF_Online booking tool: direct client agreement" />
+          <ScalarProperty Name="STATUS104" ColumnName="STATUS104" />
+          <ScalarProperty Name="SQQQ_Third_party_audit__Topaz" ColumnName="SQQQ_Third-party audit: Topaz" />
+          <ScalarProperty Name="STATUS105" ColumnName="STATUS105" />
+          <ScalarProperty Name="QPGZ_CWT_profile__worldwide_access" ColumnName="QPGZ_CWT profile: worldwide access" />
+          <ScalarProperty Name="STATUS106" ColumnName="STATUS106" />
+          <ScalarProperty Name="UUMX_Dedicated_team" ColumnName="UUMX_Dedicated team" />
+          <ScalarProperty Name="STATUS107" ColumnName="STATUS107" />
+          <ScalarProperty Name="ARDZ_PNR_acquisition__online_booking_tool" ColumnName="ARDZ_PNR acquisition: online booking tool" />
+          <ScalarProperty Name="STATUS108" ColumnName="STATUS108" />
+          <ScalarProperty Name="RTYP_Bespoke_online_and_or_offline_service_configuration" ColumnName="RTYP_Bespoke online and/or offline service configuration" />
+          <ScalarProperty Name="STATUS109" ColumnName="STATUS109" />
+          <ScalarProperty Name="FWGL_Email_reservations__web_form" ColumnName="FWGL_Email reservations: web form" />
+          <ScalarProperty Name="STATUS110" ColumnName="STATUS110" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="esowNewDatas">
+      <EntityTypeMapping TypeName="CWTDashboardModel.esowNewData">
+        <MappingFragment StoreEntitySet="esowNewData">
+          <ScalarProperty Name="ESOWid" ColumnName="ESOWid" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="eSoW_Ref" ColumnName="eSoW Ref" />
+          <ScalarProperty Name="crmOpportunityId" ColumnName="crmOpportunityId" />
+          <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+          <ScalarProperty Name="Client_Type" ColumnName="Client Type" />
+          <ScalarProperty Name="Proposal_Type" ColumnName="Proposal Type" />
+          <ScalarProperty Name="Account_Owner" ColumnName="Account Owner" />
+          <ScalarProperty Name="SoW_Owner" ColumnName="SoW Owner" />
+          <ScalarProperty Name="Self_Service" ColumnName="Self Service" />
+          <ScalarProperty Name="eSoW_Status" ColumnName="eSoW Status" />
+          <ScalarProperty Name="CRM_Status" ColumnName="CRM Status" />
+          <ScalarProperty Name="Option" ColumnName="Option" />
+          <ScalarProperty Name="Country_Name" ColumnName="Country Name" />
+          <ScalarProperty Name="serviceConfig" ColumnName="serviceConfig" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="configLoc" ColumnName="configLoc" />
+          <ScalarProperty Name="configName" ColumnName="configName" />
+          <ScalarProperty Name="afterHours" ColumnName="afterHours" />
+          <ScalarProperty Name="GDS" ColumnName="GDS" />
+          <ScalarProperty Name="OBT" ColumnName="OBT" />
+          <ScalarProperty Name="Account_Category" ColumnName="Account Category" />
+          <ScalarProperty Name="implementationReady" ColumnName="implementationReady" />
+          <ScalarProperty Name="Direct_Reseller" ColumnName="Direct/Reseller" />
+          <ScalarProperty Name="OBT_Adoption_Rate" ColumnName="OBT Adoption Rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ETCountries">
+      <EntityTypeMapping TypeName="CWTDashboardModel.ETCountry">
+        <MappingFragment StoreEntitySet="ETCountry">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ETManagers">
+      <EntityTypeMapping TypeName="CWTDashboardModel.ETManager">
+        <MappingFragment StoreEntitySet="ETManager">
+          <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+          <ScalarProperty Name="Manager" ColumnName="Manager" />
+          <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ETResources">
+      <EntityTypeMapping TypeName="CWTDashboardModel.ETResource">
+        <MappingFragment StoreEntitySet="ETResource">
+          <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
+          <ScalarProperty Name="Resource" ColumnName="Resource" />
+          <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoLives">
+      <EntityTypeMapping TypeName="CWTDashboardModel.GoLive">
+        <MappingFragment StoreEntitySet="GoLive">
+          <ScalarProperty Name="GoLiveID" ColumnName="GoLiveID" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace Title" />
+          <ScalarProperty Name="Milestone_Title" ColumnName="Milestone Title" />
+          <ScalarProperty Name="Milestone__Country" ColumnName="Milestone: Country" />
+          <ScalarProperty Name="Task_Title" ColumnName="Task Title" />
+          <ScalarProperty Name="Task__Task_Type" ColumnName="Task: Task Type" />
+          <ScalarProperty Name="Task_Start_Date" ColumnName="Task Start Date" />
+          <ScalarProperty Name="Milestone__Record_ID_Key" ColumnName="Milestone: Record ID Key" />
+          <ScalarProperty Name="Task__Task_Record_ID_Key" ColumnName="Task: Task Record ID Key" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hierarchies">
+      <EntityTypeMapping TypeName="CWTDashboardModel.Hierarchy">
+        <MappingFragment StoreEntitySet="Hierarchy">
+          <ScalarProperty Name="HierarchyID" ColumnName="HierarchyID" />
+          <ScalarProperty Name="User_ID" ColumnName="User ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sr_Leader" ColumnName="Sr Leader" />
+          <ScalarProperty Name="VP" ColumnName="VP" />
+          <ScalarProperty Name="Email_Address" ColumnName="Email Address" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="LeaderOne" ColumnName="LeaderOne" />
+          <ScalarProperty Name="LeaderTwo" ColumnName="LeaderTwo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HostExternals">
+      <EntityTypeMapping TypeName="CWTDashboardModel.HostExternal">
+        <MappingFragment StoreEntitySet="HostExternal">
+          <ScalarProperty Name="HostExternalID" ColumnName="HostExternalID" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace Title" />
+          <ScalarProperty Name="Milestone_Title" ColumnName="Milestone Title" />
+          <ScalarProperty Name="Milestone__Country" ColumnName="Milestone: Country" />
+          <ScalarProperty Name="Task_Title" ColumnName="Task Title" />
+          <ScalarProperty Name="Task_Start_Date" ColumnName="Task Start Date" />
+          <ScalarProperty Name="Task_Due_Date" ColumnName="Task Due Date" />
+          <ScalarProperty Name="Task_Completed_Date" ColumnName="Task Completed Date" />
+          <ScalarProperty Name="Task_Status" ColumnName="Task Status" />
+          <ScalarProperty Name="Task__Action_Region" ColumnName="Task: Action Region" />
+          <ScalarProperty Name="Task__Record_ID" ColumnName="Task: Record ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="iMeetDatas">
+      <EntityTypeMapping TypeName="CWTDashboardModel.iMeetData">
+        <MappingFragment StoreEntitySet="iMeetData">
+          <ScalarProperty Name="iMeetId" ColumnName="iMeetId" />
+          <ScalarProperty Name="Task_Title" ColumnName="Task Title" />
+          <ScalarProperty Name="Task__Assignee__Full_Name" ColumnName="Task: Assignee: Full Name" />
+          <ScalarProperty Name="Task_Start_Date" ColumnName="Task Start Date" />
+          <ScalarProperty Name="Task_Due_Date" ColumnName="Task Due Date" />
+          <ScalarProperty Name="Milestone_Title" ColumnName="Milestone Title" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace Title" />
+          <ScalarProperty Name="Task__Assigned_Role__Name" ColumnName="Task: Assigned Role: Name" />
+          <ScalarProperty Name="Task__Assignee__Reports_to__Full_Name" ColumnName="Task: Assignee: Reports to: Full Name" />
+          <ScalarProperty Name="Task__Task_Type" ColumnName="Task: Task Type" />
+          <ScalarProperty Name="Task__Task_Record_ID_Key" ColumnName="Task: Task Record ID Key" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Status" ColumnName="Workspace: ELT Overall Status" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Comments" ColumnName="Workspace: ELT Overall Comments" />
+          <ScalarProperty Name="Workspace__Project_Level" ColumnName="Workspace: Project Level" />
+          <ScalarProperty Name="Workspace__Project_Owner__Full_Name" ColumnName="Workspace: Project Owner: Full Name" />
+          <ScalarProperty Name="Milestone__CRM_Revenue_ID__" ColumnName="Milestone: CRM Revenue ID #" />
+          <ScalarProperty Name="Milestone__Assignee__Full_Name" ColumnName="Milestone: Assignee: Full Name" />
+          <ScalarProperty Name="Milestone__Assignee__Reports_to__Full_Name" ColumnName="Milestone: Assignee: Reports to: Full Name" />
+          <ScalarProperty Name="Milestone__Country" ColumnName="Milestone: Country" />
+          <ScalarProperty Name="Milestone__Project_Status" ColumnName="Milestone: Project Status" />
+          <ScalarProperty Name="Milestone__Country_Status" ColumnName="Milestone: Country Status" />
+          <ScalarProperty Name="Completed_Date" ColumnName="Completed Date" />
+          <ScalarProperty Name="C__Complete" ColumnName="% Complete" />
+          <ScalarProperty Name="Milestone__Project_Start_Date" ColumnName="Milestone: Project Start Date" />
+          <ScalarProperty Name="Milestone__Initial_Go_Live_Date" ColumnName="Milestone: Initial Go-Live Date" />
+          <ScalarProperty Name="Milestone_Due_Date" ColumnName="Milestone Due Date" />
+          <ScalarProperty Name="Milestone_Start_Date" ColumnName="Milestone Start Date" />
+          <ScalarProperty Name="Task_Overdue" ColumnName="Task Overdue" />
+          <ScalarProperty Name="Task__Record_ID" ColumnName="Task: Record ID" />
+          <ScalarProperty Name="Milestone__Region" ColumnName="Milestone: Region" />
+          <ScalarProperty Name="Milestone__Record_ID" ColumnName="Milestone: Record ID" />
+          <ScalarProperty Name="Milestone__Record_ID_Key" ColumnName="Milestone: Record ID Key" />
+          <ScalarProperty Name="Milestone__Project_Notes" ColumnName="Milestone: Project Notes" />
+          <ScalarProperty Name="Milestone__Reason_Code" ColumnName="Milestone: Reason Code" />
+          <ScalarProperty Name="Group_Name" ColumnName="Group Name" />
+          <ScalarProperty Name="Milestone__Closed_Loop_Owner" ColumnName="Milestone: Closed Loop Owner" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMPS">
+      <EntityTypeMapping TypeName="CWTDashboardModel.IMP">
+        <MappingFragment StoreEntitySet="IMPS">
+          <ScalarProperty Name="IMPSID" ColumnName="IMPSID" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace Title" />
+          <ScalarProperty Name="Workspace__CRM_Customer_Row_ID" ColumnName="Workspace: CRM Customer Row ID" />
+          <ScalarProperty Name="Workspace__Project_Level" ColumnName="Workspace: Project Level" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Status" ColumnName="Workspace: ELT Overall Status" />
+          <ScalarProperty Name="Milestone_Title" ColumnName="Milestone Title" />
+          <ScalarProperty Name="Milestone__Region" ColumnName="Milestone: Region" />
+          <ScalarProperty Name="Milestone__Record_ID_Key" ColumnName="Milestone: Record ID Key" />
+          <ScalarProperty Name="Milestone__Country" ColumnName="Milestone: Country" />
+          <ScalarProperty Name="Milestone__Project_Status" ColumnName="Milestone: Project Status" />
+          <ScalarProperty Name="C__Complete" ColumnName="% Complete" />
+          <ScalarProperty Name="Milestone__Project_Start_Date" ColumnName="Milestone: Project Start Date" />
+          <ScalarProperty Name="Milestone__Assignee__Full_Name" ColumnName="Milestone: Assignee: Full Name" />
+          <ScalarProperty Name="Milestone__Assignee__Reports_to__Full_Name" ColumnName="Milestone: Assignee: Reports to: Full Name" />
+          <ScalarProperty Name="Task_Title" ColumnName="Task Title" />
+          <ScalarProperty Name="Task__Task_Record_ID_Key" ColumnName="Task: Task Record ID Key" />
+          <ScalarProperty Name="Task_Start_Date" ColumnName="Task Start Date" />
+          <ScalarProperty Name="Milestone__CRM_Revenue_ID__" ColumnName="Milestone: CRM Revenue ID #" />
+          <ScalarProperty Name="Milestone__Reason_Code" ColumnName="Milestone: Reason Code" />
+          <ScalarProperty Name="Milestone__Closed_Loop_Owner" ColumnName="Milestone: Closed Loop Owner" />
+          <ScalarProperty Name="Group_Name" ColumnName="Group Name" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Comments" ColumnName="Workspace: ELT Overall Comments" />
+          <ScalarProperty Name="Milestone__Project_Notes" ColumnName="Milestone: Project Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JiraDatas">
+      <EntityTypeMapping TypeName="CWTDashboardModel.JiraData">
+        <MappingFragment StoreEntitySet="JiraData">
+          <ScalarProperty Name="JiraId" ColumnName="JiraId" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+          <ScalarProperty Name="Assignee" ColumnName="Assignee" />
+          <ScalarProperty Name="Assignee_Id" ColumnName="Assignee Id" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Custom_field__Flight_Planned_Go_Live_Date_" ColumnName="Custom field (Flight Planned Go Live Date)" />
+          <ScalarProperty Name="Custom_field__Flight_Project_Complete_Date_" ColumnName="Custom field (Flight Project Complete Date)" />
+          <ScalarProperty Name="Custom_field__Flight_Project_Start_Date_" ColumnName="Custom field (Flight Project Start Date)" />
+          <ScalarProperty Name="Custom_field__Flight_Trx_Monthly_" ColumnName="Custom field (Flight Trx Monthly)" />
+          <ScalarProperty Name="Custom_field__GDS_" ColumnName="Custom field (GDS)" />
+          <ScalarProperty Name="Custom_field__GUID_Client_Top_" ColumnName="Custom field (GUID Client Top)" />
+          <ScalarProperty Name="Custom_field__Hotel_Planned_Go_Live_Date_" ColumnName="Custom field (Hotel Planned Go Live Date)" />
+          <ScalarProperty Name="Custom_field__Hotel_Project_Complete_Date_" ColumnName="Custom field (Hotel Project Complete Date)" />
+          <ScalarProperty Name="Custom_field__Hotel_Project_Start_Date_" ColumnName="Custom field (Hotel Project Start Date)" />
+          <ScalarProperty Name="Custom_field__Hotel_Trx_Monthly_" ColumnName="Custom field (Hotel Trx Monthly)" />
+          <ScalarProperty Name="Custom_field__Implementation_Type_" ColumnName="Custom field (Implementation Type)" />
+          <ScalarProperty Name="Issue_Type" ColumnName="Issue Type" />
+          <ScalarProperty Name="Last_Viewed" ColumnName="Last Viewed" />
+          <ScalarProperty Name="Custom_field__Market__DIGI__" ColumnName="Custom field (Market (DIGI))" />
+          <ScalarProperty Name="Custom_field__OBT_Contract_" ColumnName="Custom field (OBT Contract)" />
+          <ScalarProperty Name="Custom_field__OBT_Used_" ColumnName="Custom field (OBT Used)" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Custom_field__Project_Contact_" ColumnName="Custom field (Project Contact)" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Status_Category" ColumnName="Status Category" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KnowledgeBases">
+      <EntityTypeMapping TypeName="CWTDashboardModel.KnowledgeBase">
+        <MappingFragment StoreEntitySet="KnowledgeBase">
+          <ScalarProperty Name="KBId" ColumnName="KBId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LessonLearnts">
+      <EntityTypeMapping TypeName="CWTDashboardModel.LessonLearnt">
+        <MappingFragment StoreEntitySet="LessonLearnt">
+          <ScalarProperty Name="LLID" ColumnName="LLID" />
+          <ScalarProperty Name="iMeet_Workspace_Title" ColumnName="iMeet Workspace Title" />
+          <ScalarProperty Name="Record_ID" ColumnName="Record ID" />
+          <ScalarProperty Name="Date_feedback_raised" ColumnName="Date feedback raised" />
+          <ScalarProperty Name="Country_Area_of_Responsibility" ColumnName="Country/Area of Responsibility" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="What_was_the_event_issue_concern" ColumnName="What was the event/issue/concern" />
+          <ScalarProperty Name="Is_there_any_specific_recognition_to_a_person_group_process_rela" ColumnName="Is there any specific recognition to a person/group/process rela" />
+          <ScalarProperty Name="Go_Live_Date" ColumnName="Go Live Date" />
+          <ScalarProperty Name="Reason_Type" ColumnName="Reason Type" />
+          <ScalarProperty Name="Created_by_Field" ColumnName="Created by Field" />
+          <ScalarProperty Name="Leader" ColumnName="Leader" />
+          <ScalarProperty Name="Reason_Code__Added_by_Leader_" ColumnName="Reason Code (Added by Leader)" />
+          <ScalarProperty Name="What_do_you_recommend___to_avoid_this_occurring_again_in_future" ColumnName="What do you recommend - to avoid this occurring again in future" />
+          <ScalarProperty Name="Status__By_Leader_" ColumnName="Status (By Leader)" />
+          <ScalarProperty Name="Action_Taken__By_Leader_" ColumnName="Action Taken (By Leader)" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ManualDatas">
+      <EntityTypeMapping TypeName="CWTDashboardModel.ManualData">
+        <MappingFragment StoreEntitySet="ManualData">
+          <ScalarProperty Name="ManualID" ColumnName="ManualID" />
+          <ScalarProperty Name="Revenue_ID" ColumnName="Revenue ID" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="iMeet_Workspace_Title" ColumnName="iMeet Workspace Title" />
+          <ScalarProperty Name="Implementation_Type" ColumnName="Implementation Type" />
+          <ScalarProperty Name="CLR_Country" ColumnName="CLR Country" />
+          <ScalarProperty Name="Pipeline_status" ColumnName="Pipeline_status" />
+          <ScalarProperty Name="Pipeline_comments" ColumnName="Pipeline comments" />
+          <ScalarProperty Name="Service_configuration" ColumnName="Service configuration" />
+          <ScalarProperty Name="OBT_Reseller___Direct" ColumnName="OBT Reseller / Direct" />
+          <ScalarProperty Name="Servicing_location" ColumnName="Servicing location" />
+          <ScalarProperty Name="Assignment_date" ColumnName="Assignment date" />
+          <ScalarProperty Name="Project_Effort" ColumnName="Project Effort" />
+          <ScalarProperty Name="GoLiveDate" ColumnName="GoLiveDate" />
+          <ScalarProperty Name="GlobalProjectManager" ColumnName="GlobalProjectManager" />
+          <ScalarProperty Name="RegionalProjectManager" ColumnName="RegionalProjectManager" />
+          <ScalarProperty Name="AssigneeFullName" ColumnName="AssigneeFullName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+          <ScalarProperty Name="UpdateOn" ColumnName="UpdateOn" />
+          <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+          <ScalarProperty Name="TaskRecordIdKey" ColumnName="TaskRecordIdKey" />
+          <ScalarProperty Name="ProjectLevel" ColumnName="ProjectLevel" />
+          <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+          <ScalarProperty Name="Project_Level" ColumnName="Project_Level" />
+          <ScalarProperty Name="GlobalCISDQSLead" ColumnName="GlobalCISDQSLead" />
+          <ScalarProperty Name="ResourseRequestedDate" ColumnName="ResourseRequestedDate" />
+          <ScalarProperty Name="ExpectedDecisionDate" ColumnName="ExpectedDecisionDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MarketLeaders">
+      <EntityTypeMapping TypeName="CWTDashboardModel.MarketLeader">
+        <MappingFragment StoreEntitySet="MarketLeaders">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="MarketLeader1" ColumnName="MarketLeader" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Milestones">
+      <EntityTypeMapping TypeName="CWTDashboardModel.Milestone">
+        <MappingFragment StoreEntitySet="Milestones">
+          <ScalarProperty Name="MilestoneID" ColumnName="MilestoneID" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace Title" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Is_Project" ColumnName="Is Project" />
+          <ScalarProperty Name="Milestone__Project_Status" ColumnName="Milestone: Project Status" />
+          <ScalarProperty Name="Workspace__Project_Level" ColumnName="Workspace: Project Level" />
+          <ScalarProperty Name="Milestone__Region" ColumnName="Milestone: Region" />
+          <ScalarProperty Name="Milestone_Title" ColumnName="Milestone Title" />
+          <ScalarProperty Name="Milestone__Country" ColumnName="Milestone: Country" />
+          <ScalarProperty Name="Milestone__Assignee__Full_Name" ColumnName="Milestone: Assignee: Full Name" />
+          <ScalarProperty Name="Milestone__Project_Start_Date" ColumnName="Milestone: Project Start Date" />
+          <ScalarProperty Name="Milestone__Initial_Go_Live_Date" ColumnName="Milestone: Initial Go-Live Date" />
+          <ScalarProperty Name="Completed" ColumnName="Completed" />
+          <ScalarProperty Name="Completed_Date" ColumnName="Completed Date" />
+          <ScalarProperty Name="C__Complete" ColumnName="% Complete" />
+          <ScalarProperty Name="Milestone__Country_Status" ColumnName="Milestone: Country Status" />
+          <ScalarProperty Name="Milestone__Project_Notes" ColumnName="Milestone: Project Notes" />
+          <ScalarProperty Name="Milestone__Reason_Code" ColumnName="Milestone: Reason Code" />
+          <ScalarProperty Name="Milestone__Closed_Loop_Owner" ColumnName="Milestone: Closed Loop Owner" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Status" ColumnName="Workspace: ELT Overall Status" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Comments" ColumnName="Workspace: ELT Overall Comments" />
+          <ScalarProperty Name="Group_Name" ColumnName="Group Name" />
+          <ScalarProperty Name="Workspace__Project_Owner__Full_Name" ColumnName="Workspace: Project Owner: Full Name" />
+          <ScalarProperty Name="Is_Public" ColumnName="Is Public" />
+          <ScalarProperty Name="Milestone__Record_ID_Key" ColumnName="Milestone: Record ID Key" />
+          <ScalarProperty Name="Milestone_Due_Date" ColumnName="Milestone Due Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonthWiseDeltas">
+      <EntityTypeMapping TypeName="CWTDashboardModel.MonthWiseDelta">
+        <MappingFragment StoreEntitySet="MonthWiseDelta">
+          <ScalarProperty Name="DeltaID" ColumnName="DeltaID" />
+          <ScalarProperty Name="Jan" ColumnName="Jan" />
+          <ScalarProperty Name="Feb" ColumnName="Feb" />
+          <ScalarProperty Name="Mar" ColumnName="Mar" />
+          <ScalarProperty Name="Apr" ColumnName="Apr" />
+          <ScalarProperty Name="May" ColumnName="May" />
+          <ScalarProperty Name="Jun" ColumnName="Jun" />
+          <ScalarProperty Name="Jul" ColumnName="Jul" />
+          <ScalarProperty Name="Aug" ColumnName="Aug" />
+          <ScalarProperty Name="Sep" ColumnName="Sep" />
+          <ScalarProperty Name="Oct" ColumnName="Oct" />
+          <ScalarProperty Name="Nov" ColumnName="Nov" />
+          <ScalarProperty Name="Dec" ColumnName="Dec" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="Jan_Comments" ColumnName="Jan_Comments" />
+          <ScalarProperty Name="Feb_Comments" ColumnName="Feb_Comments" />
+          <ScalarProperty Name="Mar_Comments" ColumnName="Mar_Comments" />
+          <ScalarProperty Name="Apr_Comments" ColumnName="Apr_Comments" />
+          <ScalarProperty Name="May_Comments" ColumnName="May_Comments" />
+          <ScalarProperty Name="Jun_Comments" ColumnName="Jun_Comments" />
+          <ScalarProperty Name="Jul_Comments" ColumnName="Jul_Comments" />
+          <ScalarProperty Name="Aug_Comments" ColumnName="Aug_Comments" />
+          <ScalarProperty Name="Sep_Comments" ColumnName="Sep_Comments" />
+          <ScalarProperty Name="Oct_Comments" ColumnName="Oct_Comments" />
+          <ScalarProperty Name="Nov_Comments" ColumnName="Nov_Comments" />
+          <ScalarProperty Name="Dec_Comments" ColumnName="Dec_Comments" />
+          <ScalarProperty Name="CV_Jan" ColumnName="CV_Jan" />
+          <ScalarProperty Name="CV_Feb" ColumnName="CV_Feb" />
+          <ScalarProperty Name="CV_Mar" ColumnName="CV_Mar" />
+          <ScalarProperty Name="CV_Apr" ColumnName="CV_Apr" />
+          <ScalarProperty Name="CV_May" ColumnName="CV_May" />
+          <ScalarProperty Name="CV_Jun" ColumnName="CV_Jun" />
+          <ScalarProperty Name="CV_Jul" ColumnName="CV_Jul" />
+          <ScalarProperty Name="CV_Aug" ColumnName="CV_Aug" />
+          <ScalarProperty Name="CV_Sep" ColumnName="CV_Sep" />
+          <ScalarProperty Name="CV_Oct" ColumnName="CV_Oct" />
+          <ScalarProperty Name="CV_Nov" ColumnName="CV_Nov" />
+          <ScalarProperty Name="CV_Dec" ColumnName="CV_Dec" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NpsImps">
+      <EntityTypeMapping TypeName="CWTDashboardModel.NpsImp">
+        <MappingFragment StoreEntitySet="NpsImp">
+          <ScalarProperty Name="NpsId" ColumnName="NpsId" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="DateServeySent" ColumnName="DateServeySent" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="GlobalProjectManager" ColumnName="GlobalProjectManager" />
+          <ScalarProperty Name="RegionalProjectManager" ColumnName="RegionalProjectManager" />
+          <ScalarProperty Name="LocalProjectManager" ColumnName="LocalProjectManager" />
+          <ScalarProperty Name="ClientScope" ColumnName="ClientScope" />
+          <ScalarProperty Name="ClientType" ColumnName="ClientType" />
+          <ScalarProperty Name="CustomerContactNumber" ColumnName="CustomerContactNumber" />
+          <ScalarProperty Name="SingleResource" ColumnName="SingleResource" />
+          <ScalarProperty Name="DQS" ColumnName="DQS" />
+          <ScalarProperty Name="DSD" ColumnName="DSD" />
+          <ScalarProperty Name="OnlineTeam" ColumnName="OnlineTeam" />
+          <ScalarProperty Name="DateSurveyReceived" ColumnName="DateSurveyReceived" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AssignLeaderForClosedLoop" ColumnName="AssignLeaderForClosedLoop" />
+          <ScalarProperty Name="NPSScore" ColumnName="NPSScore" />
+          <ScalarProperty Name="NPSIndicator" ColumnName="NPSIndicator" />
+          <ScalarProperty Name="NPSCommentsWhatwasPositive" ColumnName="NPSCommentsWhatwasPositive" />
+          <ScalarProperty Name="NPSComments_Howcouldwehaveimproved" ColumnName="NPSComments-Howcouldwehaveimproved" />
+          <ScalarProperty Name="NPSComments_Whatistheonethingwecandotomakeyouhappier" ColumnName="NPSComments-Whatistheonethingwecandotomakeyouhappier" />
+          <ScalarProperty Name="ReasonType" ColumnName="ReasonType" />
+          <ScalarProperty Name="ClientFeedback" ColumnName="ClientFeedback" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="GoLiveDate" ColumnName="GoLiveDate" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="NPSCommentsOne" ColumnName="NPSCommentsOne" />
+          <ScalarProperty Name="NPSCommentsTwo" ColumnName="NPSCommentsTwo" />
+          <ScalarProperty Name="NPSCommentsThree" ColumnName="NPSCommentsThree" />
+          <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+          <ScalarProperty Name="YearMonth" ColumnName="YearMonth" />
+          <ScalarProperty Name="OpprtunityId" ColumnName="OpprtunityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OldCLRDatas">
+      <EntityTypeMapping TypeName="CWTDashboardModel.OldCLRData">
+        <MappingFragment StoreEntitySet="OldCLRData">
+          <ScalarProperty Name="CLRID" ColumnName="CLRID" />
+          <ScalarProperty Name="RevenueID" ColumnName="RevenueID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="OwnerShip" ColumnName="OwnerShip" />
+          <ScalarProperty Name="GoLiveDate" ColumnName="GoLiveDate" />
+          <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+          <ScalarProperty Name="CountryStatus" ColumnName="CountryStatus" />
+          <ScalarProperty Name="ProjectLevel" ColumnName="ProjectLevel" />
+          <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+          <ScalarProperty Name="ProjectOwner" ColumnName="ProjectOwner" />
+          <ScalarProperty Name="AssigneeFullName" ColumnName="AssigneeFullName" />
+          <ScalarProperty Name="MilestoneTitle" ColumnName="MilestoneTitle" />
+          <ScalarProperty Name="Milestone__Record_ID_Key" ColumnName="Milestone__Record_ID_Key" />
+          <ScalarProperty Name="Task__Task_Record_ID_Key" ColumnName="Task__Task_Record_ID_Key" />
+          <ScalarProperty Name="Group_Name" ColumnName="Group_Name" />
+          <ScalarProperty Name="Milestone__Project_Notes" ColumnName="Milestone__Project_Notes" />
+          <ScalarProperty Name="Milestone__Reason_Code" ColumnName="Milestone__Reason_Code" />
+          <ScalarProperty Name="Milestone__Closed_Loop_Owner" ColumnName="Milestone__Closed_Loop_Owner" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace_Title" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Status" ColumnName="Workspace__ELT_Overall_Status" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Comments" ColumnName="Workspace__ELT_Overall_Comments" />
+          <ScalarProperty Name="Customer_Row_ID" ColumnName="Customer_Row_ID" />
+          <ScalarProperty Name="Opportunity_ID" ColumnName="Opportunity_ID" />
+          <ScalarProperty Name="Account_Name" ColumnName="Account_Name" />
+          <ScalarProperty Name="Sales_Stage_Name" ColumnName="Sales_Stage_Name" />
+          <ScalarProperty Name="Opportunity_Type" ColumnName="Opportunity_Type" />
+          <ScalarProperty Name="Revenue_Opportunity_Type" ColumnName="Revenue_Opportunity_Type" />
+          <ScalarProperty Name="Revenue_Status" ColumnName="Revenue_Status" />
+          <ScalarProperty Name="Opportunity_Owner" ColumnName="Opportunity_Owner" />
+          <ScalarProperty Name="Opportunity_Category" ColumnName="Opportunity_Category" />
+          <ScalarProperty Name="Revenue_Total_Transactions" ColumnName="Revenue_Total_Transactions" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="RevenueVolumeUSD" ColumnName="RevenueVolumeUSD" />
+          <ScalarProperty Name="MarketLeader" ColumnName="MarketLeader" />
+          <ScalarProperty Name="GlobalProjectManager" ColumnName="GlobalProjectManager" />
+          <ScalarProperty Name="ProjectConsultant" ColumnName="ProjectConsultant" />
+          <ScalarProperty Name="RegionalProjectManager" ColumnName="RegionalProjectManager" />
+          <ScalarProperty Name="GlobalCISOBTLead" ColumnName="GlobalCISOBTLead" />
+          <ScalarProperty Name="GlobalCISHRFeedSpecialist" ColumnName="GlobalCISHRFeedSpecialist" />
+          <ScalarProperty Name="GlobalCISPortraitLead" ColumnName="GlobalCISPortraitLead" />
+          <ScalarProperty Name="GoLiveMonth" ColumnName="GoLiveMonth" />
+          <ScalarProperty Name="GoLiveYear" ColumnName="GoLiveYear" />
+          <ScalarProperty Name="BacklogStarted" ColumnName="BacklogStarted" />
+          <ScalarProperty Name="Quarter" ColumnName="Quarter" />
+          <ScalarProperty Name="CycleTime" ColumnName="CycleTime" />
+          <ScalarProperty Name="ExternalKickoffDuedate" ColumnName="ExternalKickoffDuedate" />
+          <ScalarProperty Name="PerCompleted" ColumnName="PerCompleted" />
+          <ScalarProperty Name="MilestoneDueDate" ColumnName="MilestoneDueDate" />
+          <ScalarProperty Name="Next_Step" ColumnName="Next_Step" />
+          <ScalarProperty Name="Line_Win_Probability" ColumnName="Line_Win_Probability" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="RegionalCISOBTLead" ColumnName="RegionalCISOBTLead" />
+          <ScalarProperty Name="RegionalCISPortraitLead" ColumnName="RegionalCISPortraitLead" />
+          <ScalarProperty Name="ProjectStart_ForCycleTime" ColumnName="ProjectStart_ForCycleTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ImplementationType" ColumnName="ImplementationType" />
+          <ScalarProperty Name="DataSourceType" ColumnName="DataSourceType" />
+          <ScalarProperty Name="DataDescription" ColumnName="DataDescription" />
+          <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+          <ScalarProperty Name="AwardedDate" ColumnName="AwardedDate" />
+          <ScalarProperty Name="MilestoneType" ColumnName="MilestoneType" />
+          <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+          <ScalarProperty Name="ImplementationFeePsd" ColumnName="ImplementationFeePsd" />
+          <ScalarProperty Name="AccountOwner" ColumnName="AccountOwner" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OldOldCLRDatas">
+      <EntityTypeMapping TypeName="CWTDashboardModel.OldOldCLRData">
+        <MappingFragment StoreEntitySet="OldOldCLRData">
+          <ScalarProperty Name="CLRID" ColumnName="CLRID" />
+          <ScalarProperty Name="RevenueID" ColumnName="RevenueID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="OwnerShip" ColumnName="OwnerShip" />
+          <ScalarProperty Name="GoLiveDate" ColumnName="GoLiveDate" />
+          <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+          <ScalarProperty Name="CountryStatus" ColumnName="CountryStatus" />
+          <ScalarProperty Name="ProjectLevel" ColumnName="ProjectLevel" />
+          <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+          <ScalarProperty Name="ProjectOwner" ColumnName="ProjectOwner" />
+          <ScalarProperty Name="AssigneeFullName" ColumnName="AssigneeFullName" />
+          <ScalarProperty Name="MilestoneTitle" ColumnName="MilestoneTitle" />
+          <ScalarProperty Name="Milestone__Record_ID_Key" ColumnName="Milestone__Record_ID_Key" />
+          <ScalarProperty Name="Task__Task_Record_ID_Key" ColumnName="Task__Task_Record_ID_Key" />
+          <ScalarProperty Name="Group_Name" ColumnName="Group_Name" />
+          <ScalarProperty Name="Milestone__Project_Notes" ColumnName="Milestone__Project_Notes" />
+          <ScalarProperty Name="Milestone__Reason_Code" ColumnName="Milestone__Reason_Code" />
+          <ScalarProperty Name="Milestone__Closed_Loop_Owner" ColumnName="Milestone__Closed_Loop_Owner" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace_Title" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Status" ColumnName="Workspace__ELT_Overall_Status" />
+          <ScalarProperty Name="Workspace__ELT_Overall_Comments" ColumnName="Workspace__ELT_Overall_Comments" />
+          <ScalarProperty Name="Customer_Row_ID" ColumnName="Customer_Row_ID" />
+          <ScalarProperty Name="Opportunity_ID" ColumnName="Opportunity_ID" />
+          <ScalarProperty Name="Account_Name" ColumnName="Account_Name" />
+          <ScalarProperty Name="Sales_Stage_Name" ColumnName="Sales_Stage_Name" />
+          <ScalarProperty Name="Opportunity_Type" ColumnName="Opportunity_Type" />
+          <ScalarProperty Name="Revenue_Opportunity_Type" ColumnName="Revenue_Opportunity_Type" />
+          <ScalarProperty Name="Revenue_Status" ColumnName="Revenue_Status" />
+          <ScalarProperty Name="Opportunity_Owner" ColumnName="Opportunity_Owner" />
+          <ScalarProperty Name="Opportunity_Category" ColumnName="Opportunity_Category" />
+          <ScalarProperty Name="Revenue_Total_Transactions" ColumnName="Revenue_Total_Transactions" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="RevenueVolumeUSD" ColumnName="RevenueVolumeUSD" />
+          <ScalarProperty Name="MarketLeader" ColumnName="MarketLeader" />
+          <ScalarProperty Name="GlobalProjectManager" ColumnName="GlobalProjectManager" />
+          <ScalarProperty Name="ProjectConsultant" ColumnName="ProjectConsultant" />
+          <ScalarProperty Name="RegionalProjectManager" ColumnName="RegionalProjectManager" />
+          <ScalarProperty Name="GlobalCISOBTLead" ColumnName="GlobalCISOBTLead" />
+          <ScalarProperty Name="GlobalCISHRFeedSpecialist" ColumnName="GlobalCISHRFeedSpecialist" />
+          <ScalarProperty Name="GlobalCISPortraitLead" ColumnName="GlobalCISPortraitLead" />
+          <ScalarProperty Name="GoLiveMonth" ColumnName="GoLiveMonth" />
+          <ScalarProperty Name="GoLiveYear" ColumnName="GoLiveYear" />
+          <ScalarProperty Name="BacklogStarted" ColumnName="BacklogStarted" />
+          <ScalarProperty Name="Quarter" ColumnName="Quarter" />
+          <ScalarProperty Name="CycleTime" ColumnName="CycleTime" />
+          <ScalarProperty Name="ExternalKickoffDuedate" ColumnName="ExternalKickoffDuedate" />
+          <ScalarProperty Name="PerCompleted" ColumnName="PerCompleted" />
+          <ScalarProperty Name="MilestoneDueDate" ColumnName="MilestoneDueDate" />
+          <ScalarProperty Name="Next_Step" ColumnName="Next_Step" />
+          <ScalarProperty Name="Line_Win_Probability" ColumnName="Line_Win_Probability" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="RegionalCISOBTLead" ColumnName="RegionalCISOBTLead" />
+          <ScalarProperty Name="RegionalCISPortraitLead" ColumnName="RegionalCISPortraitLead" />
+          <ScalarProperty Name="ProjectStart_ForCycleTime" ColumnName="ProjectStart_ForCycleTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ImplementationType" ColumnName="ImplementationType" />
+          <ScalarProperty Name="DataSourceType" ColumnName="DataSourceType" />
+          <ScalarProperty Name="DataDescription" ColumnName="DataDescription" />
+          <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+          <ScalarProperty Name="AwardedDate" ColumnName="AwardedDate" />
+          <ScalarProperty Name="MilestoneType" ColumnName="MilestoneType" />
+          <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+          <ScalarProperty Name="ImplementationFeePsd" ColumnName="ImplementationFeePsd" />
+          <ScalarProperty Name="AccountOwner" ColumnName="AccountOwner" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OnlineProjectTrackers">
+      <EntityTypeMapping TypeName="CWTDashboardModel.OnlineProjectTracker">
+        <MappingFragment StoreEntitySet="OnlineProjectTracker">
+          <ScalarProperty Name="OPTID" ColumnName="OPTID" />
+          <ScalarProperty Name="Golive" ColumnName="Golive" />
+          <ScalarProperty Name="ActualGoLive" ColumnName="ActualGoLive" />
+          <ScalarProperty Name="ProjectAssignedDate" ColumnName="ProjectAssignedDate" />
+          <ScalarProperty Name="KickOffImplementation" ColumnName="KickOffImplementation" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="ProjectType" ColumnName="ProjectType" />
+          <ScalarProperty Name="Business" ColumnName="Business" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="OnlineBookingTool" ColumnName="OnlineBookingTool" />
+          <ScalarProperty Name="OnlineBookingType" ColumnName="OnlineBookingType" />
+          <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
+          <ScalarProperty Name="Manager" ColumnName="Manager" />
+          <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="NoOfCountries" ColumnName="NoOfCountries" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OPTAssignedToes">
+      <EntityTypeMapping TypeName="CWTDashboardModel.OPTAssignedTo">
+        <MappingFragment StoreEntitySet="OPTAssignedTo">
+          <ScalarProperty Name="AssignedToID" ColumnName="AssignedToID" />
+          <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
+          <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OPTCountries">
+      <EntityTypeMapping TypeName="CWTDashboardModel.OPTCountry">
+        <MappingFragment StoreEntitySet="OPTCountry">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OPTManagers">
+      <EntityTypeMapping TypeName="CWTDashboardModel.OPTManager">
+        <MappingFragment StoreEntitySet="OPTManager">
+          <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+          <ScalarProperty Name="Manager" ColumnName="Manager" />
+          <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PowerAutomates">
+      <EntityTypeMapping TypeName="CWTDashboardModel.PowerAutomate">
+        <MappingFragment StoreEntitySet="PowerAutomate">
+          <ScalarProperty Name="PowerAutomateID" ColumnName="PowerAutomateID" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="ImplementationType" ColumnName="ImplementationType" />
+          <ScalarProperty Name="ServiceLocation" ColumnName="ServiceLocation" />
+          <ScalarProperty Name="PipelineStatus" ColumnName="PipelineStatus" />
+          <ScalarProperty Name="ServiceConfiguration" ColumnName="ServiceConfiguration" />
+          <ScalarProperty Name="OBTType" ColumnName="OBTType" />
+          <ScalarProperty Name="RevenueVolumeUSD" ColumnName="RevenueVolumeUSD" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="OpportunityID" ColumnName="OpportunityID" />
+          <ScalarProperty Name="NextStep" ColumnName="NextStep" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="OpportunityOwner" ColumnName="OpportunityOwner" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PreviousMonthsElts">
+      <EntityTypeMapping TypeName="CWTDashboardModel.PreviousMonthsElt">
+        <MappingFragment StoreEntitySet="PreviousMonthsElt">
+          <ScalarProperty Name="EltId" ColumnName="EltId" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="EMEA" ColumnName="EMEA" />
+          <ScalarProperty Name="APAC" ColumnName="APAC" />
+          <ScalarProperty Name="LATAM" ColumnName="LATAM" />
+          <ScalarProperty Name="NORAM" ColumnName="NORAM" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="NBAPriorMonth" ColumnName="NBAPriorMonth" />
+          <ScalarProperty Name="TotalAccountVolume" ColumnName="TotalAccountVolume" />
+          <ScalarProperty Name="Delta" ColumnName="Delta" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Progressions">
+      <EntityTypeMapping TypeName="CWTDashboardModel.Progression">
+        <MappingFragment StoreEntitySet="Progression">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace Title" />
+          <ScalarProperty Name="Task_List_Title" ColumnName="Task List Title" />
+          <ScalarProperty Name="Task_Title" ColumnName="Task Title" />
+          <ScalarProperty Name="Milestone_Title" ColumnName="Milestone Title" />
+          <ScalarProperty Name="Milestone__Created_by__Full_Name" ColumnName="Milestone: Created by: Full Name" />
+          <ScalarProperty Name="Task_Start_Date" ColumnName="Task Start Date" />
+          <ScalarProperty Name="Task_Due_Date" ColumnName="Task Due Date" />
+          <ScalarProperty Name="Budgeted_Time" ColumnName="Budgeted Time" />
+          <ScalarProperty Name="Task_Status" ColumnName="Task Status" />
+          <ScalarProperty Name="Task__Action_Region" ColumnName="Task: Action Region" />
+          <ScalarProperty Name="Milestone__Project_Status" ColumnName="Milestone: Project Status" />
+          <ScalarProperty Name="Milestone__CRM_Revenue_ID__" ColumnName="Milestone: CRM Revenue ID #" />
+          <ScalarProperty Name="Milestone__Assignee__Country" ColumnName="Milestone: Assignee: Country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectDueDates">
+      <EntityTypeMapping TypeName="CWTDashboardModel.ProjectDueDate">
+        <MappingFragment StoreEntitySet="ProjectDueDate">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Milestone__Record_ID_Key" ColumnName="Milestone: Record ID Key" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace Title" />
+          <ScalarProperty Name="Milestone_Title" ColumnName="Milestone Title" />
+          <ScalarProperty Name="Task_Title" ColumnName="Task Title" />
+          <ScalarProperty Name="Task__Task_Type" ColumnName="Task: Task Type" />
+          <ScalarProperty Name="Milestone__Country" ColumnName="Milestone: Country" />
+          <ScalarProperty Name="Task__Assignee__Full_Name" ColumnName="Task: Assignee: Full Name" />
+          <ScalarProperty Name="Task_Start_Date" ColumnName="Task Start Date" />
+          <ScalarProperty Name="Task_Due_Date" ColumnName="Task Due Date" />
+          <ScalarProperty Name="Task_Completed_Date" ColumnName="Task Completed Date" />
+          <ScalarProperty Name="Task_Status" ColumnName="Task Status" />
+          <ScalarProperty Name="Milestone__CRM_Revenue_ID__" ColumnName="Milestone: CRM Revenue ID #" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectTypes">
+      <EntityTypeMapping TypeName="CWTDashboardModel.ProjectType">
+        <MappingFragment StoreEntitySet="ProjectType">
+          <ScalarProperty Name="ProjectTypeID" ColumnName="ProjectTypeID" />
+          <ScalarProperty Name="ProjectType1" ColumnName="ProjectType" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="PostGoLiveSupport" ColumnName="PostGoLiveSupport" />
+          <ScalarProperty Name="ProjectEffortAPAC" ColumnName="ProjectEffortAPAC" />
+          <ScalarProperty Name="ProjectEffortEMEA" ColumnName="ProjectEffortEMEA" />
+          <ScalarProperty Name="ProjectEffortLATAM" ColumnName="ProjectEffortLATAM" />
+          <ScalarProperty Name="ProjectEffortNORAM" ColumnName="ProjectEffortNORAM" />
+          <ScalarProperty Name="ActiveStatus" ColumnName="ActiveStatus" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prospects">
+      <EntityTypeMapping TypeName="CWTDashboardModel.Prospect">
+        <MappingFragment StoreEntitySet="Prospect">
+          <ScalarProperty Name="PID" ColumnName="PID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Manager" ColumnName="Manager" />
+          <ScalarProperty Name="Leader" ColumnName="Leader" />
+          <ScalarProperty Name="Client_Name" ColumnName="Client Name" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PSDs">
+      <EntityTypeMapping TypeName="CWTDashboardModel.PSD">
+        <MappingFragment StoreEntitySet="PSD">
+          <ScalarProperty Name="PSDID" ColumnName="PSDID" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created Date" />
+          <ScalarProperty Name="Requestor" ColumnName="Requestor" />
+          <ScalarProperty Name="Account_Name" ColumnName="Account Name" />
+          <ScalarProperty Name="Account_Owner" ColumnName="Account Owner" />
+          <ScalarProperty Name="Customer_Row_ID" ColumnName="Customer Row ID" />
+          <ScalarProperty Name="Account_Category" ColumnName="Account Category" />
+          <ScalarProperty Name="BT_Account_Record_Type" ColumnName="BT Account Record Type" />
+          <ScalarProperty Name="Company_Alias" ColumnName="Company Alias" />
+          <ScalarProperty Name="Opportunity_ID" ColumnName="Opportunity ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Industry" ColumnName="Industry" />
+          <ScalarProperty Name="BT_Current_Service_Configuration" ColumnName="BT Current Service Configuration" />
+          <ScalarProperty Name="BT_Current_GDS" ColumnName="BT Current GDS" />
+          <ScalarProperty Name="BT_Current_Online_Booking_Tool" ColumnName="BT Current Online Booking Tool" />
+          <ScalarProperty Name="BT_Incumbent" ColumnName="BT Incumbent" />
+          <ScalarProperty Name="Opportunity_Name" ColumnName="Opportunity Name" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product Name" />
+          <ScalarProperty Name="Line_of_Business" ColumnName="Line of Business" />
+          <ScalarProperty Name="Opportunity_Owner" ColumnName="Opportunity Owner" />
+          <ScalarProperty Name="Close_Date" ColumnName="Close Date" />
+          <ScalarProperty Name="Sales_Stage_Name" ColumnName="Sales Stage Name" />
+          <ScalarProperty Name="Line_Win_Probability" ColumnName="Line Win Probability" />
+          <ScalarProperty Name="Initiative_Name" ColumnName="Initiative Name" />
+          <ScalarProperty Name="Opportunity_Type" ColumnName="Opportunity Type" />
+          <ScalarProperty Name="Opportunity_Region" ColumnName="Opportunity Region" />
+          <ScalarProperty Name="Country_Scope" ColumnName="Country Scope" />
+          <ScalarProperty Name="Energy__Resources___Marine" ColumnName="Energy, Resources &amp; Marine" />
+          <ScalarProperty Name="Invoicing_Period" ColumnName="Invoicing Period" />
+          <ScalarProperty Name="Pricing_Model" ColumnName="Pricing Model" />
+          <ScalarProperty Name="PSD_Price_per_Transaction" ColumnName="PSD Price per Transaction" />
+          <ScalarProperty Name="Total_Transactions" ColumnName="Total Transactions" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Region__Revenue_" ColumnName="Region (Revenue)" />
+          <ScalarProperty Name="Implementation_Status" ColumnName="Implementation Status" />
+          <ScalarProperty Name="Total_Revenue_USD" ColumnName="Total Revenue USD" />
+          <ScalarProperty Name="Estimated_Implementation_Start_Date" ColumnName="Estimated Implementation Start Date" />
+          <ScalarProperty Name="Implementation_End_Date" ColumnName="Implementation End Date" />
+          <ScalarProperty Name="Implementation_Fee" ColumnName="Implementation Fee" />
+          <ScalarProperty Name="Go_Live_Date" ColumnName="Go Live Date" />
+          <ScalarProperty Name="Revenue_Car_Volume_USD" ColumnName="Revenue Car Volume USD" />
+          <ScalarProperty Name="Revenue_Status" ColumnName="Revenue Status" />
+          <ScalarProperty Name="Revenue_Id" ColumnName="Revenue Id" />
+          <ScalarProperty Name="Last_Update_Date" ColumnName="Last Update Date" />
+          <ScalarProperty Name="Ownership__Revenue_" ColumnName="Ownership (Revenue)" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportUpdatedOns">
+      <EntityTypeMapping TypeName="CWTDashboardModel.ReportUpdatedOn">
+        <MappingFragment StoreEntitySet="ReportUpdatedOn">
+          <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+          <ScalarProperty Name="ReportName" ColumnName="ReportName" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RisksGaps">
+      <EntityTypeMapping TypeName="CWTDashboardModel.RisksGap">
+        <MappingFragment StoreEntitySet="RisksGap">
+          <ScalarProperty Name="RGID" ColumnName="RGID" />
+          <ScalarProperty Name="SCID" ColumnName="SCID" />
+          <ScalarProperty Name="RisksGaps" ColumnName="RisksGaps" />
+          <ScalarProperty Name="MitigationPlan" ColumnName="MitigationPlan" />
+          <ScalarProperty Name="SteeringCommitteeSupportNeed" ColumnName="SteeringCommitteeSupportNeed" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Record_Status" ColumnName="Record_Status" />
+          <ScalarProperty Name="Risks" ColumnName="Risks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="CWTDashboardModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RolesId" ColumnName="RolesId" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace Title" />
+          <ScalarProperty Name="Global_Project_Manager" ColumnName="Global Project Manager" />
+          <ScalarProperty Name="Regional_Ops_Manager" ColumnName="Regional Ops Manager" />
+          <ScalarProperty Name="LATAM_Project_Manager" ColumnName="LATAM Project Manager" />
+          <ScalarProperty Name="NORAM_Project_Manager" ColumnName="NORAM Project Manager" />
+          <ScalarProperty Name="EMEA_Project_Manager" ColumnName="EMEA Project Manager" />
+          <ScalarProperty Name="Global_CIS_OBT_Lead" ColumnName="Global CIS OBT Lead" />
+          <ScalarProperty Name="LATAM_CIS_OBT_Lead" ColumnName="LATAM CIS OBT Lead" />
+          <ScalarProperty Name="NORAM_CIS_OBT_Lead" ColumnName="NORAM CIS OBT Lead" />
+          <ScalarProperty Name="EMEA_CIS_OBT_Lead" ColumnName="EMEA CIS OBT Lead" />
+          <ScalarProperty Name="Global_CIS_HR_Feed_Specialist" ColumnName="Global CIS HR Feed Specialist" />
+          <ScalarProperty Name="Global_CIS_Portrait_Lead" ColumnName="Global CIS Portrait Lead" />
+          <ScalarProperty Name="LATAM_CIS_Portrait_Lead" ColumnName="LATAM CIS Portrait Lead" />
+          <ScalarProperty Name="EMEA_CIS_Portrait_Lead" ColumnName="EMEA CIS Portrait Lead" />
+          <ScalarProperty Name="NORAM_CIS_Portrait_Lead" ColumnName="NORAM CIS Portrait Lead" />
+          <ScalarProperty Name="Global_CIS_RoomIT_Integration_lead" ColumnName="Global CIS RoomIT Integration lead" />
+          <ScalarProperty Name="APAC_Implementation_Lead" ColumnName="APAC Implementation Lead" />
+          <ScalarProperty Name="APAC_Digital_OBT_Lead" ColumnName="APAC Digital OBT Lead" />
+          <ScalarProperty Name="APAC_Digital_Portrait_Lead" ColumnName="APAC Digital Portrait Lead" />
+          <ScalarProperty Name="Local_IN_CIS_Lead" ColumnName="Local IN CIS Lead" />
+          <ScalarProperty Name="Global_CIS_DQS_Lead" ColumnName="Global CIS DQS Lead" />
+          <ScalarProperty Name="APAC_DQS" ColumnName="APAC_DQS" />
+          <ScalarProperty Name="DQS_Import" ColumnName="DQS_Import" />
+          <ScalarProperty Name="DQS_Support" ColumnName="DQS_Support" />
+          <ScalarProperty Name="LATAM_DQS" ColumnName="LATAM_DQS" />
+          <ScalarProperty Name="NORAM_DQS" ColumnName="NORAM_DQS" />
+          <ScalarProperty Name="DQS_Operations" ColumnName="DQS_Operations" />
+          <ScalarProperty Name="LocalImplementationLeadUS" ColumnName="LocalImplementationLeadUS" />
+          <ScalarProperty Name="LocalImplementationLeadCanada" ColumnName="LocalImplementationLeadCanada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StageGates">
+      <EntityTypeMapping TypeName="CWTDashboardModel.StageGate">
+        <MappingFragment StoreEntitySet="StageGate">
+          <ScalarProperty Name="StageGateID" ColumnName="StageGateID" />
+          <ScalarProperty Name="Task_Title" ColumnName="Task Title" />
+          <ScalarProperty Name="Task_Start_Date" ColumnName="Task Start Date" />
+          <ScalarProperty Name="Task_Due_Date" ColumnName="Task Due Date" />
+          <ScalarProperty Name="Workspace_Title" ColumnName="Workspace Title" />
+          <ScalarProperty Name="Task__Assignee__Full_Name" ColumnName="Task: Assignee: Full Name" />
+          <ScalarProperty Name="Milestone__Assignee__Full_Name" ColumnName="Milestone: Assignee: Full Name" />
+          <ScalarProperty Name="Milestone__Assignee__Reports_to__Full_Name" ColumnName="Milestone: Assignee: Reports to: Full Name" />
+          <ScalarProperty Name="Task_Status" ColumnName="Task Status" />
+          <ScalarProperty Name="Milestone__Assignee__Country" ColumnName="Milestone: Assignee: Country" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="ReportName" ColumnName="ReportName" />
+          <ScalarProperty Name="Milestone__Project_Status" ColumnName="Milestone: Project Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SteeringCommittees">
+      <EntityTypeMapping TypeName="CWTDashboardModel.SteeringCommittee">
+        <MappingFragment StoreEntitySet="SteeringCommittee">
+          <ScalarProperty Name="SCID" ColumnName="SCID" />
+          <ScalarProperty Name="RecordStatus" ColumnName="RecordStatus" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="ClientType" ColumnName="ClientType" />
+          <ScalarProperty Name="ProjectLead" ColumnName="ProjectLead" />
+          <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+          <ScalarProperty Name="ProjectTrend" ColumnName="ProjectTrend" />
+          <ScalarProperty Name="TotalBusineesVolume" ColumnName="TotalBusineesVolume" />
+          <ScalarProperty Name="NewBusinessVolume" ColumnName="NewBusinessVolume" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="CurrentState" ColumnName="CurrentState" />
+          <ScalarProperty Name="CompletedKeyDeliverables" ColumnName="CompletedKeyDeliverables" />
+          <ScalarProperty Name="ScheduledKeyDeliverables" ColumnName="ScheduledKeyDeliverables" />
+          <ScalarProperty Name="AdditionalNotes" ColumnName="AdditionalNotes" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="Record_Status" ColumnName="Record_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CWTDashboardModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TargetCycleTimes">
+      <EntityTypeMapping TypeName="CWTDashboardModel.TargetCycleTime">
+        <MappingFragment StoreEntitySet="TargetCycleTime">
+          <ScalarProperty Name="TargetID" ColumnName="TargetID" />
+          <ScalarProperty Name="ExistingServiceConfigChange" ColumnName="ExistingServiceConfigChange" />
+          <ScalarProperty Name="NewGlobal" ColumnName="NewGlobal" />
+          <ScalarProperty Name="NewRegional" ColumnName="NewRegional" />
+          <ScalarProperty Name="NewLocal" ColumnName="NewLocal" />
+          <ScalarProperty Name="Overall" ColumnName="Overall" />
+          <ScalarProperty Name="ExistingAddChange" ColumnName="ExistingAddChange" />
+          <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Months" ColumnName="Months" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_registration">
+      <EntityTypeMapping TypeName="CWTDashboardModel.tbl_registration">
+        <MappingFragment StoreEntitySet="tbl_registration">
+          <ScalarProperty Name="Sr_no" ColumnName="Sr_no" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trackers">
+      <EntityTypeMapping TypeName="CWTDashboardModel.Tracker">
+        <MappingFragment StoreEntitySet="Tracker">
+          <ScalarProperty Name="TrackerId" ColumnName="TrackerId" />
+          <ScalarProperty Name="Region__CRM_" ColumnName="Region (CRM)" />
+          <ScalarProperty Name="Country_CRM_" ColumnName="Country(CRM)" />
+          <ScalarProperty Name="Global_Project_Manager__iMeet_" ColumnName="Global Project Manager (iMeet)" />
+          <ScalarProperty Name="Regional_Project_Manager__iMeet_" ColumnName="Regional Project Manager (iMeet)" />
+          <ScalarProperty Name="Local_Project_Manager__iMeet_" ColumnName="Local Project Manager (iMeet)" />
+          <ScalarProperty Name="Client__Manual_Entry_" ColumnName="Client (Manual Entry)" />
+          <ScalarProperty Name="iMeet_Workspace_Title__iMeet_" ColumnName="iMeet Workspace Title (iMeet)" />
+          <ScalarProperty Name="Ownership_Type_CRM_" ColumnName="Ownership Type(CRM)" />
+          <ScalarProperty Name="Priority_Customer__COVID_19_" ColumnName="Priority Customer (COVID 19)" />
+          <ScalarProperty Name="Volume__CRM_" ColumnName="Volume (CRM)" />
+          <ScalarProperty Name="iMeet_Project_Level__iMeet_" ColumnName="iMeet Project Level (iMeet)" />
+          <ScalarProperty Name="Implementation_Type__CRM_" ColumnName="Implementation Type (CRM)" />
+          <ScalarProperty Name="Current_Project_Status__iMeet_" ColumnName="Current Project Status (iMeet)" />
+          <ScalarProperty Name="CIS_Resource__iMeet_" ColumnName="CIS Resource (iMeet)" />
+          <ScalarProperty Name="Project_Details" ColumnName="Project Details" />
+          <ScalarProperty Name="Project_Effort__Formula_" ColumnName="Project Effort (Formula)" />
+          <ScalarProperty Name="Proposed_Start_Date__iMeet_" ColumnName="Proposed Start Date (iMeet)" />
+          <ScalarProperty Name="Proposed_End_Date__Formula_" ColumnName="Proposed End Date (Formula)" />
+          <ScalarProperty Name="Go_Live_Date__iMeet_" ColumnName="Go Live Date (iMeet)" />
+          <ScalarProperty Name="Complete_Duration__Formula_" ColumnName="Complete Duration (Formula)" />
+          <ScalarProperty Name="C__Completed__iMeet_" ColumnName="% Completed (iMeet)" />
+          <ScalarProperty Name="C1stweek" ColumnName="1stweek" />
+          <ScalarProperty Name="C2ndweek" ColumnName="2ndweek" />
+          <ScalarProperty Name="C3rdweek" ColumnName="3rdweek" />
+          <ScalarProperty Name="C4thweek" ColumnName="4thweek" />
+          <ScalarProperty Name="C5thweek" ColumnName="5thweek" />
+          <ScalarProperty Name="C6thweek" ColumnName="6thweek" />
+          <ScalarProperty Name="C7thweek" ColumnName="7thweek" />
+          <ScalarProperty Name="C8thweek" ColumnName="8thweek" />
+          <ScalarProperty Name="C9thweek" ColumnName="9thweek" />
+          <ScalarProperty Name="C10thweek" ColumnName="10thweek" />
+          <ScalarProperty Name="C11thweek" ColumnName="11thweek" />
+          <ScalarProperty Name="C12week" ColumnName="12week" />
+          <ScalarProperty Name="c13thweek" ColumnName="c13thweek" />
+          <ScalarProperty Name="c14thweek" ColumnName="c14thweek" />
+          <ScalarProperty Name="c15thweek" ColumnName="c15thweek" />
+          <ScalarProperty Name="c16thweek" ColumnName="c16thweek" />
+          <ScalarProperty Name="c17thweek" ColumnName="c17thweek" />
+          <ScalarProperty Name="c18thweek" ColumnName="c18thweek" />
+          <ScalarProperty Name="c19thweek" ColumnName="c19thweek" />
+          <ScalarProperty Name="c20thweek" ColumnName="c20thweek" />
+          <ScalarProperty Name="c21thweek" ColumnName="c21thweek" />
+          <ScalarProperty Name="c22thweek" ColumnName="c22thweek" />
+          <ScalarProperty Name="c23thweek" ColumnName="c23thweek" />
+          <ScalarProperty Name="c24thweek" ColumnName="c24thweek" />
+          <ScalarProperty Name="Jan" ColumnName="Jan" />
+          <ScalarProperty Name="Feb" ColumnName="Feb" />
+          <ScalarProperty Name="Mar" ColumnName="Mar" />
+          <ScalarProperty Name="Apr" ColumnName="Apr" />
+          <ScalarProperty Name="May" ColumnName="May" />
+          <ScalarProperty Name="Jun" ColumnName="Jun" />
+          <ScalarProperty Name="Jul" ColumnName="Jul" />
+          <ScalarProperty Name="Aug" ColumnName="Aug" />
+          <ScalarProperty Name="Sep" ColumnName="Sep" />
+          <ScalarProperty Name="Oct" ColumnName="Oct" />
+          <ScalarProperty Name="Nov" ColumnName="Nov" />
+          <ScalarProperty Name="Dec" ColumnName="Dec" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserReportAccessTickets">
+      <EntityTypeMapping TypeName="CWTDashboardModel.UserReportAccessTicket">
+        <MappingFragment StoreEntitySet="UserReportAccessTickets">
+          <ScalarProperty Name="TicketID" ColumnName="TicketID" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="ReportName" ColumnName="ReportName" />
+          <ScalarProperty Name="RequestedOn" ColumnName="RequestedOn" />
+          <ScalarProperty Name="AcceptedBy" ColumnName="AcceptedBy" />
+          <ScalarProperty Name="AcceptedOn" ColumnName="AcceptedOn" />
+          <ScalarProperty Name="TicketStatuts" ColumnName="TicketStatuts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserReportsAccesses">
+      <EntityTypeMapping TypeName="CWTDashboardModel.UserReportsAccess">
+        <MappingFragment StoreEntitySet="UserReportsAccess">
+          <ScalarProperty Name="AccessID" ColumnName="AccessID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="IMPS" ColumnName="IMPS" />
+          <ScalarProperty Name="CTO" ColumnName="CTO" />
+          <ScalarProperty Name="AutomatedCLR" ColumnName="AutomatedCLR" />
+          <ScalarProperty Name="StageGate" ColumnName="StageGate" />
+          <ScalarProperty Name="LessonsLearnt" ColumnName="LessonsLearnt" />
+          <ScalarProperty Name="CapacityTracker" ColumnName="CapacityTracker" />
+          <ScalarProperty Name="CycleTime" ColumnName="CycleTime" />
+          <ScalarProperty Name="ELTReport" ColumnName="ELTReport" />
+          <ScalarProperty Name="C_Hierarchy" ColumnName="C_Hierarchy" />
+          <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UserAccessStatus" ColumnName="UserAccessStatus" />
+          <ScalarProperty Name="ResourceUtilization" ColumnName="ResourceUtilization" />
+          <ScalarProperty Name="Prospect" ColumnName="Prospect" />
+          <ScalarProperty Name="MarketReport" ColumnName="MarketReport" />
+          <ScalarProperty Name="CLREdits" ColumnName="CLREdits" />
+          <ScalarProperty Name="MarketCommentsEdit" ColumnName="MarketCommentsEdit" />
+          <ScalarProperty Name="C_HierarchyEdits" ColumnName="C_HierarchyEdits" />
+          <ScalarProperty Name="NPS" ColumnName="NPS" />
+          <ScalarProperty Name="NPSClientInfo" ColumnName="NPSClientInfo" />
+          <ScalarProperty Name="NPSAdmin" ColumnName="NPSAdmin" />
+          <ScalarProperty Name="DigitalReport" ColumnName="DigitalReport" />
+          <ScalarProperty Name="NPSEdit" ColumnName="NPSEdit" />
+          <ScalarProperty Name="PerformanceAnalysis" ColumnName="PerformanceAnalysis" />
+          <ScalarProperty Name="SteeringCommittee" ColumnName="SteeringCommittee" />
+          <ScalarProperty Name="SteeringCommitteeEdits" ColumnName="SteeringCommitteeEdits" />
+          <ScalarProperty Name="DDO" ColumnName="DDO" />
+          <ScalarProperty Name="DDOHome" ColumnName="DDOHome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="CWTDashboardModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Manager" ColumnName="Manager" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="AccountStatus" ColumnName="AccountStatus" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="JobType" ColumnName="JobType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersUsageofReports">
+      <EntityTypeMapping TypeName="CWTDashboardModel.UsersUsageofReport">
+        <MappingFragment StoreEntitySet="UsersUsageofReports">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="ReportName" ColumnName="ReportName" />
+          <ScalarProperty Name="TypeofUse" ColumnName="TypeofUse" />
+          <ScalarProperty Name="LastUsedOn" ColumnName="LastUsedOn" />
+          <ScalarProperty Name="NoOfAttempts" ColumnName="NoOfAttempts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Waves">
+      <EntityTypeMapping TypeName="CWTDashboardModel.Wave">
+        <MappingFragment StoreEntitySet="Waves">
+          <ScalarProperty Name="WaveID" ColumnName="WaveID" />
+          <ScalarProperty Name="SCID" ColumnName="SCID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Scope" ColumnName="Scope" />
+          <ScalarProperty Name="GoLiveDate" ColumnName="GoLiveDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="Record_Status" ColumnName="Record_Status" />
+          <ScalarProperty Name="Waves" ColumnName="Waves" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YesterdayCLRs">
+      <EntityTypeMapping TypeName="CWTDashboardModel.YesterdayCLR">
+        <MappingFragment StoreEntitySet="YesterdayCLR">
+          <ScalarProperty Name="CLRID" ColumnName="CLRID" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="RevenueID" ColumnName="RevenueID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="RevenueVolumeUSD" ColumnName="RevenueVolumeUSD" />
+          <ScalarProperty Name="OppTOtalVolume" ColumnName="OppTOtalVolume" />
+          <ScalarProperty Name="GoLiveDate" ColumnName="GoLiveDate" />
+          <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+          <ScalarProperty Name="ProjectLevel" ColumnName="ProjectLevel" />
+          <ScalarProperty Name="ProjectStart_ForCycleTime" ColumnName="ProjectStart_ForCycleTime" />
+          <ScalarProperty Name="GoLiveMonth" ColumnName="GoLiveMonth" />
+          <ScalarProperty Name="GoLiveYear" ColumnName="GoLiveYear" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ImplementationType" ColumnName="ImplementationType" />
+          <ScalarProperty Name="DataSourceType" ColumnName="DataSourceType" />
+          <ScalarProperty Name="GlobalProjectManager" ColumnName="GlobalProjectManager" />
+          <ScalarProperty Name="RegionalProjectManager" ColumnName="RegionalProjectManager" />
+          <ScalarProperty Name="AssigneeFullName" ColumnName="AssigneeFullName" />
+          <ScalarProperty Name="GlobalCISOBTLead" ColumnName="GlobalCISOBTLead" />
+          <ScalarProperty Name="GlobalCISHRFeedSpecialist" ColumnName="GlobalCISHRFeedSpecialist" />
+          <ScalarProperty Name="GlobalCISPortraitLead" ColumnName="GlobalCISPortraitLead" />
+          <ScalarProperty Name="RegionalCISOBTLead" ColumnName="RegionalCISOBTLead" />
+          <ScalarProperty Name="RegionalCISPortraitLead" ColumnName="RegionalCISPortraitLead" />
+          <ScalarProperty Name="TaskRecordIdKey" ColumnName="TaskRecordIdKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

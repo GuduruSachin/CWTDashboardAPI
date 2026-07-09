@@ -1,0 +1,888 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CWTRPA_TestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CLR">
+    <Key>
+      <PropertyRef Name="CLRID" />
+    </Key>
+    <Property Name="CLRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Client" Type="nvarchar" MaxLength="255" />
+    <Property Name="iMeet Workspace Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Date added to the CLR" Type="datetime" />
+    <Property Name="Implementation Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="CLR Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="Pipeline_status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Pipeline comments" Type="nvarchar" MaxLength="255" />
+    <Property Name="Service configuration" Type="nvarchar" MaxLength="255" />
+    <Property Name="OBT Reseller / Direct" Type="nvarchar" MaxLength="255" />
+    <Property Name="Servicing location" Type="nvarchar" MaxLength="255" />
+    <Property Name="Assignment date" Type="datetime" />
+    <Property Name="New Business volume (US$)" Type="float" />
+    <Property Name="Revenue Total Volume USD" Type="float" />
+    <Property Name="Region (Opportunity)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="Revenue ID" Type="float" />
+    <Property Name="Ownership (Revenue)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Go-Live Date" Type="datetime" />
+    <Property Name="iMeet Milestone: _Project Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="iMeet Milestone: Country Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="iMeet Project Level" Type="nvarchar" MaxLength="255" />
+    <Property Name="iMeet Milestone: Project Start Date" Type="datetime" />
+    <Property Name="iMeet Milestone:  Initial Go-Live Date" Type="datetime" />
+    <Property Name="Milestone: Last Go-Live Date" Type="nvarchar" MaxLength="255" />
+    <Property Name="Completed Date" Type="datetime" />
+    <Property Name="Workspace: Project Owner" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global Project Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="Project Consultant" Type="nvarchar" MaxLength="255" />
+    <Property Name="Regional Project Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Assignee: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global CIS OBT Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global CIS HR Feed Specialist" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global CIS Portrait Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global CIS RoomIT Integration Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Record ID Key" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Go-Live Date Record ID Key" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace Group Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Project Notes | Proposed Risk Mitigation Solution - P" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Reason Code (H-On Hold, X-Cancelled)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Closed Loop Owner (H-On Hold, X-Cancelled)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace: ELT Overall Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace: ELT Overall Comments" Type="nvarchar" MaxLength="255" />
+    <Property Name="Customer Row ID" Type="float" />
+    <Property Name="Opportunity ID" Type="float" />
+    <Property Name="Account" Type="nvarchar" MaxLength="255" />
+    <Property Name="Sales Stage Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Revenue Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Revenue Opportunity Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity Owner" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity Category" Type="nvarchar" MaxLength="255" />
+    <Property Name="Market Leader" Type="nvarchar" MaxLength="255" />
+    <Property Name="Revenue - Total Transactions" Type="float" />
+    <Property Name="EMEA Country to charge" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA Client" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA OBT standard fee" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA Included for accrual" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA Accrual date" Type="datetime" />
+    <Property Name="EMEA Scope description" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA Billing notes" Type="nvarchar" MaxLength="255" />
+    <Property Name="Survey recipient Name 1 (Local client contact)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Survey recipient Email 1 (Local client contact)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Send?" Type="datetime" />
+    <Property Name="Survey recipient Name 2 (global/ regional client contact)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Survey recipient Email 2 (Global / Regional client contact)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Send?1" Type="datetime" />
+    <Property Name="Go-Live Month-Year" Type="nvarchar" MaxLength="255" />
+    <Property Name="Go Live Month" Type="nvarchar" MaxLength="255" />
+    <Property Name="Go Live Year" Type="nvarchar" MaxLength="255" />
+    <Property Name="Backlog/Started" Type="nvarchar" MaxLength="255" />
+    <Property Name="Quarter" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone Due Date" Type="datetime" />
+    <Property Name="Global PL Leader" Type="nvarchar" MaxLength="255" />
+    <Property Name="Regional PL Leader" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local PL Leader" Type="nvarchar" MaxLength="255" />
+    <Property Name="Project Year" Type="nvarchar" MaxLength="255" />
+    <Property Name="Completed Year" Type="nvarchar" MaxLength="255" />
+    <Property Name="Project Sum" Type="nvarchar" MaxLength="255" />
+    <Property Name="07-Jan" Type="float" />
+    <Property Name="14-Jan" Type="float" />
+    <Property Name="21-Jan" Type="float" />
+    <Property Name="28-Jan" Type="float" />
+    <Property Name="04-Feb" Type="float" />
+    <Property Name="11-Feb" Type="float" />
+    <Property Name="18-Feb" Type="float" />
+    <Property Name="25-Feb" Type="float" />
+    <Property Name="04-Mar" Type="float" />
+    <Property Name="11-Mar" Type="float" />
+    <Property Name="18-Mar" Type="float" />
+    <Property Name="25-Mar" Type="float" />
+    <Property Name="01-Apr" Type="float" />
+    <Property Name="08-Apr" Type="float" />
+    <Property Name="15-Apr" Type="float" />
+    <Property Name="22-Apr" Type="float" />
+    <Property Name="29-Apr" Type="float" />
+    <Property Name="06-May" Type="float" />
+    <Property Name="13-May" Type="float" />
+    <Property Name="20-May" Type="float" />
+    <Property Name="27-May" Type="float" />
+    <Property Name="03-Jun" Type="float" />
+    <Property Name="10-Jun" Type="float" />
+    <Property Name="17-Jun" Type="float" />
+    <Property Name="24-Jun" Type="float" />
+    <Property Name="01-Jul" Type="float" />
+    <Property Name="08-Jul" Type="float" />
+    <Property Name="15-Jul" Type="float" />
+    <Property Name="22-Jul" Type="float" />
+    <Property Name="29-Jul" Type="float" />
+    <Property Name="05-Aug" Type="float" />
+    <Property Name="12-Aug" Type="float" />
+    <Property Name="19-Aug" Type="float" />
+    <Property Name="26-Aug" Type="float" />
+    <Property Name="02-Sep" Type="float" />
+    <Property Name="09-Sep" Type="float" />
+    <Property Name="16-Sep" Type="float" />
+    <Property Name="23-Sep" Type="float" />
+    <Property Name="30-Sep" Type="float" />
+    <Property Name="07-Oct" Type="float" />
+    <Property Name="14-Oct" Type="float" />
+    <Property Name="21-Oct" Type="float" />
+    <Property Name="28-Oct" Type="float" />
+    <Property Name="04-Nov" Type="float" />
+    <Property Name="11-Nov" Type="float" />
+    <Property Name="18-Nov" Type="float" />
+    <Property Name="25-Nov" Type="float" />
+    <Property Name="02-Dec" Type="float" />
+    <Property Name="09-Dec" Type="float" />
+    <Property Name="16-Dec" Type="float" />
+    <Property Name="23-Dec" Type="float" />
+    <Property Name="30-Dec" Type="float" />
+    <Property Name="Cycle Time" Type="float" />
+  </EntityType>
+  <EntityType Name="CountryIsoCodes">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CountryCode" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CountryRegionCodes">
+    <Key>
+      <PropertyRef Name="RegionID" />
+    </Key>
+    <Property Name="RegionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryISOCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Region" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Country" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CRMX">
+    <Key>
+      <PropertyRef Name="CRMXID" />
+    </Key>
+    <Property Name="CRMXID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Revenue Id (copy)" Type="float" Nullable="false" />
+    <Property Name="Account Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Account Owner" Type="nvarchar" MaxLength="255" />
+    <Property Name="Customer Row ID" Type="float" />
+    <Property Name="BT Account Record Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Company Alias" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity ID" Type="float" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Industry" Type="nvarchar" MaxLength="255" />
+    <Property Name="BT Current Service Configuration" Type="nvarchar" MaxLength="255" />
+    <Property Name="BT Current GDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="BT Current Online Booking Tool" Type="nvarchar" MaxLength="255" />
+    <Property Name="BT Incumbent" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Line of Business" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Opportunity Owner" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Close Date" Type="datetime" />
+    <Property Name="Sales Stage Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Line Win Probability" Type="float" Nullable="false" />
+    <Property Name="Opportunity Type" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Opportunity Category" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Next Step" Type="nvarchar" MaxLength="255" />
+    <Property Name="Country Scope" Type="nvarchar" MaxLength="255" />
+    <Property Name="Energy, Resources &amp; Marine" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Opportunity Scope" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity Total Transactions" Type="float" />
+    <Property Name="Opportunity Total Volume USD" Type="float" Nullable="false" />
+    <Property Name="Awarded Date" Type="datetime" />
+    <Property Name="LOI Date" Type="nvarchar" MaxLength="255" />
+    <Property Name="Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="Ownership (Revenue)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Region (Revenue)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Revenue Air Volume USD" Type="float" Nullable="false" />
+    <Property Name="Revenue Car Volume USD" Type="float" Nullable="false" />
+    <Property Name="Revenue Rail Volume USD" Type="float" Nullable="false" />
+    <Property Name="Revenue Total Transactions" Type="float" />
+    <Property Name="Transactions: Air" Type="float" />
+    <Property Name="Transactions: Car" Type="float" />
+    <Property Name="Transactions: Hotel" Type="float" />
+    <Property Name="Transactions: Rail" Type="float" />
+    <Property Name="Revenue Total Volume USD" Type="float" Nullable="false" />
+    <Property Name="Revenue Hotel Volume USD" Type="float" Nullable="false" />
+    <Property Name="Total Awarded Volume USD" Type="float" Nullable="false" />
+    <Property Name="Total Up-Sell Volume USD" Type="float" Nullable="false" />
+    <Property Name="GDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="Estimated Country Go Live Date" Type="datetime" />
+    <Property Name="OBT" Type="nvarchar" MaxLength="255" />
+    <Property Name="Estimated Implementation Start Date" Type="datetime" />
+    <Property Name="BT Incumbent Agency" Type="nvarchar" MaxLength="255" />
+    <Property Name="Revenue Opportunity Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Revenue Status" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Revenue Id" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CTO">
+    <Key>
+      <PropertyRef Name="CTOID" />
+    </Key>
+    <Property Name="CTOID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Milestone Title-Country:  Est Go Live Date" Type="nvarchar" MaxLength="255" />
+    <Property Name="Critical Overdue" Type="float" />
+    <Property Name="Estimated Go Live" Type="datetime" />
+    <Property Name="Workspace Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Project Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Group Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Assignee: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone Due Date" Type="datetime" />
+    <Property Name="Milestone: Country Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task List Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Assignee: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Overdue" Type="float" />
+    <Property Name="Task Start Date" Type="datetime" />
+    <Property Name="Task Due Date" Type="datetime" />
+    <Property Name="Workspace: Project Level" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Project Start Date" Type="datetime" />
+    <Property Name="Last Comment" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="eSOW">
+    <Key>
+      <PropertyRef Name="eSOWID" />
+    </Key>
+    <Property Name="eSOWID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category" Type="nvarchar" MaxLength="255" />
+    <Property Name="Essential" Type="float" />
+    <Property Name="Configurable" Type="float" />
+    <Property Name="Customizable" Type="float" />
+    <Property Name="SOW Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="CRM Opportunity ID" Type="nvarchar" MaxLength="255" />
+    <Property Name="Required Configuration" Type="nvarchar" MaxLength="255" />
+    <Property Name="Client/ Prospect" Type="nvarchar" MaxLength="255" />
+    <Property Name="Sales Lead Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Sales Leader type and Type of bid" Type="nvarchar" MaxLength="255" />
+    <Property Name="DSD Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="SOW Owner" Type="nvarchar" MaxLength="255" />
+    <Property Name="Total traffic in Million USD (air+rail only)" Type="float" />
+    <Property Name="Bid originated by:" Type="nvarchar" MaxLength="255" />
+    <Property Name="Geographic Scope" Type="nvarchar" MaxLength="255" />
+    <Property Name="Prospect Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="CRM Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Client Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Client's Industry" Type="nvarchar" MaxLength="255" />
+    <Property Name="Date RFP Received" Type="datetime" />
+    <Property Name="SOW Creation Date" Type="datetime" />
+    <Property Name="Date Decision Expected" Type="datetime" />
+    <Property Name="Date notified of win or loss" Type="datetime" />
+    <Property Name="Go-Live date estimated " Type="datetime" />
+    <Property Name="Number of Countries" Type="float" />
+    <Property Name="Last Modified Date" Type="datetime" />
+    <Property Name="WebPEM Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="SOW Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Pricing Ready" Type="nvarchar" MaxLength="255" />
+    <Property Name="Implementation Ready" Type="nvarchar" MaxLength="255" />
+    <Property Name="Action Item" Type="nvarchar" MaxLength="255" />
+    <Property Name="XYCT_Private jet-aircraft charters: non GDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="255" />
+    <Property Name="CPKI_Client GDS access" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS1" Type="nvarchar" MaxLength="255" />
+    <Property Name="UBNQ_Client-owned booking request system" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS2" Type="nvarchar" MaxLength="255" />
+    <Property Name="VDUE_Itinerary: standard" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS3" Type="nvarchar" MaxLength="255" />
+    <Property Name="UYSN_GDS waitlists" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS4" Type="nvarchar" MaxLength="255" />
+    <Property Name="JPZL_Virtual payment card: client" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS5" Type="nvarchar" MaxLength="255" />
+    <Property Name="JAAY_Flight reservations: GDS - client fares" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS6" Type="nvarchar" MaxLength="255" />
+    <Property Name="XQYJ_Airline soft dollar programs" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS7" Type="nvarchar" MaxLength="255" />
+    <Property Name="DQLX_Travel and ticketing modifications: counsellor" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS8" Type="nvarchar" MaxLength="255" />
+    <Property Name="GRAZ_CWT profile: guest traveler - travel counselor creation" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS9" Type="nvarchar" MaxLength="255" />
+    <Property Name="JEYQ_Expedited implementation" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS10" Type="nvarchar" MaxLength="255" />
+    <Property Name="PJIP_Reason codes: CWT defined - hotel reservations" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS11" Type="nvarchar" MaxLength="255" />
+    <Property Name="AZBX_Itinerary: client customized" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS12" Type="nvarchar" MaxLength="255" />
+    <Property Name="LJHL_CWT Meetings and Events" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS13" Type="nvarchar" MaxLength="255" />
+    <Property Name="KMWF_Loyalty program cards: i#e# frequent flyer, hotel chain, et" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS14" Type="nvarchar" MaxLength="255" />
+    <Property Name="LKZB_Relocation services: client customized" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS15" Type="nvarchar" MaxLength="255" />
+    <Property Name="UBXF_Flight reservations: low cost carriers - web bookings" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS16" Type="nvarchar" MaxLength="255" />
+    <Property Name="RKYA_Lodge card/business travel account (BTA)" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS17" Type="nvarchar" MaxLength="255" />
+    <Property Name="QHEE_Reason codes: CWT defined - car reservations" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS18" Type="nvarchar" MaxLength="255" />
+    <Property Name="VOWW_Approval process: client customized integration" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS19" Type="nvarchar" MaxLength="255" />
+    <Property Name="XBVI_Predeparture email" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS20" Type="nvarchar" MaxLength="255" />
+    <Property Name="OMGO_Client defined data: transactional" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS21" Type="nvarchar" MaxLength="255" />
+    <Property Name="CCGP_Unused ticket tracking: manual" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS22" Type="nvarchar" MaxLength="255" />
+    <Property Name="HJIO_Credit card reconciliation" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS23" Type="nvarchar" MaxLength="255" />
+    <Property Name="HCGS_Flight reservations: scheduled carriers - web bookings" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS24" Type="nvarchar" MaxLength="255" />
+    <Property Name="PODK_Travel insurance" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS25" Type="nvarchar" MaxLength="255" />
+    <Property Name="YNGA_Data feed: third-party - CWT standard feed" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS26" Type="nvarchar" MaxLength="255" />
+    <Property Name="CGZS_End-to-end logistics via ERM mobility" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS27" Type="nvarchar" MaxLength="255" />
+    <Property Name="WHQW_Voice" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS28" Type="nvarchar" MaxLength="255" />
+    <Property Name="TZUL_Traveler satisfaction survey" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS29" Type="nvarchar" MaxLength="255" />
+    <Property Name="CKWH_Same flight reporting: manual post-booking process" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS30" Type="nvarchar" MaxLength="255" />
+    <Property Name="GIBN_Invoicing/billback/on-account: flight only" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS31" Type="nvarchar" MaxLength="255" />
+    <Property Name="GIOZ_Itinerary: configurable" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS32" Type="nvarchar" MaxLength="255" />
+    <Property Name="ZZZI_Travel policy compliance: low air fare guarantee" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS33" Type="nvarchar" MaxLength="255" />
+    <Property Name="UOVS_Bespoke client tool integration with booking process" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS34" Type="nvarchar" MaxLength="255" />
+    <Property Name="QZIX_Credit card" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS35" Type="nvarchar" MaxLength="255" />
+    <Property Name="OHZH_myCWT mobile" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS36" Type="nvarchar" MaxLength="255" />
+    <Property Name="WVDN_Rail bookings: client customized integration" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS37" Type="nvarchar" MaxLength="255" />
+    <Property Name="YVLO_Airline upgrade programs" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS38" Type="nvarchar" MaxLength="255" />
+    <Property Name="KHZQ_Flight reservations: GDS - published and CWT fares" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS39" Type="nvarchar" MaxLength="255" />
+    <Property Name="MYRU_Duplicate invoice requests" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS40" Type="nvarchar" MaxLength="255" />
+    <Property Name="QRUE_Management of anticipated seat reservations" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS41" Type="nvarchar" MaxLength="255" />
+    <Property Name="OJMQ_Online booking tool: offline module - direct client agreeme" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS42" Type="nvarchar" MaxLength="255" />
+    <Property Name="OXAC_Bespoke client processes: i#e# multipax, quality control, e" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS43" Type="nvarchar" MaxLength="255" />
+    <Property Name="OHEE_Airfare shop and book: CWT standard" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS44" Type="nvarchar" MaxLength="255" />
+    <Property Name="VINY_CWT profile: self service" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS45" Type="nvarchar" MaxLength="255" />
+    <Property Name="PICY_Service Level Agreement (SLA): client customized" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS46" Type="nvarchar" MaxLength="255" />
+    <Property Name="TGWG_Approval process: online booking tool (automated)" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS47" Type="nvarchar" MaxLength="255" />
+    <Property Name="LNCL_Fax reservations" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS48" Type="nvarchar" MaxLength="255" />
+    <Property Name="MNTG_Travel manager satisfaction survey" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS49" Type="nvarchar" MaxLength="255" />
+    <Property Name="RARJ_Ground transportation reservations: taxi, bus, coach, limo," Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS50" Type="nvarchar" MaxLength="255" />
+    <Property Name="QQOV_Invoice: traveler or company" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS51" Type="nvarchar" MaxLength="255" />
+    <Property Name="SRYN_Flight reservation: group travel - business travel/commerci" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS52" Type="nvarchar" MaxLength="255" />
+    <Property Name="QPCT_Hotel services powered by RoomIt: published and CWT rates" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS53" Type="nvarchar" MaxLength="255" />
+    <Property Name="FWEW_ERM Fares" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS54" Type="nvarchar" MaxLength="255" />
+    <Property Name="EXLI_Visa advisory" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS55" Type="nvarchar" MaxLength="255" />
+    <Property Name="HBWX_CWT profile: travel counselor updates" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS56" Type="nvarchar" MaxLength="255" />
+    <Property Name="VFDI_Flight reservations: low cost carriers - integrated content" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS57" Type="nvarchar" MaxLength="255" />
+    <Property Name="LLHS_Invoicing/billback/on-account: car and hotel only" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS58" Type="nvarchar" MaxLength="255" />
+    <Property Name="FBMC_Safety and security: core" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS59" Type="nvarchar" MaxLength="255" />
+    <Property Name="TCMQ_Hotel reservations: client hotel aggregator - CWT managed" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS60" Type="nvarchar" MaxLength="255" />
+    <Property Name="UEJR_Traveler technical support" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS61" Type="nvarchar" MaxLength="255" />
+    <Property Name="JDNI_ERM Fares in conjunction with an OBT offline module or PNR " Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS62" Type="nvarchar" MaxLength="255" />
+    <Property Name="BQRQ_Hotel reviews: enhanced" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS63" Type="nvarchar" MaxLength="255" />
+    <Property Name="CABH_Price optimization: flights post-ticket" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS64" Type="nvarchar" MaxLength="255" />
+    <Property Name="MJNE_Seat assignments: automated and manual" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS65" Type="nvarchar" MaxLength="255" />
+    <Property Name="APRT_Flight reservations: airline consolidators - non GDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS66" Type="nvarchar" MaxLength="255" />
+    <Property Name="HSSR_Safety and security: enhanced" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS67" Type="nvarchar" MaxLength="255" />
+    <Property Name="HJIC_Travel policy: CWT standard" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS68" Type="nvarchar" MaxLength="255" />
+    <Property Name="QHPE_Reason codes: client customized (flight, car, hotel only)" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS69" Type="nvarchar" MaxLength="255" />
+    <Property Name="PZSP_Rail bookings: web - non GDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS70" Type="nvarchar" MaxLength="255" />
+    <Property Name="VDSK_Hotel services powered by RoomIt: client rates" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS71" Type="nvarchar" MaxLength="255" />
+    <Property Name="SGLF_Unused ticket tracking: automated" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS72" Type="nvarchar" MaxLength="255" />
+    <Property Name="GSWX_myCWT online" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS73" Type="nvarchar" MaxLength="255" />
+    <Property Name="PSXB_Enhanced visa services" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS74" Type="nvarchar" MaxLength="255" />
+    <Property Name="WIGN_Travel policy: multi-level policy (subunit and traveler typ" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS75" Type="nvarchar" MaxLength="255" />
+    <Property Name="ZCVT_Email reservations: unformatted inbound emails" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS76" Type="nvarchar" MaxLength="255" />
+    <Property Name="BDZJ_Approval process: Concur request or Trondent (automated)" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS77" Type="nvarchar" MaxLength="255" />
+    <Property Name="ZYQO_Rail bookings: GDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS78" Type="nvarchar" MaxLength="255" />
+    <Property Name="KUYY_myCWT online: custom inbound single sign-on" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS79" Type="nvarchar" MaxLength="255" />
+    <Property Name="VCPH_Reason codes: CWT defined - flight reservations" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS80" Type="nvarchar" MaxLength="255" />
+    <Property Name="EVZJ_Meal assignments: automated and manual" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS81" Type="nvarchar" MaxLength="255" />
+    <Property Name="VWPY_Approval process: manual process, CWT managed" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS82" Type="nvarchar" MaxLength="255" />
+    <Property Name="GMTR_VIP services" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS83" Type="nvarchar" MaxLength="255" />
+    <Property Name="NYBI_Evacuation/business continuity services" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS84" Type="nvarchar" MaxLength="255" />
+    <Property Name="YCIW_Management of airline seat allotment contracts" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS85" Type="nvarchar" MaxLength="255" />
+    <Property Name="QADG_myCWT messaging" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS86" Type="nvarchar" MaxLength="255" />
+    <Property Name="PAIJ_Business intelligence platform" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS87" Type="nvarchar" MaxLength="255" />
+    <Property Name="XYBH_Client selected GDS agreement" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS88" Type="nvarchar" MaxLength="255" />
+    <Property Name="WGCZ_Airfare shop and book: client customized" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS89" Type="nvarchar" MaxLength="255" />
+    <Property Name="IIYW_Client owned accomodation management" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS90" Type="nvarchar" MaxLength="255" />
+    <Property Name="JAWT_Automated communication service: core" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS91" Type="nvarchar" MaxLength="255" />
+    <Property Name="BTNC_Online booking tool: CWT preferred reseller" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS92" Type="nvarchar" MaxLength="255" />
+    <Property Name="OQPL_Visa procurement" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS93" Type="nvarchar" MaxLength="255" />
+    <Property Name="AUXU_Car reservations: GDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS94" Type="nvarchar" MaxLength="255" />
+    <Property Name="DGOF_Rail bookings: CWT integrated solution" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS95" Type="nvarchar" MaxLength="255" />
+    <Property Name="DXLI_Trip estimator" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS96" Type="nvarchar" MaxLength="255" />
+    <Property Name="JPXJ_Price optimization: hotels" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS97" Type="nvarchar" MaxLength="255" />
+    <Property Name="JBFR_ERM24" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS98" Type="nvarchar" MaxLength="255" />
+    <Property Name="ZXTI_Marine/offshore fare qualification letter" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS99" Type="nvarchar" MaxLength="255" />
+    <Property Name="EACH_Virtual payment card: CWT" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS100" Type="nvarchar" MaxLength="255" />
+    <Property Name="OVRM_Automated communication service: enhanced" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS101" Type="nvarchar" MaxLength="255" />
+    <Property Name="QJDF_Online booking tool: direct client agreement" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS102" Type="nvarchar" MaxLength="255" />
+    <Property Name="SQQQ_Third-party audit: Topaz" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS103" Type="nvarchar" MaxLength="255" />
+    <Property Name="QPGZ_CWT profile: worldwide access" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS104" Type="nvarchar" MaxLength="255" />
+    <Property Name="ARDZ_PNR acquisition: online booking tool" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS105" Type="nvarchar" MaxLength="255" />
+    <Property Name="RTYP_Bespoke online and/or offline service configuration" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS106" Type="nvarchar" MaxLength="255" />
+    <Property Name="FWGL_Email reservations: web form" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS107" Type="nvarchar" MaxLength="255" />
+    <Property Name="RGPA_Hotel reviews: core" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS108" Type="nvarchar" MaxLength="255" />
+    <Property Name="WELE_Travel policy compliance: low hotel rate guarantee" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS109" Type="nvarchar" MaxLength="255" />
+    <Property Name="MOSX_Business intelligence platform: simple language query" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS110" Type="nvarchar" MaxLength="255" />
+    <Property Name="RIVT_Ticketing: automated ticket issuance" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATUS111" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="IMPS">
+    <Key>
+      <PropertyRef Name="IMPSID" />
+    </Key>
+    <Property Name="IMPSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Workspace Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace: CRM Customer Row ID" Type="float" />
+    <Property Name="Workspace: Project Level" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace: ELT Overall Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace: ELT Overall Comments" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Record ID Key" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Project Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="% Complete" Type="float" />
+    <Property Name="Milestone: Project Start Date" Type="float" />
+    <Property Name="Milestone: Assignee: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Assignee: Reports to: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Task Record ID Key" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Start Date" Type="float" />
+    <Property Name="Milestone: CRM Revenue ID #" Type="float" />
+    <Property Name="Milestone: Project Notes" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Reason Code" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Closed Loop Owner" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="LessonsLearnt">
+    <Key>
+      <PropertyRef Name="LessonsLearntID" />
+    </Key>
+    <Property Name="LessonsLearntID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="iMeet Workspace Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Record ID" Type="nvarchar" MaxLength="255" />
+    <Property Name="Date feedback raised" Type="datetime" />
+    <Property Name="Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="What did not go well" Type="nvarchar(max)" />
+    <Property Name="What went well" Type="nvarchar(max)" />
+    <Property Name="Raised by" Type="nvarchar" MaxLength="255" />
+    <Property Name="Go Live Date" Type="datetime" />
+    <Property Name="Owner" Type="nvarchar" MaxLength="255" />
+    <Property Name="Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Actions" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RolesID" />
+    </Key>
+    <Property Name="RolesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Workspace Title" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="APAC CIS OBT Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="APAC CIS Portrait Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="APAC DQS" Type="nvarchar" MaxLength="255" />
+    <Property Name="APAC GDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="APAC IMP Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="APAC Power Center" Type="nvarchar" MaxLength="255" />
+    <Property Name="APAC Program Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="APAC Project Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="APAC Telephony Team" Type="nvarchar" MaxLength="255" />
+    <Property Name="APAC Training" Type="nvarchar" MaxLength="255" />
+    <Property Name="APAC Traveler Services" Type="nvarchar" MaxLength="255" />
+    <Property Name="Client APAC Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="Client EMEA Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="Client Finance Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Client Global Hotels M&amp;E" Type="nvarchar" MaxLength="255" />
+    <Property Name="Client IT Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Client LATAM Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="Client NORAM Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="Client Travel Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="Solution Engineer" Type="nvarchar" MaxLength="255" />
+    <Property Name="DSD Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="DQS Import" Type="nvarchar" MaxLength="255" />
+    <Property Name="DQS Support" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA CIS OBT Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA CIS Portrait Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA DQS" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA GDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA IMP Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA Power Center" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA Program Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA Project Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA Telephony Team" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA Training" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA Traveler Services" Type="nvarchar" MaxLength="255" />
+    <Property Name="ERM24 Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="ERM Crew Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="ERM Fares Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="ERM Logistics Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="ERM Project Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="ERM Support Services" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global 3rd Party Data Export Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global 3rd Party Data Import Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global CIS DQS Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global CIS HR Feed Specialist" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global CIS OBT Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global CIS Portrait Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global CIS Product Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global Facilities" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global Hotel Data Center" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global Online Support Center Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global Power Base" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global Pre-Trip Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global Program Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global Project Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global Technical Fullfillment Center Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global TPSS Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global Training" Type="nvarchar" MaxLength="255" />
+    <Property Name="GPN Commercial" Type="nvarchar" MaxLength="255" />
+    <Property Name="GPN Operations" Type="nvarchar" MaxLength="255" />
+    <Property Name="GPN Partner Commercial" Type="nvarchar" MaxLength="255" />
+    <Property Name="GPN Partner Operations" Type="nvarchar" MaxLength="255" />
+    <Property Name="Group Air Ops Mgr" Type="nvarchar" MaxLength="255" />
+    <Property Name="Group Support Services" Type="nvarchar" MaxLength="255" />
+    <Property Name="Group Transport Dir" Type="nvarchar" MaxLength="255" />
+    <Property Name="GSC Project Lead Poland" Type="nvarchar" MaxLength="255" />
+    <Property Name="Implementation Architect" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM CIS OBT Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM CIS Portrait Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM DQS" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Facilitities" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM GDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM GSC project lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM IMP Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM IT" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Power Center" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Program Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Program Manager Argentina" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Program Manager Bolivia" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Program Manager Brazil" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Program Manager Chile" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Program Manager Colombia" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Program Manager Costa Rica" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Program Manager Dominican Republic" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Program Manager Ecuador" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Program Manager El Salvador" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Program Manager Guatemala" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Program Manager Mexico" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Program Manager Panama" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Program Manager Paraguay" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Program Manager Peru" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Program Manager Uruguay" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Program Manager Venezuela" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Project Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Telephony Team" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Training" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Traveler Services" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM TS Product Support" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Albania" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Algeria" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Angola" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Argentina" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Australia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Austria" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Azerbaijan" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Bahrain" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Bangladesh" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Belarus" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Belgium" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Bolivia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Bosnia and Herzegovina" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Botswana" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Brazil" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Brunei Darussalam" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Bulgaria" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Burkina Faso" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Cambodia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Cameroon" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Chile" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead China" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Colombia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Costa Rica" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead CÔTE D'IVOIRE" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Croatia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Cyprus" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Czech Republic" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Denmark" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Dominican Republic" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Ecuador" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Egypt" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead El Salvador" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Estonia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Ethiopia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Finland" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead France" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Gabon" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Georgia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Germany" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Ghana" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Greece" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Guatemala" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Guinea" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Honduras" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Hong Kong" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Hungary" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead India" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Indonesia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Ireland" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Israel" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Italy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Jamaica" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Japan" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Jordan" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Kazakhstan" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Kenya" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Kuwait" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Latvia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Lebanon" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Lithuania" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Luxembourg" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Macedonia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Madagascar" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Malawai" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Malaysia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Mali" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Mauritius" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Mexico" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Moldova" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Morocco" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Myanmar" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Nepal" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Netherlands" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead New Zealand" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Nicaragua" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Nigeria" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Norway" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Oman" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Pakistan" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Panama" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Paraguay" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Peru" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Philippines" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Poland" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Portugal" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Qatar" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Romania" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Russia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Saudi Arabia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Senegal" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Serbia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Singapore" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Slovakia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Slovenia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead South Africa" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead South Korea" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Spain" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Sri Lanka" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Sweden" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Switzerland" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Taiwan" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Tanzania" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Thailand" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Trinidad and Tobago" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Tunisia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Turkey" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Uganda" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Ukraine" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead United Arab Emirates" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead United Kingdom" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Uruguay" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Uzbekistan" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Venezuela" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Vietnam" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Zambia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Implementation Lead Zimbabwe" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Traveler Services Lead Argentina" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Traveler Services Lead Brazil" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Traveler Services Lead Chile" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Traveler Services Lead Colombia" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Traveler Services Lead Costa Rica" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM ARC Administration" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM CA Product and Business Support" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM CA Traveler Experience" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM CDC" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM CIS OBT Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM CIS Portrait Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM DQS" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM Fare Tracking" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM GDS Automation" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM IMP Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM I#T# Connections" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM I#T# Field" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM I#T# Operations" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM NDC" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM OFC" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM Other" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM Power Center Turbo" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM Power Tools" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM Program Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM Project Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM Real Estate and Facilities" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM Scripting" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM Telephony Team" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM Training" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM U#S#Traveler Experience" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM US TS Automation" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM Vendor 3rd Party" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM Vendor Contract Administration" Type="nvarchar" MaxLength="255" />
+    <Property Name="Program Solutions Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="DSD Operations" Type="nvarchar" MaxLength="255" />
+    <Property Name="Regional Ops Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity or Sales Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="SSO Team" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global CIS RoomIT Integration lead" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="StageGate">
+    <Key>
+      <PropertyRef Name="StageGateID" />
+    </Key>
+    <Property Name="StageGateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Task Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Start Date" Type="datetime" />
+    <Property Name="Task Due Date" Type="datetime" />
+    <Property Name="Workspace Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Assignee: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Assignee: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Assignee: Reports to: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Assignee: Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="Month" Type="nvarchar" MaxLength="255" />
+    <Property Name="Year" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserEmail" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserRegion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserRole" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="InsertDate" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UpdateDate" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Function Name="spTravelerForm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="act" Type="int" Mode="In" />
+    <Parameter Name="ReqId" Type="int" Mode="In" />
+    <Parameter Name="clientname" Type="varchar" Mode="In" />
+    <Parameter Name="travelerFirstName" Type="varchar" Mode="In" />
+    <Parameter Name="travelerLastName" Type="varchar" Mode="In" />
+    <Parameter Name="OtherRequester" Type="varchar" Mode="In" />
+    <Parameter Name="additionalemail" Type="varchar" Mode="In" />
+    <Parameter Name="PCC" Type="varchar" Mode="In" />
+    <Parameter Name="MoxieId" Type="varchar" Mode="In" />
+    <Parameter Name="Options" Type="varchar" Mode="In" />
+    <Parameter Name="flightoptions" Type="varchar" Mode="In" />
+    <Parameter Name="Origin" Type="varchar" Mode="In" />
+    <Parameter Name="Destination" Type="varchar" Mode="In" />
+    <Parameter Name="DeptDate" Type="varchar" Mode="In" />
+    <Parameter Name="DeptTime" Type="varchar" Mode="In" />
+    <Parameter Name="ReturnDate" Type="varchar" Mode="In" />
+    <Parameter Name="ReturnTime" Type="varchar" Mode="In" />
+    <Parameter Name="FlightReq" Type="varchar" Mode="In" />
+    <Parameter Name="AirlineCode" Type="varchar" Mode="In" />
+    <Parameter Name="Class" Type="varchar" Mode="In" />
+    <Parameter Name="CheckinDate" Type="varchar" Mode="In" />
+    <Parameter Name="CheckoutDate" Type="varchar" Mode="In" />
+    <Parameter Name="Hotel" Type="varchar(max)" Mode="In" />
+    <Parameter Name="RoomType" Type="varchar" Mode="In" />
+    <Parameter Name="SmokingPref" Type="varchar" Mode="In" />
+    <Parameter Name="RequestedBy" Type="varchar" Mode="In" />
+    <Parameter Name="RequestedOn" Type="datetime" Mode="In" />
+    <Parameter Name="HotelDestCity" Type="varchar" Mode="In" />
+    <Parameter Name="HotelLoc" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="CWTRPA_TestModelStoreContainer">
+    <EntitySet Name="CLR" EntityType="Self.CLR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CountryIsoCodes" EntityType="Self.CountryIsoCodes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CountryRegionCodes" EntityType="Self.CountryRegionCodes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CRMX" EntityType="Self.CRMX" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTO" EntityType="Self.CTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eSOW" EntityType="Self.eSOW" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IMPS" EntityType="Self.IMPS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LessonsLearnt" EntityType="Self.LessonsLearnt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StageGate" EntityType="Self.StageGate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,2069 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CWTDashboardModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AssignePerson">
+    <Key>
+      <PropertyRef Name="AssigneID" />
+    </Key>
+    <Property Name="AssigneID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Task_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Task_Due_Date" Type="DateTime" Precision="3" />
+    <Property Name="Milestone_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Assigned_Role__Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Assignee__Reports_to__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Task_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Task_Record_ID_Key" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__Project_Level" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__Project_Owner__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__CRM_Revenue_ID__" Type="Double" />
+    <Property Name="Milestone__Assignee__Reports_to__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Country_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Completed_Date" Type="DateTime" Precision="3" />
+    <Property Name="C__Complete" Type="Double" />
+    <Property Name="Milestone_Due_Date" Type="DateTime" Precision="3" />
+    <Property Name="Milestone_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Task_Overdue" Type="Double" />
+    <Property Name="Task__Record_ID" Type="Double" />
+    <Property Name="Milestone__Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Record_ID" Type="Double" />
+    <Property Name="Milestone__Record_ID_Key" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Reason_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Group_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Closed_Loop_Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Assignee__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Override_Regional_Digital_OBT_Lead__Full_Name" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Override_Regional_Digital_Portrait_Lead__Full_Name" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Local_Digital_OBT_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Local_Digital_Ad_Hoc_Support" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AuditEntry">
+    <Key>
+      <PropertyRef Name="AuditEntryId" />
+    </Key>
+    <Property Name="AuditEntryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Record" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AuditLog">
+    <Key>
+      <PropertyRef Name="AuditID" />
+    </Key>
+    <Property Name="AuditID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RevenueID" Type="Double" Nullable="false" />
+    <Property Name="UsedPlatForm" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OldValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NewValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Field" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TaskRecordIDKey" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AuditEntryId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="CandidateLeadsOne">
+    <Key>
+      <PropertyRef Name="CLOID" />
+    </Key>
+    <Property Name="CLOID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Double" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Follow_Up" Type="DateTime" Precision="3" />
+    <Property Name="Recruiter" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Priority" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Candidate_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Phone_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Position" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Zip_code" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Quality" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="State_1_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Open_Jobs" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Zipcode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CapacityHierarchy">
+    <Key>
+      <PropertyRef Name="HID" />
+    </Key>
+    <Property Name="HID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Level" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Leader" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WorkShedule" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Monday" Type="Double" Nullable="false" />
+    <Property Name="Tuesday" Type="Double" Nullable="false" />
+    <Property Name="Wednesday" Type="Double" Nullable="false" />
+    <Property Name="Thursday" Type="Double" Nullable="false" />
+    <Property Name="Friday" Type="Double" Nullable="false" />
+    <Property Name="Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProjectLevel" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WorkingDays" Type="Double" />
+    <Property Name="InsertedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="InsertedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TargetedUtilization" Type="Double" Nullable="false" />
+    <Property Name="ManagerStatus" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CLRActivity">
+    <Key>
+      <PropertyRef Name="A_ID" />
+    </Key>
+    <Property Name="A_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Client" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Revenue_ID" Type="Double" Nullable="false" />
+    <Property Name="OldValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NewValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ColumnName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TaskRecordIDKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CLRBelowData">
+    <Key>
+      <PropertyRef Name="CLRID" />
+    </Key>
+    <Property Name="CLRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RevenueID" Type="Double" />
+    <Property Name="RevenueVolumeUSD" Type="Double" />
+    <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OwnerShip" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GoLiveDate" Type="DateTime" Precision="3" />
+    <Property Name="ProjectStatus" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Reason_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PerCompleted" Type="Double" />
+    <Property Name="CountryStatus" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectLevel" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CompletedDate" Type="DateTime" Precision="3" />
+    <Property Name="MilestoneDueDate" Type="DateTime" Precision="3" />
+    <Property Name="ProjectOwner" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalProjectManager" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectConsultant" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalProjectManager" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="AssigneeFullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISOBTLead" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalCISOBTLead" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISHRFeedSpecialist" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISPortraitLead" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalCISPortraitLead" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISRoomITIntegrationLead" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MilestoneTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Record_ID_Key" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Task_Record_ID_Key" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Group_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Closed_Loop_Owner" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Customer_Row_ID" Type="Double" />
+    <Property Name="Opportunity_ID" Type="Double" />
+    <Property Name="Account_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Sales_Stage_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Status" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Opportunity_Type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Owner" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Category" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MarketLeader" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Total_Transactions" Type="Double" />
+    <Property Name="Line_Win_Probability" Type="Double" />
+    <Property Name="Next_Step" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Implementation_Fee_PSD" Type="Double" />
+    <Property Name="CountryCode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GoLiveMonth" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GoLiveYear" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BacklogStarted" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Quarter" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CycleTime" Type="Double" />
+    <Property Name="ExternalKickoffDuedate" Type="DateTime" Precision="3" />
+    <Property Name="Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectStartForCycleTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CLRResourceUtilization">
+    <Key>
+      <PropertyRef Name="RUid" />
+    </Key>
+    <Property Name="RUid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HierarchyID" Type="Int32" />
+    <Property Name="Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Level" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectLevel" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Leader" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WorkShedule" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WorkingDays" Type="Double" />
+    <Property Name="Monday" Type="Double" />
+    <Property Name="Tuesday" Type="Double" />
+    <Property Name="Wednesday" Type="Double" />
+    <Property Name="Thursday" Type="Double" />
+    <Property Name="Friday" Type="Double" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TargetedUtilization" Type="Double" />
+    <Property Name="C1stweek" Type="Double" />
+    <Property Name="C2ndweek" Type="Double" />
+    <Property Name="C3rdweek" Type="Double" />
+    <Property Name="C4thweek" Type="Double" />
+    <Property Name="C5thweek" Type="Double" />
+    <Property Name="C6thweek" Type="Double" />
+    <Property Name="C7thweek" Type="Double" />
+    <Property Name="C8thweek" Type="Double" />
+    <Property Name="AvgUtil" Type="Double" />
+    <Property Name="TUWorkingDays" Type="Double" />
+    <Property Name="CapacityAvailable" Type="Double" />
+    <Property Name="CapacityAvailableTUWorkingDays" Type="Double" />
+    <Property Name="C9thweek" Type="Double" />
+    <Property Name="C10thweek" Type="Double" />
+    <Property Name="C11thweek" Type="Double" />
+    <Property Name="C12thweek" Type="Double" />
+    <Property Name="c13thweek" Type="Double" />
+    <Property Name="c14thweek" Type="Double" />
+    <Property Name="c15thweek" Type="Double" />
+    <Property Name="c16thweek" Type="Double" />
+    <Property Name="c17thweek" Type="Double" />
+    <Property Name="c18thweek" Type="Double" />
+    <Property Name="c19thweek" Type="Double" />
+    <Property Name="c20thweek" Type="Double" />
+    <Property Name="c21thweek" Type="Double" />
+    <Property Name="c22thweek" Type="Double" />
+    <Property Name="c23thweek" Type="Double" />
+    <Property Name="c24thweek" Type="Double" />
+    <Property Name="ProjectStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CLRTracker">
+    <Key>
+      <PropertyRef Name="TrackerId" />
+    </Key>
+    <Property Name="TrackerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RevenueID" Type="Double" Nullable="false" />
+    <Property Name="Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalProjectManager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalProjectManager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LocalProjectManager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="iMeetWorkspaceTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OwnershipType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PriorityCustomer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Volume" Type="Double" />
+    <Property Name="ProjectLevel" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ImplementationType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalDigitalOBTLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalDigitalOBTLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalDigitalPortraitLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalDigitalPortraitLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalDigitalHRFeedSpeciallist" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MilestoneProjectNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectEffort" Type="Double" />
+    <Property Name="KickOff_ProposedStartDate" Type="DateTime" Precision="3" />
+    <Property Name="GoLiveDate" Type="DateTime" Precision="3" />
+    <Property Name="EndofHypercare" Type="DateTime" Precision="3" />
+    <Property Name="CompleteDuration" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PerCompleted" Type="Double" />
+    <Property Name="ProjectStartDate" Type="DateTime" Precision="3" />
+    <Property Name="MilestoneDueDate" Type="DateTime" Precision="3" />
+    <Property Name="ProjectDelay" Type="Double" />
+    <Property Name="C1stweek" Type="Double" />
+    <Property Name="C2ndweek" Type="Double" />
+    <Property Name="C3rdweek" Type="Double" />
+    <Property Name="C4thweek" Type="Double" />
+    <Property Name="C5thweek" Type="Double" />
+    <Property Name="C6thweek" Type="Double" />
+    <Property Name="C7thweek" Type="Double" />
+    <Property Name="C8thweek" Type="Double" />
+    <Property Name="C9thweek" Type="Double" />
+    <Property Name="C10thweek" Type="Double" />
+    <Property Name="C11thweek" Type="Double" />
+    <Property Name="C12thweek" Type="Double" />
+    <Property Name="c13thweek" Type="Double" />
+    <Property Name="c14thweek" Type="Double" />
+    <Property Name="c15thweek" Type="Double" />
+    <Property Name="c16thweek" Type="Double" />
+    <Property Name="c17thweek" Type="Double" />
+    <Property Name="c18thweek" Type="Double" />
+    <Property Name="c19thweek" Type="Double" />
+    <Property Name="c20thweek" Type="Double" />
+    <Property Name="c21thweek" Type="Double" />
+    <Property Name="c22thweek" Type="Double" />
+    <Property Name="c23thweek" Type="Double" />
+    <Property Name="c24thweek" Type="Double" />
+    <Property Name="Jan" Type="Int32" />
+    <Property Name="Feb" Type="Int32" />
+    <Property Name="Mar" Type="Int32" />
+    <Property Name="Apr" Type="Int32" />
+    <Property Name="May" Type="Int32" />
+    <Property Name="Jun" Type="Int32" />
+    <Property Name="Jul" Type="Int32" />
+    <Property Name="Aug" Type="Int32" />
+    <Property Name="Sep" Type="Int32" />
+    <Property Name="Oct" Type="Int32" />
+    <Property Name="Nov" Type="Int32" />
+    <Property Name="Dec" Type="Int32" />
+    <Property Name="LocalDigitalOBTLead" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="GDS" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="ComplexityScore" Type="Double" />
+    <Property Name="TaskRecordIdKey" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="MilestoneDueDateByLevel" Type="DateTime" Precision="3" />
+    <Property Name="AssignmentDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" />
+    <Property Name="Row" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Config">
+    <Key>
+      <PropertyRef Name="ConfigID" />
+    </Key>
+    <Property Name="ConfigID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectType" Type="String" MaxLength="225" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Duration" Type="Double" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedOn" Type="DateTime" Precision="3" />
+    <Property Name="InsertedBy" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CRMData">
+    <Key>
+      <PropertyRef Name="CRMID" />
+    </Key>
+    <Property Name="CRMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Revenue_Id" Type="Double" />
+    <Property Name="Account_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Account_Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Customer_Row_ID" Type="Double" />
+    <Property Name="BT_Account_Record_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Company_Alias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_ID" Type="Double" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Industry" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BT_Current_Service_Configuration" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BT_Current_GDS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BT_Current_Online_Booking_Tool" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BT_Incumbent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Line_of_Business" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Close_Date" Type="DateTime" Precision="3" />
+    <Property Name="Sales_Stage_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Line_Win_Probability" Type="Double" />
+    <Property Name="Opportunity_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Category" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Next_Step" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Country_Scope" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Energy__Resources___Marine" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Scope" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Total_Transactions" Type="Double" />
+    <Property Name="Opportunity_Total_Volume_USD" Type="Double" />
+    <Property Name="Awarded_Date" Type="DateTime" Precision="3" />
+    <Property Name="LOI_Date" Type="DateTime" Precision="3" />
+    <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Ownership__Revenue_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Region__Revenue_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Air_Volume_USD" Type="Double" />
+    <Property Name="Revenue_Car_Volume_USD" Type="Double" />
+    <Property Name="Revenue_Rail_Volume_USD" Type="Double" />
+    <Property Name="Revenue_Total_Transactions" Type="Double" />
+    <Property Name="Transactions__Air" Type="Double" />
+    <Property Name="Transactions__Car" Type="Double" />
+    <Property Name="Transactions__Hotel" Type="Double" />
+    <Property Name="Transactions__Rail" Type="Double" />
+    <Property Name="Revenue_Total_Volume_USD" Type="Double" />
+    <Property Name="Revenue_Hotel_Volume_USD" Type="Double" />
+    <Property Name="Total_Awarded_Volume_USD" Type="Double" />
+    <Property Name="Total_Up_Sell_Volume_USD" Type="Double" />
+    <Property Name="GDS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Estimated_Country_Go_Live_Date" Type="DateTime" Precision="3" />
+    <Property Name="OBT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Estimated_Implementation_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="BT_Incumbent_Agency" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Opportunity_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Last_Update_Date" Type="DateTime" Precision="3" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Client_Segment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Client_Management_Group" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Account_Management_Group" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsImplementationTeamsupport" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DataiMeet">
+    <Key>
+      <PropertyRef Name="iMeetID" />
+    </Key>
+    <Property Name="iMeetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Task_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Task_Due_Date" Type="DateTime" Precision="3" />
+    <Property Name="Milestone_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Task_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Record_ID_Key" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Task_Record_ID_Key" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__CRM_Revenue_ID__" Type="Double" />
+    <Property Name="Milestone__Project_Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Reason_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="C__Complete" Type="Double" />
+    <Property Name="Milestone__Country_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__Project_Level" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone_Due_Date" Type="DateTime" Precision="3" />
+    <Property Name="Workspace__Project_Owner__Full_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Group_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Closed_Loop_Owner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Completed_Date" Type="DateTime" Precision="3" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Completed_Date" Type="DateTime" Precision="3" />
+    <Property Name="Milestone__Milestone_type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Region" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Cycle_Time_Delay_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EltClientDelayDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DigitalTeam">
+    <Key>
+      <PropertyRef Name="DTID" />
+    </Key>
+    <Property Name="DTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RevenueID" Type="Double" Nullable="false" />
+    <Property Name="Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISOBTLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalCISOBTLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LocalDigitalOBTLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISPortraitLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalCISPortraitLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISHRFeedSpecialist" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GDS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ComplexityScore" Type="Double" Nullable="false" />
+    <Property Name="TaskRecordIdKey" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ActivityType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISDQSLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DQSTest">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SOURCE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TRANS_NUM" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Formated_LOAD_DATE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EltDeltaClient">
+    <Key>
+      <PropertyRef Name="EltID" />
+    </Key>
+    <Property Name="EltID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Client" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Month" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Revenue" Type="Double" Nullable="false" />
+    <Property Name="InsertedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Year" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ErrorTracker">
+    <Key>
+      <PropertyRef Name="TrackerID" />
+    </Key>
+    <Property Name="TrackerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ResourceName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Manager" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProjectLevel" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OBT" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OBTUsed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TypeofError" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FinancialImpact" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FIDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ValueofLoss" Type="Double" Nullable="false" />
+    <Property Name="ErrorDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ErrorReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WhoReportedError" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ErrorComplexityRating" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IssueResolved" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FMEA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ETCountry">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InsertedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ETManager">
+    <Key>
+      <PropertyRef Name="ManagerID" />
+    </Key>
+    <Property Name="ManagerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Manager" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InsertedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ETResource">
+    <Key>
+      <PropertyRef Name="ResourceID" />
+    </Key>
+    <Property Name="ResourceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Resource" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InsertedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="GoLive">
+    <Key>
+      <PropertyRef Name="GoLiveID" />
+    </Key>
+    <Property Name="GoLiveID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Task_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Milestone__Record_ID_Key" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Task_Record_ID_Key" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Hierarchy">
+    <Key>
+      <PropertyRef Name="HierarchyID" />
+    </Key>
+    <Property Name="HierarchyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Sr_Leader" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="VP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Email_Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UserStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LeaderOne" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LeaderTwo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HostExternal">
+    <Key>
+      <PropertyRef Name="HostExternalID" />
+    </Key>
+    <Property Name="HostExternalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Task_Due_Date" Type="DateTime" Precision="3" />
+    <Property Name="Task_Completed_Date" Type="DateTime" Precision="3" />
+    <Property Name="Task_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Action_Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Record_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="iMeetData">
+    <Key>
+      <PropertyRef Name="iMeetId" />
+    </Key>
+    <Property Name="iMeetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Task_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Assignee__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Task_Due_Date" Type="DateTime" Precision="3" />
+    <Property Name="Milestone_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Assigned_Role__Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Assignee__Reports_to__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Task_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Task_Record_ID_Key" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__Project_Level" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__Project_Owner__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__CRM_Revenue_ID__" Type="Double" />
+    <Property Name="Milestone__Assignee__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Assignee__Reports_to__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Country_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Completed_Date" Type="DateTime" Precision="3" />
+    <Property Name="C__Complete" Type="Double" />
+    <Property Name="Milestone__Project_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Milestone__Initial_Go_Live_Date" Type="DateTime" Precision="3" />
+    <Property Name="Milestone_Due_Date" Type="DateTime" Precision="3" />
+    <Property Name="Milestone_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Task_Overdue" Type="Double" />
+    <Property Name="Task__Record_ID" Type="Double" />
+    <Property Name="Milestone__Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Record_ID" Type="Double" />
+    <Property Name="Milestone__Record_ID_Key" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Reason_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Group_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Closed_Loop_Owner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="IMP">
+    <Key>
+      <PropertyRef Name="IMPSID" />
+    </Key>
+    <Property Name="IMPSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__CRM_Customer_Row_ID" Type="Double" />
+    <Property Name="Workspace__Project_Level" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Record_ID_Key" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C__Complete" Type="Double" />
+    <Property Name="Milestone__Project_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Milestone__Assignee__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Assignee__Reports_to__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Task_Record_ID_Key" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Milestone__CRM_Revenue_ID__" Type="Double" />
+    <Property Name="Milestone__Reason_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Closed_Loop_Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Group_Name" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="JiraData">
+    <Key>
+      <PropertyRef Name="JiraId" />
+    </Key>
+    <Property Name="JiraId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Summary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Assignee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Assignee_Id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Precision="3" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Custom_field__Flight_Planned_Go_Live_Date_" Type="DateTime" Precision="3" />
+    <Property Name="Custom_field__Flight_Project_Complete_Date_" Type="DateTime" Precision="3" />
+    <Property Name="Custom_field__Flight_Project_Start_Date_" Type="DateTime" Precision="3" />
+    <Property Name="Custom_field__Flight_Trx_Monthly_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Custom_field__GDS_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Custom_field__GUID_Client_Top_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Custom_field__Hotel_Planned_Go_Live_Date_" Type="DateTime" Precision="3" />
+    <Property Name="Custom_field__Hotel_Project_Complete_Date_" Type="DateTime" Precision="3" />
+    <Property Name="Custom_field__Hotel_Project_Start_Date_" Type="DateTime" Precision="3" />
+    <Property Name="Custom_field__Hotel_Trx_Monthly_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Custom_field__Implementation_Type_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Issue_Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Last_Viewed" Type="DateTime" Precision="3" />
+    <Property Name="Custom_field__Market__DIGI__" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Custom_field__OBT_Contract_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Custom_field__OBT_Used_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Priority" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Custom_field__Project_Contact_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status_Category" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Updated" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="KnowledgeBase">
+    <Key>
+      <PropertyRef Name="KBId" />
+    </Key>
+    <Property Name="KBId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Keywords" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Source" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LessonLearnt">
+    <Key>
+      <PropertyRef Name="LLID" />
+    </Key>
+    <Property Name="LLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="iMeet_Workspace_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Record_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Date_feedback_raised" Type="DateTime" Precision="3" />
+    <Property Name="Country_Area_of_Responsibility" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="What_was_the_event_issue_concern" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Is_there_any_specific_recognition_to_a_person_group_process_rela" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Go_Live_Date" Type="DateTime" Precision="3" />
+    <Property Name="Reason_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Created_by_Field" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Leader" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Reason_Code__Added_by_Leader_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="What_do_you_recommend___to_avoid_this_occurring_again_in_future" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Status__By_Leader_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Action_Taken__By_Leader_" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MarketLeader">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Region" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MarketLeader1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Milestone">
+    <Key>
+      <PropertyRef Name="MilestoneID" />
+    </Key>
+    <Property Name="MilestoneID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Size" Type="Double" />
+    <Property Name="Is_Project" Type="Double" />
+    <Property Name="Milestone__Project_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__Project_Level" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Assignee__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Milestone__Initial_Go_Live_Date" Type="DateTime" Precision="3" />
+    <Property Name="Completed" Type="Double" />
+    <Property Name="Completed_Date" Type="DateTime" Precision="3" />
+    <Property Name="C__Complete" Type="Double" />
+    <Property Name="Milestone__Country_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Reason_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Closed_Loop_Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Group_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__Project_Owner__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Is_Public" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Record_ID_Key" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone_Due_Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="MonthWiseDelta">
+    <Key>
+      <PropertyRef Name="DeltaID" />
+    </Key>
+    <Property Name="DeltaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Jan" Type="Double" Nullable="false" />
+    <Property Name="Feb" Type="Double" Nullable="false" />
+    <Property Name="Mar" Type="Double" Nullable="false" />
+    <Property Name="Apr" Type="Double" Nullable="false" />
+    <Property Name="May" Type="Double" Nullable="false" />
+    <Property Name="Jun" Type="Double" Nullable="false" />
+    <Property Name="Jul" Type="Double" Nullable="false" />
+    <Property Name="Aug" Type="Double" Nullable="false" />
+    <Property Name="Sep" Type="Double" Nullable="false" />
+    <Property Name="Oct" Type="Double" Nullable="false" />
+    <Property Name="Nov" Type="Double" Nullable="false" />
+    <Property Name="Dec" Type="Double" Nullable="false" />
+    <Property Name="Year" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InsertedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Jan_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Feb_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mar_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Apr_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="May_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Jun_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Jul_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Aug_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sep_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Oct_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Nov_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Dec_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CV_Jan" Type="Double" Nullable="false" />
+    <Property Name="CV_Feb" Type="Double" Nullable="false" />
+    <Property Name="CV_Mar" Type="Double" Nullable="false" />
+    <Property Name="CV_Apr" Type="Double" Nullable="false" />
+    <Property Name="CV_May" Type="Double" Nullable="false" />
+    <Property Name="CV_Jun" Type="Double" Nullable="false" />
+    <Property Name="CV_Jul" Type="Double" Nullable="false" />
+    <Property Name="CV_Aug" Type="Double" Nullable="false" />
+    <Property Name="CV_Sep" Type="Double" Nullable="false" />
+    <Property Name="CV_Oct" Type="Double" Nullable="false" />
+    <Property Name="CV_Nov" Type="Double" Nullable="false" />
+    <Property Name="CV_Dec" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OldCLRData">
+    <Key>
+      <PropertyRef Name="CLRID" />
+    </Key>
+    <Property Name="CLRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RevenueID" Type="Double" Nullable="false" />
+    <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OwnerShip" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GoLiveDate" Type="DateTime" Precision="3" />
+    <Property Name="ProjectStatus" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CountryStatus" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectLevel" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CompletedDate" Type="DateTime" Precision="3" />
+    <Property Name="ProjectOwner" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="AssigneeFullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MilestoneTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Record_ID_Key" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Task_Record_ID_Key" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Group_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Reason_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Closed_Loop_Owner" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Customer_Row_ID" Type="Double" />
+    <Property Name="Opportunity_ID" Type="Double" />
+    <Property Name="Account_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Sales_Stage_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Opportunity_Type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Status" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Owner" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Category" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Total_Transactions" Type="Double" />
+    <Property Name="CountryCode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RevenueVolumeUSD" Type="Double" />
+    <Property Name="MarketLeader" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalProjectManager" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectConsultant" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalProjectManager" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISOBTLead" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISHRFeedSpecialist" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISPortraitLead" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GoLiveMonth" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GoLiveYear" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BacklogStarted" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Quarter" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CycleTime" Type="Double" />
+    <Property Name="ExternalKickoffDuedate" Type="DateTime" Precision="3" />
+    <Property Name="PerCompleted" Type="Int32" />
+    <Property Name="MilestoneDueDate" Type="DateTime" Precision="3" />
+    <Property Name="Next_Step" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Line_Win_Probability" Type="Int32" />
+    <Property Name="Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalCISOBTLead" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalCISPortraitLead" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectStart_ForCycleTime" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImplementationType" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="DataSourceType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DataDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="AwardedDate" Type="DateTime" Precision="3" />
+    <Property Name="MilestoneType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClosedDate" Type="DateTime" Precision="3" />
+    <Property Name="ImplementationFeePsd" Type="Double" />
+    <Property Name="AccountOwner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="OldOldCLRData">
+    <Key>
+      <PropertyRef Name="CLRID" />
+    </Key>
+    <Property Name="CLRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RevenueID" Type="Double" Nullable="false" />
+    <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OwnerShip" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GoLiveDate" Type="DateTime" Precision="3" />
+    <Property Name="ProjectStatus" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CountryStatus" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectLevel" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CompletedDate" Type="DateTime" Precision="3" />
+    <Property Name="ProjectOwner" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="AssigneeFullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MilestoneTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Record_ID_Key" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Task_Record_ID_Key" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Group_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Reason_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Closed_Loop_Owner" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Customer_Row_ID" Type="Double" />
+    <Property Name="Opportunity_ID" Type="Double" />
+    <Property Name="Account_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Sales_Stage_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Opportunity_Type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Status" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Owner" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Category" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Total_Transactions" Type="Double" />
+    <Property Name="CountryCode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RevenueVolumeUSD" Type="Double" />
+    <Property Name="MarketLeader" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalProjectManager" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectConsultant" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalProjectManager" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISOBTLead" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISHRFeedSpecialist" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISPortraitLead" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GoLiveMonth" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GoLiveYear" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BacklogStarted" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Quarter" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CycleTime" Type="Double" />
+    <Property Name="ExternalKickoffDuedate" Type="DateTime" Precision="3" />
+    <Property Name="PerCompleted" Type="Int32" />
+    <Property Name="MilestoneDueDate" Type="DateTime" Precision="3" />
+    <Property Name="Next_Step" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Line_Win_Probability" Type="Int32" />
+    <Property Name="Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalCISOBTLead" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalCISPortraitLead" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectStart_ForCycleTime" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImplementationType" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="DataSourceType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DataDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="AwardedDate" Type="DateTime" Precision="3" />
+    <Property Name="MilestoneType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClosedDate" Type="DateTime" Precision="3" />
+    <Property Name="ImplementationFeePsd" Type="Double" />
+    <Property Name="AccountOwner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="OnlineProjectTracker">
+    <Key>
+      <PropertyRef Name="OPTID" />
+    </Key>
+    <Property Name="OPTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Golive" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ActualGoLive" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProjectAssignedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="KickOffImplementation" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ClientName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProjectType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Business" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OnlineBookingTool" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OnlineBookingType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AssignedTo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Manager" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProjectStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NoOfCountries" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OPTAssignedTo">
+    <Key>
+      <PropertyRef Name="AssignedToID" />
+    </Key>
+    <Property Name="AssignedToID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AssignedTo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InsertedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="OPTCountry">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InsertedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="OPTManager">
+    <Key>
+      <PropertyRef Name="ManagerID" />
+    </Key>
+    <Property Name="ManagerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Manager" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InsertedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="PowerAutomate">
+    <Key>
+      <PropertyRef Name="PowerAutomateID" />
+    </Key>
+    <Property Name="PowerAutomateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImplementationType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ServiceLocation" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PipelineStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceConfiguration" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OBTType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RevenueVolumeUSD" Type="Double" Nullable="false" />
+    <Property Name="Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OpportunityID" Type="Double" />
+    <Property Name="NextStep" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OpportunityOwner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OWNEREMAILIS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PreviousMonthsElt">
+    <Key>
+      <PropertyRef Name="EltId" />
+    </Key>
+    <Property Name="EltId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA" Type="Double" />
+    <Property Name="APAC" Type="Double" />
+    <Property Name="LATAM" Type="Double" />
+    <Property Name="NORAM" Type="Double" />
+    <Property Name="Total" Type="Double" />
+    <Property Name="NBAPriorMonth" Type="Double" />
+    <Property Name="TotalAccountVolume" Type="Double" />
+    <Property Name="Delta" Type="Double" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Month" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Year" Type="Double" />
+    <Property Name="InsertedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Progression">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_List_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Created_by__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Task_Due_Date" Type="DateTime" Precision="3" />
+    <Property Name="Budgeted_Time" Type="Double" />
+    <Property Name="Task_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Action_Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__CRM_Revenue_ID__" Type="Double" />
+    <Property Name="Milestone__Assignee__Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ProjectDueDate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Milestone__Record_ID_Key" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Task_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Assignee__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Task_Due_Date" Type="DateTime" Precision="3" />
+    <Property Name="Task_Completed_Date" Type="DateTime" Precision="3" />
+    <Property Name="Task_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__CRM_Revenue_ID__" Type="Double" />
+  </EntityType>
+  <EntityType Name="ProjectType">
+    <Key>
+      <PropertyRef Name="ProjectTypeID" />
+    </Key>
+    <Property Name="ProjectTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectType1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Duration" Type="Double" Nullable="false" />
+    <Property Name="PostGoLiveSupport" Type="Double" Nullable="false" />
+    <Property Name="ProjectEffortAPAC" Type="Double" Nullable="false" />
+    <Property Name="ProjectEffortEMEA" Type="Double" Nullable="false" />
+    <Property Name="ProjectEffortLATAM" Type="Double" Nullable="false" />
+    <Property Name="ProjectEffortNORAM" Type="Double" Nullable="false" />
+    <Property Name="ActiveStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Prospect">
+    <Key>
+      <PropertyRef Name="PID" />
+    </Key>
+    <Property Name="PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Leader" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Client_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InsertedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="PSD">
+    <Key>
+      <PropertyRef Name="PSDID" />
+    </Key>
+    <Property Name="PSDID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Requestor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Account_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Account_Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Customer_Row_ID" Type="Double" />
+    <Property Name="Account_Category" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BT_Account_Record_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Company_Alias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_ID" Type="Double" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Industry" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BT_Current_Service_Configuration" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BT_Current_GDS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BT_Current_Online_Booking_Tool" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BT_Incumbent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Product_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Line_of_Business" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Close_Date" Type="DateTime" Precision="3" />
+    <Property Name="Sales_Stage_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Line_Win_Probability" Type="Double" />
+    <Property Name="Initiative_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Country_Scope" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Energy__Resources___Marine" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Invoicing_Period" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Pricing_Model" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PSD_Price_per_Transaction" Type="Double" />
+    <Property Name="Total_Transactions" Type="Double" />
+    <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Region__Revenue_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Implementation_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Total_Revenue_USD" Type="Double" />
+    <Property Name="Estimated_Implementation_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Implementation_End_Date" Type="DateTime" Precision="3" />
+    <Property Name="Implementation_Fee" Type="Double" />
+    <Property Name="Go_Live_Date" Type="DateTime" Precision="3" />
+    <Property Name="Revenue_Car_Volume_USD" Type="Double" />
+    <Property Name="Revenue_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Id" Type="Double" />
+    <Property Name="Last_Update_Date" Type="DateTime" Precision="3" />
+    <Property Name="Ownership__Revenue_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RolesId" />
+    </Key>
+    <Property Name="RolesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_Project_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Regional_Ops_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_Project_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_Project_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_Project_Manager" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_CIS_OBT_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_CIS_OBT_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_CIS_OBT_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_CIS_OBT_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_CIS_HR_Feed_Specialist" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_CIS_Portrait_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_CIS_Portrait_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EMEA_CIS_Portrait_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_CIS_Portrait_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_CIS_RoomIT_Integration_lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="APAC_Implementation_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="APAC_Digital_OBT_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="APAC_Digital_Portrait_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_IN_CIS_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_CIS_DQS_Lead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="APAC_DQS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DQS_Import" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DQS_Support" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_DQS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_DQS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DQS_Operations" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LocalImplementationLeadUS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LocalImplementationLeadCanada" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StageGate">
+    <Key>
+      <PropertyRef Name="StageGateID" />
+    </Key>
+    <Property Name="StageGateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Task_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Task_Due_Date" Type="DateTime" Precision="3" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Assignee__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Assignee__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Assignee__Reports_to__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Assignee__Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Month" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Year" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ReportName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Status" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TargetCycleTime">
+    <Key>
+      <PropertyRef Name="TargetID" />
+    </Key>
+    <Property Name="TargetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExistingServiceConfigChange" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="NewGlobal" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="NewRegional" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="NewLocal" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="Overall" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="ExistingAddChange" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedOn" Type="DateTime" Precision="3" />
+    <Property Name="InsertedBy" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="Year" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="Months" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_registration">
+    <Key>
+      <PropertyRef Name="Sr_no" />
+    </Key>
+    <Property Name="Sr_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Tracker">
+    <Key>
+      <PropertyRef Name="TrackerId" />
+    </Key>
+    <Property Name="TrackerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Region__CRM_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Country_CRM_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Global_Project_Manager__iMeet_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Regional_Project_Manager__iMeet_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Local_Project_Manager__iMeet_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Client__Manual_Entry_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="iMeet_Workspace_Title__iMeet_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Ownership_Type_CRM_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Priority_Customer__COVID_19_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Volume__CRM_" Type="Double" />
+    <Property Name="iMeet_Project_Level__iMeet_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Implementation_Type__CRM_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Current_Project_Status__iMeet_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CIS_Resource__iMeet_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Project_Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Project_Effort__Formula_" Type="Double" />
+    <Property Name="Proposed_Start_Date__iMeet_" Type="DateTime" Precision="3" />
+    <Property Name="Proposed_End_Date__Formula_" Type="DateTime" Precision="3" />
+    <Property Name="Go_Live_Date__iMeet_" Type="DateTime" Precision="3" />
+    <Property Name="Complete_Duration__Formula_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C__Completed__iMeet_" Type="Double" />
+    <Property Name="C1stweek" Type="Double" />
+    <Property Name="C2ndweek" Type="Double" />
+    <Property Name="C3rdweek" Type="Double" />
+    <Property Name="C4thweek" Type="Double" />
+    <Property Name="C5thweek" Type="Double" />
+    <Property Name="C6thweek" Type="Double" />
+    <Property Name="C7thweek" Type="Double" />
+    <Property Name="C8thweek" Type="Double" />
+    <Property Name="C9thweek" Type="Double" />
+    <Property Name="C10thweek" Type="Double" />
+    <Property Name="C11thweek" Type="Double" />
+    <Property Name="C12week" Type="Double" />
+    <Property Name="c13thweek" Type="Double" />
+    <Property Name="c14thweek" Type="Double" />
+    <Property Name="c15thweek" Type="Double" />
+    <Property Name="c16thweek" Type="Double" />
+    <Property Name="c17thweek" Type="Double" />
+    <Property Name="c18thweek" Type="Double" />
+    <Property Name="c19thweek" Type="Double" />
+    <Property Name="c20thweek" Type="Double" />
+    <Property Name="c21thweek" Type="Double" />
+    <Property Name="c22thweek" Type="Double" />
+    <Property Name="c23thweek" Type="Double" />
+    <Property Name="c24thweek" Type="Double" />
+    <Property Name="Jan" Type="Int32" />
+    <Property Name="Feb" Type="Int32" />
+    <Property Name="Mar" Type="Int32" />
+    <Property Name="Apr" Type="Int32" />
+    <Property Name="May" Type="Int32" />
+    <Property Name="Jun" Type="Int32" />
+    <Property Name="Jul" Type="Int32" />
+    <Property Name="Aug" Type="Int32" />
+    <Property Name="Sep" Type="Int32" />
+    <Property Name="Oct" Type="Int32" />
+    <Property Name="Nov" Type="Int32" />
+    <Property Name="Dec" Type="Int32" />
+  </EntityType>
+  <EntityType Name="UserReportAccessTicket">
+    <Key>
+      <PropertyRef Name="TicketID" />
+    </Key>
+    <Property Name="TicketID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ReportName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RequestedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AcceptedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AcceptedOn" Type="DateTime" Precision="3" />
+    <Property Name="TicketStatuts" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Manager" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserStatus" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InsertedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AccountStatus" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MobileNo" Type="Double" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JobType" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserReportsAccesses" Relationship="CWTDashboardModel.FK_Users_UserID" FromRole="User" ToRole="UserReportsAccess" />
+  </EntityType>
+  <EntityType Name="UsersUsageofReport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UID" Type="String" MaxLength="225" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ReportName" Type="String" MaxLength="225" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TypeofUse" Type="String" MaxLength="225" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastUsedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NoOfAttempts" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Wave">
+    <Key>
+      <PropertyRef Name="WaveID" />
+    </Key>
+    <Property Name="WaveID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SCID" Type="Int32" />
+    <Property Name="Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Scope" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GoLiveDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+    <Property Name="InsertedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Record_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Waves" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SteeringCommittee" Relationship="CWTDashboardModel.FK__Waves__SCID__68687968" FromRole="Wave" ToRole="SteeringCommittee" />
+  </EntityType>
+  <EntityContainer Name="CWTDashboardEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AssignePersons" EntityType="Self.AssignePerson" />
+    <EntitySet Name="AuditEntries" EntityType="Self.AuditEntry" />
+    <EntitySet Name="AuditLogs" EntityType="Self.AuditLog" />
+    <EntitySet Name="CandidateLeadsOnes" EntityType="Self.CandidateLeadsOne" />
+    <EntitySet Name="CapacityHierarchies" EntityType="Self.CapacityHierarchy" />
+    <EntitySet Name="CLRActivities" EntityType="Self.CLRActivity" />
+    <EntitySet Name="CLRBelowDatas" EntityType="Self.CLRBelowData" />
+    <EntitySet Name="CLRResourceUtilizations" EntityType="Self.CLRResourceUtilization" />
+    <EntitySet Name="CLRTrackers" EntityType="Self.CLRTracker" />
+    <EntitySet Name="Comments" EntityType="Self.Comment" />
+    <EntitySet Name="Configs" EntityType="Self.Config" />
+    <EntitySet Name="CRMDatas" EntityType="Self.CRMData" />
+    <EntitySet Name="DataiMeets" EntityType="Self.DataiMeet" />
+    <EntitySet Name="DigitalTeams" EntityType="Self.DigitalTeam" />
+    <EntitySet Name="DQSTests" EntityType="Self.DQSTest" />
+    <EntitySet Name="EltDeltaClients" EntityType="Self.EltDeltaClient" />
+    <EntitySet Name="ErrorTrackers" EntityType="Self.ErrorTracker" />
+    <EntitySet Name="ETCountries" EntityType="Self.ETCountry" />
+    <EntitySet Name="ETManagers" EntityType="Self.ETManager" />
+    <EntitySet Name="ETResources" EntityType="Self.ETResource" />
+    <EntitySet Name="GoLives" EntityType="Self.GoLive" />
+    <EntitySet Name="Hierarchies" EntityType="Self.Hierarchy" />
+    <EntitySet Name="HostExternals" EntityType="Self.HostExternal" />
+    <EntitySet Name="iMeetDatas" EntityType="Self.iMeetData" />
+    <EntitySet Name="IMPS" EntityType="Self.IMP" />
+    <EntitySet Name="JiraDatas" EntityType="Self.JiraData" />
+    <EntitySet Name="KnowledgeBases" EntityType="Self.KnowledgeBase" />
+    <EntitySet Name="LessonLearnts" EntityType="Self.LessonLearnt" />
+    <EntitySet Name="MarketLeaders" EntityType="Self.MarketLeader" />
+    <EntitySet Name="Milestones" EntityType="Self.Milestone" />
+    <EntitySet Name="MonthWiseDeltas" EntityType="Self.MonthWiseDelta" />
+    <EntitySet Name="OldCLRDatas" EntityType="Self.OldCLRData" />
+    <EntitySet Name="OldOldCLRDatas" EntityType="Self.OldOldCLRData" />
+    <EntitySet Name="OnlineProjectTrackers" EntityType="Self.OnlineProjectTracker" />
+    <EntitySet Name="OPTAssignedToes" EntityType="Self.OPTAssignedTo" />
+    <EntitySet Name="OPTCountries" EntityType="Self.OPTCountry" />
+    <EntitySet Name="OPTManagers" EntityType="Self.OPTManager" />
+    <EntitySet Name="PowerAutomates" EntityType="Self.PowerAutomate" />
+    <EntitySet Name="PreviousMonthsElts" EntityType="Self.PreviousMonthsElt" />
+    <EntitySet Name="Progressions" EntityType="Self.Progression" />
+    <EntitySet Name="ProjectDueDates" EntityType="Self.ProjectDueDate" />
+    <EntitySet Name="ProjectTypes" EntityType="Self.ProjectType" />
+    <EntitySet Name="Prospects" EntityType="Self.Prospect" />
+    <EntitySet Name="PSDs" EntityType="Self.PSD" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="StageGates" EntityType="Self.StageGate" />
+    <EntitySet Name="TargetCycleTimes" EntityType="Self.TargetCycleTime" />
+    <EntitySet Name="tbl_registration" EntityType="Self.tbl_registration" />
+    <EntitySet Name="Trackers" EntityType="Self.Tracker" />
+    <EntitySet Name="UserReportAccessTickets" EntityType="Self.UserReportAccessTicket" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UsersUsageofReports" EntityType="Self.UsersUsageofReport" />
+    <EntitySet Name="Waves" EntityType="Self.Wave" />
+    <EntitySet Name="SurveySentDetails" EntityType="CWTDashboardModel.SurveySentDetail" />
+    <EntitySet Name="RisksGaps" EntityType="CWTDashboardModel.RisksGap" />
+    <EntitySet Name="SteeringCommittees" EntityType="CWTDashboardModel.SteeringCommittee" />
+    <AssociationSet Name="FK__RisksGap__SCID__695C9DA1" Association="CWTDashboardModel.FK__RisksGap__SCID__695C9DA1">
+      <End Role="SteeringCommittee" EntitySet="SteeringCommittees" />
+      <End Role="RisksGap" EntitySet="RisksGaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Waves__SCID__68687968" Association="CWTDashboardModel.FK__Waves__SCID__68687968">
+      <End Role="SteeringCommittee" EntitySet="SteeringCommittees" />
+      <End Role="Wave" EntitySet="Waves" />
+    </AssociationSet>
+    <EntitySet Name="CountryIsoCodes" EntityType="CWTDashboardModel.CountryIsoCode" />
+    <EntitySet Name="CountryISORegionCodes" EntityType="CWTDashboardModel.CountryISORegionCode" />
+    <EntitySet Name="ManualDatas" EntityType="CWTDashboardModel.ManualData" />
+    <EntitySet Name="CLRColumnsHidings" EntityType="CWTDashboardModel.CLRColumnsHiding" />
+    <EntitySet Name="UserReportsAccesses" EntityType="CWTDashboardModel.UserReportsAccess" />
+    <AssociationSet Name="FK_Users_UserID" Association="CWTDashboardModel.FK_Users_UserID">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserReportsAccess" EntitySet="UserReportsAccesses" />
+    </AssociationSet>
+    <EntitySet Name="YesterdayCLRs" EntityType="CWTDashboardModel.YesterdayCLR" />
+    <EntitySet Name="AdHocProjects" EntityType="CWTDashboardModel.AdHocProject" />
+    <EntitySet Name="NpsImps" EntityType="CWTDashboardModel.NpsImp" />
+    <AssociationSet Name="fk_npsid" Association="CWTDashboardModel.fk_npsid">
+      <End Role="NpsImp" EntitySet="NpsImps" />
+      <End Role="SurveySentDetail" EntitySet="SurveySentDetails" />
+    </AssociationSet>
+    <EntitySet Name="CTOes" EntityType="CWTDashboardModel.CTO" />
+    <EntitySet Name="CLRDatas" EntityType="CWTDashboardModel.CLRData" />
+    <EntitySet Name="EltOldCLRDatas" EntityType="CWTDashboardModel.EltOldCLRData" />
+    <EntitySet Name="ELTDeltaComments" EntityType="CWTDashboardModel.ELTDeltaComment" />
+    <EntitySet Name="ReportUpdatedOns" EntityType="CWTDashboardModel.ReportUpdatedOn" />
+    <EntitySet Name="esowNewDatas" EntityType="CWTDashboardModel.esowNewData" />
+  </EntityContainer>
+  <EntityType Name="SurveySentDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RecipientId" Type="Int32" Nullable="false" />
+    <Property Name="SurverySentOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SurveyLink" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="ClientName" Type="String" Nullable="false" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="ClientEmailAddress" Type="String" Nullable="false" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="NpsId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="NpsImp" Relationship="CWTDashboardModel.fk_npsid" FromRole="SurveySentDetail" ToRole="NpsImp" />
+  </EntityType>
+  <EntityType Name="RisksGap">
+    <Key>
+      <PropertyRef Name="RGID" />
+    </Key>
+    <Property Name="RGID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SCID" Type="Int32" />
+    <Property Name="RisksGaps" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MitigationPlan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SteeringCommitteeSupportNeed" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DueDate" Type="DateTime" Precision="3" />
+    <Property Name="Owner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+    <Property Name="InsertedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Record_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Risks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RiskCategory" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="Impact" Type="Int32" Nullable="false" />
+    <Property Name="Likelihood" Type="Int32" Nullable="false" />
+    <Property Name="SupportNeededDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SteeringCommittee" Relationship="CWTDashboardModel.FK__RisksGap__SCID__695C9DA1" FromRole="RisksGap" ToRole="SteeringCommittee" />
+  </EntityType>
+  <EntityType Name="SteeringCommittee">
+    <Key>
+      <PropertyRef Name="SCID" />
+    </Key>
+    <Property Name="SCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RecordStatus" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ClientName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ClientType" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectLead" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectStatus" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectTrend" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TotalBusineesVolume" Type="Double" Nullable="false" />
+    <Property Name="NewBusinessVolume" Type="Double" Nullable="false" />
+    <Property Name="Region" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentState" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompletedKeyDeliverables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ScheduledKeyDeliverables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AdditionalNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Record_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PreviousStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="KeyAccomplishmentsSinceLastUpdateKeyDeliverables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KeyUpcomingActivitiesKeyDeliverables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CombinedKeyDeliverableOne" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CombinedKeyDeliverableTwo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RisksGaps" Relationship="CWTDashboardModel.FK__RisksGap__SCID__695C9DA1" FromRole="SteeringCommittee" ToRole="RisksGap" />
+    <NavigationProperty Name="Waves" Relationship="CWTDashboardModel.FK__Waves__SCID__68687968" FromRole="SteeringCommittee" ToRole="Wave" />
+    <Property Name="VerCol" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <Association Name="FK__RisksGap__SCID__695C9DA1">
+    <End Type="CWTDashboardModel.SteeringCommittee" Role="SteeringCommittee" Multiplicity="0..1" />
+    <End Type="CWTDashboardModel.RisksGap" Role="RisksGap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SteeringCommittee">
+        <PropertyRef Name="SCID" />
+      </Principal>
+      <Dependent Role="RisksGap">
+        <PropertyRef Name="SCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Waves__SCID__68687968">
+    <End Type="CWTDashboardModel.SteeringCommittee" Role="SteeringCommittee" Multiplicity="0..1" />
+    <End Type="CWTDashboardModel.Wave" Role="Wave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SteeringCommittee">
+        <PropertyRef Name="SCID" />
+      </Principal>
+      <Dependent Role="Wave">
+        <PropertyRef Name="SCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CountryIsoCode">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CountryName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="String" Nullable="false" MaxLength="225" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CountryISORegionCode">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CountryName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ManualData">
+    <Key>
+      <PropertyRef Name="ManualID" />
+    </Key>
+    <Property Name="ManualID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Revenue_ID" Type="Double" />
+    <Property Name="Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="iMeet_Workspace_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Implementation_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CLR_Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Pipeline_status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Pipeline_comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Service_configuration" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OBT_Reseller___Direct" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Servicing_location" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Assignment_date" Type="DateTime" Precision="3" />
+    <Property Name="Project_Effort" Type="Double" />
+    <Property Name="GoLiveDate" Type="DateTime" Precision="3" />
+    <Property Name="GlobalProjectManager" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalProjectManager" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="AssigneeFullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdateBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TaskRecordIdKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectLevel" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedOn" Type="DateTime" Precision="3" />
+    <Property Name="Project_Level" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISDQSLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ResourseRequestedDate" Type="DateTime" Precision="3" />
+    <Property Name="ExpectedDecisionDate" Type="DateTime" Precision="3" />
+    <Property Name="TXResourcing" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Priority" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CLRColumnsHiding">
+    <Key>
+      <PropertyRef Name="CLRColumnId" />
+    </Key>
+    <Property Name="CLRColumnId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Implementation_Type" Type="Boolean" Nullable="false" />
+    <Property Name="Pipeline_status" Type="Boolean" Nullable="false" />
+    <Property Name="Pipeline_comments" Type="Boolean" Nullable="false" />
+    <Property Name="TXResourcing" Type="Boolean" Nullable="false" />
+    <Property Name="Service_location" Type="Boolean" Nullable="false" />
+    <Property Name="Service_configuration" Type="Boolean" Nullable="false" />
+    <Property Name="OBT_Reseller___Direct" Type="Boolean" Nullable="false" />
+    <Property Name="OBTAdoptionRate" Type="Boolean" Nullable="false" />
+    <Property Name="ExpectedDecisionDate_c" Type="Boolean" Nullable="false" />
+    <Property Name="Assignment_date_c" Type="Boolean" Nullable="false" />
+    <Property Name="ResourseRequestedDate_c" Type="Boolean" Nullable="false" />
+    <Property Name="UpdateOn_c" Type="Boolean" Nullable="false" />
+    <Property Name="OppVolume" Type="Boolean" Nullable="false" />
+    <Property Name="RevenueVolumeUSD" Type="Boolean" Nullable="false" />
+    <Property Name="Region" Type="Boolean" Nullable="false" />
+    <Property Name="OwnerShip" Type="Boolean" Nullable="false" />
+    <Property Name="ProjectStart_ForCycleTime_c" Type="Boolean" Nullable="false" />
+    <Property Name="GoLiveDate_c" Type="Boolean" Nullable="false" />
+    <Property Name="PerCompleted" Type="Boolean" Nullable="false" />
+    <Property Name="CycleTime" Type="Boolean" Nullable="false" />
+    <Property Name="CycleTimeCategories" Type="Boolean" Nullable="false" />
+    <Property Name="CycleTimeDelayCode" Type="Boolean" Nullable="false" />
+    <Property Name="EltClientDelayDescription" Type="Boolean" Nullable="false" />
+    <Property Name="ProjectStatus" Type="Boolean" Nullable="false" />
+    <Property Name="Milestone__Reason_Code" Type="Boolean" Nullable="false" />
+    <Property Name="CountryStatus" Type="Boolean" Nullable="false" />
+    <Property Name="ProjectLevel" Type="Boolean" Nullable="false" />
+    <Property Name="CompletedDate_c" Type="Boolean" Nullable="false" />
+    <Property Name="GlobalProjectManager" Type="Boolean" Nullable="false" />
+    <Property Name="RegionalProjectManager" Type="Boolean" Nullable="false" />
+    <Property Name="AssigneeFullName" Type="Boolean" Nullable="false" />
+    <Property Name="GlobalCISDQSLead" Type="Boolean" Nullable="false" />
+    <Property Name="APAC_DQS" Type="Boolean" Nullable="false" />
+    <Property Name="DQS_Import" Type="Boolean" Nullable="false" />
+    <Property Name="DQS_Support" Type="Boolean" Nullable="false" />
+    <Property Name="LATAM_DQS" Type="Boolean" Nullable="false" />
+    <Property Name="NORAM_DQS" Type="Boolean" Nullable="false" />
+    <Property Name="DQS_Operations" Type="Boolean" Nullable="false" />
+    <Property Name="GlobalCISOBTLead" Type="Boolean" Nullable="false" />
+    <Property Name="RegionalCISOBTLead" Type="Boolean" Nullable="false" />
+    <Property Name="LocalDigitalOBTLead" Type="Boolean" Nullable="false" />
+    <Property Name="GlobalCISPortraitLead" Type="Boolean" Nullable="false" />
+    <Property Name="RegionalCISPortraitLead" Type="Boolean" Nullable="false" />
+    <Property Name="GlobalCISHRFeedSpecialist" Type="Boolean" Nullable="false" />
+    <Property Name="GDS" Type="Boolean" Nullable="false" />
+    <Property Name="ActivityType" Type="Boolean" Nullable="false" />
+    <Property Name="ComplexityScore" Type="Boolean" Nullable="false" />
+    <Property Name="MilestoneTitle" Type="Boolean" Nullable="false" />
+    <Property Name="Group_Name" Type="Boolean" Nullable="false" />
+    <Property Name="Milestone__Project_Notes" Type="Boolean" Nullable="false" />
+    <Property Name="Milestone__Closed_Loop_Owner" Type="Boolean" Nullable="false" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="Boolean" Nullable="false" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="Boolean" Nullable="false" />
+    <Property Name="NpsScore" Type="Boolean" Nullable="false" />
+    <Property Name="Customer_Row_ID" Type="Boolean" Nullable="false" />
+    <Property Name="Opportunity_ID" Type="Boolean" Nullable="false" />
+    <Property Name="AccountOwner" Type="Boolean" Nullable="false" />
+    <Property Name="Opportunity_Type" Type="Boolean" Nullable="false" />
+    <Property Name="Revenue_Status" Type="Boolean" Nullable="false" />
+    <Property Name="Revenue_Opportunity_Type" Type="Boolean" Nullable="false" />
+    <Property Name="Opportunity_Owner" Type="Boolean" Nullable="false" />
+    <Property Name="Opportunity_Category" Type="Boolean" Nullable="false" />
+    <Property Name="Revenue_Total_Transactions" Type="Boolean" Nullable="false" />
+    <Property Name="Line_Win_Probability" Type="Boolean" Nullable="false" />
+    <Property Name="Implementation_Fee__PSD_" Type="Boolean" Nullable="false" />
+    <Property Name="Next_Step" Type="Boolean" Nullable="false" />
+    <Property Name="AwardedDate_c" Type="Boolean" Nullable="false" />
+    <Property Name="DataDescription" Type="Boolean" Nullable="false" />
+    <Property Name="Date_added_to_the_CLR_c" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate_c" Type="Boolean" Nullable="false" />
+    <Property Name="Project_Effort" Type="Boolean" Nullable="false" />
+    <Property Name="Sales_Stage_Name" Type="Boolean" Nullable="false" />
+    <Property Name="AccountCategory" Type="Boolean" Nullable="false" />
+    <Property Name="SOWStatus" Type="Boolean" Nullable="false" />
+    <Property Name="ImplementationReady" Type="Boolean" Nullable="false" />
+    <Property Name="RecordHistory_C" Type="Boolean" Nullable="false" />
+    <Property Name="DataSourceType" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Priority" Type="Boolean" />
+    <Property Name="DataQuality" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="UserReportsAccess">
+    <Key>
+      <PropertyRef Name="AccessID" />
+    </Key>
+    <Property Name="AccessID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="UID" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IMPS" Type="Boolean" Nullable="false" />
+    <Property Name="CTO" Type="Boolean" Nullable="false" />
+    <Property Name="AutomatedCLR" Type="Boolean" Nullable="false" />
+    <Property Name="StageGate" Type="Boolean" Nullable="false" />
+    <Property Name="LessonsLearnt" Type="Boolean" Nullable="false" />
+    <Property Name="CapacityTracker" Type="Boolean" Nullable="false" />
+    <Property Name="CycleTime" Type="Boolean" Nullable="false" />
+    <Property Name="ELTReport" Type="Boolean" Nullable="false" />
+    <Property Name="C_Hierarchy" Type="Boolean" Nullable="false" />
+    <Property Name="InsertedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UserAccessStatus" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ResourceUtilization" Type="Boolean" Nullable="false" />
+    <Property Name="Prospect" Type="Boolean" Nullable="false" />
+    <Property Name="MarketReport" Type="Boolean" />
+    <Property Name="CLREdits" Type="Boolean" />
+    <Property Name="MarketCommentsEdit" Type="Boolean" />
+    <Property Name="C_HierarchyEdits" Type="Boolean" />
+    <Property Name="NPS" Type="Boolean" />
+    <Property Name="NPSClientInfo" Type="Boolean" />
+    <Property Name="NPSAdmin" Type="Boolean" />
+    <Property Name="DigitalReport" Type="Boolean" />
+    <Property Name="NPSEdit" Type="Boolean" />
+    <Property Name="PerformanceAnalysis" Type="Boolean" />
+    <Property Name="SteeringCommittee" Type="Boolean" />
+    <Property Name="SteeringCommitteeEdits" Type="Boolean" />
+    <Property Name="DDO" Type="Boolean" />
+    <Property Name="DDOHome" Type="Boolean" />
+    <Property Name="PriorityReport" Type="Boolean" />
+    <NavigationProperty Name="User" Relationship="CWTDashboardModel.FK_Users_UserID" FromRole="UserReportsAccess" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Users_UserID">
+    <End Type="CWTDashboardModel.User" Role="User" Multiplicity="1" />
+    <End Type="CWTDashboardModel.UserReportsAccess" Role="UserReportsAccess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserReportsAccess">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="YesterdayCLR">
+    <Key>
+      <PropertyRef Name="CLRID" />
+    </Key>
+    <Property Name="CLRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RevenueID" Type="Double" Nullable="false" />
+    <Property Name="Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RevenueVolumeUSD" Type="Double" />
+    <Property Name="OppTOtalVolume" Type="Double" />
+    <Property Name="GoLiveDate" Type="DateTime" Precision="3" />
+    <Property Name="ProjectStatus" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectLevel" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectStart_ForCycleTime" Type="DateTime" Precision="3" />
+    <Property Name="GoLiveMonth" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GoLiveYear" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ImplementationType" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="DataSourceType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalProjectManager" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalProjectManager" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AssigneeFullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISOBTLead" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISHRFeedSpecialist" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISPortraitLead" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalCISOBTLead" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalCISPortraitLead" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TaskRecordIdKey" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Sales_Stage_Name" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AdHocProject">
+    <Key>
+      <PropertyRef Name="AHID" />
+    </Key>
+    <Property Name="AHID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RevenueID" Type="Double" />
+    <Property Name="Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="GoLiveDate" Type="DateTime" Precision="3" />
+    <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISOBTLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalCISOBTLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LocalDigitalOBTLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISPortraitLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalCISPortraitLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISHRFeedSpecialist" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GDS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ComplexityScore" Type="Double" />
+    <Property Name="ActivityType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedOn" Type="DateTime" Precision="3" />
+    <Property Name="InsertedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectStatus" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalDQSLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Priority" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Pipeline_Comments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="NpsImp">
+    <Key>
+      <PropertyRef Name="NpsId" />
+    </Key>
+    <Property Name="NpsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Company" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateServeySent" Type="DateTime" Precision="3" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalProjectManager" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalProjectManager" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LocalProjectManager" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClientScope" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClientType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerContactNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SingleResource" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DQS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DSD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OnlineTeam" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateSurveyReceived" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AssignLeaderForClosedLoop" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NPSScore" Type="Double" />
+    <Property Name="NPSIndicator" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NPSCommentsWhatwasPositive" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NPSComments_Howcouldwehaveimproved" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NPSComments_Whatistheonethingwecandotomakeyouhappier" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReasonType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClientFeedback" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Action" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GoLiveDate" Type="DateTime" Precision="3" />
+    <Property Name="Language" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="NPSCommentsOne" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NPSCommentsTwo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NPSCommentsThree" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RecordStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="YearMonth" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OpprtunityId" Type="Double" />
+    <Property Name="GlobalDigitalPM" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalDigitalPM" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LocalDigitalPM" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SurveySentDetails" Relationship="CWTDashboardModel.fk_npsid" FromRole="NpsImp" ToRole="SurveySentDetail" />
+  </EntityType>
+  <Association Name="fk_npsid">
+    <End Type="CWTDashboardModel.NpsImp" Role="NpsImp" Multiplicity="1" />
+    <End Type="CWTDashboardModel.SurveySentDetail" Role="SurveySentDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NpsImp">
+        <PropertyRef Name="NpsId" />
+      </Principal>
+      <Dependent Role="SurveySentDetail">
+        <PropertyRef Name="NpsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CTO">
+    <Key>
+      <PropertyRef Name="CTOID" />
+    </Key>
+    <Property Name="CTOID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Milestone_Title_Country___Est_Go_Live_Date" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Critical_Overdue" Type="Double" />
+    <Property Name="Estimated_Go_Live" Type="DateTime" Precision="3" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Group_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Region" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Assignee__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone_Due_Date" Type="DateTime" Precision="3" />
+    <Property Name="Milestone__Country_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_List_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Assignee__Full_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Task_Overdue" Type="Double" />
+    <Property Name="Task_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Task_Due_Date" Type="DateTime" Precision="3" />
+    <Property Name="Workspace__Project_Level" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="Milestone__Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Last_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RevenurID" Type="Double" />
+    <Property Name="TaskType" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="TaskRecordIdKey" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CLRData">
+    <Key>
+      <PropertyRef Name="CLRID" />
+    </Key>
+    <Property Name="CLRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RevenueID" Type="Double" Nullable="false" />
+    <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OwnerShip" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GoLiveDate" Type="DateTime" Precision="3" />
+    <Property Name="ProjectStatus" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CountryStatus" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectLevel" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CompletedDate" Type="DateTime" Precision="3" />
+    <Property Name="ProjectOwner" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="AssigneeFullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MilestoneTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Record_ID_Key" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Task__Task_Record_ID_Key" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Group_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Project_Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Reason_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Milestone__Closed_Loop_Owner" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Customer_Row_ID" Type="Double" />
+    <Property Name="Opportunity_ID" Type="Double" />
+    <Property Name="Account_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Sales_Stage_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Opportunity_Type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Status" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Owner" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Category" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Revenue_Total_Transactions" Type="Double" />
+    <Property Name="CountryCode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RevenueVolumeUSD" Type="Double" />
+    <Property Name="MarketLeader" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalProjectManager" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectConsultant" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalProjectManager" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISOBTLead" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISHRFeedSpecialist" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISPortraitLead" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GoLiveMonth" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GoLiveYear" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="BacklogStarted" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Quarter" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CycleTime" Type="Double" />
+    <Property Name="ExternalKickoffDuedate" Type="DateTime" Precision="3" />
+    <Property Name="PerCompleted" Type="Int32" />
+    <Property Name="MilestoneDueDate" Type="DateTime" Precision="3" />
+    <Property Name="Next_Step" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Line_Win_Probability" Type="Int32" />
+    <Property Name="Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalCISOBTLead" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RegionalCISPortraitLead" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectStart_ForCycleTime" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImplementationType" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="DataSourceType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DataDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="AwardedDate" Type="DateTime" Precision="3" />
+    <Property Name="MilestoneType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClosedDate" Type="DateTime" Precision="3" />
+    <Property Name="ImplementationFeePsd" Type="Double" />
+    <Property Name="AccountOwner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CycleTimeCategories" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LocalDigitalOBTLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GDS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TaskStatus" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="ComplexityScore" Type="Double" />
+    <Property Name="YearMonth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OBTReseller" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="DigitalGDS" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="DigitalActivityType" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="SOWStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ImplementationReady" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AccountCategory" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OppTOtalVolume" Type="Double" />
+    <Property Name="eSowGDS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Service_Configuration" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LocalDigitalAdHocSupport" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Project_Level" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GlobalCISDQSLead" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Service_Location" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OBTAdoptionRate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CycleTimeDelayCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="APAC_DQS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DQS_Import" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DQS_Support" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LATAM_DQS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NORAM_DQS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DQS_Operations" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EltClientDelayDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Priority" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EltOldCLRData">
+    <Key>
+      <PropertyRef Name="CLRID" />
+    </Key>
+    <Property Name="CLRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RevenueID" Type="Double" Nullable="false" />
+    <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OwnerShip" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="GoLiveDate" Type="DateTime" Precision="3" />
+    <Property Name="ProjectStatus" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectLevel" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace_Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Opportunity_Type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RevenueVolumeUSD" Type="Double" />
+    <Property Name="GoLiveMonth" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GoLiveYear" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Quarter" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CycleTime" Type="Double" />
+    <Property Name="ProjectStart_ForCycleTime" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImplementationType" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+    <Property Name="DataSourceType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TaskRecordIdKey" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ELTDeltaComment">
+    <Key>
+      <PropertyRef Name="EltCommentsId" />
+    </Key>
+    <Property Name="EltCommentsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Client" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WorkspaceTitle" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Month" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Year" Type="Double" Nullable="false" />
+    <Property Name="Revenue" Type="Double" Nullable="false" />
+    <Property Name="RevenueId" Type="Double" Nullable="false" />
+    <Property Name="Region" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DeltaColor" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ReportUpdatedOn">
+    <Key>
+      <PropertyRef Name="ReportID" />
+    </Key>
+    <Property Name="ReportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AvailableRows" Type="Int32" />
+    <Property Name="UploadedRows" Type="Int32" />
+  </EntityType>
+  <EntityType Name="esowNewData">
+    <Key>
+      <PropertyRef Name="ESOWid" />
+    </Key>
+    <Property Name="ESOWid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Client" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="id" Type="Double" />
+    <Property Name="eSoW_Ref" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="crmOpportunityId" Type="Double" />
+    <Property Name="createdOn" Type="DateTime" Precision="3" />
+    <Property Name="Client_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Proposal_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Account_Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SoW_Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Self_Service" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="eSoW_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CRM_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Option" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Country_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="serviceConfig" Type="Double" />
+    <Property Name="Team" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="configLoc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="configName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="afterHours" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GDS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OBT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Account_Category" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="implementationReady" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Direct_Reseller" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OBT_Adoption_Rate" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

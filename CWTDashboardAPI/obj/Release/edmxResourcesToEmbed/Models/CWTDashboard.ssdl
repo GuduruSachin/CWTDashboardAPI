@@ -1,0 +1,2061 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CWTDashboardModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdHocProjects">
+    <Key>
+      <PropertyRef Name="AHID" />
+    </Key>
+    <Property Name="AHID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RevenueID" Type="float" />
+    <Property Name="Client" Type="nvarchar" MaxLength="255" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="GoLiveDate" Type="datetime" />
+    <Property Name="Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Comments" Type="nvarchar(max)" />
+    <Property Name="GlobalCISOBTLead" Type="nvarchar" MaxLength="255" />
+    <Property Name="RegionalCISOBTLead" Type="nvarchar" MaxLength="255" />
+    <Property Name="LocalDigitalOBTLead" Type="nvarchar" MaxLength="255" />
+    <Property Name="GlobalCISPortraitLead" Type="nvarchar" MaxLength="255" />
+    <Property Name="RegionalCISPortraitLead" Type="nvarchar" MaxLength="255" />
+    <Property Name="GlobalCISHRFeedSpecialist" Type="nvarchar" MaxLength="255" />
+    <Property Name="GDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="ComplexityScore" Type="float" />
+    <Property Name="ActivityType" Type="nvarchar" MaxLength="255" />
+    <Property Name="Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="InsertedOn" Type="datetime" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="ProjectStatus" Type="nvarchar" MaxLength="225" />
+    <Property Name="GlobalDQSLead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Priority" Type="nvarchar" MaxLength="255" />
+    <Property Name="Pipeline_Comments" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="AssignePersons">
+    <Key>
+      <PropertyRef Name="AssigneID" />
+    </Key>
+    <Property Name="AssigneID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Task Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Start Date" Type="datetime" />
+    <Property Name="Task Due Date" Type="datetime" />
+    <Property Name="Milestone Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Assigned Role: Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Assignee: Reports to: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Task Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Task Record ID Key" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace: ELT Overall Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace: ELT Overall Comments" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace: Project Level" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace: Project Owner: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: CRM Revenue ID #" Type="float" />
+    <Property Name="Milestone: Assignee: Reports to: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Project Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Country Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Completed Date" Type="datetime" />
+    <Property Name="% Complete" Type="float" />
+    <Property Name="Milestone Due Date" Type="datetime" />
+    <Property Name="Milestone Start Date" Type="datetime" />
+    <Property Name="Task Overdue" Type="float" />
+    <Property Name="Task: Record ID" Type="float" />
+    <Property Name="Milestone: Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Record ID" Type="float" />
+    <Property Name="Milestone: Record ID Key" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Project Notes" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Reason Code" Type="nvarchar" MaxLength="255" />
+    <Property Name="Group Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Closed Loop Owner" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Assignee: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Override Regional Digital OBT Lead: Full Name" Type="nvarchar" MaxLength="225" />
+    <Property Name="Milestone: Override Regional Digital Portrait Lead: Full Name" Type="nvarchar" MaxLength="225" />
+    <Property Name="Milestone: Local Digital OBT Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Local Digital Ad Hoc Support" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="AuditEntry">
+    <Key>
+      <PropertyRef Name="AuditEntryId" />
+    </Key>
+    <Property Name="AuditEntryId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Record" Type="nvarchar" MaxLength="255" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="AuditLog">
+    <Key>
+      <PropertyRef Name="AuditID" />
+    </Key>
+    <Property Name="AuditID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RevenueID" Type="float" Nullable="false" />
+    <Property Name="UsedPlatForm" Type="nvarchar" MaxLength="255" />
+    <Property Name="OldValue" Type="nvarchar(max)" />
+    <Property Name="NewValue" Type="nvarchar(max)" />
+    <Property Name="Field" Type="nvarchar" MaxLength="255" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="TaskRecordIDKey" Type="nvarchar" MaxLength="255" />
+    <Property Name="Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="AuditEntryId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="CandidateLeadsOne">
+    <Key>
+      <PropertyRef Name="CLOID" />
+    </Key>
+    <Property Name="CLOID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="float" />
+    <Property Name="Comments" Type="nvarchar(max)" />
+    <Property Name="Follow Up" Type="datetime" />
+    <Property Name="Recruiter" Type="nvarchar" MaxLength="255" />
+    <Property Name="Priority" Type="nvarchar" MaxLength="255" />
+    <Property Name="Candidate Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone Number" Type="nvarchar" MaxLength="255" />
+    <Property Name="Location" Type="nvarchar" MaxLength="255" />
+    <Property Name="Position" Type="nvarchar" MaxLength="255" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="255" />
+    <Property Name="Zip code" Type="nvarchar" MaxLength="255" />
+    <Property Name="Quality" Type="nvarchar" MaxLength="255" />
+    <Property Name="State(1)" Type="nvarchar" MaxLength="255" />
+    <Property Name="State" Type="nvarchar" MaxLength="255" />
+    <Property Name="Open Jobs" Type="nvarchar" MaxLength="255" />
+    <Property Name="Zipcode" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="CapacityHierarchy">
+    <Key>
+      <PropertyRef Name="HID" />
+    </Key>
+    <Property Name="HID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Level" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Leader" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="WorkShedule" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Monday" Type="float" Nullable="false" />
+    <Property Name="Tuesday" Type="float" Nullable="false" />
+    <Property Name="Wednesday" Type="float" Nullable="false" />
+    <Property Name="Thursday" Type="float" Nullable="false" />
+    <Property Name="Friday" Type="float" Nullable="false" />
+    <Property Name="Manager" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ProjectLevel" Type="nvarchar" MaxLength="255" />
+    <Property Name="WorkingDays" Type="float" />
+    <Property Name="InsertedDate" Type="datetime" Nullable="false" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="PLevel" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TargetedUtilization" Type="float" Nullable="false" />
+    <Property Name="ManagerStatus" Type="nvarchar" MaxLength="250" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="CLRActivity">
+    <Key>
+      <PropertyRef Name="A_ID" />
+    </Key>
+    <Property Name="A_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Client" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Revenue_ID" Type="float" Nullable="false" />
+    <Property Name="OldValue" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NewValue" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ColumnName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TaskRecordIDKey" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CLRBelowData">
+    <Key>
+      <PropertyRef Name="CLRID" />
+    </Key>
+    <Property Name="CLRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RevenueID" Type="float" />
+    <Property Name="RevenueVolumeUSD" Type="float" />
+    <Property Name="Region" Type="nvarchar" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" MaxLength="100" />
+    <Property Name="OwnerShip" Type="nvarchar" MaxLength="200" />
+    <Property Name="GoLiveDate" Type="datetime" />
+    <Property Name="ProjectStatus" Type="nvarchar" MaxLength="200" />
+    <Property Name="Milestone__Reason_Code" Type="nvarchar(max)" />
+    <Property Name="PerCompleted" Type="float" />
+    <Property Name="CountryStatus" Type="nvarchar" MaxLength="200" />
+    <Property Name="ProjectLevel" Type="nvarchar" MaxLength="200" />
+    <Property Name="CompletedDate" Type="datetime" />
+    <Property Name="MilestoneDueDate" Type="datetime" />
+    <Property Name="ProjectOwner" Type="nvarchar" MaxLength="200" />
+    <Property Name="GlobalProjectManager" Type="nvarchar" MaxLength="200" />
+    <Property Name="ProjectConsultant" Type="nvarchar" MaxLength="200" />
+    <Property Name="RegionalProjectManager" Type="nvarchar" MaxLength="200" />
+    <Property Name="AssigneeFullName" Type="nvarchar" MaxLength="200" />
+    <Property Name="GlobalCISOBTLead" Type="nvarchar" MaxLength="200" />
+    <Property Name="RegionalCISOBTLead" Type="nvarchar" MaxLength="200" />
+    <Property Name="GlobalCISHRFeedSpecialist" Type="nvarchar" MaxLength="200" />
+    <Property Name="GlobalCISPortraitLead" Type="nvarchar" MaxLength="200" />
+    <Property Name="RegionalCISPortraitLead" Type="nvarchar" MaxLength="200" />
+    <Property Name="GlobalCISRoomITIntegrationLead" Type="nvarchar" MaxLength="200" />
+    <Property Name="MilestoneTitle" Type="nvarchar" MaxLength="200" />
+    <Property Name="Milestone__Record_ID_Key" Type="nvarchar" MaxLength="200" />
+    <Property Name="Task__Task_Record_ID_Key" Type="nvarchar" MaxLength="200" />
+    <Property Name="Group_Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Milestone__Project_Notes" Type="nvarchar(max)" />
+    <Property Name="Milestone__Closed_Loop_Owner" Type="nvarchar" MaxLength="200" />
+    <Property Name="Workspace_Title" Type="nvarchar" MaxLength="200" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="nvarchar(max)" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="nvarchar(max)" />
+    <Property Name="Customer_Row_ID" Type="float" />
+    <Property Name="Opportunity_ID" Type="float" />
+    <Property Name="Account_Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sales_Stage_Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Opportunity_Type" Type="nvarchar" MaxLength="200" />
+    <Property Name="Revenue_Status" Type="nvarchar" MaxLength="200" />
+    <Property Name="Revenue_Opportunity_Type" Type="nvarchar" MaxLength="200" />
+    <Property Name="Opportunity_Owner" Type="nvarchar" MaxLength="200" />
+    <Property Name="Opportunity_Category" Type="nvarchar" MaxLength="200" />
+    <Property Name="MarketLeader" Type="nvarchar" MaxLength="200" />
+    <Property Name="Revenue_Total_Transactions" Type="float" />
+    <Property Name="Line_Win_Probability" Type="float" />
+    <Property Name="Next_Step" Type="nvarchar(max)" />
+    <Property Name="Implementation_Fee_PSD" Type="float" />
+    <Property Name="CountryCode" Type="nvarchar" MaxLength="200" />
+    <Property Name="GoLiveMonth" Type="nvarchar" MaxLength="255" />
+    <Property Name="GoLiveYear" Type="nvarchar" MaxLength="255" />
+    <Property Name="BacklogStarted" Type="nvarchar" MaxLength="255" />
+    <Property Name="Quarter" Type="nvarchar" MaxLength="255" />
+    <Property Name="CycleTime" Type="float" />
+    <Property Name="ExternalKickoffDuedate" Type="datetime" />
+    <Property Name="Client" Type="nvarchar" MaxLength="255" />
+    <Property Name="ProjectStartForCycleTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CLRColumnsHiding">
+    <Key>
+      <PropertyRef Name="CLRColumnId" />
+    </Key>
+    <Property Name="CLRColumnId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Implementation_Type" Type="bit" Nullable="false" />
+    <Property Name="Pipeline_status" Type="bit" Nullable="false" />
+    <Property Name="Pipeline_comments" Type="bit" Nullable="false" />
+    <Property Name="TXResourcing" Type="bit" Nullable="false" />
+    <Property Name="Service_location" Type="bit" Nullable="false" />
+    <Property Name="Service_configuration" Type="bit" Nullable="false" />
+    <Property Name="OBT_Reseller___Direct" Type="bit" Nullable="false" />
+    <Property Name="OBTAdoptionRate" Type="bit" Nullable="false" />
+    <Property Name="ExpectedDecisionDate_c" Type="bit" Nullable="false" />
+    <Property Name="Assignment_date_c" Type="bit" Nullable="false" />
+    <Property Name="ResourseRequestedDate_c" Type="bit" Nullable="false" />
+    <Property Name="UpdateOn_c" Type="bit" Nullable="false" />
+    <Property Name="OppVolume" Type="bit" Nullable="false" />
+    <Property Name="RevenueVolumeUSD" Type="bit" Nullable="false" />
+    <Property Name="Region" Type="bit" Nullable="false" />
+    <Property Name="OwnerShip" Type="bit" Nullable="false" />
+    <Property Name="ProjectStart_ForCycleTime_c" Type="bit" Nullable="false" />
+    <Property Name="GoLiveDate_c" Type="bit" Nullable="false" />
+    <Property Name="PerCompleted" Type="bit" Nullable="false" />
+    <Property Name="CycleTime" Type="bit" Nullable="false" />
+    <Property Name="CycleTimeCategories" Type="bit" Nullable="false" />
+    <Property Name="CycleTimeDelayCode" Type="bit" Nullable="false" />
+    <Property Name="EltClientDelayDescription" Type="bit" Nullable="false" />
+    <Property Name="ProjectStatus" Type="bit" Nullable="false" />
+    <Property Name="Milestone__Reason_Code" Type="bit" Nullable="false" />
+    <Property Name="CountryStatus" Type="bit" Nullable="false" />
+    <Property Name="ProjectLevel" Type="bit" Nullable="false" />
+    <Property Name="CompletedDate_c" Type="bit" Nullable="false" />
+    <Property Name="GlobalProjectManager" Type="bit" Nullable="false" />
+    <Property Name="RegionalProjectManager" Type="bit" Nullable="false" />
+    <Property Name="AssigneeFullName" Type="bit" Nullable="false" />
+    <Property Name="GlobalCISDQSLead" Type="bit" Nullable="false" />
+    <Property Name="APAC_DQS" Type="bit" Nullable="false" />
+    <Property Name="DQS_Import" Type="bit" Nullable="false" />
+    <Property Name="DQS_Support" Type="bit" Nullable="false" />
+    <Property Name="LATAM_DQS" Type="bit" Nullable="false" />
+    <Property Name="NORAM_DQS" Type="bit" Nullable="false" />
+    <Property Name="DQS_Operations" Type="bit" Nullable="false" />
+    <Property Name="GlobalCISOBTLead" Type="bit" Nullable="false" />
+    <Property Name="RegionalCISOBTLead" Type="bit" Nullable="false" />
+    <Property Name="LocalDigitalOBTLead" Type="bit" Nullable="false" />
+    <Property Name="GlobalCISPortraitLead" Type="bit" Nullable="false" />
+    <Property Name="RegionalCISPortraitLead" Type="bit" Nullable="false" />
+    <Property Name="GlobalCISHRFeedSpecialist" Type="bit" Nullable="false" />
+    <Property Name="GDS" Type="bit" Nullable="false" />
+    <Property Name="ActivityType" Type="bit" Nullable="false" />
+    <Property Name="ComplexityScore" Type="bit" Nullable="false" />
+    <Property Name="MilestoneTitle" Type="bit" Nullable="false" />
+    <Property Name="Group_Name" Type="bit" Nullable="false" />
+    <Property Name="Milestone__Project_Notes" Type="bit" Nullable="false" />
+    <Property Name="Milestone__Closed_Loop_Owner" Type="bit" Nullable="false" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="bit" Nullable="false" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="bit" Nullable="false" />
+    <Property Name="NpsScore" Type="bit" Nullable="false" />
+    <Property Name="Customer_Row_ID" Type="bit" Nullable="false" />
+    <Property Name="Opportunity_ID" Type="bit" Nullable="false" />
+    <Property Name="AccountOwner" Type="bit" Nullable="false" />
+    <Property Name="Opportunity_Type" Type="bit" Nullable="false" />
+    <Property Name="Revenue_Status" Type="bit" Nullable="false" />
+    <Property Name="Revenue_Opportunity_Type" Type="bit" Nullable="false" />
+    <Property Name="Opportunity_Owner" Type="bit" Nullable="false" />
+    <Property Name="Opportunity_Category" Type="bit" Nullable="false" />
+    <Property Name="Revenue_Total_Transactions" Type="bit" Nullable="false" />
+    <Property Name="Line_Win_Probability" Type="bit" Nullable="false" />
+    <Property Name="Implementation_Fee__PSD_" Type="bit" Nullable="false" />
+    <Property Name="Next_Step" Type="bit" Nullable="false" />
+    <Property Name="AwardedDate_c" Type="bit" Nullable="false" />
+    <Property Name="DataDescription" Type="bit" Nullable="false" />
+    <Property Name="Date_added_to_the_CLR_c" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate_c" Type="bit" Nullable="false" />
+    <Property Name="Project_Effort" Type="bit" Nullable="false" />
+    <Property Name="Sales_Stage_Name" Type="bit" Nullable="false" />
+    <Property Name="AccountCategory" Type="bit" Nullable="false" />
+    <Property Name="SOWStatus" Type="bit" Nullable="false" />
+    <Property Name="ImplementationReady" Type="bit" Nullable="false" />
+    <Property Name="RecordHistory_C" Type="bit" Nullable="false" />
+    <Property Name="DataSourceType" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="UID" Type="nvarchar" MaxLength="255" />
+    <Property Name="Priority" Type="bit" />
+    <Property Name="DataQuality" Type="bit" />
+  </EntityType>
+  <EntityType Name="CLRData">
+    <Key>
+      <PropertyRef Name="CLRID" />
+    </Key>
+    <Property Name="CLRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RevenueID" Type="float" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" MaxLength="100" />
+    <Property Name="OwnerShip" Type="nvarchar" MaxLength="200" />
+    <Property Name="GoLiveDate" Type="datetime" />
+    <Property Name="ProjectStatus" Type="nvarchar" MaxLength="200" />
+    <Property Name="CountryStatus" Type="nvarchar" MaxLength="200" />
+    <Property Name="ProjectLevel" Type="nvarchar" MaxLength="200" />
+    <Property Name="CompletedDate" Type="datetime" />
+    <Property Name="ProjectOwner" Type="nvarchar" MaxLength="200" />
+    <Property Name="AssigneeFullName" Type="nvarchar" MaxLength="200" />
+    <Property Name="MilestoneTitle" Type="nvarchar" MaxLength="200" />
+    <Property Name="Milestone__Record_ID_Key" Type="nvarchar" MaxLength="200" />
+    <Property Name="Task__Task_Record_ID_Key" Type="nvarchar" MaxLength="200" />
+    <Property Name="Group_Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Milestone__Project_Notes" Type="nvarchar(max)" />
+    <Property Name="Milestone__Reason_Code" Type="nvarchar(max)" />
+    <Property Name="Milestone__Closed_Loop_Owner" Type="nvarchar" MaxLength="200" />
+    <Property Name="Workspace_Title" Type="nvarchar" MaxLength="200" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="nvarchar(max)" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="nvarchar(max)" />
+    <Property Name="Customer_Row_ID" Type="float" />
+    <Property Name="Opportunity_ID" Type="float" />
+    <Property Name="Account_Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sales_Stage_Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Opportunity_Type" Type="nvarchar" MaxLength="200" />
+    <Property Name="Revenue_Opportunity_Type" Type="nvarchar" MaxLength="200" />
+    <Property Name="Revenue_Status" Type="nvarchar" MaxLength="200" />
+    <Property Name="Opportunity_Owner" Type="nvarchar" MaxLength="200" />
+    <Property Name="Opportunity_Category" Type="nvarchar" MaxLength="200" />
+    <Property Name="Revenue_Total_Transactions" Type="float" />
+    <Property Name="CountryCode" Type="nvarchar" MaxLength="200" />
+    <Property Name="RevenueVolumeUSD" Type="float" />
+    <Property Name="MarketLeader" Type="nvarchar" MaxLength="200" />
+    <Property Name="GlobalProjectManager" Type="nvarchar" MaxLength="200" />
+    <Property Name="ProjectConsultant" Type="nvarchar" MaxLength="200" />
+    <Property Name="RegionalProjectManager" Type="nvarchar(max)" />
+    <Property Name="GlobalCISOBTLead" Type="nvarchar" MaxLength="200" />
+    <Property Name="GlobalCISHRFeedSpecialist" Type="nvarchar" MaxLength="200" />
+    <Property Name="GlobalCISPortraitLead" Type="nvarchar" MaxLength="200" />
+    <Property Name="GoLiveMonth" Type="nvarchar" MaxLength="255" />
+    <Property Name="GoLiveYear" Type="nvarchar" MaxLength="255" />
+    <Property Name="BacklogStarted" Type="nvarchar" MaxLength="255" />
+    <Property Name="Quarter" Type="nvarchar" MaxLength="255" />
+    <Property Name="CycleTime" Type="float" />
+    <Property Name="ExternalKickoffDuedate" Type="datetime" />
+    <Property Name="PerCompleted" Type="int" />
+    <Property Name="MilestoneDueDate" Type="datetime" />
+    <Property Name="Next_Step" Type="nvarchar(max)" />
+    <Property Name="Line_Win_Probability" Type="int" />
+    <Property Name="Client" Type="nvarchar" MaxLength="255" />
+    <Property Name="RegionalCISOBTLead" Type="nvarchar(max)" />
+    <Property Name="RegionalCISPortraitLead" Type="nvarchar(max)" />
+    <Property Name="ProjectStart_ForCycleTime" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImplementationType" Type="nvarchar" MaxLength="225" />
+    <Property Name="DataSourceType" Type="nvarchar" MaxLength="255" />
+    <Property Name="DataDescription" Type="nvarchar(max)" />
+    <Property Name="LastUpdateDate" Type="datetime" />
+    <Property Name="AwardedDate" Type="datetime" />
+    <Property Name="MilestoneType" Type="nvarchar(max)" />
+    <Property Name="ClosedDate" Type="datetime" />
+    <Property Name="ImplementationFeePsd" Type="float" />
+    <Property Name="AccountOwner" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CycleTimeCategories" Type="nvarchar" MaxLength="255" />
+    <Property Name="LocalDigitalOBTLead" Type="nvarchar" MaxLength="255" />
+    <Property Name="GDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="TaskStatus" Type="nvarchar" MaxLength="225" />
+    <Property Name="ComplexityScore" Type="float" />
+    <Property Name="YearMonth" Type="nvarchar(max)" />
+    <Property Name="OBTReseller" Type="nvarchar" MaxLength="225" />
+    <Property Name="DigitalGDS" Type="nvarchar" MaxLength="225" />
+    <Property Name="DigitalActivityType" Type="nvarchar" MaxLength="225" />
+    <Property Name="SOWStatus" Type="nvarchar" MaxLength="255" />
+    <Property Name="ImplementationReady" Type="nvarchar" MaxLength="255" />
+    <Property Name="AccountCategory" Type="nvarchar" MaxLength="255" />
+    <Property Name="OppTOtalVolume" Type="float" />
+    <Property Name="eSowGDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="Service_Configuration" Type="nvarchar" MaxLength="255" />
+    <Property Name="LocalDigitalAdHocSupport" Type="nvarchar" MaxLength="255" />
+    <Property Name="Project_Level" Type="nvarchar(max)" />
+    <Property Name="GlobalCISDQSLead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Service_Location" Type="nvarchar" MaxLength="255" />
+    <Property Name="OBTAdoptionRate" Type="nvarchar" MaxLength="255" />
+    <Property Name="CycleTimeDelayCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="APAC_DQS" Type="nvarchar" MaxLength="255" />
+    <Property Name="DQS_Import" Type="nvarchar" MaxLength="255" />
+    <Property Name="DQS_Support" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM_DQS" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM_DQS" Type="nvarchar" MaxLength="255" />
+    <Property Name="DQS_Operations" Type="nvarchar" MaxLength="255" />
+    <Property Name="EltClientDelayDescription" Type="nvarchar(max)" />
+    <Property Name="Priority" Type="nvarchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="CLRResourceUtilization">
+    <Key>
+      <PropertyRef Name="RUid" />
+    </Key>
+    <Property Name="RUid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HierarchyID" Type="int" />
+    <Property Name="Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Level" Type="nvarchar" MaxLength="255" />
+    <Property Name="ProjectLevel" Type="nvarchar" MaxLength="255" />
+    <Property Name="Leader" Type="nvarchar" MaxLength="255" />
+    <Property Name="Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="WorkShedule" Type="nvarchar" MaxLength="255" />
+    <Property Name="WorkingDays" Type="float" />
+    <Property Name="Monday" Type="float" />
+    <Property Name="Tuesday" Type="float" />
+    <Property Name="Wednesday" Type="float" />
+    <Property Name="Thursday" Type="float" />
+    <Property Name="Friday" Type="float" />
+    <Property Name="Comments" Type="nvarchar(max)" />
+    <Property Name="TargetedUtilization" Type="float" />
+    <Property Name="C1stweek" Type="float" />
+    <Property Name="C2ndweek" Type="float" />
+    <Property Name="C3rdweek" Type="float" />
+    <Property Name="C4thweek" Type="float" />
+    <Property Name="C5thweek" Type="float" />
+    <Property Name="C6thweek" Type="float" />
+    <Property Name="C7thweek" Type="float" />
+    <Property Name="C8thweek" Type="float" />
+    <Property Name="AvgUtil" Type="float" />
+    <Property Name="TUWorkingDays" Type="float" />
+    <Property Name="CapacityAvailable" Type="float" />
+    <Property Name="CapacityAvailableTUWorkingDays" Type="float" />
+    <Property Name="C9thweek" Type="float" />
+    <Property Name="C10thweek" Type="float" />
+    <Property Name="C11thweek" Type="float" />
+    <Property Name="C12thweek" Type="float" />
+    <Property Name="c13thweek" Type="float" />
+    <Property Name="c14thweek" Type="float" />
+    <Property Name="c15thweek" Type="float" />
+    <Property Name="c16thweek" Type="float" />
+    <Property Name="c17thweek" Type="float" />
+    <Property Name="c18thweek" Type="float" />
+    <Property Name="c19thweek" Type="float" />
+    <Property Name="c20thweek" Type="float" />
+    <Property Name="c21thweek" Type="float" />
+    <Property Name="c22thweek" Type="float" />
+    <Property Name="c23thweek" Type="float" />
+    <Property Name="c24thweek" Type="float" />
+    <Property Name="ProjectStatus" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="CLRTracker">
+    <Key>
+      <PropertyRef Name="TrackerId" />
+    </Key>
+    <Property Name="TrackerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RevenueID" Type="float" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="GlobalProjectManager" Type="nvarchar" MaxLength="255" />
+    <Property Name="RegionalProjectManager" Type="nvarchar" MaxLength="255" />
+    <Property Name="LocalProjectManager" Type="nvarchar" MaxLength="255" />
+    <Property Name="Client" Type="nvarchar" MaxLength="255" />
+    <Property Name="iMeetWorkspaceTitle" Type="nvarchar" MaxLength="255" />
+    <Property Name="OwnershipType" Type="nvarchar" MaxLength="255" />
+    <Property Name="PriorityCustomer" Type="nvarchar" MaxLength="255" />
+    <Property Name="Volume" Type="float" />
+    <Property Name="ProjectLevel" Type="nvarchar" MaxLength="255" />
+    <Property Name="ImplementationType" Type="nvarchar" MaxLength="255" />
+    <Property Name="ProjectStatus" Type="nvarchar" MaxLength="255" />
+    <Property Name="GlobalDigitalOBTLead" Type="nvarchar" MaxLength="255" />
+    <Property Name="RegionalDigitalOBTLead" Type="nvarchar" MaxLength="255" />
+    <Property Name="GlobalDigitalPortraitLead" Type="nvarchar" MaxLength="255" />
+    <Property Name="RegionalDigitalPortraitLead" Type="nvarchar" MaxLength="255" />
+    <Property Name="GlobalDigitalHRFeedSpeciallist" Type="nvarchar(max)" />
+    <Property Name="MilestoneProjectNotes" Type="nvarchar(max)" />
+    <Property Name="ProjectEffort" Type="float" />
+    <Property Name="KickOff_ProposedStartDate" Type="datetime" />
+    <Property Name="GoLiveDate" Type="datetime" />
+    <Property Name="EndofHypercare" Type="datetime" />
+    <Property Name="CompleteDuration" Type="nvarchar" MaxLength="255" />
+    <Property Name="PerCompleted" Type="float" />
+    <Property Name="ProjectStartDate" Type="datetime" />
+    <Property Name="MilestoneDueDate" Type="datetime" />
+    <Property Name="ProjectDelay" Type="float" />
+    <Property Name="1stweek" Type="float" />
+    <Property Name="2ndweek" Type="float" />
+    <Property Name="3rdweek" Type="float" />
+    <Property Name="4thweek" Type="float" />
+    <Property Name="5thweek" Type="float" />
+    <Property Name="6thweek" Type="float" />
+    <Property Name="7thweek" Type="float" />
+    <Property Name="8thweek" Type="float" />
+    <Property Name="9thweek" Type="float" />
+    <Property Name="10thweek" Type="float" />
+    <Property Name="11thweek" Type="float" />
+    <Property Name="12thweek" Type="float" />
+    <Property Name="c13thweek" Type="float" />
+    <Property Name="c14thweek" Type="float" />
+    <Property Name="c15thweek" Type="float" />
+    <Property Name="c16thweek" Type="float" />
+    <Property Name="c17thweek" Type="float" />
+    <Property Name="c18thweek" Type="float" />
+    <Property Name="c19thweek" Type="float" />
+    <Property Name="c20thweek" Type="float" />
+    <Property Name="c21thweek" Type="float" />
+    <Property Name="c22thweek" Type="float" />
+    <Property Name="c23thweek" Type="float" />
+    <Property Name="c24thweek" Type="float" />
+    <Property Name="Jan" Type="int" />
+    <Property Name="Feb" Type="int" />
+    <Property Name="Mar" Type="int" />
+    <Property Name="Apr" Type="int" />
+    <Property Name="May" Type="int" />
+    <Property Name="Jun" Type="int" />
+    <Property Name="Jul" Type="int" />
+    <Property Name="Aug" Type="int" />
+    <Property Name="Sep" Type="int" />
+    <Property Name="Oct" Type="int" />
+    <Property Name="Nov" Type="int" />
+    <Property Name="Dec" Type="int" />
+    <Property Name="LocalDigitalOBTLead" Type="nvarchar" MaxLength="225" />
+    <Property Name="GDS" Type="nvarchar" MaxLength="225" />
+    <Property Name="ComplexityScore" Type="float" />
+    <Property Name="TaskRecordIdKey" Type="nvarchar" MaxLength="225" />
+    <Property Name="MilestoneDueDateByLevel" Type="datetime" />
+    <Property Name="AssignmentDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" />
+    <Property Name="Row" Type="nvarchar" MaxLength="255" />
+    <Property Name="Comments" Type="nvarchar(max)" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Config">
+    <Key>
+      <PropertyRef Name="ConfigID" />
+    </Key>
+    <Property Name="ConfigID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectType" Type="nvarchar" MaxLength="225" Nullable="false" />
+    <Property Name="Duration" Type="float" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="225" />
+    <Property Name="InsertedOn" Type="datetime" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="225" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="CountryIsoCodes">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="225" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CountryISORegionCodes">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CRMData">
+    <Key>
+      <PropertyRef Name="CRMID" />
+    </Key>
+    <Property Name="CRMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Revenue Id" Type="float" />
+    <Property Name="Account Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Account Owner" Type="nvarchar" MaxLength="255" />
+    <Property Name="Customer Row ID" Type="float" />
+    <Property Name="BT Account Record Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Company Alias" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity ID" Type="float" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Industry" Type="nvarchar" MaxLength="255" />
+    <Property Name="BT Current Service Configuration" Type="nvarchar" MaxLength="255" />
+    <Property Name="BT Current GDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="BT Current Online Booking Tool" Type="nvarchar" MaxLength="255" />
+    <Property Name="BT Incumbent" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Line of Business" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity Owner" Type="nvarchar" MaxLength="255" />
+    <Property Name="Close Date" Type="datetime" />
+    <Property Name="Sales Stage Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Line Win Probability" Type="float" />
+    <Property Name="Opportunity Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity Category" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Next Step" Type="nvarchar" MaxLength="255" />
+    <Property Name="Country Scope" Type="nvarchar" MaxLength="255" />
+    <Property Name="Energy, Resources &amp; Marine" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity Scope" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity Total Transactions" Type="float" />
+    <Property Name="Opportunity Total Volume USD" Type="float" />
+    <Property Name="Awarded Date" Type="datetime" />
+    <Property Name="LOI Date" Type="datetime" />
+    <Property Name="Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="Ownership (Revenue)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Region (Revenue)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Revenue Air Volume USD" Type="float" />
+    <Property Name="Revenue Car Volume USD" Type="float" />
+    <Property Name="Revenue Rail Volume USD" Type="float" />
+    <Property Name="Revenue Total Transactions" Type="float" />
+    <Property Name="Transactions: Air" Type="float" />
+    <Property Name="Transactions: Car" Type="float" />
+    <Property Name="Transactions: Hotel" Type="float" />
+    <Property Name="Transactions: Rail" Type="float" />
+    <Property Name="Revenue Total Volume USD" Type="float" />
+    <Property Name="Revenue Hotel Volume USD" Type="float" />
+    <Property Name="Total Awarded Volume USD" Type="float" />
+    <Property Name="Total Up-Sell Volume USD" Type="float" />
+    <Property Name="GDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="Estimated Country Go Live Date" Type="datetime" />
+    <Property Name="OBT" Type="nvarchar" MaxLength="255" />
+    <Property Name="Estimated Implementation Start Date" Type="datetime" />
+    <Property Name="BT Incumbent Agency" Type="nvarchar" MaxLength="255" />
+    <Property Name="Revenue Opportunity Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Revenue Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Last Update Date" Type="datetime" />
+    <Property Name="Created Date" Type="datetime" />
+    <Property Name="Client Segment" Type="nvarchar" MaxLength="255" />
+    <Property Name="Client Management Group" Type="nvarchar" MaxLength="255" />
+    <Property Name="Account Management Group" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsImplementationTeamsupport" Type="nvarchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="CTO">
+    <Key>
+      <PropertyRef Name="CTOID" />
+    </Key>
+    <Property Name="CTOID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Milestone Title-Country:  Est Go Live Date" Type="nvarchar" MaxLength="255" />
+    <Property Name="Critical Overdue" Type="float" />
+    <Property Name="Estimated Go Live" Type="datetime" />
+    <Property Name="Workspace Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Project Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Group Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Assignee: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone Due Date" Type="datetime" />
+    <Property Name="Milestone: Country Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task List Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Assignee: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Overdue" Type="float" />
+    <Property Name="Task Start Date" Type="datetime" />
+    <Property Name="Task Due Date" Type="datetime" />
+    <Property Name="Workspace: Project Level" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Project Start Date" Type="datetime" />
+    <Property Name="Milestone: Country" Type="nvarchar(max)" />
+    <Property Name="Last Comment" Type="nvarchar(max)" />
+    <Property Name="RevenurID" Type="float" />
+    <Property Name="TaskType" Type="nvarchar" MaxLength="225" />
+    <Property Name="TaskRecordIdKey" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="DataiMeet">
+    <Key>
+      <PropertyRef Name="iMeetID" />
+    </Key>
+    <Property Name="iMeetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Task Start Date" Type="datetime" />
+    <Property Name="Task Due Date" Type="datetime" />
+    <Property Name="Milestone Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Task Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Record ID Key" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Task Record ID Key" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: CRM Revenue ID #" Type="float" />
+    <Property Name="Milestone: Project Status" Type="nvarchar(max)" />
+    <Property Name="Milestone: Reason Code" Type="nvarchar(max)" />
+    <Property Name="% Complete" Type="float" />
+    <Property Name="Milestone: Country Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace: Project Level" Type="nvarchar(max)" />
+    <Property Name="Milestone Due Date" Type="datetime" />
+    <Property Name="Workspace: Project Owner: Full Name" Type="nvarchar(max)" />
+    <Property Name="Group Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Project Notes" Type="nvarchar(max)" />
+    <Property Name="Milestone: Closed Loop Owner" Type="nvarchar(max)" />
+    <Property Name="Workspace: ELT Overall Status" Type="nvarchar(max)" />
+    <Property Name="Completed Date" Type="datetime" />
+    <Property Name="Workspace: ELT Overall Comments" Type="nvarchar(max)" />
+    <Property Name="Task Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Completed Date" Type="datetime" />
+    <Property Name="Milestone: Milestone type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Region" Type="nvarchar" MaxLength="225" />
+    <Property Name="Milestone: Cycle Time Delay Code" Type="nvarchar" MaxLength="255" />
+    <Property Name="EltClientDelayDescription" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DigitalTeam">
+    <Key>
+      <PropertyRef Name="DTID" />
+    </Key>
+    <Property Name="DTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RevenueID" Type="float" Nullable="false" />
+    <Property Name="Client" Type="nvarchar" MaxLength="255" />
+    <Property Name="GlobalCISOBTLead" Type="nvarchar" MaxLength="255" />
+    <Property Name="RegionalCISOBTLead" Type="nvarchar" MaxLength="255" />
+    <Property Name="LocalDigitalOBTLead" Type="nvarchar" MaxLength="255" />
+    <Property Name="GlobalCISPortraitLead" Type="nvarchar" MaxLength="255" />
+    <Property Name="RegionalCISPortraitLead" Type="nvarchar" MaxLength="255" />
+    <Property Name="GlobalCISHRFeedSpecialist" Type="nvarchar" MaxLength="255" />
+    <Property Name="GDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="ComplexityScore" Type="float" Nullable="false" />
+    <Property Name="TaskRecordIdKey" Type="nvarchar" MaxLength="250" />
+    <Property Name="InsertedOn" Type="datetime" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="ActivityType" Type="nvarchar" MaxLength="255" />
+    <Property Name="GlobalCISDQSLead" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="DQSTest">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SOURCE" Type="nvarchar" MaxLength="255" />
+    <Property Name="TRANS_NUM" Type="nvarchar" MaxLength="255" />
+    <Property Name="Formated_LOAD_DATE" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="EltDeltaClients">
+    <Key>
+      <PropertyRef Name="EltID" />
+    </Key>
+    <Property Name="EltID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Client" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Month" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Revenue" Type="float" Nullable="false" />
+    <Property Name="InsertedOn" Type="datetime" Nullable="false" />
+    <Property Name="Year" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ELTDeltaComments">
+    <Key>
+      <PropertyRef Name="EltCommentsId" />
+    </Key>
+    <Property Name="EltCommentsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Client" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="WorkspaceTitle" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Month" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Year" Type="float" Nullable="false" />
+    <Property Name="Revenue" Type="float" Nullable="false" />
+    <Property Name="RevenueId" Type="float" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Country" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InsertedOn" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DeltaColor" Type="nvarchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="EltOldCLRData">
+    <Key>
+      <PropertyRef Name="CLRID" />
+    </Key>
+    <Property Name="CLRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Client" Type="nvarchar" MaxLength="255" />
+    <Property Name="RevenueID" Type="float" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" MaxLength="100" />
+    <Property Name="OwnerShip" Type="nvarchar" MaxLength="200" />
+    <Property Name="GoLiveDate" Type="datetime" />
+    <Property Name="ProjectStatus" Type="nvarchar" MaxLength="200" />
+    <Property Name="ProjectLevel" Type="nvarchar" MaxLength="200" />
+    <Property Name="Workspace_Title" Type="nvarchar" MaxLength="200" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="nvarchar(max)" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="nvarchar(max)" />
+    <Property Name="Opportunity_Type" Type="nvarchar" MaxLength="200" />
+    <Property Name="RevenueVolumeUSD" Type="float" />
+    <Property Name="GoLiveMonth" Type="nvarchar" MaxLength="255" />
+    <Property Name="GoLiveYear" Type="nvarchar" MaxLength="255" />
+    <Property Name="Quarter" Type="nvarchar" MaxLength="255" />
+    <Property Name="CycleTime" Type="float" />
+    <Property Name="ProjectStart_ForCycleTime" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImplementationType" Type="nvarchar" MaxLength="225" />
+    <Property Name="DataSourceType" Type="nvarchar" MaxLength="255" />
+    <Property Name="TaskRecordIdKey" Type="nvarchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="ErrorTracker">
+    <Key>
+      <PropertyRef Name="TrackerID" />
+    </Key>
+    <Property Name="TrackerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ResourceName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Manager" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProjectLevel" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="OBT" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="OBTUsed" Type="nvarchar" MaxLength="50" />
+    <Property Name="TypeofError" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FinancialImpact" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="FIDescription" Type="nvarchar(max)" />
+    <Property Name="ValueofLoss" Type="float" Nullable="false" />
+    <Property Name="ErrorDescription" Type="nvarchar(max)" />
+    <Property Name="ErrorReason" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="WhoReportedError" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ErrorComplexityRating" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="IssueResolved" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Comments" Type="nvarchar(max)" />
+    <Property Name="FMEA" Type="nvarchar(max)" />
+    <Property Name="InsertedOn" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="esowNewData">
+    <Key>
+      <PropertyRef Name="ESOWid" />
+    </Key>
+    <Property Name="ESOWid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Client" Type="nvarchar" MaxLength="255" />
+    <Property Name="id" Type="float" />
+    <Property Name="eSoW Ref" Type="nvarchar" MaxLength="255" />
+    <Property Name="crmOpportunityId" Type="float" />
+    <Property Name="createdOn" Type="datetime" />
+    <Property Name="Client Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Proposal Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Account Owner" Type="nvarchar" MaxLength="255" />
+    <Property Name="SoW Owner" Type="nvarchar" MaxLength="255" />
+    <Property Name="Self Service" Type="nvarchar" MaxLength="255" />
+    <Property Name="eSoW Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="CRM Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Option" Type="nvarchar" MaxLength="255" />
+    <Property Name="Country Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="serviceConfig" Type="float" />
+    <Property Name="Team" Type="nvarchar" MaxLength="255" />
+    <Property Name="configLoc" Type="nvarchar" MaxLength="255" />
+    <Property Name="configName" Type="nvarchar" MaxLength="255" />
+    <Property Name="afterHours" Type="nvarchar" MaxLength="255" />
+    <Property Name="GDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="OBT" Type="nvarchar" MaxLength="255" />
+    <Property Name="Account Category" Type="nvarchar" MaxLength="255" />
+    <Property Name="implementationReady" Type="nvarchar" MaxLength="255" />
+    <Property Name="Direct/Reseller" Type="nvarchar" MaxLength="255" />
+    <Property Name="OBT Adoption Rate" Type="nvarchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="ETCountry">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Country" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="InsertedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ETManager">
+    <Key>
+      <PropertyRef Name="ManagerID" />
+    </Key>
+    <Property Name="ManagerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Manager" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="InsertedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ETResource">
+    <Key>
+      <PropertyRef Name="ResourceID" />
+    </Key>
+    <Property Name="ResourceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Resource" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="InsertedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GoLive">
+    <Key>
+      <PropertyRef Name="GoLiveID" />
+    </Key>
+    <Property Name="GoLiveID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Workspace Title" Type="nvarchar(max)" />
+    <Property Name="Milestone Title" Type="nvarchar(max)" />
+    <Property Name="Milestone: Country" Type="nvarchar(max)" />
+    <Property Name="Task Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Task Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Start Date" Type="datetime" />
+    <Property Name="Milestone: Record ID Key" Type="nvarchar(max)" />
+    <Property Name="Task: Task Record ID Key" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Hierarchy">
+    <Key>
+      <PropertyRef Name="HierarchyID" />
+    </Key>
+    <Property Name="HierarchyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User ID" Type="nvarchar" MaxLength="255" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Sr Leader" Type="nvarchar" MaxLength="255" />
+    <Property Name="VP" Type="nvarchar" MaxLength="255" />
+    <Property Name="Email Address" Type="nvarchar" MaxLength="255" />
+    <Property Name="Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Location" Type="nvarchar" MaxLength="255" />
+    <Property Name="Role" Type="nvarchar" MaxLength="255" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="UserStatus" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="LeaderOne" Type="nvarchar" MaxLength="100" />
+    <Property Name="LeaderTwo" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="HostExternal">
+    <Key>
+      <PropertyRef Name="HostExternalID" />
+    </Key>
+    <Property Name="HostExternalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Workspace Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Start Date" Type="datetime" />
+    <Property Name="Task Due Date" Type="datetime" />
+    <Property Name="Task Completed Date" Type="datetime" />
+    <Property Name="Task Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Action Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Record ID" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="iMeetData">
+    <Key>
+      <PropertyRef Name="iMeetId" />
+    </Key>
+    <Property Name="iMeetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Task Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Assignee: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Start Date" Type="datetime" />
+    <Property Name="Task Due Date" Type="datetime" />
+    <Property Name="Milestone Title" Type="nvarchar(max)" />
+    <Property Name="Workspace Title" Type="nvarchar(max)" />
+    <Property Name="Task: Assigned Role: Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Assignee: Reports to: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Task Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Task Record ID Key" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace: ELT Overall Status" Type="nvarchar(max)" />
+    <Property Name="Workspace: ELT Overall Comments" Type="nvarchar(max)" />
+    <Property Name="Workspace: Project Level" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace: Project Owner: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: CRM Revenue ID #" Type="float" />
+    <Property Name="Milestone: Assignee: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Assignee: Reports to: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Country" Type="nvarchar(max)" />
+    <Property Name="Milestone: Project Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Country Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Completed Date" Type="datetime" />
+    <Property Name="% Complete" Type="float" />
+    <Property Name="Milestone: Project Start Date" Type="datetime" />
+    <Property Name="Milestone: Initial Go-Live Date" Type="datetime" />
+    <Property Name="Milestone Due Date" Type="datetime" />
+    <Property Name="Milestone Start Date" Type="datetime" />
+    <Property Name="Task Overdue" Type="float" />
+    <Property Name="Task: Record ID" Type="float" />
+    <Property Name="Milestone: Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Record ID" Type="float" />
+    <Property Name="Milestone: Record ID Key" Type="nvarchar(max)" />
+    <Property Name="Milestone: Project Notes" Type="nvarchar(max)" />
+    <Property Name="Milestone: Reason Code" Type="nvarchar" MaxLength="255" />
+    <Property Name="Group Name" Type="nvarchar(max)" />
+    <Property Name="Milestone: Closed Loop Owner" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="IMPS">
+    <Key>
+      <PropertyRef Name="IMPSID" />
+    </Key>
+    <Property Name="IMPSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Workspace Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace: CRM Customer Row ID" Type="float" />
+    <Property Name="Workspace: Project Level" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace: ELT Overall Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Record ID Key" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Project Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="% Complete" Type="float" />
+    <Property Name="Milestone: Project Start Date" Type="datetime" />
+    <Property Name="Milestone: Assignee: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Assignee: Reports to: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Task Record ID Key" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Start Date" Type="datetime" />
+    <Property Name="Milestone: CRM Revenue ID #" Type="float" />
+    <Property Name="Milestone: Reason Code" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Closed Loop Owner" Type="nvarchar" MaxLength="255" />
+    <Property Name="Group Name" Type="nvarchar" MaxLength="225" />
+    <Property Name="Workspace: ELT Overall Comments" Type="nvarchar(max)" />
+    <Property Name="Milestone: Project Notes" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="JiraData">
+    <Key>
+      <PropertyRef Name="JiraId" />
+    </Key>
+    <Property Name="JiraId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Summary" Type="nvarchar(max)" />
+    <Property Name="Assignee" Type="nvarchar(max)" />
+    <Property Name="Assignee Id" Type="nvarchar(max)" />
+    <Property Name="Created" Type="datetime" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Custom field (Flight Planned Go Live Date)" Type="datetime" />
+    <Property Name="Custom field (Flight Project Complete Date)" Type="datetime" />
+    <Property Name="Custom field (Flight Project Start Date)" Type="datetime" />
+    <Property Name="Custom field (Flight Trx Monthly)" Type="nvarchar(max)" />
+    <Property Name="Custom field (GDS)" Type="nvarchar(max)" />
+    <Property Name="Custom field (GUID Client Top)" Type="nvarchar(max)" />
+    <Property Name="Custom field (Hotel Planned Go Live Date)" Type="datetime" />
+    <Property Name="Custom field (Hotel Project Complete Date)" Type="datetime" />
+    <Property Name="Custom field (Hotel Project Start Date)" Type="datetime" />
+    <Property Name="Custom field (Hotel Trx Monthly)" Type="nvarchar(max)" />
+    <Property Name="Custom field (Implementation Type)" Type="nvarchar(max)" />
+    <Property Name="Issue Type" Type="nvarchar(max)" />
+    <Property Name="Last Viewed" Type="datetime" />
+    <Property Name="Custom field (Market (DIGI))" Type="nvarchar(max)" />
+    <Property Name="Custom field (OBT Contract)" Type="nvarchar(max)" />
+    <Property Name="Custom field (OBT Used)" Type="nvarchar(max)" />
+    <Property Name="Priority" Type="nvarchar(max)" />
+    <Property Name="Custom field (Project Contact)" Type="nvarchar(max)" />
+    <Property Name="Status" Type="nvarchar(max)" />
+    <Property Name="Status Category" Type="nvarchar(max)" />
+    <Property Name="Updated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="KnowledgeBase">
+    <Key>
+      <PropertyRef Name="KBId" />
+    </Key>
+    <Property Name="KBId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Link" Type="nvarchar" MaxLength="255" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="255" />
+    <Property Name="Keywords" Type="nvarchar" MaxLength="255" />
+    <Property Name="Source" Type="nvarchar" MaxLength="255" />
+    <Property Name="Type" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="LessonLearnt">
+    <Key>
+      <PropertyRef Name="LLID" />
+    </Key>
+    <Property Name="LLID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="iMeet Workspace Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Record ID" Type="nvarchar" MaxLength="255" />
+    <Property Name="Date feedback raised" Type="datetime" />
+    <Property Name="Country/Area of Responsibility" Type="nvarchar" MaxLength="255" />
+    <Property Name="Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="What was the event/issue/concern" Type="nvarchar(max)" />
+    <Property Name="Is there any specific recognition to a person/group/process rela" Type="nvarchar(max)" />
+    <Property Name="Go Live Date" Type="datetime" />
+    <Property Name="Reason Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created by Field" Type="nvarchar" MaxLength="255" />
+    <Property Name="Leader" Type="nvarchar" MaxLength="255" />
+    <Property Name="Reason Code (Added by Leader)" Type="nvarchar" MaxLength="255" />
+    <Property Name="What do you recommend - to avoid this occurring again in future" Type="nvarchar" MaxLength="255" />
+    <Property Name="Status (By Leader)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Action Taken (By Leader)" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ManualData">
+    <Key>
+      <PropertyRef Name="ManualID" />
+    </Key>
+    <Property Name="ManualID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Revenue ID" Type="float" />
+    <Property Name="Client" Type="nvarchar" MaxLength="255" />
+    <Property Name="iMeet Workspace Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Implementation Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="CLR Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="Pipeline_status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Pipeline comments" Type="nvarchar(max)" />
+    <Property Name="Service configuration" Type="nvarchar" MaxLength="255" />
+    <Property Name="OBT Reseller / Direct" Type="nvarchar" MaxLength="255" />
+    <Property Name="Servicing location" Type="nvarchar" MaxLength="255" />
+    <Property Name="Assignment date" Type="datetime" />
+    <Property Name="Project Effort" Type="float" />
+    <Property Name="GoLiveDate" Type="datetime" />
+    <Property Name="GlobalProjectManager" Type="nvarchar" MaxLength="200" />
+    <Property Name="RegionalProjectManager" Type="nvarchar" MaxLength="200" />
+    <Property Name="AssigneeFullName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProjectStatus" Type="nvarchar" MaxLength="255" />
+    <Property Name="UpdateOn" Type="datetime" />
+    <Property Name="UpdateBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="TaskRecordIdKey" Type="nvarchar(max)" />
+    <Property Name="ProjectLevel" Type="nvarchar" MaxLength="250" />
+    <Property Name="InsertedOn" Type="datetime" />
+    <Property Name="Project_Level" Type="nvarchar" MaxLength="255" />
+    <Property Name="GlobalCISDQSLead" Type="nvarchar" MaxLength="255" />
+    <Property Name="ResourseRequestedDate" Type="datetime" />
+    <Property Name="ExpectedDecisionDate" Type="datetime" />
+    <Property Name="TXResourcing" Type="nvarchar" MaxLength="255" />
+    <Property Name="Priority" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="MarketLeaders">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Region" Type="nvarchar(max)" />
+    <Property Name="MarketLeader" Type="nvarchar(max)" />
+    <Property Name="Title" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Milestones">
+    <Key>
+      <PropertyRef Name="MilestoneID" />
+    </Key>
+    <Property Name="MilestoneID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Workspace Title" Type="nvarchar(max)" />
+    <Property Name="Size" Type="float" />
+    <Property Name="Is Project" Type="float" />
+    <Property Name="Milestone: Project Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace: Project Level" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Country" Type="nvarchar(max)" />
+    <Property Name="Milestone: Assignee: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Project Start Date" Type="datetime" />
+    <Property Name="Milestone: Initial Go-Live Date" Type="datetime" />
+    <Property Name="Completed" Type="float" />
+    <Property Name="Completed Date" Type="datetime" />
+    <Property Name="% Complete" Type="float" />
+    <Property Name="Milestone: Country Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Project Notes" Type="nvarchar(max)" />
+    <Property Name="Milestone: Reason Code" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Closed Loop Owner" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace: ELT Overall Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace: ELT Overall Comments" Type="nvarchar(max)" />
+    <Property Name="Group Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Workspace: Project Owner: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Is Public" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Record ID Key" Type="nvarchar(max)" />
+    <Property Name="Milestone Due Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MonthWiseDelta">
+    <Key>
+      <PropertyRef Name="DeltaID" />
+    </Key>
+    <Property Name="DeltaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Jan" Type="float" Nullable="false" />
+    <Property Name="Feb" Type="float" Nullable="false" />
+    <Property Name="Mar" Type="float" Nullable="false" />
+    <Property Name="Apr" Type="float" Nullable="false" />
+    <Property Name="May" Type="float" Nullable="false" />
+    <Property Name="Jun" Type="float" Nullable="false" />
+    <Property Name="Jul" Type="float" Nullable="false" />
+    <Property Name="Aug" Type="float" Nullable="false" />
+    <Property Name="Sep" Type="float" Nullable="false" />
+    <Property Name="Oct" Type="float" Nullable="false" />
+    <Property Name="Nov" Type="float" Nullable="false" />
+    <Property Name="Dec" Type="float" Nullable="false" />
+    <Property Name="Year" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="InsertedDate" Type="datetime" Nullable="false" />
+    <Property Name="Jan_Comments" Type="nvarchar(max)" />
+    <Property Name="Feb_Comments" Type="nvarchar(max)" />
+    <Property Name="Mar_Comments" Type="nvarchar(max)" />
+    <Property Name="Apr_Comments" Type="nvarchar(max)" />
+    <Property Name="May_Comments" Type="nvarchar(max)" />
+    <Property Name="Jun_Comments" Type="nvarchar(max)" />
+    <Property Name="Jul_Comments" Type="nvarchar(max)" />
+    <Property Name="Aug_Comments" Type="nvarchar(max)" />
+    <Property Name="Sep_Comments" Type="nvarchar(max)" />
+    <Property Name="Oct_Comments" Type="nvarchar(max)" />
+    <Property Name="Nov_Comments" Type="nvarchar(max)" />
+    <Property Name="Dec_Comments" Type="nvarchar(max)" />
+    <Property Name="CV_Jan" Type="float" Nullable="false" />
+    <Property Name="CV_Feb" Type="float" Nullable="false" />
+    <Property Name="CV_Mar" Type="float" Nullable="false" />
+    <Property Name="CV_Apr" Type="float" Nullable="false" />
+    <Property Name="CV_May" Type="float" Nullable="false" />
+    <Property Name="CV_Jun" Type="float" Nullable="false" />
+    <Property Name="CV_Jul" Type="float" Nullable="false" />
+    <Property Name="CV_Aug" Type="float" Nullable="false" />
+    <Property Name="CV_Sep" Type="float" Nullable="false" />
+    <Property Name="CV_Oct" Type="float" Nullable="false" />
+    <Property Name="CV_Nov" Type="float" Nullable="false" />
+    <Property Name="CV_Dec" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NpsImp">
+    <Key>
+      <PropertyRef Name="NpsId" />
+    </Key>
+    <Property Name="NpsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientName" Type="nvarchar(max)" />
+    <Property Name="Company" Type="nvarchar(max)" />
+    <Property Name="DateServeySent" Type="datetime" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Country" Type="nvarchar(max)" />
+    <Property Name="Region" Type="nvarchar(max)" />
+    <Property Name="GlobalProjectManager" Type="nvarchar(max)" />
+    <Property Name="RegionalProjectManager" Type="nvarchar(max)" />
+    <Property Name="LocalProjectManager" Type="nvarchar(max)" />
+    <Property Name="ClientScope" Type="nvarchar(max)" />
+    <Property Name="ClientType" Type="nvarchar(max)" />
+    <Property Name="CustomerContactNumber" Type="nvarchar(max)" />
+    <Property Name="SingleResource" Type="nvarchar(max)" />
+    <Property Name="DQS" Type="nvarchar(max)" />
+    <Property Name="DSD" Type="nvarchar(max)" />
+    <Property Name="OnlineTeam" Type="nvarchar(max)" />
+    <Property Name="DateSurveyReceived" Type="datetime" />
+    <Property Name="Status" Type="nvarchar(max)" />
+    <Property Name="AssignLeaderForClosedLoop" Type="nvarchar(max)" />
+    <Property Name="NPSScore" Type="float" />
+    <Property Name="NPSIndicator" Type="nvarchar(max)" />
+    <Property Name="NPSCommentsWhatwasPositive" Type="nvarchar(max)" />
+    <Property Name="NPSComments-Howcouldwehaveimproved" Type="nvarchar(max)" />
+    <Property Name="NPSComments-Whatistheonethingwecandotomakeyouhappier" Type="nvarchar(max)" />
+    <Property Name="ReasonType" Type="nvarchar(max)" />
+    <Property Name="ClientFeedback" Type="nvarchar(max)" />
+    <Property Name="Action" Type="nvarchar(max)" />
+    <Property Name="GoLiveDate" Type="datetime" />
+    <Property Name="Language" Type="nvarchar(max)" />
+    <Property Name="InsertedBy" Type="nvarchar(max)" />
+    <Property Name="InsertedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="NPSCommentsOne" Type="nvarchar(max)" />
+    <Property Name="NPSCommentsTwo" Type="nvarchar(max)" />
+    <Property Name="NPSCommentsThree" Type="nvarchar(max)" />
+    <Property Name="RecordStatus" Type="nvarchar(max)" />
+    <Property Name="YearMonth" Type="nvarchar" MaxLength="255" />
+    <Property Name="OpprtunityId" Type="float" />
+    <Property Name="GlobalDigitalPM" Type="nvarchar" MaxLength="255" />
+    <Property Name="RegionalDigitalPM" Type="nvarchar" MaxLength="255" />
+    <Property Name="LocalDigitalPM" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="OldCLRData">
+    <Key>
+      <PropertyRef Name="CLRID" />
+    </Key>
+    <Property Name="CLRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RevenueID" Type="float" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" MaxLength="100" />
+    <Property Name="OwnerShip" Type="nvarchar" MaxLength="200" />
+    <Property Name="GoLiveDate" Type="datetime" />
+    <Property Name="ProjectStatus" Type="nvarchar" MaxLength="200" />
+    <Property Name="CountryStatus" Type="nvarchar" MaxLength="200" />
+    <Property Name="ProjectLevel" Type="nvarchar" MaxLength="200" />
+    <Property Name="CompletedDate" Type="datetime" />
+    <Property Name="ProjectOwner" Type="nvarchar" MaxLength="200" />
+    <Property Name="AssigneeFullName" Type="nvarchar" MaxLength="200" />
+    <Property Name="MilestoneTitle" Type="nvarchar" MaxLength="200" />
+    <Property Name="Milestone__Record_ID_Key" Type="nvarchar" MaxLength="200" />
+    <Property Name="Task__Task_Record_ID_Key" Type="nvarchar" MaxLength="200" />
+    <Property Name="Group_Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Milestone__Project_Notes" Type="nvarchar(max)" />
+    <Property Name="Milestone__Reason_Code" Type="nvarchar(max)" />
+    <Property Name="Milestone__Closed_Loop_Owner" Type="nvarchar" MaxLength="200" />
+    <Property Name="Workspace_Title" Type="nvarchar" MaxLength="200" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="nvarchar(max)" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="nvarchar(max)" />
+    <Property Name="Customer_Row_ID" Type="float" />
+    <Property Name="Opportunity_ID" Type="float" />
+    <Property Name="Account_Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sales_Stage_Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Opportunity_Type" Type="nvarchar" MaxLength="200" />
+    <Property Name="Revenue_Opportunity_Type" Type="nvarchar" MaxLength="200" />
+    <Property Name="Revenue_Status" Type="nvarchar" MaxLength="200" />
+    <Property Name="Opportunity_Owner" Type="nvarchar" MaxLength="200" />
+    <Property Name="Opportunity_Category" Type="nvarchar" MaxLength="200" />
+    <Property Name="Revenue_Total_Transactions" Type="float" />
+    <Property Name="CountryCode" Type="nvarchar" MaxLength="200" />
+    <Property Name="RevenueVolumeUSD" Type="float" />
+    <Property Name="MarketLeader" Type="nvarchar" MaxLength="200" />
+    <Property Name="GlobalProjectManager" Type="nvarchar" MaxLength="200" />
+    <Property Name="ProjectConsultant" Type="nvarchar" MaxLength="200" />
+    <Property Name="RegionalProjectManager" Type="nvarchar(max)" />
+    <Property Name="GlobalCISOBTLead" Type="nvarchar" MaxLength="200" />
+    <Property Name="GlobalCISHRFeedSpecialist" Type="nvarchar" MaxLength="200" />
+    <Property Name="GlobalCISPortraitLead" Type="nvarchar" MaxLength="200" />
+    <Property Name="GoLiveMonth" Type="nvarchar" MaxLength="255" />
+    <Property Name="GoLiveYear" Type="nvarchar" MaxLength="255" />
+    <Property Name="BacklogStarted" Type="nvarchar" MaxLength="255" />
+    <Property Name="Quarter" Type="nvarchar" MaxLength="255" />
+    <Property Name="CycleTime" Type="float" />
+    <Property Name="ExternalKickoffDuedate" Type="datetime" />
+    <Property Name="PerCompleted" Type="int" />
+    <Property Name="MilestoneDueDate" Type="datetime" />
+    <Property Name="Next_Step" Type="nvarchar(max)" />
+    <Property Name="Line_Win_Probability" Type="int" />
+    <Property Name="Client" Type="nvarchar" MaxLength="255" />
+    <Property Name="RegionalCISOBTLead" Type="nvarchar(max)" />
+    <Property Name="RegionalCISPortraitLead" Type="nvarchar(max)" />
+    <Property Name="ProjectStart_ForCycleTime" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImplementationType" Type="nvarchar" MaxLength="225" />
+    <Property Name="DataSourceType" Type="nvarchar" MaxLength="255" />
+    <Property Name="DataDescription" Type="nvarchar(max)" />
+    <Property Name="LastUpdateDate" Type="datetime" />
+    <Property Name="AwardedDate" Type="datetime" />
+    <Property Name="MilestoneType" Type="nvarchar(max)" />
+    <Property Name="ClosedDate" Type="datetime" />
+    <Property Name="ImplementationFeePsd" Type="float" />
+    <Property Name="AccountOwner" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OldOldCLRData">
+    <Key>
+      <PropertyRef Name="CLRID" />
+    </Key>
+    <Property Name="CLRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RevenueID" Type="float" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" MaxLength="100" />
+    <Property Name="OwnerShip" Type="nvarchar" MaxLength="200" />
+    <Property Name="GoLiveDate" Type="datetime" />
+    <Property Name="ProjectStatus" Type="nvarchar" MaxLength="200" />
+    <Property Name="CountryStatus" Type="nvarchar" MaxLength="200" />
+    <Property Name="ProjectLevel" Type="nvarchar" MaxLength="200" />
+    <Property Name="CompletedDate" Type="datetime" />
+    <Property Name="ProjectOwner" Type="nvarchar" MaxLength="200" />
+    <Property Name="AssigneeFullName" Type="nvarchar" MaxLength="200" />
+    <Property Name="MilestoneTitle" Type="nvarchar" MaxLength="200" />
+    <Property Name="Milestone__Record_ID_Key" Type="nvarchar" MaxLength="200" />
+    <Property Name="Task__Task_Record_ID_Key" Type="nvarchar" MaxLength="200" />
+    <Property Name="Group_Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Milestone__Project_Notes" Type="nvarchar(max)" />
+    <Property Name="Milestone__Reason_Code" Type="nvarchar(max)" />
+    <Property Name="Milestone__Closed_Loop_Owner" Type="nvarchar" MaxLength="200" />
+    <Property Name="Workspace_Title" Type="nvarchar" MaxLength="200" />
+    <Property Name="Workspace__ELT_Overall_Status" Type="nvarchar(max)" />
+    <Property Name="Workspace__ELT_Overall_Comments" Type="nvarchar(max)" />
+    <Property Name="Customer_Row_ID" Type="float" />
+    <Property Name="Opportunity_ID" Type="float" />
+    <Property Name="Account_Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sales_Stage_Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Opportunity_Type" Type="nvarchar" MaxLength="200" />
+    <Property Name="Revenue_Opportunity_Type" Type="nvarchar" MaxLength="200" />
+    <Property Name="Revenue_Status" Type="nvarchar" MaxLength="200" />
+    <Property Name="Opportunity_Owner" Type="nvarchar" MaxLength="200" />
+    <Property Name="Opportunity_Category" Type="nvarchar" MaxLength="200" />
+    <Property Name="Revenue_Total_Transactions" Type="float" />
+    <Property Name="CountryCode" Type="nvarchar" MaxLength="200" />
+    <Property Name="RevenueVolumeUSD" Type="float" />
+    <Property Name="MarketLeader" Type="nvarchar" MaxLength="200" />
+    <Property Name="GlobalProjectManager" Type="nvarchar" MaxLength="200" />
+    <Property Name="ProjectConsultant" Type="nvarchar" MaxLength="200" />
+    <Property Name="RegionalProjectManager" Type="nvarchar(max)" />
+    <Property Name="GlobalCISOBTLead" Type="nvarchar" MaxLength="200" />
+    <Property Name="GlobalCISHRFeedSpecialist" Type="nvarchar" MaxLength="200" />
+    <Property Name="GlobalCISPortraitLead" Type="nvarchar" MaxLength="200" />
+    <Property Name="GoLiveMonth" Type="nvarchar" MaxLength="255" />
+    <Property Name="GoLiveYear" Type="nvarchar" MaxLength="255" />
+    <Property Name="BacklogStarted" Type="nvarchar" MaxLength="255" />
+    <Property Name="Quarter" Type="nvarchar" MaxLength="255" />
+    <Property Name="CycleTime" Type="float" />
+    <Property Name="ExternalKickoffDuedate" Type="datetime" />
+    <Property Name="PerCompleted" Type="int" />
+    <Property Name="MilestoneDueDate" Type="datetime" />
+    <Property Name="Next_Step" Type="nvarchar(max)" />
+    <Property Name="Line_Win_Probability" Type="int" />
+    <Property Name="Client" Type="nvarchar" MaxLength="255" />
+    <Property Name="RegionalCISOBTLead" Type="nvarchar(max)" />
+    <Property Name="RegionalCISPortraitLead" Type="nvarchar(max)" />
+    <Property Name="ProjectStart_ForCycleTime" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImplementationType" Type="nvarchar" MaxLength="225" />
+    <Property Name="DataSourceType" Type="nvarchar" MaxLength="255" />
+    <Property Name="DataDescription" Type="nvarchar(max)" />
+    <Property Name="LastUpdateDate" Type="datetime" />
+    <Property Name="AwardedDate" Type="datetime" />
+    <Property Name="MilestoneType" Type="nvarchar(max)" />
+    <Property Name="ClosedDate" Type="datetime" />
+    <Property Name="ImplementationFeePsd" Type="float" />
+    <Property Name="AccountOwner" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OnlineProjectTracker">
+    <Key>
+      <PropertyRef Name="OPTID" />
+    </Key>
+    <Property Name="OPTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Golive" Type="datetime" Nullable="false" />
+    <Property Name="ActualGoLive" Type="datetime" Nullable="false" />
+    <Property Name="ProjectAssignedDate" Type="datetime" Nullable="false" />
+    <Property Name="KickOffImplementation" Type="datetime" Nullable="false" />
+    <Property Name="ClientName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProjectType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Business" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OnlineBookingTool" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OnlineBookingType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AssignedTo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Manager" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProjectStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Comments" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NoOfCountries" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OPTAssignedTo">
+    <Key>
+      <PropertyRef Name="AssignedToID" />
+    </Key>
+    <Property Name="AssignedToID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssignedTo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsertedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OPTCountry">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsertedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OPTManager">
+    <Key>
+      <PropertyRef Name="ManagerID" />
+    </Key>
+    <Property Name="ManagerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Manager" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsertedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PowerAutomate">
+    <Key>
+      <PropertyRef Name="PowerAutomateID" />
+    </Key>
+    <Property Name="PowerAutomateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Country" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImplementationType" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ServiceLocation" Type="nvarchar" MaxLength="255" />
+    <Property Name="PipelineStatus" Type="nvarchar" MaxLength="255" />
+    <Property Name="ServiceConfiguration" Type="nvarchar" MaxLength="255" />
+    <Property Name="OBTType" Type="nvarchar" MaxLength="255" />
+    <Property Name="RevenueVolumeUSD" Type="float" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="OpportunityID" Type="float" />
+    <Property Name="NextStep" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="OpportunityOwner" Type="nvarchar" MaxLength="255" />
+    <Property Name="OWNEREMAILIS" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="PreviousMonthsElt">
+    <Key>
+      <PropertyRef Name="EltId" />
+    </Key>
+    <Property Name="EltId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Client" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA" Type="float" />
+    <Property Name="APAC" Type="float" />
+    <Property Name="LATAM" Type="float" />
+    <Property Name="NORAM" Type="float" />
+    <Property Name="Total" Type="float" />
+    <Property Name="NBAPriorMonth" Type="float" />
+    <Property Name="TotalAccountVolume" Type="float" />
+    <Property Name="Delta" Type="float" />
+    <Property Name="Comments" Type="nvarchar(max)" />
+    <Property Name="Month" Type="nvarchar" MaxLength="255" />
+    <Property Name="Year" Type="float" />
+    <Property Name="InsertedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Progression">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Workspace Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task List Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Created by: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Start Date" Type="datetime" />
+    <Property Name="Task Due Date" Type="datetime" />
+    <Property Name="Budgeted Time" Type="float" />
+    <Property Name="Task Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Action Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Project Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: CRM Revenue ID #" Type="float" />
+    <Property Name="Milestone: Assignee: Country" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ProjectDueDate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Milestone: Record ID Key" Type="nvarchar(max)" />
+    <Property Name="Workspace Title" Type="nvarchar(max)" />
+    <Property Name="Milestone Title" Type="nvarchar(max)" />
+    <Property Name="Task Title" Type="nvarchar(max)" />
+    <Property Name="Task: Task Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Country" Type="nvarchar(max)" />
+    <Property Name="Task: Assignee: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Start Date" Type="datetime" />
+    <Property Name="Task Due Date" Type="datetime" />
+    <Property Name="Task Completed Date" Type="datetime" />
+    <Property Name="Task Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: CRM Revenue ID #" Type="float" />
+  </EntityType>
+  <EntityType Name="ProjectType">
+    <Key>
+      <PropertyRef Name="ProjectTypeID" />
+    </Key>
+    <Property Name="ProjectTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectType" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Duration" Type="float" Nullable="false" />
+    <Property Name="PostGoLiveSupport" Type="float" Nullable="false" />
+    <Property Name="ProjectEffortAPAC" Type="float" Nullable="false" />
+    <Property Name="ProjectEffortEMEA" Type="float" Nullable="false" />
+    <Property Name="ProjectEffortLATAM" Type="float" Nullable="false" />
+    <Property Name="ProjectEffortNORAM" Type="float" Nullable="false" />
+    <Property Name="ActiveStatus" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Prospect">
+    <Key>
+      <PropertyRef Name="PID" />
+    </Key>
+    <Property Name="PID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Manager" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Leader" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Client Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="InsertedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PSD">
+    <Key>
+      <PropertyRef Name="PSDID" />
+    </Key>
+    <Property Name="PSDID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Created Date" Type="datetime" />
+    <Property Name="Requestor" Type="nvarchar" MaxLength="255" />
+    <Property Name="Account Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Account Owner" Type="nvarchar" MaxLength="255" />
+    <Property Name="Customer Row ID" Type="float" />
+    <Property Name="Account Category" Type="nvarchar" MaxLength="255" />
+    <Property Name="BT Account Record Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Company Alias" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity ID" Type="float" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Industry" Type="nvarchar" MaxLength="255" />
+    <Property Name="BT Current Service Configuration" Type="nvarchar" MaxLength="255" />
+    <Property Name="BT Current GDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="BT Current Online Booking Tool" Type="nvarchar" MaxLength="255" />
+    <Property Name="BT Incumbent" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity Name" Type="nvarchar(max)" />
+    <Property Name="Product Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Line of Business" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity Owner" Type="nvarchar" MaxLength="255" />
+    <Property Name="Close Date" Type="datetime" />
+    <Property Name="Sales Stage Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Line Win Probability" Type="float" />
+    <Property Name="Initiative Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Opportunity Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Country Scope" Type="nvarchar" MaxLength="255" />
+    <Property Name="Energy, Resources &amp; Marine" Type="nvarchar" MaxLength="255" />
+    <Property Name="Invoicing Period" Type="nvarchar" MaxLength="255" />
+    <Property Name="Pricing Model" Type="nvarchar" MaxLength="255" />
+    <Property Name="PSD Price per Transaction" Type="float" />
+    <Property Name="Total Transactions" Type="float" />
+    <Property Name="Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="Region (Revenue)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Implementation Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Total Revenue USD" Type="float" />
+    <Property Name="Estimated Implementation Start Date" Type="datetime" />
+    <Property Name="Implementation End Date" Type="datetime" />
+    <Property Name="Implementation Fee" Type="float" />
+    <Property Name="Go Live Date" Type="datetime" />
+    <Property Name="Revenue Car Volume USD" Type="float" />
+    <Property Name="Revenue Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Revenue Id" Type="float" />
+    <Property Name="Last Update Date" Type="datetime" />
+    <Property Name="Ownership (Revenue)" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ReportUpdatedOn">
+    <Key>
+      <PropertyRef Name="ReportID" />
+    </Key>
+    <Property Name="ReportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="AvailableRows" Type="int" />
+    <Property Name="UploadedRows" Type="int" />
+  </EntityType>
+  <EntityType Name="RisksGap">
+    <Key>
+      <PropertyRef Name="RGID" />
+    </Key>
+    <Property Name="RGID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SCID" Type="int" />
+    <Property Name="RisksGaps" Type="nvarchar(max)" />
+    <Property Name="MitigationPlan" Type="nvarchar(max)" />
+    <Property Name="SteeringCommitteeSupportNeed" Type="nvarchar" MaxLength="255" />
+    <Property Name="DueDate" Type="datetime" />
+    <Property Name="Owner" Type="nvarchar(max)" />
+    <Property Name="InsertedDate" Type="datetime" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Record_Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Risks" Type="nvarchar" MaxLength="255" />
+    <Property Name="Region" Type="nvarchar(max)" />
+    <Property Name="Country" Type="nvarchar(max)" />
+    <Property Name="RiskCategory" Type="nvarchar" MaxLength="225" />
+    <Property Name="Impact" Type="int" Nullable="false" />
+    <Property Name="Likelihood" Type="int" Nullable="false" />
+    <Property Name="SupportNeededDetails" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RolesId" />
+    </Key>
+    <Property Name="RolesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Workspace Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global Project Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="Regional Ops Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM Project Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM Project Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA Project Manager" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global CIS OBT Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM CIS OBT Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM CIS OBT Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA CIS OBT Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global CIS HR Feed Specialist" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global CIS Portrait Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM CIS Portrait Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMEA CIS Portrait Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM CIS Portrait Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global CIS RoomIT Integration lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="APAC Implementation Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="APAC Digital OBT Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="APAC Digital Portrait Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local IN CIS Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global CIS DQS Lead" Type="nvarchar" MaxLength="255" />
+    <Property Name="APAC_DQS" Type="nvarchar" MaxLength="255" />
+    <Property Name="DQS_Import" Type="nvarchar" MaxLength="255" />
+    <Property Name="DQS_Support" Type="nvarchar" MaxLength="255" />
+    <Property Name="LATAM_DQS" Type="nvarchar" MaxLength="255" />
+    <Property Name="NORAM_DQS" Type="nvarchar" MaxLength="255" />
+    <Property Name="DQS_Operations" Type="nvarchar" MaxLength="255" />
+    <Property Name="LocalImplementationLeadUS" Type="nvarchar" MaxLength="255" />
+    <Property Name="LocalImplementationLeadCanada" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="StageGate">
+    <Key>
+      <PropertyRef Name="StageGateID" />
+    </Key>
+    <Property Name="StageGateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Task Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Start Date" Type="datetime" />
+    <Property Name="Task Due Date" Type="datetime" />
+    <Property Name="Workspace Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task: Assignee: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Assignee: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Assignee: Reports to: Full Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Task Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Milestone: Assignee: Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="Month" Type="nvarchar" MaxLength="255" />
+    <Property Name="Year" Type="nvarchar" MaxLength="255" />
+    <Property Name="ReportName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Milestone: Project Status" Type="nvarchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="SteeringCommittee">
+    <Key>
+      <PropertyRef Name="SCID" />
+    </Key>
+    <Property Name="SCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RecordStatus" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ClientName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ClientType" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ProjectLead" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectStatus" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ProjectTrend" Type="nvarchar" MaxLength="255" />
+    <Property Name="TotalBusineesVolume" Type="float" Nullable="false" />
+    <Property Name="NewBusinessVolume" Type="float" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Country" Type="nvarchar(max)" />
+    <Property Name="CurrentState" Type="nvarchar(max)" />
+    <Property Name="CompletedKeyDeliverables" Type="nvarchar(max)" />
+    <Property Name="ScheduledKeyDeliverables" Type="nvarchar(max)" />
+    <Property Name="AdditionalNotes" Type="nvarchar(max)" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="InsertedDate" Type="datetime" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+    <Property Name="Record_Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="PreviousStatus" Type="nvarchar" MaxLength="255" />
+    <Property Name="KeyAccomplishmentsSinceLastUpdateKeyDeliverables" Type="nvarchar(max)" />
+    <Property Name="KeyUpcomingActivitiesKeyDeliverables" Type="nvarchar(max)" />
+    <Property Name="CombinedKeyDeliverableOne" Type="nvarchar(max)" />
+    <Property Name="CombinedKeyDeliverableTwo" Type="nvarchar(max)" />
+    <Property Name="VerCol" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SurveySentDetails">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RecipientId" Type="int" Nullable="false" />
+    <Property Name="SurverySentOn" Type="datetime" Nullable="false" />
+    <Property Name="SurveyLink" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="225" Nullable="false" />
+    <Property Name="ClientName" Type="nvarchar" MaxLength="225" Nullable="false" />
+    <Property Name="ClientEmailAddress" Type="nvarchar" MaxLength="225" Nullable="false" />
+    <Property Name="NpsId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TargetCycleTime">
+    <Key>
+      <PropertyRef Name="TargetID" />
+    </Key>
+    <Property Name="TargetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExistingServiceConfigChange" Type="nvarchar" MaxLength="225" />
+    <Property Name="NewGlobal" Type="nvarchar" MaxLength="225" />
+    <Property Name="NewRegional" Type="nvarchar" MaxLength="225" />
+    <Property Name="NewLocal" Type="nvarchar" MaxLength="225" />
+    <Property Name="Overall" Type="nvarchar" MaxLength="225" />
+    <Property Name="ExistingAddChange" Type="nvarchar" MaxLength="225" />
+    <Property Name="InsertedOn" Type="datetime" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="225" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="225" />
+    <Property Name="Year" Type="nvarchar" MaxLength="225" />
+    <Property Name="Months" Type="nvarchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="tbl_registration">
+    <Key>
+      <PropertyRef Name="Sr_no" />
+    </Key>
+    <Property Name="Sr_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="City" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Tracker">
+    <Key>
+      <PropertyRef Name="TrackerId" />
+    </Key>
+    <Property Name="TrackerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Region (CRM)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Country(CRM)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Global Project Manager (iMeet)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Regional Project Manager (iMeet)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Local Project Manager (iMeet)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Client (Manual Entry)" Type="nvarchar" MaxLength="255" />
+    <Property Name="iMeet Workspace Title (iMeet)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Ownership Type(CRM)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Priority Customer (COVID 19)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Volume (CRM)" Type="float" />
+    <Property Name="iMeet Project Level (iMeet)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Implementation Type (CRM)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Current Project Status (iMeet)" Type="nvarchar" MaxLength="255" />
+    <Property Name="CIS Resource (iMeet)" Type="nvarchar" MaxLength="255" />
+    <Property Name="Project Details" Type="nvarchar(max)" />
+    <Property Name="Project Effort (Formula)" Type="float" />
+    <Property Name="Proposed Start Date (iMeet)" Type="datetime" />
+    <Property Name="Proposed End Date (Formula)" Type="datetime" />
+    <Property Name="Go Live Date (iMeet)" Type="datetime" />
+    <Property Name="Complete Duration (Formula)" Type="nvarchar" MaxLength="255" />
+    <Property Name="% Completed (iMeet)" Type="float" />
+    <Property Name="1stweek" Type="float" />
+    <Property Name="2ndweek" Type="float" />
+    <Property Name="3rdweek" Type="float" />
+    <Property Name="4thweek" Type="float" />
+    <Property Name="5thweek" Type="float" />
+    <Property Name="6thweek" Type="float" />
+    <Property Name="7thweek" Type="float" />
+    <Property Name="8thweek" Type="float" />
+    <Property Name="9thweek" Type="float" />
+    <Property Name="10thweek" Type="float" />
+    <Property Name="11thweek" Type="float" />
+    <Property Name="12week" Type="float" />
+    <Property Name="c13thweek" Type="float" />
+    <Property Name="c14thweek" Type="float" />
+    <Property Name="c15thweek" Type="float" />
+    <Property Name="c16thweek" Type="float" />
+    <Property Name="c17thweek" Type="float" />
+    <Property Name="c18thweek" Type="float" />
+    <Property Name="c19thweek" Type="float" />
+    <Property Name="c20thweek" Type="float" />
+    <Property Name="c21thweek" Type="float" />
+    <Property Name="c22thweek" Type="float" />
+    <Property Name="c23thweek" Type="float" />
+    <Property Name="c24thweek" Type="float" />
+    <Property Name="Jan" Type="int" />
+    <Property Name="Feb" Type="int" />
+    <Property Name="Mar" Type="int" />
+    <Property Name="Apr" Type="int" />
+    <Property Name="May" Type="int" />
+    <Property Name="Jun" Type="int" />
+    <Property Name="Jul" Type="int" />
+    <Property Name="Aug" Type="int" />
+    <Property Name="Sep" Type="int" />
+    <Property Name="Oct" Type="int" />
+    <Property Name="Nov" Type="int" />
+    <Property Name="Dec" Type="int" />
+  </EntityType>
+  <EntityType Name="UserReportAccessTickets">
+    <Key>
+      <PropertyRef Name="TicketID" />
+    </Key>
+    <Property Name="TicketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ReportName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="RequestedOn" Type="datetime" Nullable="false" />
+    <Property Name="AcceptedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="AcceptedOn" Type="datetime" />
+    <Property Name="TicketStatuts" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserReportsAccess">
+    <Key>
+      <PropertyRef Name="AccessID" />
+    </Key>
+    <Property Name="AccessID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="UID" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="IMPS" Type="bit" Nullable="false" />
+    <Property Name="CTO" Type="bit" Nullable="false" />
+    <Property Name="AutomatedCLR" Type="bit" Nullable="false" />
+    <Property Name="StageGate" Type="bit" Nullable="false" />
+    <Property Name="LessonsLearnt" Type="bit" Nullable="false" />
+    <Property Name="CapacityTracker" Type="bit" Nullable="false" />
+    <Property Name="CycleTime" Type="bit" Nullable="false" />
+    <Property Name="ELTReport" Type="bit" Nullable="false" />
+    <Property Name="C_Hierarchy" Type="bit" Nullable="false" />
+    <Property Name="InsertedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="UserAccessStatus" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="ResourceUtilization" Type="bit" Nullable="false" />
+    <Property Name="Prospect" Type="bit" Nullable="false" />
+    <Property Name="MarketReport" Type="bit" />
+    <Property Name="CLREdits" Type="bit" />
+    <Property Name="MarketCommentsEdit" Type="bit" />
+    <Property Name="C_HierarchyEdits" Type="bit" />
+    <Property Name="NPS" Type="bit" />
+    <Property Name="NPSClientInfo" Type="bit" />
+    <Property Name="NPSAdmin" Type="bit" />
+    <Property Name="DigitalReport" Type="bit" />
+    <Property Name="NPSEdit" Type="bit" />
+    <Property Name="PerformanceAnalysis" Type="bit" />
+    <Property Name="SteeringCommittee" Type="bit" />
+    <Property Name="SteeringCommitteeEdits" Type="bit" />
+    <Property Name="DDO" Type="bit" />
+    <Property Name="DDOHome" Type="bit" />
+    <Property Name="PriorityReport" Type="bit" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UID" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Manager" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="UserStatus" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="InsertedDate" Type="datetime" Nullable="false" />
+    <Property Name="AccountStatus" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Photo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MobileNo" Type="float" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="JobType" Type="nvarchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="UsersUsageofReports">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UID" Type="nvarchar" MaxLength="225" Nullable="false" />
+    <Property Name="ReportName" Type="nvarchar" MaxLength="225" Nullable="false" />
+    <Property Name="TypeofUse" Type="nvarchar" MaxLength="225" Nullable="false" />
+    <Property Name="LastUsedOn" Type="datetime" Nullable="false" />
+    <Property Name="NoOfAttempts" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Waves">
+    <Key>
+      <PropertyRef Name="WaveID" />
+    </Key>
+    <Property Name="WaveID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SCID" Type="int" />
+    <Property Name="Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Country" Type="nvarchar(max)" />
+    <Property Name="Scope" Type="nvarchar(max)" />
+    <Property Name="GoLiveDate" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="InsertedDate" Type="datetime" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="LastUpdatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+    <Property Name="Record_Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Waves" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="YesterdayCLR">
+    <Key>
+      <PropertyRef Name="CLRID" />
+    </Key>
+    <Property Name="CLRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Client" Type="nvarchar" MaxLength="255" />
+    <Property Name="RevenueID" Type="float" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="255" />
+    <Property Name="Country" Type="nvarchar" MaxLength="255" />
+    <Property Name="RevenueVolumeUSD" Type="float" />
+    <Property Name="OppTOtalVolume" Type="float" />
+    <Property Name="GoLiveDate" Type="datetime" />
+    <Property Name="ProjectStatus" Type="nvarchar" MaxLength="200" />
+    <Property Name="ProjectLevel" Type="nvarchar" MaxLength="200" />
+    <Property Name="ProjectStart_ForCycleTime" Type="datetime" />
+    <Property Name="GoLiveMonth" Type="nvarchar" MaxLength="255" />
+    <Property Name="GoLiveYear" Type="nvarchar" MaxLength="255" />
+    <Property Name="Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="ImplementationType" Type="nvarchar" MaxLength="225" />
+    <Property Name="DataSourceType" Type="nvarchar" MaxLength="255" />
+    <Property Name="GlobalProjectManager" Type="nvarchar" MaxLength="200" />
+    <Property Name="RegionalProjectManager" Type="nvarchar(max)" />
+    <Property Name="AssigneeFullName" Type="nvarchar" MaxLength="200" />
+    <Property Name="GlobalCISOBTLead" Type="nvarchar" MaxLength="200" />
+    <Property Name="GlobalCISHRFeedSpecialist" Type="nvarchar" MaxLength="200" />
+    <Property Name="GlobalCISPortraitLead" Type="nvarchar" MaxLength="200" />
+    <Property Name="RegionalCISOBTLead" Type="nvarchar(max)" />
+    <Property Name="RegionalCISPortraitLead" Type="nvarchar(max)" />
+    <Property Name="TaskRecordIdKey" Type="nvarchar" MaxLength="255" />
+    <Property Name="Sales_Stage_Name" Type="nvarchar" MaxLength="225" />
+  </EntityType>
+  <Association Name="FK__RisksGap__SCID__695C9DA1">
+    <End Role="SteeringCommittee" Type="Self.SteeringCommittee" Multiplicity="0..1" />
+    <End Role="RisksGap" Type="Self.RisksGap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SteeringCommittee">
+        <PropertyRef Name="SCID" />
+      </Principal>
+      <Dependent Role="RisksGap">
+        <PropertyRef Name="SCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Waves__SCID__68687968">
+    <End Role="SteeringCommittee" Type="Self.SteeringCommittee" Multiplicity="0..1" />
+    <End Role="Waves" Type="Self.Waves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SteeringCommittee">
+        <PropertyRef Name="SCID" />
+      </Principal>
+      <Dependent Role="Waves">
+        <PropertyRef Name="SCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_npsid">
+    <End Role="NpsImp" Type="Self.NpsImp" Multiplicity="1" />
+    <End Role="SurveySentDetails" Type="Self.SurveySentDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NpsImp">
+        <PropertyRef Name="NpsId" />
+      </Principal>
+      <Dependent Role="SurveySentDetails">
+        <PropertyRef Name="NpsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_UserID">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserReportsAccess" Type="Self.UserReportsAccess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserReportsAccess">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CWTDashboardModelStoreContainer">
+    <EntitySet Name="AdHocProjects" EntityType="Self.AdHocProjects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AssignePersons" EntityType="Self.AssignePersons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AuditEntry" EntityType="Self.AuditEntry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AuditLog" EntityType="Self.AuditLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CandidateLeadsOne" EntityType="Self.CandidateLeadsOne" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CapacityHierarchy" EntityType="Self.CapacityHierarchy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CLRActivity" EntityType="Self.CLRActivity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CLRBelowData" EntityType="Self.CLRBelowData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CLRColumnsHiding" EntityType="Self.CLRColumnsHiding" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CLRData" EntityType="Self.CLRData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CLRResourceUtilization" EntityType="Self.CLRResourceUtilization" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CLRTracker" EntityType="Self.CLRTracker" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Config" EntityType="Self.Config" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CountryIsoCodes" EntityType="Self.CountryIsoCodes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CountryISORegionCodes" EntityType="Self.CountryISORegionCodes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CRMData" EntityType="Self.CRMData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTO" EntityType="Self.CTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DataiMeet" EntityType="Self.DataiMeet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DigitalTeam" EntityType="Self.DigitalTeam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DQSTest" EntityType="Self.DQSTest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EltDeltaClients" EntityType="Self.EltDeltaClients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ELTDeltaComments" EntityType="Self.ELTDeltaComments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EltOldCLRData" EntityType="Self.EltOldCLRData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ErrorTracker" EntityType="Self.ErrorTracker" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="esowNewData" EntityType="Self.esowNewData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ETCountry" EntityType="Self.ETCountry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ETManager" EntityType="Self.ETManager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ETResource" EntityType="Self.ETResource" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GoLive" EntityType="Self.GoLive" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hierarchy" EntityType="Self.Hierarchy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HostExternal" EntityType="Self.HostExternal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="iMeetData" EntityType="Self.iMeetData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IMPS" EntityType="Self.IMPS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JiraData" EntityType="Self.JiraData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KnowledgeBase" EntityType="Self.KnowledgeBase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LessonLearnt" EntityType="Self.LessonLearnt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ManualData" EntityType="Self.ManualData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MarketLeaders" EntityType="Self.MarketLeaders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Milestones" EntityType="Self.Milestones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MonthWiseDelta" EntityType="Self.MonthWiseDelta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NpsImp" EntityType="Self.NpsImp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OldCLRData" EntityType="Self.OldCLRData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OldOldCLRData" EntityType="Self.OldOldCLRData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OnlineProjectTracker" EntityType="Self.OnlineProjectTracker" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OPTAssignedTo" EntityType="Self.OPTAssignedTo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OPTCountry" EntityType="Self.OPTCountry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OPTManager" EntityType="Self.OPTManager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PowerAutomate" EntityType="Self.PowerAutomate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PreviousMonthsElt" EntityType="Self.PreviousMonthsElt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Progression" EntityType="Self.Progression" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectDueDate" EntityType="Self.ProjectDueDate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectType" EntityType="Self.ProjectType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Prospect" EntityType="Self.Prospect" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PSD" EntityType="Self.PSD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReportUpdatedOn" EntityType="Self.ReportUpdatedOn" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RisksGap" EntityType="Self.RisksGap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StageGate" EntityType="Self.StageGate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SteeringCommittee" EntityType="Self.SteeringCommittee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SurveySentDetails" EntityType="Self.SurveySentDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TargetCycleTime" EntityType="Self.TargetCycleTime" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_registration" EntityType="Self.tbl_registration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tracker" EntityType="Self.Tracker" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserReportAccessTickets" EntityType="Self.UserReportAccessTickets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserReportsAccess" EntityType="Self.UserReportsAccess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersUsageofReports" EntityType="Self.UsersUsageofReports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Waves" EntityType="Self.Waves" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YesterdayCLR" EntityType="Self.YesterdayCLR" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__RisksGap__SCID__695C9DA1" Association="Self.FK__RisksGap__SCID__695C9DA1">
+      <End Role="SteeringCommittee" EntitySet="SteeringCommittee" />
+      <End Role="RisksGap" EntitySet="RisksGap" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Waves__SCID__68687968" Association="Self.FK__Waves__SCID__68687968">
+      <End Role="SteeringCommittee" EntitySet="SteeringCommittee" />
+      <End Role="Waves" EntitySet="Waves" />
+    </AssociationSet>
+    <AssociationSet Name="fk_npsid" Association="Self.fk_npsid">
+      <End Role="NpsImp" EntitySet="NpsImp" />
+      <End Role="SurveySentDetails" EntitySet="SurveySentDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_UserID" Association="Self.FK_Users_UserID">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserReportsAccess" EntitySet="UserReportsAccess" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
