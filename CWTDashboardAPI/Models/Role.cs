@@ -42,5 +42,7 @@ namespace CWTDashboardAPI.Models
         public string LATAM_DQS { get; set; }
         public string NORAM_DQS { get; set; }
         public string DQS_Operations { get; set; }
+        public string LocalImplementationLeadUS { get; set; }
+        public string LocalImplementationLeadCanada { get; set; }
     }
 }

@@ -32,74 +32,6 @@ namespace CWTDashboardAPI.Controllers
             string constr = string.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties='Excel 12.0 Xml;HDR=YES'", filepath);
             Econ = new OleDbConnection(constr);
         }
-        public void InsertImeetdata(string filepath,string filename)
-        {
-            string fullpath = Server.MapPath("/excelfolder/") + filename;
-            ExcelConn(fullpath);
-            string query = string.Format("Select * from [{0}]", "Imeet$");
-            OleDbCommand Ecom = new OleDbCommand(query, Econ);
-            Econ.Open();
-            DataSet ds = new DataSet();
-            OleDbDataAdapter oda = new OleDbDataAdapter(query, Econ);
-            Econ.Close();
-            oda.Fill(ds);
-            DataTable dt = ds.Tables[0];
-            //if (dt.Rows.Count > 0)
-            //{
-            //    DataColumn newColumn = new DataColumn("TaskStartDate", typeof(System.DateTime));
-            //    //newColumn.DefaultValue = DateTime.Now;
-            //    for(int i = 0; i < dt.Rows.Count; i++)
-            //    {
-            //        newColumn.DefaultValue = Convert.ToDateTime(dt.Rows[i].);
-            //    }
-            //    dt.Columns.Add(newColumn);
-            //}
-            SqlBulkCopy objbulk = new SqlBulkCopy(con);
-            objbulk.DestinationTableName = "iMeetData";
-            objbulk.ColumnMappings.Add("Task Title", "Task Title");
-            objbulk.ColumnMappings.Add("Task: Assignee: Full Name", "Task: Assignee: Full Name");
-            objbulk.ColumnMappings.Add("Task Start Date", "Task Start Date");
-            objbulk.ColumnMappings.Add("Task Due Date", "Task Due Date");
-            objbulk.ColumnMappings.Add("Milestone Title", "Milestone Title");
-            objbulk.ColumnMappings.Add("Workspace Title", "Workspace Title");
-            objbulk.ColumnMappings.Add("Task: Assigned Role: Name", "Task: Assigned Role: Name");
-            objbulk.ColumnMappings.Add("Task: Assignee: Reports to: Full Name", "Task: Assignee: Reports to: Full Name");
-            objbulk.ColumnMappings.Add("Task: Task Type", "Task: Task Type");
-            objbulk.ColumnMappings.Add("Task: Task Record ID Key", "Task: Task Record ID Key");
-            objbulk.ColumnMappings.Add("Workspace: ELT Overall Status", "Workspace: ELT Overall Status");
-            objbulk.ColumnMappings.Add("Workspace: ELT Overall Comments", "Workspace: ELT Overall Comments");
-            objbulk.ColumnMappings.Add("Workspace: Project Level", "Workspace: Project Level");
-            objbulk.ColumnMappings.Add("Workspace: Project Owner: Full Name", "Workspace: Project Owner: Full Name");
-            objbulk.ColumnMappings.Add("Milestone: CRM Revenue ID #", "Milestone: CRM Revenue ID #");
-            objbulk.ColumnMappings.Add("Milestone: Assignee: Full Name", "Milestone: Assignee: Full Name");
-            objbulk.ColumnMappings.Add("Milestone: Assignee: Reports to: Full Name", "Milestone: Assignee: Reports to: Full Name");
-            objbulk.ColumnMappings.Add("Milestone: Country", "Milestone: Country");
-            objbulk.ColumnMappings.Add("Milestone: Project Status", "Milestone: Project Status");
-            objbulk.ColumnMappings.Add("Milestone: Country Status", "Milestone: Country Status");
-            objbulk.ColumnMappings.Add("Completed Date", "Completed Date");
-            objbulk.ColumnMappings.Add("% Complete", "% Complete");
-            //objbulk.ColumnMappings.Add("Milestone: Project Start Date", "Milestone: Project Start Date");
-            //objbulk.ColumnMappings.Add("Milestone: Initial Go-Live Date", "Milestone: Initial Go-Live Date");
-            objbulk.ColumnMappings.Add("Milestone Due Date", "Milestone Due Date");
-            objbulk.ColumnMappings.Add("Milestone Start Date", "Milestone Start Date");
-            objbulk.ColumnMappings.Add("Task Overdue", "Task Overdue");
-            objbulk.ColumnMappings.Add("Task: Record ID", "Task: Record ID");
-            objbulk.ColumnMappings.Add("Milestone: Region", "Milestone: Region");
-            objbulk.ColumnMappings.Add("Milestone: Record ID", "Milestone: Record ID");
-            objbulk.ColumnMappings.Add("Milestone: Record ID Key", "Milestone: Record ID Key");
-            objbulk.ColumnMappings.Add("Milestone: Project Notes", "Milestone: Project Notes");
-            objbulk.ColumnMappings.Add("Milestone: Reason Code", "Milestone: Reason Code");
-            objbulk.ColumnMappings.Add("Group Name", "Group Name");
-            objbulk.ColumnMappings.Add("Milestone: Closed Loop Owner", "Milestone: Closed Loop Owner");
-            con.Open();
-            string s = "Truncate Table iMeetData";
-            SqlCommand Com = new SqlCommand(s, con);
-            Com.ExecuteNonQuery();
-            objbulk.BatchSize = 100000;
-            objbulk.BulkCopyTimeout = 0;
-            objbulk.WriteToServer(dt);
-            con.Close();
-        }
         public void InsertdataiMeet(string filepath, string filename)
         {
             string fullpath = Server.MapPath("/excelfolder/") + filename;
@@ -166,33 +98,21 @@ namespace CWTDashboardAPI.Controllers
             SqlBulkCopy objbulk = new SqlBulkCopy(con);
             objbulk.BatchSize = 5000;
             objbulk.DestinationTableName = "CRMData";
-            objbulk.ColumnMappings.Add("Revenue Id", "Revenue Id");
             objbulk.ColumnMappings.Add("Account Name", "Account Name");
             objbulk.ColumnMappings.Add("Account Owner", "Account Owner");
             objbulk.ColumnMappings.Add("Customer Row ID", "Customer Row ID");
-            //objbulk.ColumnMappings.Add("BT Account Record Type", "BT Account Record Type");
-            //objbulk.ColumnMappings.Add("Company Alias", "Company Alias");
-            objbulk.ColumnMappings.Add("Client Segment", "Client Segment");
-            //objbulk.ColumnMappings.Add("Client Management Group", "Client Management Group");
-            //objbulk.ColumnMappings.Add("Account Management Group", "Account Management Group");
             objbulk.ColumnMappings.Add("Opportunity ID", "Opportunity ID");
             objbulk.ColumnMappings.Add("Description", "Description");
-            //objbulk.ColumnMappings.Add("Industry", "Industry");
             objbulk.ColumnMappings.Add("BT Current Service Configuration", "BT Current Service Configuration");
-            objbulk.ColumnMappings.Add("BT Current GDS", "BT Current GDS");
-            objbulk.ColumnMappings.Add("BT Current Online Booking Tool", "BT Current Online Booking Tool");
-            objbulk.ColumnMappings.Add("BT Incumbent", "BT Incumbent");
             objbulk.ColumnMappings.Add("Opportunity Name", "Opportunity Name");
-            //objbulk.ColumnMappings.Add("Line of Business", "Line of Business");
             objbulk.ColumnMappings.Add("Opportunity Owner", "Opportunity Owner");
             objbulk.ColumnMappings.Add("Close Date", "Close Date");
             objbulk.ColumnMappings.Add("Sales Stage Name", "Sales Stage Name");
             objbulk.ColumnMappings.Add("Line Win Probability", "Line Win Probability");
+            objbulk.ColumnMappings.Add("Last Update Date", "Last Update Date");
             objbulk.ColumnMappings.Add("Opportunity Type", "Opportunity Type");
-            objbulk.ColumnMappings.Add("Opportunity Region", "Opportunity Region");
             objbulk.ColumnMappings.Add("Next Step", "Next Step");
-            objbulk.ColumnMappings.Add("Country Scope", "Country Scope");
-            objbulk.ColumnMappings.Add("Opportunity Scope", "Opportunity Scope");
+            //objbulk.ColumnMappings.Add("Opportunity Scope", "Opportunity Scope");
             objbulk.ColumnMappings.Add("Opportunity Total Transactions", "Opportunity Total Transactions");
             objbulk.ColumnMappings.Add("Opportunity Total Volume USD", "Opportunity Total Volume USD");
             objbulk.ColumnMappings.Add("Awarded Date", "Awarded Date");
@@ -200,29 +120,25 @@ namespace CWTDashboardAPI.Controllers
             objbulk.ColumnMappings.Add("Country", "Country");
             objbulk.ColumnMappings.Add("Ownership (Revenue)", "Ownership (Revenue)");
             objbulk.ColumnMappings.Add("Region (Revenue)", "Region (Revenue)");
-            //objbulk.ColumnMappings.Add("Revenue Air Volume USD", "Revenue Air Volume USD");
-            //objbulk.ColumnMappings.Add("Revenue Car Volume USD", "Revenue Car Volume USD");
-            //objbulk.ColumnMappings.Add("Revenue Rail Volume USD", "Revenue Rail Volume USD");
             objbulk.ColumnMappings.Add("Revenue Total Transactions", "Revenue Total Transactions");
-            //objbulk.ColumnMappings.Add("Transactions: Air", "Transactions: Air");
-            //objbulk.ColumnMappings.Add("Transactions: Car", "Transactions: Car");
-            //objbulk.ColumnMappings.Add("Transactions: Hotel", "Transactions: Hotel");
-            //objbulk.ColumnMappings.Add("Transactions: Rail", "Transactions: Rail");
             objbulk.ColumnMappings.Add("Revenue Total Volume USD", "Revenue Total Volume USD");
-            //objbulk.ColumnMappings.Add("Revenue Hotel Volume USD", "Revenue Hotel Volume USD");
-            objbulk.ColumnMappings.Add("Total Awarded Volume USD", "Total Awarded Volume USD");
+            //objbulk.ColumnMappings.Add("Client Segment", "Client Segment");
+            //objbulk.ColumnMappings.Add("BT Current GDS", "BT Current GDS");
+            //objbulk.ColumnMappings.Add("BT Current Online Booking Tool", "BT Current Online Booking Tool");
+            //objbulk.ColumnMappings.Add("BT Incumbent", "BT Incumbent");
+            //objbulk.ColumnMappings.Add("Opportunity Region", "Opportunity Region");
+            //objbulk.ColumnMappings.Add("Country Scope", "Country Scope");
+            //objbulk.ColumnMappings.Add("Total Awarded Volume USD", "Total Awarded Volume USD");
             objbulk.ColumnMappings.Add("Total Up-Sell Volume USD", "Total Up-Sell Volume USD");
             objbulk.ColumnMappings.Add("GDS", "GDS");
-            //objbulk.ColumnMappings.Add("Estimated Country Go Live Date", "Estimated Country Go Live Date");
             objbulk.ColumnMappings.Add("OBT", "OBT");
-            //objbulk.ColumnMappings.Add("Estimated Implementation Start Date", "Estimated Implementation Start Date");
-            //objbulk.ColumnMappings.Add("BT Incumbent Agency", "BT Incumbent Agency");
             objbulk.ColumnMappings.Add("Revenue Opportunity Type", "Revenue Opportunity Type");
             objbulk.ColumnMappings.Add("Revenue Status", "Revenue Status");
-            objbulk.ColumnMappings.Add("Last Update Date", "Last Update Date");
+            objbulk.ColumnMappings.Add("Revenue Id", "Revenue Id");
             objbulk.ColumnMappings.Add("Created Date", "Created Date");
             objbulk.ColumnMappings.Add("IsImplementationTeamsupport", "IsImplementationTeamsupport");
             con.Open();
+
             string s = "Truncate Table CRMData";
             SqlCommand Com = new SqlCommand(s, con);
             Com.ExecuteNonQuery();
@@ -234,10 +150,9 @@ namespace CWTDashboardAPI.Controllers
             {
                 ViewBag.Error3(ex.Message);
             }
-            //objbulk.NotifyAfter = 20000;
-            //objbulk.SqlRowsCopied += (sender, e) => Console.WriteLine("RowsCopied: " + e.RowsCopied);
-            //objbulk.BulkCopyTimeout = 100;
-            
+            objbulk.NotifyAfter = 20000;
+            objbulk.SqlRowsCopied += (sender, e) => Console.WriteLine("RowsCopied: " + e.RowsCopied);
+            objbulk.BulkCopyTimeout = 100;
             con.Close();
         }
         public void InsertRolesdata(string filepath, string filename)
@@ -280,6 +195,8 @@ namespace CWTDashboardAPI.Controllers
             objbulk.ColumnMappings.Add("LATAM_DQS", "LATAM_DQS");
             objbulk.ColumnMappings.Add("NORAM_DQS", "NORAM_DQS");
             objbulk.ColumnMappings.Add("DQS_Operations", "DQS_Operations");
+            objbulk.ColumnMappings.Add("LocalImplementationLeadCanada", "LocalImplementationLeadCanada");
+            objbulk.ColumnMappings.Add("LocalImplementationLeadUS", "LocalImplementationLeadUS");
             con.Open();
             string s = "Truncate Table Roles";
             SqlCommand Com = new SqlCommand(s, con);
@@ -445,7 +362,8 @@ namespace CWTDashboardAPI.Controllers
             objbulk.ColumnMappings.Add("Task Due Date", "Task Due Date");
             objbulk.ColumnMappings.Add("Workspace: Project Level", "Workspace: Project Level"); 
             objbulk.ColumnMappings.Add("RevenurID", "RevenurID");
-            //objbulk.ColumnMappings.Add("Last Comment", "Last Comment");
+            objbulk.ColumnMappings.Add("TaskType", "TaskType");
+            objbulk.ColumnMappings.Add("TaskRecordIdKey", "TaskRecordIdKey");
             con.Open();
             string s = "Truncate Table CTO";
             SqlCommand Com = new SqlCommand(s, con);
@@ -474,7 +392,9 @@ namespace CWTDashboardAPI.Controllers
                                a.Task_Due_Date,
                                a.Workspace__Project_Level,
                                //a.Last_Comment,
-                               a.RevenurID
+                               a.RevenurID,
+                               a.TaskType,
+                               a.TaskRecordIdKey
                            }).ToList();
             DataTable tbl2 = new DataTable();
             tbl2.Columns.Add(new DataColumn("Milestone Title-Country:  Est Go Live Date", typeof(string)));
@@ -498,6 +418,8 @@ namespace CWTDashboardAPI.Controllers
             tbl2.Columns.Add(new DataColumn("Task Due Date", typeof(DateTime)));
             tbl2.Columns.Add(new DataColumn("Workspace: Project Level", typeof(string)));
             tbl2.Columns.Add(new DataColumn("RevenurID", typeof(string)));
+            tbl2.Columns.Add(new DataColumn("TaskType", typeof(string)));
+            tbl2.Columns.Add(new DataColumn("TaskRecordIdKey", typeof(string)));
             //tbl2.Columns.Add(new DataColumn("Last Comment", typeof(string)));
 
             foreach (var r in CTOData)
@@ -526,6 +448,8 @@ namespace CWTDashboardAPI.Controllers
                 dr2["Task Due Date"] = (object)r.Task_Due_Date ?? DBNull.Value;
                 dr2["Workspace: Project Level"] = (object)r.Workspace__Project_Level ?? DBNull.Value;
                 dr2["RevenurID"] = (object)r.RevenurID ?? DBNull.Value;
+                dr2["TaskType"] = (object)r.TaskType ?? DBNull.Value;
+                dr2["TaskRecordIdKey"] = (object)r.TaskRecordIdKey ?? DBNull.Value;
                 tbl2.Rows.Add(dr2);
             }
             SqlBulkCopy objbulk2 = new SqlBulkCopy(con);
@@ -551,6 +475,8 @@ namespace CWTDashboardAPI.Controllers
             objbulk2.ColumnMappings.Add("Task Due Date", "Task Due Date");
             objbulk2.ColumnMappings.Add("Workspace: Project Level", "Workspace: Project Level");
             objbulk2.ColumnMappings.Add("RevenurID", "RevenurID");
+            objbulk2.ColumnMappings.Add("TaskType", "TaskType");
+            objbulk2.ColumnMappings.Add("TaskRecordIdKey", "TaskRecordIdKey");
             //objbulk2.ColumnMappings.Add("Last Comment", "Last Comment");
             con.Open();
             string s2 = "Truncate Table CTO";
@@ -1048,64 +974,13 @@ namespace CWTDashboardAPI.Controllers
             objbulk.WriteToServer(dt);
             con.Close();
         }
-        public void ValidDuplicateRevenueVolumeChange()
-        {
-            var CreationDate = "01-01-2020";
-            DateTime ConvertedDate = Convert.ToDateTime(CreationDate);
-            var RevCheck = (from a in entity.CLRDatas
-                            where a.GoLiveDate >= ConvertedDate
-                            where a.RevenueID != 400000000000000
-                            group a by a.RevenueID into g
-                            where g.Count() > 1
-                            select g.Key).ToList();
-            for (int i = 1; i <= RevCheck.Count; i++)
-            {
-                var revid = RevCheck[i-1];
-                var ClientCountry = (from a in entity.CLRDatas
-                                     where a.RevenueID == revid
-                                     select new
-                                     {
-                                         a.RevenueID,
-                                         a.Country,
-                                         a.Client,
-                                         a.GoLiveDate,
-                                         a.RevenueVolumeUSD,
-                                         a.Task__Task_Record_ID_Key
-                                     }).Distinct().ToList();
-                var RevVolume = ClientCountry[0].RevenueVolumeUSD;
-                if (ClientCountry.Count() > 1)
-                {
-                    var CLRIDData = (from a in entity.CLRDatas
-                                     where a.RevenueID == revid
-                                     select a.CLRID).ToList();
-                    for (int j = 1; j <= CLRIDData.Count(); j++)
-                    {
-                        var CLRID = CLRIDData[j-1];
-                        CLRData Vp = (from s in entity.CLRDatas
-                                      where s.CLRID == CLRID
-                                      select s).FirstOrDefault();
-                        if (j == 1)
-                        {
-                            Vp.RevenueVolumeUSD = RevVolume;
-                        }
-                        else
-                        {
-                            Vp.RevenueVolumeUSD = 0;
-                        }
-                        entity.SaveChanges();
-                    }
-                }
-                else
-                {
-                }
-            }
-        }
-        string[] Opportunity_Type,Opportunity_Type3, Opportunity_Type2, Opportunity_Type4, Revenue_Opportunity_Type;
+        string[] Opportunity_Type,Opportunity_Type3, Opportunity_Type2, Opportunity_Type4, Revenue_Opportunity_Type, Final_Revenue_Opportunity_Type;
         string[] SalesStageName, SalesStageNameHP, Rev_opportunity_type, Pipeline_Rev_opportunity_type, Opportunity_Scope, crm_countries;
         string Revenue_Status;
         DateTime ClosingDate, ClosedDateCRM;
         public ActionResult GenerateCLR()
         {
+            this.StoreYesterdayCLRData();
             var CreationDate = "01-01-2020";
             DateTime ConvertedDate = Convert.ToDateTime(CreationDate);
             DateTime TodayDate = DateTime.Today.Date;
@@ -1116,17 +991,12 @@ namespace CWTDashboardAPI.Controllers
             Opportunity_Type3 = "Re-Bid With Up-Sell,Lost Client (w/o notice)".Split(',');
             Opportunity_Type4 = "Renewal/Renegotiation,".Split(',');
             Revenue_Opportunity_Type = "Up-Sell(Add Offices/Countries),Re-Bid With Up-Sell,New Business".Split(',');
+            Final_Revenue_Opportunity_Type = "Up-Sell(Add Offices/Countries),New Business,Re-Bid With Up-Sell".Split(',');
+            entity.Database.CommandTimeout = 999;
             var ProductUpSellData = (from b in entity.PSDs
                                      where b.Region__Revenue_ != null
-                                     //where !(from c in entity.CLRBelowDatas
-                                     //        where c.RevenueID == b.Revenue_Id
-                                     //        select c.RevenueID).Contains(b.Revenue_Id)
-                                     //where Status.Any(val => a.Milestone__Project_Status.Equals(val))
                                      join a in entity.DataiMeets on b.Revenue_Id equals a.Milestone__CRM_Revenue_ID__
                                      where a.Task_Start_Date != null
-                                     //where !(from b in entity.CLRBelowDatas
-                                     //        where b.RevenueID == a.Milestone__CRM_Revenue_ID__
-                                     //        select b.RevenueID).Contains(a.Milestone__CRM_Revenue_ID__)
                                      where Status.Any(val => a.Milestone__Project_Status.Equals(val))
                                      select new
                                      {
@@ -1151,7 +1021,7 @@ namespace CWTDashboardAPI.Controllers
                                          //IntitialGoliveDate = a.Milestone__Initial_Go_Live_Date,
                                          CompletedDate = a.Completed_Date,
                                          TaskCompletedDate = entity.HostExternals.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title && x.Milestone__Country == a.Milestone__Country).Task_Completed_Date,
-                                         ProjectOwner = a.Workspace__Project_Owner__Full_Name ?? "",
+                                         //ProjectOwner = a.Workspace__Project_Owner__Full_Name ?? "",
                                          AssigneeFullName = entity.AssignePersons.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == a.Milestone__CRM_Revenue_ID__).Milestone__Assignee__Full_Name,
                                          C__Complete = a.C__Complete ?? 0,
                                          Milestone_Due_Date = a.Milestone_Due_Date,
@@ -1178,21 +1048,24 @@ namespace CWTDashboardAPI.Controllers
                                          Opportunity_Category = b.Account_Category ?? "",
                                          Revenue_Total_Transactions = b.Total_Transactions ?? 0,
                                          CountryCode = entity.CountryIsoCodes.FirstOrDefault(x => x.CountryName == b.Country).CountryCode,
-                                         RevenueVolumeUSD = (Opportunity_Type.Any(val => b.Opportunity_Type.Equals(val)) ? b.Total_Revenue_USD
-                                                        : Opportunity_Type2.Any(val => b.Opportunity_Type.Equals(val)) ? 0
-                                                            : Opportunity_Type.Any(val => b.Opportunity_Type.Equals(val)) ? b.Total_Revenue_USD
-                                                                : b.Opportunity_Type == "Re-Bid With Up-Sell" ? b.Total_Revenue_USD
-                                                                    : Opportunity_Type4.Any(val => b.Opportunity_Type.Equals(val)) ? 0
-                                                                    : 0) ?? 0,
-                                         MarketLeader = b.Account_Category == "GPS" ? "Cathy Voss"
-                                                    : b.Account_Category == null ? "No data from CRM"
-                                                    : b.Region__Revenue_ == "APAC" ? "Bindu Bhatia"
-                                                    : b.Region__Revenue_ == "EMEA" ? "Chris Bowen"
-                                                    : b.Region__Revenue_ == "NORAM" ? "Barbara Bernard"
-                                                    : b.Region__Revenue_ == "LATAM" ? "Barbara Bernard"
-                                                    : "No data from CRM",
+                                         //RevenueVolumeUSD = (Opportunity_Type.Any(val => b.Opportunity_Type.Equals(val)) ? b.Total_Revenue_USD
+                                         //               : Opportunity_Type2.Any(val => b.Opportunity_Type.Equals(val)) ? 0
+                                         //                   : Opportunity_Type.Any(val => b.Opportunity_Type.Equals(val)) ? b.Total_Revenue_USD
+                                         //                       : b.Opportunity_Type == "Re-Bid With Up-Sell" ? b.Total_Revenue_USD
+                                         //                           : Opportunity_Type4.Any(val => b.Opportunity_Type.Equals(val)) ? 0
+                                         //                           : 0) ?? 0,
+
+                                         RevenueVolumeUSD = (Final_Revenue_Opportunity_Type.Any(val => b.Opportunity_Type.Equals(val)) ? b.Total_Revenue_USD : (double)0) ?? (double)0,
+                                         //RevenueVolumeUSD = b.Total_Revenue_USD ?? 0,
+                                         //MarketLeader = b.Account_Category == "GPS" ? "Cathy Voss"
+                                         //           : b.Account_Category == null ? "No data from CRM"
+                                         //           : b.Region__Revenue_ == "APAC" ? "Bindu Bhatia"
+                                         //           : b.Region__Revenue_ == "EMEA" ? "Chris Bowen"
+                                         //           : b.Region__Revenue_ == "NORAM" ? "Barbara Bernard"
+                                         //           : b.Region__Revenue_ == "LATAM" ? "Barbara Bernard"
+                                         //           : "No data from CRM",
                                          GlobalProjectManager = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Global_Project_Manager,
-                                         ProjectConsultant = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Regional_Ops_Manager,
+                                         //ProjectConsultant = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Regional_Ops_Manager,
                                          RegionalProjectManager = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).APAC_Implementation_Lead,
                                          GlobalCISDQSLead = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Global_CIS_DQS_Lead,
                                          GlobalCISOBTLead = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Global_CIS_OBT_Lead,
@@ -1212,100 +1085,7 @@ namespace CWTDashboardAPI.Controllers
                                          Implementation_Fee = b.Implementation_Fee ?? 0,
                                          TypeofData = "ProductUpSell"
                                      });
-            var PSDPipelineData = (from a in entity.PSDs
-                                where a.Region__Revenue_ != null
-                                where !(from b in entity.DataiMeets
-                                        where b.Milestone__CRM_Revenue_ID__ == a.Revenue_Id
-                                        select b.Milestone__CRM_Revenue_ID__).Contains(a.Revenue_Id)
-                                where !(from b in entity.CLRBelowDatas
-                                        where b.RevenueID == a.Revenue_Id
-                                        select b.RevenueID).Contains(a.Revenue_Id)
-                                where a.Sales_Stage_Name == "Sold"
-                                select new
-                                {
-                                    RevenueID = a.Revenue_Id,
-                                    a.Revenue_Id,
-                                    Client = a.Account_Name,
-                                    Region = a.Region__Revenue_ ?? "",
-                                    Country = a.Country ?? "",
-                                    OwnerShip = a.Ownership__Revenue_ ?? "",
-                                    GoLiveDate = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).GoLiveDate,
-                                    TaskStartDate = entity.HostExternals.FirstOrDefault(x => x.Workspace_Title == "---" && x.Milestone__Country == "---").Task_Start_Date,
-                                    //TaskDueDate = a.Close_Date,
-                                    //Year = a.Task_Start_Date.Value.Month.ToString("yyyy"),
-                                    ProjectStatus = "PSD-Pipeline",
-                                    ProjectStartCTCompleteDate = entity.ProjectDueDates.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == 0).Task_Completed_Date,
-                                    ProjectStartCTDueDate = entity.ProjectDueDates.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == 0).Task_Due_Date,
-                                    ProjectStartTaskStatus = "",
-                                    CountryStatus = "" ?? "",
-                                    TaskStatus = "",
-                                    ProjectLevel = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).ProjectLevel ?? "",
-                                    //ProjectStartDate = a.Milestone__Project_Start_Date,
-                                    //IntitialGoliveDate = a.Milestone__Initial_Go_Live_Date,
-                                    CompletedDate = a.Close_Date,
-                                    TaskCompletedDate = entity.HostExternals.FirstOrDefault(x => x.Workspace_Title == "---" && x.Milestone__Country == "---").Task_Completed_Date,
-                                    ProjectOwner = "" ?? "",
-                                    AssigneeFullName = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).AssigneeFullName,
-                                    C__Complete = a.Line_Win_Probability ?? 0,
-                                    Milestone_Due_Date = a.Close_Date,
-                                    Line_Win_Probability = a.Line_Win_Probability ?? 0,
-                                    Next_Step = "",
-                                    MilestoneTitle = "" ?? "",
-                                    Milestone__Record_ID_Key = "" ?? "",
-                                    Task__Task_Record_ID_Key = "" ?? "",
-                                    Group_Name = "" ?? "",
-                                    Milestone__Project_Notes = "" ?? "",
-                                    Milestone__Reason_Code = "" ?? "",
-                                    Milestone__Closed_Loop_Owner = "" ?? "",
-                                    Workspace_Title = "" ?? "",
-                                    Workspace__ELT_Overall_Status = "" ?? "",
-                                    Workspace__ELT_Overall_Comments = "" ?? "",
-                                    Customer_Row_ID = a.Customer_Row_ID ?? 0,
-                                    Opportunity_ID = a.Opportunity_ID ?? 0,
-                                    Account_Name = a.Account_Name ?? "",
-                                    Sales_Stage_Name = a.Sales_Stage_Name ?? "",
-                                    Opportunity_Type = a.Opportunity_Type ?? "",
-                                    Revenue_Opportunity_Type = a.Opportunity_Type ?? "",
-                                    Revenue_Status = a.Revenue_Status ?? "",
-                                    Opportunity_Owner = a.Opportunity_Owner ?? "",
-                                    Opportunity_Category = a.Account_Category ?? "",
-                                    Revenue_Total_Transactions = a.Total_Transactions ?? 0,
-                                    CountryCode = entity.CountryIsoCodes.FirstOrDefault(x => x.CountryName == a.Country).CountryCode,
-                                    //RevenueVolumeUSD = b.Opportunity_Type == "New Business" ? b.Revenue_Total_Volume_USD : b.Opportunity_Type == "Up-Sell(Add Offices/Countries)" ? b.Revenue_Total_Volume_USD : b.Opportunity_Type == "Re-Bid" ? 0 : b.Opportunity_Type == "Renewal/Renegotiation" ? 0 : b.Opportunity_Type == null ? 0 : b.Revenue_Opportunity_Type == "" ? 0 : 0,
-                                    RevenueVolumeUSD = (Opportunity_Type.Any(val => a.Opportunity_Type.Equals(val)) ? a.Total_Revenue_USD
-                                                        : Opportunity_Type2.Any(val => a.Opportunity_Type.Equals(val)) ? 0
-                                                            : Opportunity_Type.Any(val => a.Opportunity_Type.Equals(val)) ? a.Total_Revenue_USD
-                                                                : a.Opportunity_Type == "Re-Bid With Up-Sell" ? a.Total_Revenue_USD
-                                                                    : Opportunity_Type4.Any(val => a.Opportunity_Type.Equals(val)) ? 0
-                                                                    : 0) ?? 0,
-                                    MarketLeader = a.Account_Category == "GPS" ? "Cathy Voss"
-                                                    : a.Account_Category == null ? "No data from CRM"
-                                                    : a.Region__Revenue_ == "APAC" ? "Bindu Bhatia"
-                                                    : a.Region__Revenue_ == "EMEA" ? "Chris Bowen"
-                                                    : a.Region__Revenue_ == "NORAM" ? "Barbara Bernard"
-                                                    : a.Region__Revenue_ == "LATAM" ? "Barbara Bernard"
-                                                    : "No data from CRM",
-                                    GlobalProjectManager = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).GlobalProjectManager,
-                                    ProjectConsultant = entity.Roles.FirstOrDefault(x => x.Workspace_Title == "----").Regional_Ops_Manager,
-                                    RegionalProjectManager = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).RegionalProjectManager,
-                                    GlobalCISDQSLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).GlobalCISDQSLead,
-                                    GlobalCISOBTLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).GlobalCISOBTLead,
-                                    RegionalCISOBTLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).RegionalCISOBTLead,
-                                    GlobalCISHRFeedSpecialist = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).GlobalCISHRFeedSpecialist,
-                                    GlobalCISPortraitLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).GlobalCISPortraitLead,
-                                    RegionalCISPortraitLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).RegionalCISPortraitLead,
-                                    LocalCISOBTLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).LocalDigitalOBTLead,
-                                    ImplementationType = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).Implementation_Type ?? "---",
-                                    Status = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).Status,
-                                    LastUpdatedDate = a.Last_Update_Date,
-                                    Description = a.Description,
-                                    GDS = a.BT_Current_GDS,
-                                    Awarded_Date = a.Close_Date,
-                                    Close_Date = a.Close_Date,
-                                    MilestoneType = "",
-                                    Implementation_Fee = a.Implementation_Fee ?? 0,
-                                    TypeofData = "Pipeline"
-                                }).ToList();
+            DateTime cutoff = DateTime.ParseExact("01-Sep-2025", "dd-MMM-yyyy", null);
             var GenerateCLR = (from a in entity.DataiMeets
                                where a.Task_Start_Date >= ConvertedDate
                                where a.Task_Start_Date != null
@@ -1339,9 +1119,9 @@ namespace CWTDashboardAPI.Controllers
                                    //IntitialGoliveDate = a.Milestone__Initial_Go_Live_Date,
                                    CompletedDate = a.Completed_Date,
                                    TaskCompletedDate = entity.HostExternals.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title && x.Milestone__Country == a.Milestone__Country).Task_Completed_Date,
-                                   ProjectOwner = a.Workspace__Project_Owner__Full_Name ?? "",
+                                   //ProjectOwner = a.Workspace__Project_Owner__Full_Name ?? "",
                                    AssigneeFullName = entity.AssignePersons.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == a.Milestone__CRM_Revenue_ID__ && x.Milestone_Title == a.Milestone_Title).Milestone__Assignee__Full_Name,
-                                   C__Complete  = a.C__Complete ?? 0,
+                                   C__Complete = a.C__Complete ?? 0,
                                    a.Milestone_Due_Date,
                                    Line_Win_Probability = b.Line_Win_Probability ?? 0,
                                    b.Next_Step,
@@ -1357,13 +1137,13 @@ namespace CWTDashboardAPI.Controllers
                                    Workspace__ELT_Overall_Comments = a.Workspace__ELT_Overall_Comments ?? "",
                                    Customer_Row_ID = b.Customer_Row_ID ?? 0,
                                    Opportunity_ID = b.Opportunity_ID ?? 0,
-                                   Account_Name = b.Account_Name ?? "",
-                                   Sales_Stage_Name = b.Sales_Stage_Name ?? "",
-                                   Opportunity_Type = b.Opportunity_Type ?? "",
-                                   Revenue_Opportunity_Type = b.Revenue_Opportunity_Type ?? "",
-                                   Revenue_Status = b.Revenue_Status ?? "",
-                                   Opportunity_Owner = b.Opportunity_Owner ?? "",
-                                   Opportunity_Category = b.Opportunity_Category ?? "",
+                                   Account_Name = b.Account_Name ?? "---",
+                                   Sales_Stage_Name = b.Sales_Stage_Name ?? "---",
+                                   Opportunity_Type = b.Opportunity_Type ?? "---",
+                                   Revenue_Opportunity_Type = b.Revenue_Opportunity_Type ?? "---",
+                                   Revenue_Status = b.Revenue_Status ?? "---",
+                                   Opportunity_Owner = b.Opportunity_Owner ?? "---",
+                                   Opportunity_Category = b.Opportunity_Category ?? "---",
                                    Revenue_Total_Transactions = b.Revenue_Total_Transactions ?? 0,
                                    CountryCode = entity.CountryIsoCodes.FirstOrDefault(x => x.CountryName == b.Country).CountryCode,
                                    //RevenueVolumeUSD = b.Opportunity_Type == "New Business" ? b.Revenue_Total_Volume_USD : b.Opportunity_Type == "Up-Sell(Add Offices/Countries)" ? b.Revenue_Total_Volume_USD : b.Opportunity_Type == "Re-Bid" ? 0 : b.Opportunity_Type == "Renewal/Renegotiation" ? 0 : b.Opportunity_Type == null ? 0 : b.Revenue_Opportunity_Type == "" ? 0 : 0,
@@ -1372,21 +1152,28 @@ namespace CWTDashboardAPI.Controllers
                                    //                         ? Revenue_Opportunity_Type.Any(val => b.Revenue_Opportunity_Type.Equals(val)) ? b.Revenue_Total_Volume_USD
                                    //                         : 0
                                    //                     : 0,
-                                   RevenueVolumeUSD = (Opportunity_Type.Any(val => b.Opportunity_Type.Equals(val)) ? b.Revenue_Total_Volume_USD
-                                                        : Opportunity_Type2.Any(val => b.Opportunity_Type.Equals(val)) ? 0
-                                                            : Opportunity_Type.Any(val => b.Revenue_Opportunity_Type.Equals(val)) ? b.Revenue_Total_Volume_USD
-                                                                : b.Revenue_Opportunity_Type == "Re-Bid With Up-Sell" ? b.Total_Up_Sell_Volume_USD
-                                                                    : Opportunity_Type4.Any(val => b.Revenue_Opportunity_Type.Equals(val)) ? 0
-                                                                    : 0) ?? 0,
-                                   MarketLeader = b.Opportunity_Category == "GPS" ? "Cathy Voss"
-                                                    : b.Opportunity_Category == null ? "No data from CRM"
-                                                    : b.Region__Revenue_ == "APAC" ? "Bindu Bhatia"
-                                                    : b.Region__Revenue_ == "EMEA" ? "Chris Bowen"
-                                                    : b.Region__Revenue_ == "NORAM" ? "Barbara Bernard"
-                                                    : b.Region__Revenue_ == "LATAM" ? "Barbara Bernard"
-                                                    : "No data from CRM",
+                                   //Opportunity_Type = "Up-Sell(Add Offices/Countries),New Business,Up-Sell(Add Offices/Countries)".Split(',');
+                                   // Opportunity_Type2 = "Re-Bid,Renewal/Renegotiation,".Split(',');
+                                   // Opportunity_Type3 = "Re-Bid With Up-Sell,Lost Client (w/o notice)".Split(',');
+                                   // Opportunity_Type4 = "Renewal/Renegotiation,".Split(',');
+                                   // Revenue_Opportunity_Type = "Up-Sell(Add Offices/Countries),Re-Bid With Up-Sell,New Business".Split(',');
+                                   //RevenueVolumeUSD = (Opportunity_Type.Any(val => b.Opportunity_Type.Equals(val)) ? b.Revenue_Total_Volume_USD
+                                   //                    : Opportunity_Type2.Any(val => b.Opportunity_Type.Equals(val)) ? 0
+                                   //                        : Opportunity_Type.Any(val => b.Revenue_Opportunity_Type.Equals(val)) ? b.Revenue_Total_Volume_USD
+                                   //                            : b.Revenue_Opportunity_Type == "Re-Bid With Up-Sell" ? b.Total_Up_Sell_Volume_USD
+                                   //                                : Opportunity_Type4.Any(val => b.Revenue_Opportunity_Type.Equals(val)) ? 0
+                                   //                                : 0) ?? 0,
+                                   RevenueVolumeUSD = (b.Revenue_Opportunity_Type == "Re-Bid With Up-Sell") ? b.Total_Up_Sell_Volume_USD ?? (double)0 : (Final_Revenue_Opportunity_Type.Any(val => b.Revenue_Opportunity_Type.Equals(val)) ? b.Revenue_Total_Volume_USD : (double)0) ?? (double)0,
+                                   //RevenueVolumeUSD = b.Revenue_Total_Volume_USD ?? 0,
+                                   //MarketLeader = b.Opportunity_Category == "GPS" ? "Cathy Voss"
+                                   //                 : b.Opportunity_Category == null ? "No data from CRM"
+                                   //                 : b.Region__Revenue_ == "APAC" ? "Bindu Bhatia"
+                                   //                 : b.Region__Revenue_ == "EMEA" ? "Chris Bowen"
+                                   //                 : b.Region__Revenue_ == "NORAM" ? "Barbara Bernard"
+                                   //                 : b.Region__Revenue_ == "LATAM" ? "Barbara Bernard"
+                                   //                 : "No data from CRM",
                                    GlobalProjectManager = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Global_Project_Manager,
-                                   ProjectConsultant = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Regional_Ops_Manager,
+                                   //ProjectConsultant = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Regional_Ops_Manager,
                                    RegionalProjectManager = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).APAC_Implementation_Lead,
                                    GlobalCISDQSLead = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Global_CIS_DQS_Lead,
                                    GlobalCISOBTLead = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Global_CIS_OBT_Lead,
@@ -1394,7 +1181,7 @@ namespace CWTDashboardAPI.Controllers
                                    GlobalCISHRFeedSpecialist = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Global_CIS_HR_Feed_Specialist,
                                    GlobalCISPortraitLead = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Global_CIS_Portrait_Lead,
                                    RegionalCISPortraitLead = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).APAC_Digital_Portrait_Lead,
-                                   LocalCISOBTLead = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Local_IN_CIS_Lead,
+                                   LocalCISOBTLead = b.Region__Revenue_ == "APAC" && b.Country == "INDIA" ? entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Local_IN_CIS_Lead : "",
                                    ImplementationType = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Milestone__CRM_Revenue_ID__).Implementation_Type ?? "---",
                                    Status = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Milestone__CRM_Revenue_ID__).Status,
                                    LastUpdatedDate = b.Last_Update_Date,
@@ -1407,7 +1194,7 @@ namespace CWTDashboardAPI.Controllers
                                    TypeofData = "Automated"
                                }).OrderBy(x => x.RevenueID).ToList();
             SalesStageName = "Contract Signed,Verbal Award".Split(',');
-            SalesStageNameHP = "RFP Received,Proposal Submitted,Needs are Identified,Negotiations,RFI Received,RFI Submitted".Split(',');
+            SalesStageNameHP = "RFP Received,Proposal Submitted,Needs are Identified,Negotiations,RFI Received,RFI Submitted,Shortlisted,Presentation Stage".Split(',');
             Rev_opportunity_type = "New Business,Up-Sell(Add Offices/Countries),Re-Bid With Up-Sell".Split(',');
             //Re - Bid,
             Pipeline_Rev_opportunity_type = "Bid Avoidance,Re-Bid,New Business,Up-Sell(Add Offices/Countries),Re-Bid With Up-Sell,Service Model Change".Split(',');
@@ -1417,9 +1204,9 @@ namespace CWTDashboardAPI.Controllers
             var ClosedDate = "01-01-2019";
             ClosedDateCRM = Convert.ToDateTime(ClosedDate);
             var PipelineDate = Convert.ToDateTime("01-01-2050");
-            //var RevIDs = (from a in entity.DataiMeets where a.Milestone__CRM_Revenue_ID__ != null select a.Milestone__CRM_Revenue_ID__).ToList();
-            //var RevCheck = (from a in entity.CRMDatas
-            //                where !(from b in entity.DataiMeets
+            //var RevIDs = (from a in DataiMeets where a.Milestone__CRM_Revenue_ID__ != null select a.Milestone__CRM_Revenue_ID__).ToList();
+            //var RevCheck = (from a in CRMDatas
+            //                where !(from b in DataiMeets
             //                        where b.Milestone__CRM_Revenue_ID__ == a.Revenue_Id
             //                        select b.Milestone__CRM_Revenue_ID__).Contains(a.Revenue_Id)
             //                select a).Distinct();
@@ -1437,7 +1224,7 @@ namespace CWTDashboardAPI.Controllers
                                 where a.Region__Revenue_ != null
                                 //where a.Opportunity_Scope != "Local"
                                 //where Status.Any(val => a.Milestone__Project_Status.Equals(val))
-                                //join b in entity.DataiMeets on a.Revenue_Id equals b.Milestone__CRM_Revenue_ID__
+                                //join b in DataiMeets on a.Revenue_Id equals b.Milestone__CRM_Revenue_ID__
                                 select new
                                 {
                                     RevenueID = a.Revenue_Id,
@@ -1456,54 +1243,56 @@ namespace CWTDashboardAPI.Controllers
                                     ProjectStartTaskStatus = "",
                                     CountryStatus = "" ?? "",
                                     TaskStatus = "",
-                                    ProjectLevel = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).ProjectLevel ?? "",
+                                    ProjectLevel = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).ProjectLevel ?? "---",
                                     //ProjectStartDate = a.Milestone__Project_Start_Date,
                                     //IntitialGoliveDate = a.Milestone__Initial_Go_Live_Date,
                                     CompletedDate = a.Close_Date,
                                     TaskCompletedDate = entity.HostExternals.FirstOrDefault(x => x.Workspace_Title == "---" && x.Milestone__Country == "---").Task_Completed_Date,
-                                    ProjectOwner = "" ?? "",
                                     AssigneeFullName = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).AssigneeFullName,
                                     C__Complete = a.Line_Win_Probability ?? 0,
                                     Milestone_Due_Date = a.Close_Date,
                                     Line_Win_Probability = a.Line_Win_Probability ?? 0,
                                     a.Next_Step,
-                                    MilestoneTitle = "" ?? "",
-                                    Milestone__Record_ID_Key = "" ?? "",
-                                    Task__Task_Record_ID_Key = "" ?? "",
-                                    Group_Name = "" ?? "",
-                                    Milestone__Project_Notes = "" ?? "",
-                                    Milestone__Reason_Code = "" ?? "",
-                                    Milestone__Closed_Loop_Owner = "" ?? "",
-                                    Workspace_Title = "" ?? "",
-                                    Workspace__ELT_Overall_Status = "" ?? "",
-                                    Workspace__ELT_Overall_Comments = "" ?? "",
+                                    MilestoneTitle = "" ?? "---",
+                                    Milestone__Record_ID_Key = "" ?? "---",
+                                    Task__Task_Record_ID_Key = "" ?? "---",
+                                    Group_Name = "" ?? "---",
+                                    Milestone__Project_Notes = "" ?? "---",
+                                    Milestone__Reason_Code = "" ?? "---",
+                                    Milestone__Closed_Loop_Owner = "" ?? "---",
+                                    Workspace_Title = "" ?? "---",
+                                    Workspace__ELT_Overall_Status = "" ?? "---",
+                                    Workspace__ELT_Overall_Comments = "" ?? "---",
                                     Customer_Row_ID = a.Customer_Row_ID ?? 0,
                                     Opportunity_ID = a.Opportunity_ID ?? 0,
-                                    Account_Name = a.Account_Name ?? "",
-                                    Sales_Stage_Name = a.Sales_Stage_Name ?? "",
-                                    Opportunity_Type = a.Opportunity_Type ?? "",
-                                    Revenue_Opportunity_Type = a.Revenue_Opportunity_Type ?? "",
-                                    Revenue_Status = a.Revenue_Status ?? "",
-                                    Opportunity_Owner = a.Opportunity_Owner ?? "",
-                                    Opportunity_Category = a.Opportunity_Category ?? "",
+                                    Account_Name = a.Account_Name ?? "---",
+                                    Sales_Stage_Name = a.Sales_Stage_Name ?? "---",
+                                    Opportunity_Type = a.Opportunity_Type ?? "---",
+                                    Revenue_Opportunity_Type = a.Revenue_Opportunity_Type ?? "---",
+                                    Revenue_Status = a.Revenue_Status ?? "---",
+                                    Opportunity_Owner = a.Opportunity_Owner ?? "---",
+                                    Opportunity_Category = a.Opportunity_Category ?? "---",
                                     Revenue_Total_Transactions = a.Revenue_Total_Transactions ?? 0,
                                     CountryCode = entity.CountryIsoCodes.FirstOrDefault(x => x.CountryName == a.Country).CountryCode,
                                     //RevenueVolumeUSD = b.Opportunity_Type == "New Business" ? b.Revenue_Total_Volume_USD : b.Opportunity_Type == "Up-Sell(Add Offices/Countries)" ? b.Revenue_Total_Volume_USD : b.Opportunity_Type == "Re-Bid" ? 0 : b.Opportunity_Type == "Renewal/Renegotiation" ? 0 : b.Opportunity_Type == null ? 0 : b.Revenue_Opportunity_Type == "" ? 0 : 0,
-                                    RevenueVolumeUSD = (Opportunity_Type.Any(val => a.Opportunity_Type.Equals(val)) ? a.Revenue_Total_Volume_USD
-                                                        : Opportunity_Type2.Any(val => a.Opportunity_Type.Equals(val)) ? 0
-                                                            : Opportunity_Type.Any(val => a.Revenue_Opportunity_Type.Equals(val)) ? a.Revenue_Total_Volume_USD
-                                                                : a.Revenue_Opportunity_Type == "Re-Bid With Up-Sell" ? a.Total_Up_Sell_Volume_USD
-                                                                    : Opportunity_Type4.Any(val => a.Revenue_Opportunity_Type.Equals(val)) ? 0
-                                                                    : 0) ?? 0,
-                                    MarketLeader = a.Opportunity_Category == "GPS" ? "Cathy Voss"
-                                                    : a.Opportunity_Category == null ? "No data from CRM"
-                                                    : a.Region__Revenue_ == "APAC" ? "Bindu Bhatia"
-                                                    : a.Region__Revenue_ == "EMEA" ? "Chris Bowen"
-                                                    : a.Region__Revenue_ == "NORAM" ? "Barbara Bernard"
-                                                    : a.Region__Revenue_ == "LATAM" ? "Barbara Bernard"
-                                                    : "No data from CRM",
+                                    //RevenueVolumeUSD = (Opportunity_Type.Any(val => a.Opportunity_Type.Equals(val)) ? a.Revenue_Total_Volume_USD
+                                    //                    : Opportunity_Type2.Any(val => a.Opportunity_Type.Equals(val)) ? 0
+                                    //                        : Opportunity_Type.Any(val => a.Revenue_Opportunity_Type.Equals(val)) ? a.Revenue_Total_Volume_USD
+                                    //                            : a.Revenue_Opportunity_Type == "Re-Bid With Up-Sell" ? a.Total_Up_Sell_Volume_USD
+                                    //                                : Opportunity_Type4.Any(val => a.Revenue_Opportunity_Type.Equals(val)) ? 0
+                                    //                                : 0) ?? 0,
+
+                                    RevenueVolumeUSD = a.Revenue_Opportunity_Type == "Re-Bid With Up-Sell" ? a.Total_Up_Sell_Volume_USD ?? (double)0 : (Final_Revenue_Opportunity_Type.Any(val => a.Revenue_Opportunity_Type.Equals(val)) ? a.Revenue_Total_Volume_USD : (double)0) ?? (double)0,
+                                    //RevenueVolumeUSD = a.Revenue_Total_Volume_USD ?? 0,
+                                    //MarketLeader = a.Opportunity_Category == "GPS" ? "Cathy Voss"
+                                    //                : a.Opportunity_Category == null ? "No data from CRM"
+                                    //                : a.Region__Revenue_ == "APAC" ? "Bindu Bhatia"
+                                    //                : a.Region__Revenue_ == "EMEA" ? "Chris Bowen"
+                                    //                : a.Region__Revenue_ == "NORAM" ? "Barbara Bernard"
+                                    //                : a.Region__Revenue_ == "LATAM" ? "Barbara Bernard"
+                                    //                : "No data from CRM",
                                     GlobalProjectManager = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).GlobalProjectManager,
-                                    ProjectConsultant = entity.Roles.FirstOrDefault(x => x.Workspace_Title == "----").Regional_Ops_Manager,
+                                    //ProjectConsultant = entity.Roles.FirstOrDefault(x => x.Workspace_Title == "----").Regional_Ops_Manager,
                                     RegionalProjectManager = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).RegionalProjectManager,
                                     GlobalCISDQSLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).GlobalCISDQSLead,
                                     GlobalCISOBTLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).GlobalCISOBTLead,
@@ -1536,8 +1325,6 @@ namespace CWTDashboardAPI.Controllers
                                      where Pipeline_Rev_opportunity_type.Any(val => a.Opportunity_Type.Equals(val))
                                      where a.Revenue_Status != Revenue_Status
                                      where a.Line_Win_Probability >= 60 && a.Line_Win_Probability <= 99
-                                     //where Status.Any(val => a.Milestone__Project_Status.Equals(val))
-                                     //join b in entity.DataiMeets on a.Revenue_Id equals b.Milestone__CRM_Revenue_ID__
                                      select new
                                      {
                                          RevenueID = a.Revenue_Id,
@@ -1559,49 +1346,51 @@ namespace CWTDashboardAPI.Controllers
                                          //IntitialGoliveDate = a.Milestone__Initial_Go_Live_Date,
                                          CompletedDate = a.Close_Date,
                                          TaskCompletedDate = entity.HostExternals.FirstOrDefault(x => x.Workspace_Title == "---" && x.Milestone__Country == "---").Task_Completed_Date,
-                                         ProjectOwner = "" ?? "",
                                          AssigneeFullName = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).AssigneeFullName,
                                          C__Complete = a.Line_Win_Probability ?? 0,
                                          Milestone_Due_Date = a.Close_Date,
                                          Line_Win_Probability = a.Line_Win_Probability ?? 0,
                                          a.Next_Step,
-                                         MilestoneTitle = "" ?? "",
-                                         Milestone__Record_ID_Key = "" ?? "",
-                                         Task__Task_Record_ID_Key = "" ?? "",
-                                         Group_Name = "" ?? "",
-                                         Milestone__Project_Notes = "" ?? "",
-                                         Milestone__Reason_Code = "" ?? "",
-                                         Milestone__Closed_Loop_Owner = "" ?? "",
-                                         Workspace_Title = "" ?? "",
-                                         Workspace__ELT_Overall_Status = "" ?? "",
-                                         Workspace__ELT_Overall_Comments = "" ?? "",
+                                         MilestoneTitle = "" ?? "---",
+                                         Milestone__Record_ID_Key = "" ?? "---",
+                                         Task__Task_Record_ID_Key = "" ?? "---",
+                                         Group_Name = "" ?? "---",
+                                         Milestone__Project_Notes = "" ?? "---",
+                                         Milestone__Reason_Code = "" ?? "---",
+                                         Milestone__Closed_Loop_Owner = "" ?? "---",
+                                         Workspace_Title = "" ?? "---",
+                                         Workspace__ELT_Overall_Status = "" ?? "---",
+                                         Workspace__ELT_Overall_Comments = "" ?? "---",
                                          Customer_Row_ID = a.Customer_Row_ID ?? 0,
                                          Opportunity_ID = a.Opportunity_ID ?? 0,
-                                         Account_Name = a.Account_Name ?? "",
-                                         Sales_Stage_Name = a.Sales_Stage_Name ?? "",
-                                         Opportunity_Type = a.Opportunity_Type ?? "",
-                                         Revenue_Opportunity_Type = a.Revenue_Opportunity_Type ?? "",
-                                         Revenue_Status = a.Revenue_Status ?? "",
-                                         Opportunity_Owner = a.Opportunity_Owner ?? "",
-                                         Opportunity_Category = a.Opportunity_Category ?? "",
+                                         Account_Name = a.Account_Name ?? "---",
+                                         Sales_Stage_Name = a.Sales_Stage_Name ?? "---",
+                                         Opportunity_Type = a.Opportunity_Type ?? "---",
+                                         Revenue_Opportunity_Type = a.Revenue_Opportunity_Type ?? "---",
+                                         Revenue_Status = a.Revenue_Status ?? "---",
+                                         Opportunity_Owner = a.Opportunity_Owner ?? "---",
+                                         Opportunity_Category = a.Opportunity_Category ?? "---",
                                          Revenue_Total_Transactions = a.Revenue_Total_Transactions ?? 0,
                                          CountryCode = entity.CountryIsoCodes.FirstOrDefault(x => x.CountryName == a.Country).CountryCode,
                                          //RevenueVolumeUSD = b.Opportunity_Type == "New Business" ? b.Revenue_Total_Volume_USD : b.Opportunity_Type == "Up-Sell(Add Offices/Countries)" ? b.Revenue_Total_Volume_USD : b.Opportunity_Type == "Re-Bid" ? 0 : b.Opportunity_Type == "Renewal/Renegotiation" ? 0 : b.Opportunity_Type == null ? 0 : b.Revenue_Opportunity_Type == "" ? 0 : 0,
-                                         RevenueVolumeUSD = (Opportunity_Type.Any(val => a.Opportunity_Type.Equals(val)) ? a.Revenue_Total_Volume_USD
-                                                             : Opportunity_Type2.Any(val => a.Opportunity_Type.Equals(val)) ? 0
-                                                                 : Opportunity_Type.Any(val => a.Revenue_Opportunity_Type.Equals(val)) ? a.Revenue_Total_Volume_USD
-                                                                     : a.Revenue_Opportunity_Type == "Re-Bid With Up-Sell" ? a.Total_Up_Sell_Volume_USD
-                                                                         : Opportunity_Type4.Any(val => a.Revenue_Opportunity_Type.Equals(val)) ? 0
-                                                                         : 0) ?? 0,
-                                         MarketLeader = a.Opportunity_Category == "GPS" ? "Cathy Voss"
-                                                         : a.Opportunity_Category == null ? "No data from CRM"
-                                                         : a.Region__Revenue_ == "APAC" ? "Bindu Bhatia"
-                                                         : a.Region__Revenue_ == "EMEA" ? "Chris Bowen"
-                                                         : a.Region__Revenue_ == "NORAM" ? "Barbara Bernard"
-                                                         : a.Region__Revenue_ == "LATAM" ? "Barbara Bernard"
-                                                         : "No data from CRM",
+                                         //RevenueVolumeUSD = (Opportunity_Type.Any(val => a.Opportunity_Type.Equals(val)) ? a.Revenue_Total_Volume_USD
+                                         //                    : Opportunity_Type2.Any(val => a.Opportunity_Type.Equals(val)) ? 0
+                                         //                        : Opportunity_Type.Any(val => a.Revenue_Opportunity_Type.Equals(val)) ? a.Revenue_Total_Volume_USD
+                                         //                            : a.Revenue_Opportunity_Type == "Re-Bid With Up-Sell" ? a.Total_Up_Sell_Volume_USD
+                                         //                                : Opportunity_Type4.Any(val => a.Revenue_Opportunity_Type.Equals(val)) ? 0
+                                         //                                : 0) ?? 0,
+
+                                         RevenueVolumeUSD = a.Revenue_Opportunity_Type == "Re-Bid With Up-Sell" ? a.Total_Up_Sell_Volume_USD ?? (double)0 : (Final_Revenue_Opportunity_Type.Any(val => a.Revenue_Opportunity_Type.Equals(val)) ? a.Revenue_Total_Volume_USD : (double)0) ?? (double)0,
+                                         //RevenueVolumeUSD = a.Revenue_Total_Volume_USD ?? 0,
+                                         //MarketLeader = a.Opportunity_Category == "GPS" ? "Cathy Voss"
+                                         //                : a.Opportunity_Category == null ? "No data from CRM"
+                                         //                : a.Region__Revenue_ == "APAC" ? "Bindu Bhatia"
+                                         //                : a.Region__Revenue_ == "EMEA" ? "Chris Bowen"
+                                         //                : a.Region__Revenue_ == "NORAM" ? "Barbara Bernard"
+                                         //                : a.Region__Revenue_ == "LATAM" ? "Barbara Bernard"
+                                         //                : "No data from CRM",
                                          GlobalProjectManager = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).GlobalProjectManager,
-                                         ProjectConsultant = entity.Roles.FirstOrDefault(x => x.Workspace_Title == "----").Regional_Ops_Manager,
+                                         //ProjectConsultant = entity.Roles.FirstOrDefault(x => x.Workspace_Title == "----").Regional_Ops_Manager,
                                          RegionalProjectManager = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).RegionalProjectManager,
                                          GlobalCISDQSLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).GlobalCISDQSLead,
                                          GlobalCISOBTLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).GlobalCISOBTLead,
@@ -1621,103 +1410,103 @@ namespace CWTDashboardAPI.Controllers
                                          Implementation_Fee = (double)0,
                                          TypeofData = "Pipeline"
                                      }).ToList();
-            var EpSalesStageName = "Negotiations,Proposal Submitted".Split(',');
+            var EpSalesStageName = "Negotiations,Proposal Submitted,Shortlisted,Presentation Stage".Split(',');
             //Re - Bid,
-            var EpOpportunityType = "Bid Avoidance,Re-Bid,New Business,Service Model Change,Re-Bid With Up-Sell,Up-Sell(Add Offices/Countries)".Split(',');
-            var EarlyPotential = (from a in entity.CRMDatas
-                                where !(from b in entity.DataiMeets
-                                        where b.Milestone__CRM_Revenue_ID__ == a.Revenue_Id
-                                        select b.Milestone__CRM_Revenue_ID__).Contains(a.Revenue_Id)
-                                where !(from b in entity.CLRBelowDatas
-                                        where b.RevenueID == a.Revenue_Id
-                                        select b.RevenueID).Contains(a.Revenue_Id)
-                                where a.Close_Date >= ClosedDateCRM
-                                where EpSalesStageName.Any(val => a.Sales_Stage_Name.Equals(val))
-                                where EpOpportunityType.Any(val => a.Opportunity_Type.Equals(val))
-                                where a.Line_Win_Probability >= 30
-                                where a.Line_Win_Probability <= 59
-                                where a.Region__Revenue_ != null
-                                where a.Opportunity_Total_Volume_USD > 15000000
-                                select new
-                                {
-                                    RevenueID = a.Revenue_Id,
-                                    a.Revenue_Id,
-                                    Client = a.Account_Name,
-                                    Region = a.Region__Revenue_ ?? "",
-                                    Country = a.Country ?? "",
-                                    OwnerShip = a.Ownership__Revenue_ ?? "",
-                                    GoLiveDate = entity.ManualDatas.FirstOrDefault(x=>x.Revenue_ID == a.Revenue_Id).GoLiveDate,
-                                    TaskStartDate = entity.HostExternals.FirstOrDefault(x => x.Workspace_Title == "---" && x.Milestone__Country == "---").Task_Start_Date,
-                                    //TaskDueDate = a.Close_Date,
-                                    //Year = a.Task_Start_Date.Value.Month.ToString("yyyy"),
-                                    ProjectStatus = "EP-Early Potential",
-                                    ProjectStartCTCompleteDate = entity.ProjectDueDates.FirstOrDefault(x => x.Workspace_Title == "---" && x.Milestone__Country == "---").Task_Completed_Date,
-                                    ProjectStartCTDueDate = entity.ProjectDueDates.FirstOrDefault(x => x.Workspace_Title == "---" && x.Milestone__Country == "---").Task_Due_Date,
-                                    ProjectStartTaskStatus = "",
-                                    CountryStatus = "" ?? "",
-                                    TaskStatus = "",
-                                    ProjectLevel = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).ProjectLevel ?? "",
-                                    //ProjectStartDate = a.Milestone__Project_Start_Date,
-                                    //IntitialGoliveDate = a.Milestone__Initial_Go_Live_Date,
-                                    CompletedDate = a.Close_Date,
-                                    TaskCompletedDate = entity.HostExternals.FirstOrDefault(x => x.Workspace_Title == "---" && x.Milestone__Country == "---").Task_Completed_Date,
-                                    ProjectOwner = "" ?? "",
-                                    AssigneeFullName = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).AssigneeFullName,
-                                    C__Complete = a.Line_Win_Probability ?? 0,
-                                    Milestone_Due_Date = a.Close_Date,
-                                    Line_Win_Probability = a.Line_Win_Probability ?? 0,
-                                    a.Next_Step,
-                                    MilestoneTitle = "" ?? "",
-                                    Milestone__Record_ID_Key = "" ?? "",
-                                    Task__Task_Record_ID_Key = "" ?? "",
-                                    Group_Name = "" ?? "",
-                                    Milestone__Project_Notes = "" ?? "",
-                                    Milestone__Reason_Code = "" ?? "",
-                                    Milestone__Closed_Loop_Owner = "" ?? "",
-                                    Workspace_Title = "" ?? "",
-                                    Workspace__ELT_Overall_Status = "" ?? "",
-                                    Workspace__ELT_Overall_Comments = "" ?? "",
-                                    Customer_Row_ID = a.Customer_Row_ID ?? 0,
-                                    Opportunity_ID = a.Opportunity_ID ?? 0,
-                                    Account_Name = a.Account_Name ?? "",
-                                    Sales_Stage_Name = a.Sales_Stage_Name ?? "",
-                                    Opportunity_Type = a.Opportunity_Type ?? "",
-                                    Revenue_Opportunity_Type = a.Revenue_Opportunity_Type ?? "",
-                                    Revenue_Status = a.Revenue_Status ?? "",
-                                    Opportunity_Owner = a.Opportunity_Owner ?? "",
-                                    Opportunity_Category = a.Opportunity_Category ?? "",
-                                    Revenue_Total_Transactions = a.Revenue_Total_Transactions ?? 0,
-                                    CountryCode = entity.CountryIsoCodes.FirstOrDefault(x => x.CountryName == a.Country).CountryCode,
-                                    //RevenueVolumeUSD = b.Opportunity_Type == "New Business" ? b.Revenue_Total_Volume_USD : b.Opportunity_Type == "Up-Sell(Add Offices/Countries)" ? b.Revenue_Total_Volume_USD : b.Opportunity_Type == "Re-Bid" ? 0 : b.Opportunity_Type == "Renewal/Renegotiation" ? 0 : b.Opportunity_Type == null ? 0 : b.Revenue_Opportunity_Type == "" ? 0 : 0,
-                                    RevenueVolumeUSD = a.Revenue_Total_Volume_USD ?? 0,
-                                    MarketLeader = a.Opportunity_Category == "GPS" ? "Cathy Voss"
-                                                    : a.Opportunity_Category == null ? "No data from CRM"
-                                                    : a.Region__Revenue_ == "APAC" ? "Bindu Bhatia"
-                                                    : a.Region__Revenue_ == "EMEA" ? "Chris Bowen"
-                                                    : a.Region__Revenue_ == "NORAM" ? "Barbara Bernard"
-                                                    : a.Region__Revenue_ == "LATAM" ? "Barbara Bernard"
-                                                    : "No data from CRM",
-                                    GlobalProjectManager = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).GlobalProjectManager,
-                                    ProjectConsultant = entity.Roles.FirstOrDefault(x => x.Workspace_Title == "----").Regional_Ops_Manager,
-                                    RegionalProjectManager = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).RegionalProjectManager,
-                                    GlobalCISDQSLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).GlobalCISDQSLead,
-                                    GlobalCISOBTLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).GlobalCISOBTLead,
-                                    RegionalCISOBTLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).RegionalCISOBTLead,
-                                    GlobalCISHRFeedSpecialist = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).GlobalCISHRFeedSpecialist,
-                                    GlobalCISPortraitLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).GlobalCISPortraitLead,
-                                    RegionalCISPortraitLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).RegionalCISPortraitLead,
-                                    LocalCISOBTLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).LocalDigitalOBTLead,
-                                    ImplementationType = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).Implementation_Type ?? "---",
-                                    Status = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).Status,
-                                    LastUpdatedDate = a.Last_Update_Date,
-                                    Description = a.Description,
-                                    GDS = a.GDS,
-                                    Awarded_Date = a.Awarded_Date,
-                                    Close_Date = a.Close_Date,
-                                    MilestoneType = "",
-                                    Implementation_Fee = (double)0,
-                                    TypeofData = "Pipeline"
-                                }).ToList();
+            var EpOpportunityType = "Bid Avoidance,Re-Bid,New Business,Service Model Change,Re-Bid With Up-Sell,Up-Sell(Add Offices/Countries),".Split(',');
+            //var EarlyPotential = (from a in entity.CRMDatas
+            //                    where !(from b in entity.DataiMeets
+            //                            where b.Milestone__CRM_Revenue_ID__ == a.Revenue_Id
+            //                            select b.Milestone__CRM_Revenue_ID__).Contains(a.Revenue_Id)
+            //                    where !(from b in entity.CLRBelowDatas
+            //                            where b.RevenueID == a.Revenue_Id
+            //                            select b.RevenueID).Contains(a.Revenue_Id)
+            //                    where a.Close_Date >= ClosedDateCRM
+            //                    where EpSalesStageName.Any(val => a.Sales_Stage_Name.Equals(val))
+            //                    where EpOpportunityType.Any(val => a.Opportunity_Type.Equals(val))
+            //                    where a.Line_Win_Probability >= 30
+            //                    where a.Line_Win_Probability <= 59
+            //                    where a.Region__Revenue_ != null
+            //                    where a.Opportunity_Total_Volume_USD > 15000000
+            //                    select new
+            //                    {
+            //                        RevenueID = a.Revenue_Id,
+            //                        a.Revenue_Id,
+            //                        Client = a.Account_Name,
+            //                        Region = a.Region__Revenue_ ?? "",
+            //                        Country = a.Country ?? "",
+            //                        OwnerShip = a.Ownership__Revenue_ ?? "",
+            //                        GoLiveDate = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).GoLiveDate,
+            //                        TaskStartDate = entity.HostExternals.FirstOrDefault(x => x.Workspace_Title == "---" && x.Milestone__Country == "---").Task_Start_Date,
+            //                        //TaskDueDate = a.Close_Date,
+            //                        //Year = a.Task_Start_Date.Value.Month.ToString("yyyy"),
+            //                        ProjectStatus = "EP-Early Potential",
+            //                        ProjectStartCTCompleteDate = entity.ProjectDueDates.FirstOrDefault(x => x.Workspace_Title == "---" && x.Milestone__Country == "---").Task_Completed_Date,
+            //                        ProjectStartCTDueDate = entity.ProjectDueDates.FirstOrDefault(x => x.Workspace_Title == "---" && x.Milestone__Country == "---").Task_Due_Date,
+            //                        ProjectStartTaskStatus = "",
+            //                        CountryStatus = "" ?? "",
+            //                        TaskStatus = "",
+            //                        ProjectLevel = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).ProjectLevel ?? "",
+            //                        //ProjectStartDate = a.Milestone__Project_Start_Date,
+            //                        //IntitialGoliveDate = a.Milestone__Initial_Go_Live_Date,
+            //                        CompletedDate = a.Close_Date,
+            //                        TaskCompletedDate = entity.HostExternals.FirstOrDefault(x => x.Workspace_Title == "---" && x.Milestone__Country == "---").Task_Completed_Date,
+            //                        AssigneeFullName = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).AssigneeFullName,
+            //                        C__Complete = a.Line_Win_Probability ?? 0,
+            //                        Milestone_Due_Date = a.Close_Date,
+            //                        Line_Win_Probability = a.Line_Win_Probability ?? 0,
+            //                        a.Next_Step,
+            //                        MilestoneTitle = "" ?? "---",
+            //                        Milestone__Record_ID_Key = "" ?? "---",
+            //                        Task__Task_Record_ID_Key = "" ?? "---",
+            //                        Group_Name = "" ?? "---",
+            //                        Milestone__Project_Notes = "" ?? "---",
+            //                        Milestone__Reason_Code = "" ?? "---",
+            //                        Milestone__Closed_Loop_Owner = "" ?? "---",
+            //                        Workspace_Title = "" ?? "---",
+            //                        Workspace__ELT_Overall_Status = "" ?? "---",
+            //                        Workspace__ELT_Overall_Comments = "" ?? "---",
+            //                        Customer_Row_ID = a.Customer_Row_ID ?? 0,
+            //                        Opportunity_ID = a.Opportunity_ID ?? 0,
+            //                        Account_Name = a.Account_Name ?? "---",
+            //                        Sales_Stage_Name = a.Sales_Stage_Name ?? "---",
+            //                        Opportunity_Type = a.Opportunity_Type ?? "---",
+            //                        Revenue_Opportunity_Type = a.Revenue_Opportunity_Type ?? "---",
+            //                        Revenue_Status = a.Revenue_Status ?? "---",
+            //                        Opportunity_Owner = a.Opportunity_Owner ?? "---",
+            //                        Opportunity_Category = a.Opportunity_Category ?? "---",
+            //                        Revenue_Total_Transactions = a.Revenue_Total_Transactions ?? 0,
+            //                        CountryCode = entity.CountryIsoCodes.FirstOrDefault(x => x.CountryName == a.Country).CountryCode,
+            //                        //RevenueVolumeUSD = b.Opportunity_Type == "New Business" ? b.Revenue_Total_Volume_USD : b.Opportunity_Type == "Up-Sell(Add Offices/Countries)" ? b.Revenue_Total_Volume_USD : b.Opportunity_Type == "Re-Bid" ? 0 : b.Opportunity_Type == "Renewal/Renegotiation" ? 0 : b.Opportunity_Type == null ? 0 : b.Revenue_Opportunity_Type == "" ? 0 : 0,
+            //                        //RevenueVolumeUSD = a.Revenue_Total_Volume_USD ?? 0,
+            //                        RevenueVolumeUSD = a.Revenue_Opportunity_Type == "Re-Bid With Up-Sell" ? a.Total_Up_Sell_Volume_USD ?? (double)0 : (Final_Revenue_Opportunity_Type.Any(val => a.Revenue_Opportunity_Type.Equals(val)) ? a.Revenue_Total_Volume_USD : (double)0) ?? (double)0,
+            //                        //MarketLeader = a.Opportunity_Category == "GPS" ? "Cathy Voss"
+            //                        //                : a.Opportunity_Category == null ? "No data from CRM"
+            //                        //                : a.Region__Revenue_ == "APAC" ? "Bindu Bhatia"
+            //                        //                : a.Region__Revenue_ == "EMEA" ? "Chris Bowen"
+            //                        //                : a.Region__Revenue_ == "NORAM" ? "Barbara Bernard"
+            //                        //                : a.Region__Revenue_ == "LATAM" ? "Barbara Bernard"
+            //                        //                : "No data from CRM",
+            //                        GlobalProjectManager = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).GlobalProjectManager,
+            //                        //ProjectConsultant = entity.Roles.FirstOrDefault(x => x.Workspace_Title == "----").Regional_Ops_Manager,
+            //                        RegionalProjectManager = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).RegionalProjectManager,
+            //                        GlobalCISDQSLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).GlobalCISDQSLead,
+            //                        GlobalCISOBTLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).GlobalCISOBTLead,
+            //                        RegionalCISOBTLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).RegionalCISOBTLead,
+            //                        GlobalCISHRFeedSpecialist = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).GlobalCISHRFeedSpecialist,
+            //                        GlobalCISPortraitLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).GlobalCISPortraitLead,
+            //                        RegionalCISPortraitLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).RegionalCISPortraitLead,
+            //                        LocalCISOBTLead = entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == a.Revenue_Id).LocalDigitalOBTLead,
+            //                        ImplementationType = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).Implementation_Type ?? "---",
+            //                        Status = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.Revenue_Id).Status,
+            //                        LastUpdatedDate = a.Last_Update_Date,
+            //                        Description = a.Description,
+            //                        GDS = a.GDS,
+            //                        Awarded_Date = a.Awarded_Date,
+            //                        Close_Date = a.Close_Date,
+            //                        MilestoneType = "---",
+            //                        Implementation_Fee = (double)0,
+            //                        TypeofData = "Pipeline"
+            //                    }).ToList();
             crm_countries = "BULGARIA,EGYPT,ESTONIA,GREECE,HUNGARY,INDONESIA,Kazakhstan,Latvia,Morocco,Norway,Panama,Poland,Turkey,Ukraine".Split(',');
             var SixSeriesData = (from a in entity.AdHocProjects
                                  select new
@@ -1730,8 +1519,6 @@ namespace CWTDashboardAPI.Controllers
                                      OwnerShip = "",
                                      GoLiveDate = a.GoLiveDate,
                                      TaskStartDate = a.StartDate,
-                                     //TaskDueDate = a.Close_Date,
-                                     //Year = a.Task_Start_Date.Value.Month.ToString("yyyy"),
                                      ProjectStatus = a.ProjectStatus,
                                      ProjectStartCTCompleteDate = a.StartDate,
                                      ProjectStartCTDueDate = a.GoLiveDate,
@@ -1739,11 +1526,8 @@ namespace CWTDashboardAPI.Controllers
                                      CountryStatus = "" ?? "",
                                      TaskStatus = "",
                                      ProjectLevel = "",
-                                     //ProjectStartDate = a.Milestone__Project_Start_Date,
-                                     //IntitialGoliveDate = a.Milestone__Initial_Go_Live_Date,
                                      CompletedDate = a.GoLiveDate,
                                      TaskCompletedDate = entity.HostExternals.FirstOrDefault(x => x.Workspace_Title == "---" && x.Milestone__Country == "---").Task_Completed_Date,
-                                     ProjectOwner = "" ?? "",
                                      AssigneeFullName = "",
                                      C__Complete = (double)0,
                                      Milestone_Due_Date = a.GoLiveDate,
@@ -1761,21 +1545,21 @@ namespace CWTDashboardAPI.Controllers
                                      Workspace__ELT_Overall_Comments = "" ?? "",
                                      Customer_Row_ID = (double)0,
                                      Opportunity_ID = (double)0,
-                                     Account_Name = "",
-                                     Sales_Stage_Name = "",
-                                     Opportunity_Type = "",
-                                     Revenue_Opportunity_Type = "",
-                                     Revenue_Status = "",
-                                     Opportunity_Owner = "",
-                                     Opportunity_Category = "",
+                                     Account_Name = "---",
+                                     Sales_Stage_Name = "---",
+                                     Opportunity_Type = "---",
+                                     Revenue_Opportunity_Type = "---",
+                                     Revenue_Status = "---",
+                                     Opportunity_Owner = "---",
+                                     Opportunity_Category = "---",
                                      Revenue_Total_Transactions = (double)0,
                                      CountryCode = entity.CountryIsoCodes.FirstOrDefault(x => x.CountryName == a.Country).CountryCode,
                                      //RevenueVolumeUSD = b.Opportunity_Type == "New Business" ? b.Revenue_Total_Volume_USD : b.Opportunity_Type == "Up-Sell(Add Offices/Countries)" ? b.Revenue_Total_Volume_USD : b.Opportunity_Type == "Re-Bid" ? 0 : b.Opportunity_Type == "Renewal/Renegotiation" ? 0 : b.Opportunity_Type == null ? 0 : b.Revenue_Opportunity_Type == "" ? 0 : 0,
                                      RevenueVolumeUSD = (double)0,
-                                     MarketLeader = "",
-                                     GlobalProjectManager = "",
-                                     ProjectConsultant = "",
-                                     RegionalProjectManager = "",
+                                     //MarketLeader = "---",
+                                     GlobalProjectManager = "---",
+                                     //ProjectConsultant = "---",
+                                     RegionalProjectManager = "---",
                                      GlobalCISDQSLead = a.GlobalDQSLead,
                                      GlobalCISOBTLead = a.GlobalCISOBTLead,
                                      RegionalCISOBTLead = a.RegionalCISOBTLead,
@@ -1786,17 +1570,17 @@ namespace CWTDashboardAPI.Controllers
                                      ImplementationType = "---",
                                      Status = a.Status,
                                      LastUpdatedDate = a.GoLiveDate,
-                                     Description = "",
+                                     Description = "---",
                                      GDS = a.GDS,
                                      Awarded_Date = a.GoLiveDate,
                                      Close_Date = a.GoLiveDate,
-                                     MilestoneType = "",
+                                     MilestoneType = "---",
                                      Implementation_Fee = (double)0,
                                      TypeofData = "Ad-Hoc Digital Data"
                                  }).ToList();
             //var OldData = (from a in entity.CLRBelowDatas
             //               where a.RevenueID != null
-            //               //join a in entity.DataiMeets on b.Revenue_Id equals a.Milestone__CRM_Revenue_ID__
+            //               //join a in DataiMeets on b.Revenue_Id equals a.Milestone__CRM_Revenue_ID__
             //               select new
             //               {
             //                   RevenueID = a.RevenueID,
@@ -1820,7 +1604,6 @@ namespace CWTDashboardAPI.Controllers
             //                   //IntitialGoliveDate = a.Milestone__Initial_Go_Live_Date,
             //                   CompletedDate = a.CompletedDate,
             //                   TaskCompletedDate = entity.CLRBelowDatas.FirstOrDefault(x => x.CLRID == a.CLRID).CompletedDate,
-            //                   ProjectOwner = a.ProjectOwner ?? "",
             //                   AssigneeFullName = entity.CLRBelowDatas.FirstOrDefault(x => x.CLRID == a.CLRID).AssigneeFullName,
             //                   C__Complete = a.PerCompleted,
             //                   Milestone_Due_Date = a.MilestoneDueDate,
@@ -1846,7 +1629,7 @@ namespace CWTDashboardAPI.Controllers
             //                   Opportunity_Owner = a.Opportunity_Owner ?? "",
             //                   Opportunity_Category = a.Opportunity_Category ?? "",
             //                   Revenue_Total_Transactions = a.Revenue_Total_Transactions,
-            //                   CountryCode = entity.CountryIsoCodes.FirstOrDefault(x => x.CountryName == a.Country).CountryCode,
+            //                   CountryCode = CountryIsoCodes.FirstOrDefault(x => x.CountryName == a.Country).CountryCode,
             //                   RevenueVolumeUSD = a.RevenueVolumeUSD,
             //                   MarketLeader = a.MarketLeader,
             //                   GlobalProjectManager = entity.CLRBelowDatas.FirstOrDefault(x => x.CLRID == a.CLRID).GlobalProjectManager,
@@ -1857,9 +1640,9 @@ namespace CWTDashboardAPI.Controllers
             //                   GlobalCISHRFeedSpecialist = entity.CLRBelowDatas.FirstOrDefault(x => x.CLRID == a.CLRID).GlobalCISHRFeedSpecialist,
             //                   GlobalCISPortraitLead = entity.CLRBelowDatas.FirstOrDefault(x => x.CLRID == a.CLRID).GlobalCISPortraitLead,
             //                   RegionalCISPortraitLead = entity.CLRBelowDatas.FirstOrDefault(x => x.CLRID == a.CLRID).RegionalCISPortraitLead,
-            //                   LocalCISOBTLead = entity.Roles.FirstOrDefault(x => x.Workspace_Title == "----").Local_IN_CIS_Lead,
-            //                   ImplementationType = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.RevenueID).Implementation_Type,
-            //                   Status = entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.RevenueID).Status,
+            //                   LocalCISOBTLead = Roles.FirstOrDefault(x => x.Workspace_Title == "----").Local_IN_CIS_Lead,
+            //                   ImplementationType = ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.RevenueID).Implementation_Type,
+            //                   Status = ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.RevenueID).Status,
             //                   LastUpdatedDate = a.MilestoneDueDate == TodayDate ? a.MilestoneDueDate : null,
             //                   Description = "",
             //                   GDS = "",
@@ -1875,11 +1658,7 @@ namespace CWTDashboardAPI.Controllers
                                      where a.Task__Task_Record_ID_Key != ""
                                      where a.Task_Start_Date != null
                                      where a.Milestone__Region != "Global"
-                                     //where !(from b in entity.CLRBelowDatas
-                                     //        where b.RevenueID == a.Milestone__CRM_Revenue_ID__
-                                     //        select b.RevenueID).Contains(a.Milestone__CRM_Revenue_ID__)
                                      where Status.Any(val => a.Milestone__Project_Status.Equals(val))
-                                     //join a in entity.DataiMeets on b.Revenue_Id equals a.Milestone__CRM_Revenue_ID__
                                      select new
                                      {
                                          RevenueID = a.Milestone__CRM_Revenue_ID__,
@@ -1903,7 +1682,7 @@ namespace CWTDashboardAPI.Controllers
                                          //IntitialGoliveDate = a.Milestone__Initial_Go_Live_Date,
                                          CompletedDate = a.Completed_Date,
                                          TaskCompletedDate = entity.HostExternals.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title && x.Milestone__Country == a.Milestone__Country).Task_Completed_Date,
-                                         ProjectOwner = a.Workspace__Project_Owner__Full_Name ?? "",
+                                         //ProjectOwner = a.Workspace__Project_Owner__Full_Name ?? "",
                                          AssigneeFullName = entity.AssignePersons.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title && x.Milestone_Title == a.Milestone_Title && x.Milestone__Country == a.Milestone__Country).Milestone__Assignee__Full_Name,
                                          C__Complete = a.C__Complete ?? 0,
                                          Milestone_Due_Date = a.Milestone_Due_Date,
@@ -1921,20 +1700,20 @@ namespace CWTDashboardAPI.Controllers
                                          Workspace__ELT_Overall_Comments = a.Workspace__ELT_Overall_Comments ?? "",
                                          Customer_Row_ID = (double)0,
                                          Opportunity_ID = (double)0,
-                                         Account_Name = "",
-                                         Sales_Stage_Name = "",
-                                         Opportunity_Type = "",
-                                         Revenue_Opportunity_Type = "",
-                                         Revenue_Status = "",
-                                         Opportunity_Owner = "",
-                                         Opportunity_Category ="",
+                                         Account_Name = "---",
+                                         Sales_Stage_Name = "---",
+                                         Opportunity_Type = "---",
+                                         Revenue_Opportunity_Type = "---",
+                                         Revenue_Status = "---",
+                                         Opportunity_Owner = "---",
+                                         Opportunity_Category = "---",
                                          Revenue_Total_Transactions = (double)0,
                                          CountryCode = entity.CountryIsoCodes.FirstOrDefault(x => x.CountryName == a.Milestone__Country).CountryCode,
                                          //RevenueVolumeUSD = b.Opportunity_Type == "New Business" ? b.Revenue_Total_Volume_USD : b.Opportunity_Type == "Up-Sell(Add Offices/Countries)" ? b.Revenue_Total_Volume_USD : b.Opportunity_Type == "Re-Bid" ? 0 : b.Opportunity_Type == "Renewal/Renegotiation" ? 0 : b.Opportunity_Type == null ? 0 : b.Revenue_Opportunity_Type == "" ? 0 : 0,
                                          RevenueVolumeUSD = (double)0,
-                                         MarketLeader = "No data from CRM",
+                                         //MarketLeader = "No data from CRM",
                                          GlobalProjectManager = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Global_Project_Manager,
-                                         ProjectConsultant = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Regional_Ops_Manager,
+                                         //ProjectConsultant = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Regional_Ops_Manager,
                                          RegionalProjectManager = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).APAC_Implementation_Lead,
                                          GlobalCISDQSLead = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Global_CIS_DQS_Lead,
                                          GlobalCISOBTLead = entity.Roles.FirstOrDefault(x => x.Workspace_Title == a.Workspace_Title).Global_CIS_OBT_Lead,
@@ -1954,8 +1733,7 @@ namespace CWTDashboardAPI.Controllers
                                          Implementation_Fee = (double)0,
                                          TypeofData = "FourSerieData"
                                      });
-            var FinalList = PipelineData.Concat(GenerateCLR).Concat(HighPotentialData).Concat(ProductUpSellData).Concat(FourseriesNumbers).Concat(PSDPipelineData).Concat(EarlyPotential).Concat(SixSeriesData);
-            //.Concat(OldData)
+            var FinalList = PipelineData.Concat(GenerateCLR).Concat(HighPotentialData).Concat(ProductUpSellData).Concat(FourseriesNumbers).Concat(SixSeriesData);
             var imp_listOne = "Single Resource Add OBT/Change OBT,Add/Change OBT,Add/Change Subunit,Add OBT,Add/Change Configuration,Existing Client,Change OBT".Split(',');
             var imp_listTwo = "Merger,Client top consolidation,Renewal/Renegotiation,Split,Product or Service,HRFeed,Re-Bid With Up-Sell,Re-Bid With Up-sell,Re-Bid,Program Update,Cancelled,Service Model Change".Split(',');
             var imp_listThree = "Up-Sell(Add Offices/Countries),New Business,Up-Sell,Product Up-Sell,Single Resource New Business".Split(',');
@@ -1969,10 +1747,7 @@ namespace CWTDashboardAPI.Controllers
             tbl.Columns.Add(new DataColumn("ProjectStatus", typeof(string)));
             tbl.Columns.Add(new DataColumn("CountryStatus", typeof(string)));
             tbl.Columns.Add(new DataColumn("ProjectLevel", typeof(string)));
-            //tbl.Columns.Add(new DataColumn("ProjectStartDate", typeof(DateTime)));
-            //tbl.Columns.Add(new DataColumn("IntitialGoliveDate", typeof(DateTime)));
             tbl.Columns.Add(new DataColumn("CompletedDate", typeof(DateTime)));
-            tbl.Columns.Add(new DataColumn("ProjectOwner", typeof(string)));
             tbl.Columns.Add(new DataColumn("AssigneeFullName", typeof(string)));
             tbl.Columns.Add(new DataColumn("MilestoneTitle", typeof(string)));
             tbl.Columns.Add(new DataColumn("Milestone__Record_ID_Key", typeof(string)));
@@ -1998,15 +1773,12 @@ namespace CWTDashboardAPI.Controllers
             tbl.Columns.Add(new DataColumn("Client", typeof(string))); 
             tbl.Columns.Add(new DataColumn("GDS", typeof(string)));
             tbl.Columns.Add(new DataColumn("RevenueVolumeUSD", typeof(double)));
-            tbl.Columns.Add(new DataColumn("MarketLeader", typeof(string)));
             tbl.Columns.Add(new DataColumn("GlobalProjectManager", typeof(string)));
-            tbl.Columns.Add(new DataColumn("ProjectConsultant", typeof(string)));
             tbl.Columns.Add(new DataColumn("GlobalCISOBTLead", typeof(string)));
             tbl.Columns.Add(new DataColumn("GlobalCISHRFeedSpecialist", typeof(string)));
             tbl.Columns.Add(new DataColumn("GlobalCISPortraitLead", typeof(string)));
             tbl.Columns.Add(new DataColumn("GoLiveMonth", typeof(string)));
             tbl.Columns.Add(new DataColumn("GoLiveYear", typeof(string)));
-            tbl.Columns.Add(new DataColumn("BacklogStarted", typeof(string)));
             tbl.Columns.Add(new DataColumn("Quarter", typeof(string))); 
             tbl.Columns.Add(new DataColumn("YearMonth", typeof(string))); 
             tbl.Columns.Add(new DataColumn("CycleTime", typeof(float)));
@@ -2054,12 +1826,12 @@ namespace CWTDashboardAPI.Controllers
             tbl.Columns.Add(new DataColumn("LATAM_DQS", typeof(string)));
             tbl.Columns.Add(new DataColumn("NORAM_DQS", typeof(string)));
             tbl.Columns.Add(new DataColumn("DQS_Operations", typeof(string)));
-            //tbl.Columns.Add(new DataColumn("Project_Level", typeof(string)));
+            //tbl.Columns.Add(new DataColumn("Priority", typeof(string)));
             var status_pipeline = "P-Pipeline,EP-Early Potential,HP-High Potential".Split(',');
+
             foreach (var r in FinalList)
             {
                 string IsImplementationTeamsupport = r.TypeofData == "Pipeline" ? entity.CRMDatas.FirstOrDefault(x => x.Revenue_Id == r.RevenueID)?.IsImplementationTeamsupport : "" ?? "";
-                ////entity.CRMDatas.FirstOrDefault(x => x.Revenue_Id == r.Revenue_Id).IsImplementationTeamsupport : entity.CRMDatas.FirstOrDefault(x => x.Revenue_Id == r.Revenue_Id).IsImplementationTeamsupport;
                 if ((r.Opportunity_Type == "Re-Bid" || r.Opportunity_Type == "Bid Avoidance") && r.TypeofData == "Pipeline" && (IsImplementationTeamsupport == "N" || IsImplementationTeamsupport == "" || IsImplementationTeamsupport == null))
                 {
                 }
@@ -2074,15 +1846,7 @@ namespace CWTDashboardAPI.Controllers
                     dr["ProjectStatus"] = (object)(r.ProjectStatus == "PSD-Pipeline" ? "P-Pipeline" : r.ProjectStatus) ?? DBNull.Value;
                     dr["CountryStatus"] = r.CountryStatus == "On Track" ? "Green - On Track" : r.CountryStatus == "Risk" ? "Red - Issue" : r.CountryStatus == "Possible Risk" ? "Amber - Risk" : r.CountryStatus == "" ? "---" : r.CountryStatus ?? "---";
                     dr["ProjectLevel"] = r.ProjectLevel == "" || r.ProjectLevel == null || r.ProjectLevel == "null" ? "---" : r.ProjectLevel ?? "---";
-                    //dr["Project_Level"] = r.TypeofData != "Pipeline" ? r.ProjectLevel
-                    //    : FinalList.Where(x => x.Client == r.Client && status_pipeline.Any(val => x.ProjectStatus.Equals(val))).Select(x => x.Country).Distinct().Count() <= 1 ? "Local"
-                    //    : FinalList.Where(x => x.Client == r.Client && status_pipeline.Any(val => x.ProjectStatus.Equals(val))).Select(x => x.Region).Distinct().Count() > 1 ? "Global"
-                    //    : "Regional" ?? r.ProjectLevel;
-                    //dr["ProjectLevel"] = r.TypeofData == "Pipeline" ? entity.CLRDatas.Where(x => x.Account_Name == r.Account_Name && status_pipeline.Any(val => x.ProjectStatus.Equals(val)) && ) : r.ProjectLevel;
-                    //dr["ProjectStartDate"] = (object)r.ProjectStartDate ?? DBNull.Value;
-                    //dr["IntitialGoliveDate"] = (object)r.IntitialGoliveDate ?? DBNull.Value;
                     dr["CompletedDate"] = r.TypeofData == "Pipeline" || r.TypeofData == "Ad-Hoc Digital Data" ? DBNull.Value : (object)r.CompletedDate ?? DBNull.Value;
-                    dr["ProjectOwner"] = r.ProjectOwner;
                     dr["AssigneeFullName"] = (object)r.AssigneeFullName ?? DBNull.Value;
                     dr["MilestoneTitle"] = r.MilestoneTitle;
                     dr["Milestone__Record_ID_Key"] = r.Milestone__Record_ID_Key;
@@ -2111,25 +1875,30 @@ namespace CWTDashboardAPI.Controllers
                     dr["CountryCode"] = (object)r.CountryCode ?? DBNull.Value;
                     dr["Client"] = (object)r.Client ?? DBNull.Value;
                     dr["RevenueVolumeUSD"] = r.RevenueVolumeUSD;
-                    dr["MarketLeader"] = r.MarketLeader;
+                    //dr["MarketLeader"] = r.MarketLeader;
                     dr["TaskStatus"] = r.ProjectStartTaskStatus;
                     dr["GlobalProjectManager"] = string.Join(", ", r.GlobalProjectManager);
-                    dr["ProjectConsultant"] = string.Join(", ", r.ProjectConsultant);
+                    //dr["ProjectConsultant"] = string.Join(", ", r.ProjectConsultant);
                     dr["GlobalCISOBTLead"] = string.Join(", ", r.GlobalCISOBTLead);
-                    dr["LocalDigitalOBTLead"] = entity.AssignePersons.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == r.RevenueID)?.Milestone__Local_Digital_OBT_Lead != null ?
-                                                    entity.AssignePersons.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == r.RevenueID)?.Milestone__Local_Digital_OBT_Lead : r.LocalCISOBTLead != "Deepak Girtola" ? r.LocalCISOBTLead : r.Region == "APAC" && r.Country == "INDIA" ? r.LocalCISOBTLead : "" ?? "";
+                    dr["LocalDigitalOBTLead"] = r.RevenueID == 400000000000000 
+                                                    ? entity.AssignePersons.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == r.RevenueID && x.Workspace_Title == r.Workspace_Title)?.Milestone__Local_Digital_OBT_Lead != null 
+                                                        ? entity.AssignePersons.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == r.RevenueID && x.Workspace_Title == r.Workspace_Title)?.Milestone__Local_Digital_OBT_Lead 
+                                                            : r.LocalCISOBTLead
+                                                    : entity.AssignePersons.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == r.RevenueID)?.Milestone__Local_Digital_OBT_Lead != null 
+                                                        ? entity.AssignePersons.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == r.RevenueID)?.Milestone__Local_Digital_OBT_Lead 
+                                                            : r.LocalCISOBTLead ?? "";
+                     //!= "Deepak Girtola" ? r.LocalCISOBTLead : r.Region == "APAC" && r.Country == "INDIA" ? r.LocalCISOBTLead
                     dr["GlobalCISHRFeedSpecialist"] = r.GlobalCISHRFeedSpecialist;
                     dr["GlobalCISPortraitLead"] = r.GlobalCISPortraitLead;
                     dr["GoLiveMonth"] = r.TypeofData == "Pipeline" ? "Jan" : (object)Convert.ToDateTime(r.GoLiveDate).ToString("MMM") ?? DBNull.Value;
                     dr["GoLiveYear"] = r.TypeofData == "Pipeline" ? "2050" : (object)Convert.ToDateTime(r.GoLiveDate).Year.ToString() ?? DBNull.Value;
-                    dr["BacklogStarted"] = r.TypeofData == "Pipeline" ? "Started" : (object)(r.GoLiveDate > TodayDate ? "Backlog" : "Started") ?? DBNull.Value;
+                    //dr["BacklogStarted"] = r.TypeofData == "Pipeline" ? "Started" : (object)(r.GoLiveDate > TodayDate ? "Backlog" : "Started") ?? DBNull.Value;
                     dr["Quarter"] = (object)(Convert.ToDateTime(r.GoLiveDate).Month < 4 ? "Qtr 1"
                         : (Convert.ToDateTime(r.GoLiveDate).Month >= 4 && Convert.ToDateTime(r.GoLiveDate).Month < 7) ? "Qtr 2"
                         : (Convert.ToDateTime(r.GoLiveDate).Month >= 7 && Convert.ToDateTime(r.GoLiveDate).Month < 10) ? "Qtr 3"
                         : (Convert.ToDateTime(r.GoLiveDate).Month >= 10 && Convert.ToDateTime(r.GoLiveDate).Month <= 12) ? "Qtr 4"
                         : null) ?? DBNull.Value;
                     dr["YearMonth"] = r.TypeofData == "Pipeline" ? "Jan-2050" : (object)Convert.ToDateTime(r.GoLiveDate).ToString("MMM") + "-" + Convert.ToDateTime(r.GoLiveDate).Year.ToString();
-                    //dr["CycleTime"] = (object)BusinessDaysUntil(r.GoLiveDate ?? TodayDate, r.TaskDueDate ?? TodayDate) ?? DBNull.Value;
                     dr["CycleTime"] = r.TypeofData == "Pipeline" ?
                                         0 : r.TypeofData == "BelowData" ?
                                         (object)BusinessDaysUntil(r.ProjectStartCTCompleteDate ?? TodayDate, r.GoLiveDate ?? TodayDate) : r.TypeofData == "Ad-Hoc Digital Data" ?
@@ -2209,80 +1978,61 @@ namespace CWTDashboardAPI.Controllers
                         : (object)entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == r.RevenueID)?.GDS ?? "---" ?? "---";
                     dr["DigitalActivityType"] = r.RevenueID == 400000000000000 ? (object)entity.DigitalTeams.FirstOrDefault(x => x.TaskRecordIdKey == r.Task__Task_Record_ID_Key)?.ActivityType ?? "---"
                         : (object)entity.DigitalTeams.FirstOrDefault(x => x.RevenueID == r.RevenueID)?.ActivityType ?? "---" ?? "---";
-                    //dr["OBTReseller"] = r.RevenueID == 400000000000000 ? (object)entity.ManualDatas.FirstOrDefault(x => x.TaskRecordIdKey == r.Task__Task_Record_ID_Key)?.OBT_Reseller___Direct ?? "---"
-                    //    : (object)entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == r.RevenueID)?.OBT_Reseller___Direct ?? "---" ?? "---";
                     dr["OBTReseller"] = entity.esowNewDatas.FirstOrDefault(x => x.crmOpportunityId == r.Opportunity_ID && x.Country_Name == r.CountryCode)?.OBT == null ? "---"
                         : entity.esowNewDatas.FirstOrDefault(x => x.crmOpportunityId == r.Opportunity_ID && x.Country_Name == r.CountryCode)?.OBT + " " + entity.esowNewDatas.FirstOrDefault(x => x.crmOpportunityId == r.Opportunity_ID && x.Country_Name == r.CountryCode)?.Direct_Reseller;
-                    //dr["SOWStatus"] = entity.eSowDatas.FirstOrDefault(x => x.CRMOpportunityID == r.Opportunity_ID)?.SOWStatus ?? "N/A";
                     dr["SOWStatus"] = entity.esowNewDatas.FirstOrDefault(x => x.crmOpportunityId == r.Opportunity_ID && x.Country_Name == r.CountryCode)?.eSoW_Status ?? "---";
-                    //dr["ImplementationReady"] = entity.eSowDatas.FirstOrDefault(x => x.CRMOpportunityID == r.Opportunity_ID)?.ImplementationReady ?? "N/A";
                     dr["ImplementationReady"] = entity.esowNewDatas.FirstOrDefault(x => x.crmOpportunityId == r.Opportunity_ID && x.Country_Name == r.CountryCode)?.implementationReady ?? "---";
-                    //dr["AccountCategory"] = entity.eSowDatas.FirstOrDefault(x => x.CRMOpportunityID == r.Opportunity_ID)?.AccountCategory ?? "N/A";
                     dr["AccountCategory"] = entity.esowNewDatas.FirstOrDefault(x => x.crmOpportunityId == r.Opportunity_ID && x.Country_Name == r.CountryCode)?.Account_Category ?? "---";
                     dr["OppTOtalVolume"] = r.RevenueID == 400000000000000 ? 0 : entity.CRMDatas.FirstOrDefault(x => x.Revenue_Id == r.RevenueID)?.Opportunity_Total_Volume_USD ?? 0;
                     dr["eSowGDS"] = r.TypeofData == "Automated" || r.TypeofData == "Pipeline" ? entity.esowNewDatas.FirstOrDefault(x => x.crmOpportunityId == r.Opportunity_ID && r.CountryCode == x.Country_Name)?.GDS : r.GDS ?? "---";
                     dr["Service_Location"] = r.TypeofData == "Automated" || r.TypeofData == "Pipeline" ? entity.esowNewDatas.FirstOrDefault(x => x.crmOpportunityId == r.Opportunity_ID && r.CountryCode == x.Country_Name)?.configLoc : "---";
                     dr["Service_Configuration"] = r.TypeofData == "Automated" || r.TypeofData == "Pipeline" ? entity.esowNewDatas.FirstOrDefault(x => x.crmOpportunityId == r.Opportunity_ID && r.CountryCode == x.Country_Name)?.configName : "---";
                     dr["LocalDigitalAdHocSupport"] = entity.AssignePersons.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == r.RevenueID)?.Milestone__Local_Digital_Ad_Hoc_Support ?? "---";
-                    dr["OBTAdoptionRate"] = r.TypeofData == "Automated" || r.TypeofData == "Pipeline" ? entity.esowNewDatas.FirstOrDefault(x => x.crmOpportunityId == r.Opportunity_ID && r.CountryCode == x.Country_Name)?.OBT_Adoption_Rate == null ? "---" : (entity.esowNewDatas.FirstOrDefault(x => x.crmOpportunityId == r.Opportunity_ID && r.CountryCode == x.Country_Name)?.OBT_Adoption_Rate)*100 + "%" : "---";
-                    dr["CycleTimeDelayCode"] = r.TypeofData == "Automated" ? 
-                        entity.DataiMeets.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == r.RevenueID).Milestone__Cycle_Time_Delay_Code == null ? "---" : entity.DataiMeets.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == r.RevenueID).Milestone__Cycle_Time_Delay_Code
-                        : r.TypeofData == "FourSerieData" ? 
+                    //dr["OBTAdoptionRate"] = r.TypeofData == "Automated" || r.TypeofData == "Pipeline" ? entity.esowNewDatas.FirstOrDefault(x => x.crmOpportunityId == r.Opportunity_ID && r.CountryCode == x.Country_Name)?.OBT_Adoption_Rate == null ? "---" : (entity.esowNewDatas.FirstOrDefault(x => x.crmOpportunityId == r.Opportunity_ID && r.CountryCode == x.Country_Name)?.OBT_Adoption_Rate)*100 + "%" : "---";
+                    dr["OBTAdoptionRate"] = r.TypeofData == "Automated" || r.TypeofData == "Pipeline" ? entity.esowNewDatas.FirstOrDefault(x => x.crmOpportunityId == r.Opportunity_ID && r.CountryCode == x.Country_Name)?.OBT_Adoption_Rate == null ? "---" : (entity.esowNewDatas.FirstOrDefault(x => x.crmOpportunityId == r.Opportunity_ID && r.CountryCode == x.Country_Name)?.OBT_Adoption_Rate) : "---";
+                    dr["CycleTimeDelayCode"] = r.TypeofData == "Automated" ?
+                        entity.DataiMeets.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == r.RevenueID && x.Task__Task_Record_ID_Key == r.Task__Task_Record_ID_Key).Milestone__Cycle_Time_Delay_Code == null ? "---" : entity.DataiMeets.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == r.RevenueID && x.Task__Task_Record_ID_Key == r.Task__Task_Record_ID_Key).Milestone__Cycle_Time_Delay_Code
+                        : r.TypeofData == "FourSerieData" ?
                             entity.DataiMeets.FirstOrDefault(x => x.Task__Task_Record_ID_Key == r.Task__Task_Record_ID_Key).Milestone__Cycle_Time_Delay_Code == null ? "---" : entity.DataiMeets.FirstOrDefault(x => x.Task__Task_Record_ID_Key == r.Task__Task_Record_ID_Key).Milestone__Cycle_Time_Delay_Code
                             : "---" ?? "---";
                     dr["EltClientDelayDescription"] = r.TypeofData == "Automated" ?
-                        entity.DataiMeets.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == r.RevenueID).EltClientDelayDescription == null ? "---" : entity.DataiMeets.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == r.RevenueID).EltClientDelayDescription
+                        entity.DataiMeets.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == r.RevenueID && x.Task__Task_Record_ID_Key == r.Task__Task_Record_ID_Key).EltClientDelayDescription == null ? "---" : entity.DataiMeets.FirstOrDefault(x => x.Milestone__CRM_Revenue_ID__ == r.RevenueID && x.Task__Task_Record_ID_Key == r.Task__Task_Record_ID_Key).EltClientDelayDescription
                         : r.TypeofData == "FourSerieData" ?
                             entity.DataiMeets.FirstOrDefault(x => x.Task__Task_Record_ID_Key == r.Task__Task_Record_ID_Key).EltClientDelayDescription == null ? "---" : entity.DataiMeets.FirstOrDefault(x => x.Task__Task_Record_ID_Key == r.Task__Task_Record_ID_Key).EltClientDelayDescription
                             : "---" ?? "---";
-                    dr["APAC_DQS"] = r.TypeofData == "FourSerieData" || r.TypeofData == "Automated" || r.TypeofData == "ProductUpSell" || r.TypeofData == "Ad - Hoc Digital Data" ?
-                        entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).APAC_DQS != null ? 
-                        entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).APAC_DQS : "---" : "---";
+                    dr["APAC_DQS"] = r.TypeofData == "FourSerieData" || r.TypeofData == "Automated" || r.TypeofData == "ProductUpSell" || r.TypeofData == "Ad - Hoc Digital Data" ? 
+                        entity.Roles.Where(x => x.Workspace_Title == r.Workspace_Title).Count() > 0 ?
+                        entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).APAC_DQS != null ?
+                        entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).APAC_DQS : "---" : "---" : "---";
+                    //dr["APAC_DQS"] = r.TypeofData == "FourSerieData" || r.TypeofData == "Automated" || r.TypeofData == "ProductUpSell" || r.TypeofData == "Ad - Hoc Digital Data" ?
+                    //    entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).APAC_DQS != null ?
+                    //    entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).APAC_DQS : "---" : "---";
                     dr["DQS_Import"] = r.TypeofData == "FourSerieData" || r.TypeofData == "Automated" || r.TypeofData == "ProductUpSell" || r.TypeofData == "Ad - Hoc Digital Data" ?
+                        entity.Roles.Where(x => x.Workspace_Title == r.Workspace_Title).Count() > 0 ? 
                         entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).DQS_Import != null ?
-                        entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).DQS_Import : "---" : "---";
+                        entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).DQS_Import : "---" : "---" : "---";
                     dr["DQS_Support"] = r.TypeofData == "FourSerieData" || r.TypeofData == "Automated" || r.TypeofData == "ProductUpSell" || r.TypeofData == "Ad - Hoc Digital Data" ?
+                        entity.Roles.Where(x => x.Workspace_Title == r.Workspace_Title).Count() > 0 ?
                         entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).DQS_Support != null ?
-                        entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).DQS_Support : "---" : "---";
+                        entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).DQS_Support : "---" : "---" : "---";
                     dr["LATAM_DQS"] = r.TypeofData == "FourSerieData" || r.TypeofData == "Automated" || r.TypeofData == "ProductUpSell" || r.TypeofData == "Ad - Hoc Digital Data" ?
+                        entity.Roles.Where(x => x.Workspace_Title == r.Workspace_Title).Count() > 0 ?
                         entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).LATAM_DQS != null ?
-                        entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).LATAM_DQS : "---" : "---";
+                        entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).LATAM_DQS : "---" : "---" : "---";
                     dr["NORAM_DQS"] = r.TypeofData == "FourSerieData" || r.TypeofData == "Automated" || r.TypeofData == "ProductUpSell" || r.TypeofData == "Ad - Hoc Digital Data" ?
+                        entity.Roles.Where(x => x.Workspace_Title == r.Workspace_Title).Count() > 0 ?
                         entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).NORAM_DQS != null ?
-                        entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).NORAM_DQS : "---" : "---";
+                        entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).NORAM_DQS : "---" : "---" : "---";
                     dr["DQS_Operations"] = r.TypeofData == "FourSerieData" || r.TypeofData == "Automated" || r.TypeofData == "ProductUpSell" || r.TypeofData == "Ad - Hoc Digital Data" ?
+                        entity.Roles.Where(x => x.Workspace_Title == r.Workspace_Title).Count() > 0 ?
                         entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).DQS_Operations != null ?
-                        entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).DQS_Operations : "---" : "---";
-                    //if (imp_listOne.Any(val => r.ImplementationType.Equals(val)))
-                    //{
-
-                    //    dr["CycleTimeCategories"] = "Existing Add/Change OBT";
-                    //}else if(imp_listTwo.Any(val1 => r.ImplementationType.Equals(val1)))
-                    //{
-                    //    dr["CycleTimeCategories"] = "Existing Service Config Change (catch all including Spins/Mergers)";
-                    //}else if(imp_listThree.Any(val2 => r.ImplementationType.Equals(val2)))
-                    //{
-                    //    if(r.ProjectLevel == "Global")
-                    //    {
-                    //        dr["CycleTimeCategories"] = "New Global including upsell";
-                    //    }else if (r.ProjectLevel == "Regional")
-                    //    {
-                    //        dr["CycleTimeCategories"] = "New Regional including upsell";
-                    //    }else if (r.ProjectLevel == "Local")
-                    //    {
-                    //        dr["CycleTimeCategories"] = "New Local including upsell";
-                    //    }else
-                    //    {
-                    //        dr["CycleTimeCategories"] = "New Global/regional/local";
-                    //    }
-                    //}else
-                    //{
-                    //    dr["CycleTimeCategories"] = "0";
-                    //}
+                        entity.Roles.FirstOrDefault(x => x.Workspace_Title == r.Workspace_Title).DQS_Operations : "---" : "---" : "---";
+                    //dr["Priority"] = r.RevenueID >= 600000000000000 ? AdHocProjects.Where(x => x.RevenueID == r.RevenueID).Count() > 0 ? AdHocProjects.FirstOrDefault(x => x.RevenueID == r.RevenueID)?.Priority : "---" :
+                    //                 r.RevenueID == 400000000000000 ? ManualDatas.Where(x => x.TaskRecordIdKey == r.Task__Task_Record_ID_Key).Count() > 0 ? ManualDatas.FirstOrDefault(x => x.TaskRecordIdKey == r.Task__Task_Record_ID_Key)?.Priority : "---" :
+                    //                 r.RevenueID < 600000000000000 && r.RevenueID != 400000000000000 ? ManualDatas.Where(x => x.Revenue_ID == r.RevenueID).Count() > 0 ? ManualDatas.FirstOrDefault(x => x.Revenue_ID == r.RevenueID)?.Priority : "---" : "---" ?? "---";
                     tbl.Rows.Add(dr);
                 }
             }
-            //ViewBag.Error4 = tbl.Rows;
             SqlBulkCopy objbulk = new SqlBulkCopy(con);
             objbulk.DestinationTableName = "CLRData";
             objbulk.ColumnMappings.Add("RevenueID", "RevenueID");
@@ -2293,10 +2043,7 @@ namespace CWTDashboardAPI.Controllers
             objbulk.ColumnMappings.Add("ProjectStatus", "ProjectStatus");
             objbulk.ColumnMappings.Add("CountryStatus", "CountryStatus");
             objbulk.ColumnMappings.Add("ProjectLevel", "ProjectLevel");
-            //objbulk.ColumnMappings.Add("ProjectStartDate", "ProjectStartDate");
-            //objbulk.ColumnMappings.Add("IntitialGoliveDate", "IntitialGoliveDate");
             objbulk.ColumnMappings.Add("CompletedDate", "CompletedDate");
-            objbulk.ColumnMappings.Add("ProjectOwner", "ProjectOwner");
             objbulk.ColumnMappings.Add("AssigneeFullName", "AssigneeFullName");
             objbulk.ColumnMappings.Add("PerCompleted", "PerCompleted");
             objbulk.ColumnMappings.Add("MilestoneDueDate", "MilestoneDueDate");
@@ -2326,9 +2073,7 @@ namespace CWTDashboardAPI.Controllers
             objbulk.ColumnMappings.Add("CountryCode", "CountryCode");
             objbulk.ColumnMappings.Add("Client", "Client");
             objbulk.ColumnMappings.Add("RevenueVolumeUSD", "RevenueVolumeUSD");
-            objbulk.ColumnMappings.Add("MarketLeader", "MarketLeader");
             objbulk.ColumnMappings.Add("GlobalProjectManager", "GlobalProjectManager");
-            objbulk.ColumnMappings.Add("ProjectConsultant", "ProjectConsultant");
             objbulk.ColumnMappings.Add("GDS", "GDS");
             objbulk.ColumnMappings.Add("GlobalCISOBTLead", "GlobalCISOBTLead");
             objbulk.ColumnMappings.Add("LocalDigitalOBTLead", "LocalDigitalOBTLead"); 
@@ -2336,7 +2081,6 @@ namespace CWTDashboardAPI.Controllers
             objbulk.ColumnMappings.Add("GlobalCISPortraitLead", "GlobalCISPortraitLead");
             objbulk.ColumnMappings.Add("GoLiveMonth", "GoLiveMonth");
             objbulk.ColumnMappings.Add("GoLiveYear", "GoLiveYear");
-            objbulk.ColumnMappings.Add("BacklogStarted", "BacklogStarted");
             objbulk.ColumnMappings.Add("Quarter", "Quarter");
             objbulk.ColumnMappings.Add("YearMonth", "YearMonth");
             objbulk.ColumnMappings.Add("CycleTime", "CycleTime");
@@ -2378,15 +2122,15 @@ namespace CWTDashboardAPI.Controllers
             objbulk.ColumnMappings.Add("LATAM_DQS", "LATAM_DQS");
             objbulk.ColumnMappings.Add("NORAM_DQS", "NORAM_DQS");
             objbulk.ColumnMappings.Add("DQS_Operations", "DQS_Operations");
+            //objbulk.ColumnMappings.Add("Priority", "Priority");
             con.Open();
             string CLR = "Truncate Table CLRData";
             SqlCommand Com = new SqlCommand(CLR, con);
             Com.ExecuteNonQuery();
-            objbulk.BatchSize = 100000;
+            objbulk.BatchSize = 1000000;
             objbulk.BulkCopyTimeout = 0;
             objbulk.WriteToServer(tbl);
             con.Close();
-            ValidDuplicateRevenueVolumeChange();
             
             var AtomaticManualInsert = (from a in entity.CLRDatas
                                         where a.RevenueID != 400000000000000
@@ -2408,7 +2152,7 @@ namespace CWTDashboardAPI.Controllers
                                             OBT = c.OBT ?? "---",
                                             status = a.Status ?? "---",
                                             Country = entity.CountryIsoCodes.FirstOrDefault(x => x.CountryName == c.Country).CountryCode ?? "---",
-                                            //NewBusinessVolume = (a.Revenue_Opportunity_Type == "New Business") ? a.RevenueVolumeUSD : 0,
+                                            Priority = "---"
                                         }).Distinct().ToList();
             var FourSeriesData = (from a in entity.CLRDatas
                                   where a.RevenueID == 400000000000000
@@ -2431,6 +2175,7 @@ namespace CWTDashboardAPI.Controllers
                                       OBT = "---",
                                       status = a.Status ?? "---",
                                       Country = a.Country ?? "---",
+                                      Priority = "---"
                                   }).Distinct().ToList();
             var ManualInsertData = FourSeriesData.Concat(AtomaticManualInsert);
             DateTime TodaysDate = DateTime.Now;
@@ -2450,6 +2195,7 @@ namespace CWTDashboardAPI.Controllers
             tbl2.Columns.Add(new DataColumn("ProjectStatus", typeof(string)));
             tbl2.Columns.Add(new DataColumn("ProjectLevel", typeof(string)));
             tbl2.Columns.Add(new DataColumn("InsertedOn", typeof(DateTime)));
+            tbl2.Columns.Add(new DataColumn("Priority", typeof(string)));
             foreach (var r in ManualInsertData)
             {
                 DataRow dr2 = tbl2.NewRow();
@@ -2461,7 +2207,6 @@ namespace CWTDashboardAPI.Controllers
                 dr2["Pipeline_status"] = (object)r.PipelineStatus ?? "---";
                 dr2["Service configuration"] = (object)r.BT_Current_Service_Configuration ?? "---";
                 dr2["OBT Reseller / Direct"] = (object)r.OBT ?? "---";
-                //dr2["New Business volume (US$)"] = (object)r.NewBusinessVolume ?? DBNull.Value;
                 dr2["CLR Country"] = string.Join(", ", r.Country);
                 dr2["Status"] = r.status ?? "---";
                 dr2["Project Effort"] = 1;
@@ -2473,7 +2218,7 @@ namespace CWTDashboardAPI.Controllers
                     : entity.CLRDatas.Where(x => x.Client == r.Account_Name && status_pipeline.Any(val => x.ProjectStatus.Equals(val))).Select(x => x.Region).Distinct().Count() > 1 ? "Global"
                     : "Regional" 
                     : "---") ?? "---";
-                //dr2["ProjectLevel"] = (object)(r.ProjectStatus == "P-Pipeline" || r.ProjectStatus == "HP-High Potential" || r.ProjectStatus == "EP-Early Potential" ? "Local" : null) ?? DBNull.Value;
+                dr2["Priority"] = (object)r.Priority;
                 tbl2.Rows.Add(dr2);
             }
             SqlBulkCopy objbulk2 = new SqlBulkCopy(con);
@@ -2493,94 +2238,91 @@ namespace CWTDashboardAPI.Controllers
             objbulk2.ColumnMappings.Add("InsertedOn", "InsertedOn");
             objbulk2.ColumnMappings.Add("ProjectStatus", "ProjectStatus");
             objbulk2.ColumnMappings.Add("ProjectLevel", "ProjectLevel");
+            objbulk2.ColumnMappings.Add("Priority", "Priority");
             con.Open();
             objbulk2.BatchSize = 100000;
             objbulk2.BulkCopyTimeout = 0;
             objbulk2.WriteToServer(tbl2);
             con.Close();
-            var AtomaticManualInsertPSD = (from a in entity.CLRDatas
-                                           where a.RevenueID != 400000000000000
-                                           where !(from b in entity.ManualDatas
-                                                   where b.Revenue_ID == a.RevenueID
-                                                   select b.Revenue_ID).Contains(a.RevenueID)
-                                           join c in entity.PSDs on a.RevenueID equals c.Revenue_Id
-                                           select new
-                                           {
-                                               a.RevenueID,
-                                               c.Account_Name,
-                                               //a.Workspace_Title,
-                                               a.Task__Task_Record_ID_Key,
-                                               c.Opportunity_Type, 
-                                               ProjectStatus = a.ProjectStatus == "P-Pipeline" ? "P-Pipeline" : "---",
-                                               PipelineStatus = "Not actionable",
-                                               c.BT_Current_Service_Configuration,
-                                               c.Product_Name,
-                                               Country = entity.CountryIsoCodes.FirstOrDefault(x => x.CountryName == c.Country).CountryCode,
-                                               //NewBusinessVolume = (a.Revenue_Opportunity_Type == "New Business") ? a.RevenueVolumeUSD : 0,
-                                            }).Distinct().ToList();
-            DataTable tbl3 = new DataTable();
-            tbl3.Columns.Add(new DataColumn("Revenue ID", typeof(double)));
-            tbl3.Columns.Add(new DataColumn("TaskRecordIdKey", typeof(string)));
-            tbl3.Columns.Add(new DataColumn("Client", typeof(string)));
-            tbl3.Columns.Add(new DataColumn("iMeet Workspace Title", typeof(string)));
-            tbl3.Columns.Add(new DataColumn("Implementation Type", typeof(string)));
-            tbl3.Columns.Add(new DataColumn("Pipeline_status", typeof(string)));
-            tbl3.Columns.Add(new DataColumn("Service configuration", typeof(string)));
-            tbl3.Columns.Add(new DataColumn("OBT Reseller / Direct", typeof(string)));
-            tbl3.Columns.Add(new DataColumn("CLR Country", typeof(string)));
-            tbl3.Columns.Add(new DataColumn("Status", typeof(string)));
-            tbl3.Columns.Add(new DataColumn("Project Effort", typeof(Int64)));
-            tbl3.Columns.Add(new DataColumn("InsertedOn", typeof(DateTime)));
-            tbl3.Columns.Add(new DataColumn("GoLiveDate", typeof(DateTime)));
-            tbl3.Columns.Add(new DataColumn("ProjectStatus", typeof(string)));
-            foreach (var r in AtomaticManualInsertPSD)
-            {
-                DataRow dr3 = tbl3.NewRow();
-                dr3["Revenue ID"] = (object)r.RevenueID ?? DBNull.Value;
-                dr3["TaskRecordIdKey"] = (object)r.Task__Task_Record_ID_Key ?? "---";
-                dr3["Client"] = (object)r.Account_Name ?? "---";
-                dr3["iMeet Workspace Title"] = (object)entity.CLRDatas.FirstOrDefault(x => x.RevenueID == r.RevenueID).Workspace_Title ?? "---";
-                dr3["Implementation Type"] = (object)r.Opportunity_Type == "" ? "---" : r.Opportunity_Type ?? "---";
-                dr3["Pipeline_status"] = (object)r.PipelineStatus ?? "---";
-                dr3["Service configuration"] = (object)r.BT_Current_Service_Configuration ?? "---";
-                dr3["OBT Reseller / Direct"] = (object)r.Product_Name == "" ? "---" : r.Product_Name ?? "---";
-                //dr2["New Business volume (US$)"] = (object)r.NewBusinessVolume ?? DBNull.Value;
-                dr3["CLR Country"] = string.Join(", ", r.Country);
-                dr3["Status"] = "Active";
-                dr3["Project Effort"] = 1;
-                dr3["InsertedOn"] = TodaysDate;
-                dr3["GoLiveDate"] = (object)(r.ProjectStatus == "P-Pipeline" ? PipelineDate : (DateTime?)null) ?? DBNull.Value;
-                dr3["ProjectStatus"] = (object)(r.ProjectStatus) ?? "---";
-                tbl3.Rows.Add(dr3);
-            }
-            SqlBulkCopy objbulk3 = new SqlBulkCopy(con);
-            objbulk3.DestinationTableName = "ManualData";
-            objbulk3.ColumnMappings.Add("Revenue ID", "Revenue ID");
-            objbulk3.ColumnMappings.Add("TaskRecordIdKey", "TaskRecordIdKey");
-            objbulk3.ColumnMappings.Add("Client", "Client");
-            objbulk3.ColumnMappings.Add("iMeet Workspace Title", "iMeet Workspace Title");
-            objbulk3.ColumnMappings.Add("Implementation Type", "Implementation Type");
-            objbulk3.ColumnMappings.Add("Pipeline_status", "Pipeline_status");
-            objbulk3.ColumnMappings.Add("Service configuration", "Service configuration");
-            objbulk3.ColumnMappings.Add("OBT Reseller / Direct", "OBT Reseller / Direct");
-            objbulk3.ColumnMappings.Add("CLR Country", "CLR Country");
-            objbulk3.ColumnMappings.Add("Status", "Status");
-            objbulk3.ColumnMappings.Add("Project Effort", "Project Effort");
-            objbulk3.ColumnMappings.Add("InsertedOn", "InsertedOn");
-            objbulk3.ColumnMappings.Add("GoLiveDate", "GoLiveDate");
-            objbulk3.ColumnMappings.Add("ProjectStatus", "ProjectStatus");
-            con.Open();
-            objbulk3.BatchSize = 100000;
-            objbulk3.BulkCopyTimeout = 0;
-            objbulk3.WriteToServer(tbl3);
-            con.Close();
-
+            //var AtomaticManualInsertPSD = (from a in entity.CLRDatas
+            //                               where a.RevenueID != 400000000000000
+            //                               where !(from b in entity.ManualDatas
+            //                                       where b.Revenue_ID == a.RevenueID
+            //                                       select b.Revenue_ID).Contains(a.RevenueID)
+            //                               join c in entity.PSDs on a.RevenueID equals c.Revenue_Id
+            //                               select new
+            //                               {
+            //                                   a.RevenueID,
+            //                                   c.Account_Name,
+            //                                   a.Task__Task_Record_ID_Key,
+            //                                   c.Opportunity_Type, 
+            //                                   ProjectStatus = a.ProjectStatus == "P-Pipeline" ? "P-Pipeline" : "---",
+            //                                   PipelineStatus = "Not actionable",
+            //                                   c.BT_Current_Service_Configuration,
+            //                                   c.Product_Name,
+            //                                   Country = entity.CountryIsoCodes.FirstOrDefault(x => x.CountryName == c.Country).CountryCode,
+            //                                }).Distinct().ToList();
+            //DataTable tbl3 = new DataTable();
+            //tbl3.Columns.Add(new DataColumn("Revenue ID", typeof(double)));
+            //tbl3.Columns.Add(new DataColumn("TaskRecordIdKey", typeof(string)));
+            //tbl3.Columns.Add(new DataColumn("Client", typeof(string)));
+            //tbl3.Columns.Add(new DataColumn("iMeet Workspace Title", typeof(string)));
+            //tbl3.Columns.Add(new DataColumn("Implementation Type", typeof(string)));
+            //tbl3.Columns.Add(new DataColumn("Pipeline_status", typeof(string)));
+            //tbl3.Columns.Add(new DataColumn("Service configuration", typeof(string)));
+            //tbl3.Columns.Add(new DataColumn("OBT Reseller / Direct", typeof(string)));
+            //tbl3.Columns.Add(new DataColumn("CLR Country", typeof(string)));
+            //tbl3.Columns.Add(new DataColumn("Status", typeof(string)));
+            //tbl3.Columns.Add(new DataColumn("Project Effort", typeof(Int64)));
+            //tbl3.Columns.Add(new DataColumn("InsertedOn", typeof(DateTime)));
+            //tbl3.Columns.Add(new DataColumn("GoLiveDate", typeof(DateTime)));
+            //tbl3.Columns.Add(new DataColumn("ProjectStatus", typeof(string)));
+            //foreach (var r in AtomaticManualInsertPSD)
+            //{
+            //    DataRow dr3 = tbl3.NewRow();
+            //    dr3["Revenue ID"] = (object)r.RevenueID ?? DBNull.Value;
+            //    dr3["TaskRecordIdKey"] = (object)r.Task__Task_Record_ID_Key ?? "---";
+            //    dr3["Client"] = (object)r.Account_Name ?? "---";
+            //    dr3["iMeet Workspace Title"] = (object)entity.CLRDatas.FirstOrDefault(x => x.RevenueID == r.RevenueID).Workspace_Title ?? "---";
+            //    dr3["Implementation Type"] = (object)r.Opportunity_Type == "" ? "---" : r.Opportunity_Type ?? "---";
+            //    dr3["Pipeline_status"] = (object)r.PipelineStatus ?? "---";
+            //    dr3["Service configuration"] = (object)r.BT_Current_Service_Configuration ?? "---";
+            //    dr3["OBT Reseller / Direct"] = (object)r.Product_Name == "" ? "---" : r.Product_Name ?? "---";
+            //    dr3["CLR Country"] = string.Join(", ", r.Country);
+            //    dr3["Status"] = "Active";
+            //    dr3["Project Effort"] = 1;
+            //    dr3["InsertedOn"] = TodaysDate;
+            //    dr3["GoLiveDate"] = (object)(r.ProjectStatus == "P-Pipeline" ? PipelineDate : (DateTime?)null) ?? DBNull.Value;
+            //    dr3["ProjectStatus"] = (object)(r.ProjectStatus) ?? "---";
+            //    tbl3.Rows.Add(dr3);
+            //}
+            //SqlBulkCopy objbulk3 = new SqlBulkCopy(con);
+            //objbulk3.DestinationTableName = "ManualData";
+            //objbulk3.ColumnMappings.Add("Revenue ID", "Revenue ID");
+            //objbulk3.ColumnMappings.Add("TaskRecordIdKey", "TaskRecordIdKey");
+            //objbulk3.ColumnMappings.Add("Client", "Client");
+            //objbulk3.ColumnMappings.Add("iMeet Workspace Title", "iMeet Workspace Title");
+            //objbulk3.ColumnMappings.Add("Implementation Type", "Implementation Type");
+            //objbulk3.ColumnMappings.Add("Pipeline_status", "Pipeline_status");
+            //objbulk3.ColumnMappings.Add("Service configuration", "Service configuration");
+            //objbulk3.ColumnMappings.Add("OBT Reseller / Direct", "OBT Reseller / Direct");
+            //objbulk3.ColumnMappings.Add("CLR Country", "CLR Country");
+            //objbulk3.ColumnMappings.Add("Status", "Status");
+            //objbulk3.ColumnMappings.Add("Project Effort", "Project Effort");
+            //objbulk3.ColumnMappings.Add("InsertedOn", "InsertedOn");
+            //objbulk3.ColumnMappings.Add("GoLiveDate", "GoLiveDate");
+            //objbulk3.ColumnMappings.Add("ProjectStatus", "ProjectStatus");
+            //con.Open();
+            //objbulk3.BatchSize = 100000;
+            //objbulk3.BulkCopyTimeout = 0;
+            //objbulk3.WriteToServer(tbl3);
+            //con.Close();
+            
             var DigitalTeam = (from a in entity.CLRDatas
                                where a.RevenueID != 400000000000000
                                where !(from b in entity.DigitalTeams
                                        where b.RevenueID == a.RevenueID
                                        select b.RevenueID).Contains(a.RevenueID)
-                               //join c in entity.CRMDatas on a.RevenueID equals c.Revenue_Id
                                select new
                                {
                                    a.RevenueID,
@@ -2677,22 +2419,81 @@ namespace CWTDashboardAPI.Controllers
                     UpdatedOn = TodaysDate,
                 });
             entity.SaveChanges();
+            //var data = (from a in entity.CLRDatas
+            //            where a.RevenueID != 400000000000000
+            //            select a).ToList();
+            //foreach (var r in data)
+            //{
+            //    var yes_data = (from b in entity.YesterdayCLRs
+            //                    where b.RevenueID == r.RevenueID
+            //                    where b.TaskRecordIdKey == r.Task__Task_Record_ID_Key
+            //                    select b).ToList();
+            //    if (yes_data.Count > 0)
+            //    {
+            //        if (yes_data[0].ProjectStatus != r.ProjectStatus)
+            //        {
+            //            DateTime Todays_Date = DateTime.Now;
+            //            entity.CLRActivities.Add(new CLRActivity
+            //            {
+            //                Client = r.Client,
+            //                Revenue_ID = r.RevenueID,
+            //                OldValue = yes_data[0].ProjectStatus,
+            //                NewValue = r.ProjectStatus,
+            //                ColumnName = "ProjectStatus",
+            //                UpdatedDate = Todays_Date,
+            //                TaskRecordIDKey = r.Task__Task_Record_ID_Key
+            //            });
+            //            entity.SaveChanges();
+            //        }
+            //        if (yes_data[0].Sales_Stage_Name != r.Sales_Stage_Name)
+            //        {
+            //            DateTime Todays_Date = DateTime.Now;
+            //            entity.CLRActivities.Add(new CLRActivity
+            //            {
+            //                Client = r.Client,
+            //                Revenue_ID = r.RevenueID,
+            //                OldValue = yes_data[0].Sales_Stage_Name,
+            //                NewValue = r.Sales_Stage_Name,
+            //                ColumnName = "Sales_Stage_Name",
+            //                UpdatedDate = Todays_Date,
+            //                TaskRecordIDKey = r.Task__Task_Record_ID_Key
+            //            });
+            //            entity.SaveChanges();
+            //        }
+            //    }
+            //}
             ViewBag.Error4 = "Success";
+            return View("Index");
+        }
+        public ActionResult CLRActivity()
+        {
+            ManualDataController manualDataController = new ManualDataController();
+            manualDataController.CLRActivityGenerating();
+            ViewBag.Error22 = "Success";
             return View("Index");
         }
         public ActionResult GenerateTracker()
         {
             var CurrentYear = DateTime.Now.Year;
             var ProjectStatus = "A-Active/Date Confirmed,HP-High Potential,P-Pipeline,N-Active/No Date Confirmed".Split(',');
-            //var ProjectStatus = "A-Active/Date Confirmed".Split(',');
+            //var ProjectStatus = "P-Pipeline".Split(',');
             DateTime firstDay = new DateTime(CurrentYear, 1, 1);
             var Tracker = (from a in entity.CLRDatas
                            where a.OwnerShip != "Minority Holding"
                            where a.OwnerShip != "Not Present"
                            where a.GoLiveDate >= firstDay
                            where a.Status == "Active"
+                           //where a.RevenueID == 300000452472986
                            where ProjectStatus.Any(val => a.ProjectStatus.Equals(val))
                            where a.MilestoneType != "POS"
+                           //where a.OwnerShip == "WO"
+                           //where a.ProjectStart_ForCycleTime == null
+                           //where a.Region == "EMEA"
+                           //where a.ProjectLevel == "Local"
+                           //where a.Sales_Stage_Name == "Contract Signed"
+                           //where a.Service_Configuration == "Local"
+                           //where a.RevenueID == 300000400035208
+                           //where a.RevenueID == 300000401881785
                            select a).ToList();
             DataTable tbl3 = new DataTable();
             tbl3.Columns.Add(new DataColumn("RevenueID", typeof(double)));
@@ -2724,8 +2525,10 @@ namespace CWTDashboardAPI.Controllers
             tbl3.Columns.Add(new DataColumn("EndofHypercare", typeof(DateTime)));
             tbl3.Columns.Add(new DataColumn("CompleteDuration", typeof(string)));
             tbl3.Columns.Add(new DataColumn("PerCompleted", typeof(double)));
+            tbl3.Columns.Add(new DataColumn("AssignmentDate", typeof(DateTime)));
             tbl3.Columns.Add(new DataColumn("ProjectStartDate", typeof(DateTime)));
             tbl3.Columns.Add(new DataColumn("MilestoneDueDate", typeof(DateTime)));
+            tbl3.Columns.Add(new DataColumn("MilestoneDueDateByLevel", typeof(DateTime)));
             tbl3.Columns.Add(new DataColumn("ProjectDelay", typeof(double)));
             tbl3.Columns.Add(new DataColumn("TaskRecordIdKey", typeof(string)));
             tbl3.Columns.Add(new DataColumn("1stweek", typeof(double)));
@@ -2754,8 +2557,9 @@ namespace CWTDashboardAPI.Controllers
             tbl3.Columns.Add(new DataColumn("c24thweek", typeof(double)));
             DayOfWeek currentDay = DateTime.Now.DayOfWeek;
             int daysTillCurrentDay = currentDay - DayOfWeek.Monday;
-            DateTime currentWeekStartDate = DateTime.Now.AddDays(-daysTillCurrentDay);
-            DateTime? EndofHypercare, KickOff_ProposedStartDate;
+            DateTime currentWeekStartDate = DateTime.Now.AddDays(-daysTillCurrentDay).Date;
+            //string testing = currentWeekStartDate.Date.ToString();
+            DateTime? EndofHypercare, KickOff_ProposedStartDate,Assignment_Date,KickOff_ProposedStart;
             foreach (var r in Tracker)
             {
                 DataRow dr3 = tbl3.NewRow();
@@ -2763,9 +2567,21 @@ namespace CWTDashboardAPI.Controllers
                 EndofHypercare = r.MilestoneDueDate != null ? r.MilestoneDueDate
                                     : r.GoLiveDate == null ? (DateTime?)null
                                     : r.Region == "APAC" && r.Country == "AUSTRALIA" ? r.GoLiveDate.Value.AddDays(14) : r.GoLiveDate.Value.AddDays(28);
+                //string checkone = EndofHypercare.ToString();
                 KickOff_ProposedStartDate = r.ProjectStart_ForCycleTime != null ? r.ProjectStart_ForCycleTime
                                     : EndofHypercare != null ? entity.Configs.FirstOrDefault(x => x.ProjectType == r.ImplementationType).Duration != null ? EndofHypercare.Value.AddDays(-(entity.Configs.FirstOrDefault(x => x.ProjectType == r.ImplementationType).Duration * 7))
                                     : (DateTime?)null : (DateTime?)null;
+                //string checktwo = KickOff_ProposedStartDate.ToString();
+                Assignment_Date = r.RevenueID == 400000000000000 
+                                    ? entity.ManualDatas.FirstOrDefault(x => x.TaskRecordIdKey == r.Task__Task_Record_ID_Key).Assignment_date != null 
+                                        ? entity.ManualDatas.FirstOrDefault(x => x.TaskRecordIdKey == r.Task__Task_Record_ID_Key).Assignment_date :
+                                        (DateTime?)null
+                                    : entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == r.RevenueID).Assignment_date != null
+                                        ? entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == r.RevenueID).Assignment_date :
+                                        (DateTime?)null ?? (DateTime?)null;
+                //KickOff_ProposedStartDate = (object)r.ProjectLevel == "Local" ? KickOff_ProposedStart
+                //            : r.ProjectLevel == "Regional" ? Assignment_Date == null ? KickOff_ProposedStart : Assignment_Date
+                //            : r.ProjectLevel == "Global" ? Assignment_Date == null ? KickOff_ProposedStart : Assignment_Date : KickOff_ProposedStart;
                 dr3["Region"] = (object)r.Region ?? "";
                 dr3["Country"] = (object)r.Country ?? "";
                 dr3["GlobalProjectManager"] = (object)r.GlobalProjectManager ?? "";
@@ -2791,16 +2607,19 @@ namespace CWTDashboardAPI.Controllers
                 dr3["MilestoneProjectNotes"] = (object)r.Milestone__Project_Notes ?? "";
                 dr3["ProjectEffort"] = r.RevenueID == 400000000000000 ? entity.ManualDatas.FirstOrDefault(x => x.TaskRecordIdKey == r.Task__Task_Record_ID_Key).Project_Effort
                     : entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == r.RevenueID).Project_Effort ?? 1;
-                dr3["KickOff_ProposedStartDate"] = KickOff_ProposedStartDate;
+                dr3["AssignmentDate"] = (object)Assignment_Date ?? DBNull.Value;
+                dr3["KickOff_ProposedStartDate"] = (object)KickOff_ProposedStartDate ?? DBNull.Value;
                 dr3["GoLiveDate"] = (object)r.GoLiveDate ?? DBNull.Value;
-                dr3["EndofHypercare"] = EndofHypercare;
+                dr3["EndofHypercare"] = (object) EndofHypercare ?? DBNull.Value;
                 dr3["CompleteDuration"] = EndofHypercare == null || KickOff_ProposedStartDate == null ? "0 Weeks"
                     : (EndofHypercare - KickOff_ProposedStartDate).Value.TotalDays / 7 + "Weeks";
                 dr3["PerCompleted"] = (object)r.PerCompleted ?? DBNull.Value;
                 dr3["ProjectStartDate"] = (object)r.ProjectStart_ForCycleTime ?? DBNull.Value;
                 dr3["MilestoneDueDate"] = (object)r.MilestoneDueDate ?? DBNull.Value;
-                dr3["ProjectDelay"] = EndofHypercare == null || KickOff_ProposedStartDate == null ? 0
-                    : (EndofHypercare - KickOff_ProposedStartDate).Value.TotalDays / 7;
+                dr3["MilestoneDueDateByLevel"] = (object)r.ProjectLevel == "Local" ? KickOff_ProposedStartDate 
+                            : r.ProjectLevel == "Regional" ? Assignment_Date != null ? Assignment_Date : KickOff_ProposedStartDate 
+                            : r.ProjectLevel == "Global" ? Assignment_Date != null ? Assignment_Date : KickOff_ProposedStartDate : KickOff_ProposedStartDate == null ? (DateTime?)null : KickOff_ProposedStartDate;
+                dr3["ProjectDelay"] = EndofHypercare == null || KickOff_ProposedStartDate == null ? 0 : (EndofHypercare - KickOff_ProposedStartDate).Value.TotalDays / 7;
                 dr3["TaskRecordIdKey"] = (object)r.Task__Task_Record_ID_Key == null ? "" : r.Task__Task_Record_ID_Key;
                 dr3["1stweek"] = KickOff_ProposedStartDate == null || EndofHypercare == null ? 0 : currentWeekStartDate >= KickOff_ProposedStartDate && currentWeekStartDate <= EndofHypercare ? 1 : 0;
                 dr3["2ndweek"] = KickOff_ProposedStartDate == null || EndofHypercare == null ? 0 : currentWeekStartDate.AddDays(7) >= KickOff_ProposedStartDate && currentWeekStartDate.AddDays(7) <= EndofHypercare ? 1 : 0;
@@ -2859,8 +2678,10 @@ namespace CWTDashboardAPI.Controllers
             objbulk3.ColumnMappings.Add("EndofHypercare", "EndofHypercare");
             objbulk3.ColumnMappings.Add("CompleteDuration", "CompleteDuration");
             objbulk3.ColumnMappings.Add("PerCompleted", "PerCompleted");
+            objbulk3.ColumnMappings.Add("AssignmentDate", "AssignmentDate");
             objbulk3.ColumnMappings.Add("ProjectStartDate", "ProjectStartDate");
             objbulk3.ColumnMappings.Add("MilestoneDueDate", "MilestoneDueDate");
+            objbulk3.ColumnMappings.Add("MilestoneDueDateByLevel", "MilestoneDueDateByLevel");
             objbulk3.ColumnMappings.Add("ProjectDelay", "ProjectDelay");
             objbulk3.ColumnMappings.Add("TaskRecordIdKey", "TaskRecordIdKey");
             objbulk3.ColumnMappings.Add("1stweek", "1stweek");
@@ -2898,6 +2719,308 @@ namespace CWTDashboardAPI.Controllers
             ViewBag.Error15 = "Success";
             return View("Index");
         }
+
+
+        //public ActionResult GenerateResourceUtilization()
+        //{
+        //    var CurrentYear = DateTime.Now.Year;
+        //    var ProjectStatus = "A-Active/Date Confirmed,HP-High Potential,P-Pipeline,N-Active/No Date Confirmed".Split(',');
+        //    //var ProjectStatus = "A-Active/Date Confirmed".Split(',');
+        //    DateTime firstDay = new DateTime(CurrentYear, 1, 1);
+        //    DayOfWeek currentDay = DateTime.Now.DayOfWeek;
+        //    int daysTillCurrentDay = currentDay - DayOfWeek.Monday;
+        //    DateTime currentWeekStartDate = DateTime.Now.AddDays(-daysTillCurrentDay);
+        //    var Tracker = (from a in entity.CapacityHierarchies
+        //                   where a.ManagerStatus == "Active"
+        //                   select a).ToList();
+        //    DataTable tbl3 = new DataTable();
+        //    tbl3.Columns.Add(new DataColumn("HierarchyID", typeof(double)));
+        //    tbl3.Columns.Add(new DataColumn("Region", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("Level", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("ProjectLevel", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("Leader", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("Manager", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("WorkShedule", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("WorkingDays", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("Monday", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("Tuesday", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("Wednesday", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("Thursday", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("Friday", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("Comments", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("TargetedUtilization", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("C1stweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("C2ndweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("C3rdweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("C4thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("C5thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("C6thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("C7thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("C8thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("AvgUtil", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("TUWorkingDays", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("CapacityAvailable", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("CapacityAvailableTUWorkingDays", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("C9thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("C10thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("C11thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("C12thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("c13thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("c14thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("c15thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("c16thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("c17thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("c18thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("c19thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("c20thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("c21thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("c22thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("c23thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("c24thweek", typeof(string)));
+        //    tbl3.Columns.Add(new DataColumn("ProjectStatus", typeof(string)));
+
+        //    var Role = "PM 1,PM 2,PM 3".Split(',');
+        //    foreach (var ps in ProjectStatus)
+        //    {
+        //        foreach (var r in Tracker)
+        //        {
+        //            if (r.Level != "Digital")
+        //            {
+        //                DataRow dr3 = tbl3.NewRow();
+        //                dr3["HierarchyID"] = (object)r.HID ?? "";
+        //                dr3["Region"] = (object)r.Region ?? "";
+        //                dr3["Level"] = (object)r.Level ?? "";
+        //                dr3["ProjectLevel"] = (object)r.PLevel ?? "";
+        //                dr3["Leader"] = (object)r.Leader ?? "";
+        //                dr3["Manager"] = (object)r.Manager ?? "";
+        //                dr3["WorkShedule"] = (object)r.WorkShedule ?? "";
+        //                dr3["WorkingDays"] = (object)r.WorkingDays ?? "";
+        //                dr3["Monday"] = (object)r.Monday ?? "";
+        //                dr3["Tuesday"] = (object)r.Tuesday ?? "";
+        //                dr3["Wednesday"] = (object)r.Wednesday ?? "";
+        //                dr3["Thursday"] = (object)r.Thursday ?? "";
+        //                dr3["Friday"] = (object)r.Friday ?? "";
+        //                dr3["Comments"] = (object)r.Comments ?? "";
+        //                dr3["TargetedUtilization"] = (object)r.TargetedUtilization ?? "";
+        //                dr3["ProjectStatus"] = ps;
+        //                dr3["C1stweek"] = (entity.CLRTrackers.Where(v1 => v1.ProjectStatus == ps && v1.ProjectLevel == "Local" && v1.LocalProjectManager == r.Manager && currentWeekStartDate >= v1.KickOff_ProposedStartDate && currentWeekStartDate <= v1.EndofHypercare).Sum(x => x.ProjectEffort) ?? 0) +
+        //                                  (entity.CLRTrackers.Where(v1 => v1.ProjectStatus == ps && v1.ProjectLevel == "Local" && v1.RegionalProjectManager == r.Manager && currentWeekStartDate >= v1.KickOff_ProposedStartDate && currentWeekStartDate <= v1.EndofHypercare).Sum(x => x.ProjectEffort) ?? 0) +
+        //                                  (entity.CLRTrackers.Where(v1 => v1.ProjectStatus == ps && v1.ProjectLevel == "Local" && v1.GlobalProjectManager == r.Manager && currentWeekStartDate >= v1.KickOff_ProposedStartDate && currentWeekStartDate <= v1.EndofHypercare).Sum(x => x.ProjectEffort) ?? 0) +
+        //                                  (entity.CLRTrackers.Where(v1 => v1.ProjectStatus == ps && v1.ProjectLevel == "Regional" && v1.LocalProjectManager == r.Manager && currentWeekStartDate >= v1.KickOff_ProposedStartDate && currentWeekStartDate <= v1.EndofHypercare).Sum(x => x.ProjectEffort) ?? 0) +
+        //                                  (entity.CLRTrackers.Where(v1 => v1.ProjectStatus == ps && v1.ProjectLevel == "Regional" && v1.RegionalProjectManager == r.Manager && currentWeekStartDate >= v1.MilestoneDueDateByLevel && currentWeekStartDate <= v1.EndofHypercare).Sum(x => x.ProjectEffort) ?? 0) +
+        //                                  (entity.CLRTrackers.Where(v1 => v1.ProjectStatus == ps && v1.ProjectLevel == "Regional" && v1.GlobalProjectManager == r.Manager && currentWeekStartDate >= v1.KickOff_ProposedStartDate && currentWeekStartDate <= v1.EndofHypercare).Sum(x => x.ProjectEffort) ?? 0) +
+        //                                  (entity.CLRTrackers.Where(v1 => v1.ProjectStatus == ps && v1.ProjectLevel == "Global" && v1.LocalProjectManager == r.Manager && currentWeekStartDate >= v1.KickOff_ProposedStartDate && currentWeekStartDate <= v1.EndofHypercare).Sum(x => x.ProjectEffort) ?? 0) +
+        //                                  (entity.CLRTrackers.Where(v1 => v1.ProjectStatus == ps && v1.ProjectLevel == "Global" && v1.RegionalProjectManager == r.Manager && currentWeekStartDate >= v1.KickOff_ProposedStartDate && currentWeekStartDate <= v1.EndofHypercare).Sum(x => x.ProjectEffort) ?? 0) +
+        //                                  (entity.CLRTrackers.Where(v1 => v1.ProjectStatus == ps && v1.ProjectLevel == "Global" && v1.GlobalProjectManager == r.Manager && currentWeekStartDate >= v1.MilestoneDueDateByLevel && currentWeekStartDate <= v1.EndofHypercare).Sum(x => x.ProjectEffort) ?? 0);
+        //                dr3["C2ndweek"] = "";
+        //                dr3["C3rdweek"] = "";
+        //                dr3["C4thweek"] = "";
+        //                dr3["C5thweek"] = "";
+        //                dr3["C6thweek"] = "";
+        //                dr3["C7thweek"] = "";
+        //                dr3["C8thweek"] = "";
+        //                dr3["AvgUtil"] = "";
+        //                dr3["TUWorkingDays"] = "";
+        //                dr3["CapacityAvailable"] = "";
+        //                dr3["CapacityAvailableTUWorkingDays"] = "";
+        //                dr3["C9thweek"] = "";
+        //                dr3["C10thweek"] = "";
+        //                dr3["C11thweek"] = "";
+        //                dr3["C12thweek"] = "";
+        //                dr3["C13thweek"] = "";
+        //                dr3["C14thweek"] = "";
+        //                dr3["C15thweek"] = "";
+        //                dr3["C16thweek"] = "";
+        //                dr3["C17thweek"] = "";
+        //                dr3["C18thweek"] = "";
+        //                dr3["C19thweek"] = "";
+        //                dr3["C20thweek"] = "";
+        //                dr3["C21stweek"] = "";
+        //                dr3["C22ndweek"] = "";
+        //                dr3["C23rdweek"] = "";
+        //                dr3["C24thweek"] = "";
+        //                tbl3.Rows.Add(dr3);
+        //            }
+        //        }
+        //    }
+        //    SqlBulkCopy objbulk3 = new SqlBulkCopy(con);
+        //    objbulk3.DestinationTableName = "ResourceUtilization";
+        //    objbulk3.ColumnMappings.Add("HierarchyID", "HierarchyID");
+        //    objbulk3.ColumnMappings.Add("Region", "Region");
+        //    objbulk3.ColumnMappings.Add("Level", "Level");
+        //    objbulk3.ColumnMappings.Add("ProjectLevel", "ProjectLevel");
+        //    objbulk3.ColumnMappings.Add("Leader", "Leader");
+        //    objbulk3.ColumnMappings.Add("Manager", "Manager");
+        //    objbulk3.ColumnMappings.Add("WorkShedule", "WorkShedule");
+        //    objbulk3.ColumnMappings.Add("WorkingDays", "WorkingDays");
+        //    objbulk3.ColumnMappings.Add("Monday", "Monday");
+        //    objbulk3.ColumnMappings.Add("Tuesday", "Tuesday");
+        //    objbulk3.ColumnMappings.Add("Wednesday", "Wednesday");
+        //    objbulk3.ColumnMappings.Add("Thursday", "Thursday");
+        //    objbulk3.ColumnMappings.Add("Friday", "Friday");
+        //    objbulk3.ColumnMappings.Add("Comments", "Comments");
+        //    objbulk3.ColumnMappings.Add("TargetedUtilization", "TargetedUtilization");
+        //    objbulk3.ColumnMappings.Add("C1stweek", "C1stweek");
+        //    objbulk3.ColumnMappings.Add("C2ndweek", "C2ndweek");
+        //    objbulk3.ColumnMappings.Add("C3rdweek", "C3rdweek");
+        //    objbulk3.ColumnMappings.Add("C4thweek", "C4thweek");
+        //    objbulk3.ColumnMappings.Add("C5thweek", "C5thweek");
+        //    objbulk3.ColumnMappings.Add("C6thweek", "C6thweek");
+        //    objbulk3.ColumnMappings.Add("C7thweek", "C7thweek");
+        //    objbulk3.ColumnMappings.Add("C8thweek", "C8thweek");
+        //    objbulk3.ColumnMappings.Add("AvgUtil", "AvgUtil");
+        //    objbulk3.ColumnMappings.Add("TUWorkingDays", "TUWorkingDays");
+        //    objbulk3.ColumnMappings.Add("CapacityAvailable", "CapacityAvailable");
+        //    objbulk3.ColumnMappings.Add("CapacityAvailableTUWorkingDays", "CapacityAvailableTUWorkingDays");
+        //    objbulk3.ColumnMappings.Add("C9thweek", "C9thweek");
+        //    objbulk3.ColumnMappings.Add("C10thweek", "C10thweek");
+        //    objbulk3.ColumnMappings.Add("C11thweek", "C11thweek");
+        //    objbulk3.ColumnMappings.Add("C12thweek", "C12thweek");
+        //    objbulk3.ColumnMappings.Add("c13thweek", "c13thweek");
+        //    objbulk3.ColumnMappings.Add("c14thweek", "c14thweek");
+        //    objbulk3.ColumnMappings.Add("c15thweek", "c15thweek");
+        //    objbulk3.ColumnMappings.Add("c16thweek", "c16thweek");
+        //    objbulk3.ColumnMappings.Add("c17thweek", "c17thweek");
+        //    objbulk3.ColumnMappings.Add("c18thweek", "c18thweek");
+        //    objbulk3.ColumnMappings.Add("c19thweek", "c19thweek");
+        //    objbulk3.ColumnMappings.Add("c20thweek", "c20thweek");
+        //    objbulk3.ColumnMappings.Add("c21thweek", "c21thweek");
+        //    objbulk3.ColumnMappings.Add("c22thweek", "c22thweek");
+        //    objbulk3.ColumnMappings.Add("c23thweek", "c23thweek");
+        //    objbulk3.ColumnMappings.Add("c24thweek", "c24thweek");
+        //    objbulk3.ColumnMappings.Add("ProjectStatus", "ProjectStatus");
+        //    ViewBag.Error15 = "Success";
+        //    return View("Index");
+        //}
+
+        public void ChangesNoticedAndStoringInDB()
+        {
+            var data = (from a in entity.CLRDatas
+                        where a.RevenueID != 400000000000000
+                        select a).ToList();
+            foreach (var r in data)
+            {
+                var yes_data = (from b in entity.YesterdayCLRs
+                                where b.RevenueID == r.RevenueID
+                                where b.TaskRecordIdKey == r.Task__Task_Record_ID_Key
+                                select b).ToList();
+                if (yes_data.Count > 0)
+                {
+                    if (yes_data[0].ProjectStatus != r.ProjectStatus)
+                    {
+                        DateTime TodayDate = DateTime.Now;
+                        entity.CLRActivities.Add(new CLRActivity
+                        {
+                            Client = r.Client,
+                            Revenue_ID = r.RevenueID,
+                            OldValue = yes_data[0].ProjectStatus,
+                            NewValue = r.ProjectStatus,
+                            ColumnName = "ProjectStatus",
+                            UpdatedDate = TodayDate,
+                            TaskRecordIDKey = r.Task__Task_Record_ID_Key
+                        });
+                        entity.SaveChanges();
+                    }
+                }
+            }
+        }
+        public void StoreYesterdayCLRData()
+        {
+            var data = (from a in entity.CLRDatas
+                        select a).ToList();
+            DataTable tbl = new DataTable();
+            tbl.Columns.Add(new DataColumn("Client", typeof(string)));
+            tbl.Columns.Add(new DataColumn("RevenueID", typeof(double)));
+            tbl.Columns.Add(new DataColumn("Region", typeof(string)));
+            tbl.Columns.Add(new DataColumn("Country", typeof(string)));
+            tbl.Columns.Add(new DataColumn("RevenueVolumeUSD", typeof(double)));
+            tbl.Columns.Add(new DataColumn("OppTOtalVolume", typeof(double)));
+            tbl.Columns.Add(new DataColumn("GoLiveDate", typeof(DateTime)));
+            tbl.Columns.Add(new DataColumn("ProjectStatus", typeof(string)));
+            tbl.Columns.Add(new DataColumn("ProjectLevel", typeof(string)));
+            tbl.Columns.Add(new DataColumn("ProjectStart_ForCycleTime", typeof(DateTime)));
+            tbl.Columns.Add(new DataColumn("GoLiveMonth", typeof(string)));
+            tbl.Columns.Add(new DataColumn("GoLiveYear", typeof(string)));
+            tbl.Columns.Add(new DataColumn("Status", typeof(string)));
+            tbl.Columns.Add(new DataColumn("ImplementationType", typeof(string)));
+            tbl.Columns.Add(new DataColumn("DataSourceType", typeof(string)));
+            tbl.Columns.Add(new DataColumn("GlobalProjectManager", typeof(string)));
+            tbl.Columns.Add(new DataColumn("RegionalProjectManager", typeof(string)));
+            tbl.Columns.Add(new DataColumn("AssigneeFullName", typeof(string)));
+            tbl.Columns.Add(new DataColumn("GlobalCISOBTLead", typeof(string)));
+            tbl.Columns.Add(new DataColumn("GlobalCISHRFeedSpecialist", typeof(string)));
+            tbl.Columns.Add(new DataColumn("GlobalCISPortraitLead", typeof(string)));
+            tbl.Columns.Add(new DataColumn("RegionalCISOBTLead", typeof(string)));
+            tbl.Columns.Add(new DataColumn("RegionalCISPortraitLead", typeof(string)));
+            tbl.Columns.Add(new DataColumn("TaskRecordIdKey", typeof(string)));
+            tbl.Columns.Add(new DataColumn("Sales_Stage_Name", typeof(string)));
+            foreach (var r in data)
+            {
+                DataRow dr = tbl.NewRow();
+                dr["Client"] = (object)r.Client ?? DBNull.Value;
+                dr["RevenueID"] = (object)r.RevenueID ?? DBNull.Value;
+                dr["Region"] = (object)r.Region ?? DBNull.Value;
+                dr["Country"] = (object)r.Country ?? DBNull.Value;
+                dr["RevenueVolumeUSD"] = (object)r.RevenueVolumeUSD ?? DBNull.Value;
+                dr["OppTOtalVolume"] = (object)r.OppTOtalVolume ?? DBNull.Value;
+                dr["GoLiveDate"] = (object)r.GoLiveDate ?? DBNull.Value;
+                dr["ProjectStatus"] = (object)r.ProjectStatus ?? DBNull.Value;
+                dr["ProjectLevel"] = (object)r.ProjectLevel ?? DBNull.Value;
+                dr["ProjectStart_ForCycleTime"] = (object)r.ProjectStart_ForCycleTime ?? DBNull.Value;
+                dr["GoLiveMonth"] = (object)r.GoLiveMonth ?? DBNull.Value;
+                dr["GoLiveYear"] = (object)r.GoLiveYear ?? DBNull.Value;
+                dr["Status"] = (object)r.Status ?? DBNull.Value;
+                dr["ImplementationType"] = (object)r.ImplementationType ?? DBNull.Value;
+                dr["DataSourceType"] = (object)r.DataSourceType ?? DBNull.Value;
+                dr["GlobalProjectManager"] = (object)r.GlobalProjectManager ?? DBNull.Value;
+                dr["RegionalProjectManager"] = (object)r.RegionalProjectManager ?? DBNull.Value;
+                dr["AssigneeFullName"] = (object)r.AssigneeFullName ?? DBNull.Value;
+                dr["GlobalCISOBTLead"] = (object)r.GlobalCISOBTLead ?? DBNull.Value;
+                dr["GlobalCISHRFeedSpecialist"] = (object)r.GlobalCISHRFeedSpecialist ?? DBNull.Value;
+                dr["GlobalCISPortraitLead"] = (object)r.GlobalCISPortraitLead ?? DBNull.Value;
+                dr["RegionalCISOBTLead"] = (object)r.RegionalCISOBTLead ?? DBNull.Value;
+                dr["RegionalCISPortraitLead"] = (object)r.RegionalCISPortraitLead ?? DBNull.Value;
+                dr["TaskRecordIdKey"] = (object)r.Task__Task_Record_ID_Key ?? DBNull.Value;
+                dr["Sales_Stage_Name"] = (object)r.Sales_Stage_Name ?? DBNull.Value;
+                tbl.Rows.Add(dr);
+            }
+            SqlBulkCopy objbulk = new SqlBulkCopy(con);
+            objbulk.DestinationTableName = "YesterdayCLR";
+            objbulk.ColumnMappings.Add("Client", "Client");
+            objbulk.ColumnMappings.Add("RevenueID", "RevenueID");
+            objbulk.ColumnMappings.Add("Region", "Region");
+            objbulk.ColumnMappings.Add("Country", "Country");
+            objbulk.ColumnMappings.Add("RevenueVolumeUSD", "RevenueVolumeUSD");
+            objbulk.ColumnMappings.Add("OppTOtalVolume", "OppTOtalVolume");
+            objbulk.ColumnMappings.Add("GoLiveDate", "GoLiveDate");
+            objbulk.ColumnMappings.Add("ProjectStatus", "ProjectStatus");
+            objbulk.ColumnMappings.Add("ProjectLevel", "ProjectLevel");
+            objbulk.ColumnMappings.Add("ProjectStart_ForCycleTime", "ProjectStart_ForCycleTime");
+            objbulk.ColumnMappings.Add("GoLiveMonth", "GoLiveMonth");
+            objbulk.ColumnMappings.Add("GoLiveYear", "GoLiveYear");
+            objbulk.ColumnMappings.Add("Status", "Status");
+            objbulk.ColumnMappings.Add("ImplementationType", "ImplementationType");
+            objbulk.ColumnMappings.Add("DataSourceType", "DataSourceType");
+            objbulk.ColumnMappings.Add("GlobalProjectManager", "GlobalProjectManager");
+            objbulk.ColumnMappings.Add("RegionalProjectManager", "RegionalProjectManager");
+            objbulk.ColumnMappings.Add("AssigneeFullName", "AssigneeFullName");
+            objbulk.ColumnMappings.Add("GlobalCISOBTLead", "GlobalCISOBTLead");
+            objbulk.ColumnMappings.Add("GlobalCISHRFeedSpecialist", "GlobalCISHRFeedSpecialist");
+            objbulk.ColumnMappings.Add("GlobalCISPortraitLead", "GlobalCISPortraitLead");
+            objbulk.ColumnMappings.Add("RegionalCISOBTLead", "RegionalCISOBTLead");
+            objbulk.ColumnMappings.Add("RegionalCISPortraitLead", "RegionalCISPortraitLead");
+            objbulk.ColumnMappings.Add("TaskRecordIdKey", "TaskRecordIdKey");
+            objbulk.ColumnMappings.Add("Sales_Stage_Name", "Sales_Stage_Name");
+            con.Open();
+            string CLR = "Truncate Table YesterdayCLR";
+            SqlCommand Com = new SqlCommand(CLR, con);
+            Com.ExecuteNonQuery();
+            objbulk.BatchSize = 100000;
+            objbulk.BulkCopyTimeout = 0;
+            objbulk.WriteToServer(tbl);
+            con.Close();
+        }
+
         public void StoreOldData()
         {
             var data = (from a in entity.CLRDatas
@@ -2914,7 +3037,6 @@ namespace CWTDashboardAPI.Controllers
             //tbl.Columns.Add(new DataColumn("ProjectStartDate", typeof(DateTime)));
             //tbl.Columns.Add(new DataColumn("IntitialGoliveDate", typeof(DateTime)));
             tbl.Columns.Add(new DataColumn("CompletedDate", typeof(DateTime)));
-            tbl.Columns.Add(new DataColumn("ProjectOwner", typeof(string)));
             tbl.Columns.Add(new DataColumn("AssigneeFullName", typeof(string)));
             tbl.Columns.Add(new DataColumn("MilestoneTitle", typeof(string)));
             tbl.Columns.Add(new DataColumn("Milestone__Record_ID_Key", typeof(string)));
@@ -2939,15 +3061,12 @@ namespace CWTDashboardAPI.Controllers
             tbl.Columns.Add(new DataColumn("CountryCode", typeof(string)));
             tbl.Columns.Add(new DataColumn("Client", typeof(string)));
             tbl.Columns.Add(new DataColumn("RevenueVolumeUSD", typeof(double)));
-            tbl.Columns.Add(new DataColumn("MarketLeader", typeof(string)));
             tbl.Columns.Add(new DataColumn("GlobalProjectManager", typeof(string)));
-            tbl.Columns.Add(new DataColumn("ProjectConsultant", typeof(string)));
             tbl.Columns.Add(new DataColumn("GlobalCISOBTLead", typeof(string)));
             tbl.Columns.Add(new DataColumn("GlobalCISHRFeedSpecialist", typeof(string)));
             tbl.Columns.Add(new DataColumn("GlobalCISPortraitLead", typeof(string)));
             tbl.Columns.Add(new DataColumn("GoLiveMonth", typeof(string)));
             tbl.Columns.Add(new DataColumn("GoLiveYear", typeof(string)));
-            tbl.Columns.Add(new DataColumn("BacklogStarted", typeof(string)));
             tbl.Columns.Add(new DataColumn("Quarter", typeof(string)));
             tbl.Columns.Add(new DataColumn("CycleTime", typeof(float)));
             tbl.Columns.Add(new DataColumn("PerCompleted", typeof(float)));
@@ -2984,7 +3103,6 @@ namespace CWTDashboardAPI.Controllers
                 //dr["ProjectStartDate"] = (object)r.ProjectStartDate ?? DBNull.Value;
                 //dr["IntitialGoliveDate"] = (object)r.IntitialGoliveDate ?? DBNull.Value;
                 dr["CompletedDate"] = (object)r.CompletedDate ?? DBNull.Value;
-                dr["ProjectOwner"] = r.ProjectOwner;
                 dr["AssigneeFullName"] = (object)r.AssigneeFullName ?? DBNull.Value;
                 dr["MilestoneTitle"] = r.MilestoneTitle;
                 dr["Milestone__Record_ID_Key"] = r.Milestone__Record_ID_Key;
@@ -3009,15 +3127,12 @@ namespace CWTDashboardAPI.Controllers
                 dr["CountryCode"] = (object)r.CountryCode ?? DBNull.Value;
                 dr["Client"] = (object)r.Client ?? DBNull.Value;
                 dr["RevenueVolumeUSD"] = r.RevenueVolumeUSD ?? 0;
-                dr["MarketLeader"] = r.MarketLeader;
                 dr["GlobalProjectManager"] = r.GlobalProjectManager;
-                dr["ProjectConsultant"] = r.ProjectConsultant;
                 dr["GlobalCISOBTLead"] = r.GlobalCISOBTLead;
                 dr["GlobalCISHRFeedSpecialist"] = r.GlobalCISHRFeedSpecialist;
                 dr["GlobalCISPortraitLead"] = r.GlobalCISPortraitLead;
                 dr["GoLiveMonth"] = (object)r.GoLiveMonth ?? DBNull.Value;
                 dr["GoLiveYear"] = (object)r.GoLiveYear ?? DBNull.Value;
-                dr["BacklogStarted"] = (object)r.BacklogStarted ?? DBNull.Value;
                 dr["Quarter"] = (object)r.Quarter ?? DBNull.Value;
                 //dr["CycleTime"] = (object)BusinessDaysUntil(r.GoLiveDate ?? TodayDate, r.TaskDueDate ?? TodayDate) ?? DBNull.Value;
                 dr["CycleTime"] = (object)r.CycleTime;
@@ -3077,7 +3192,6 @@ namespace CWTDashboardAPI.Controllers
             //objbulk.ColumnMappings.Add("ProjectStartDate", "ProjectStartDate");
             //objbulk.ColumnMappings.Add("IntitialGoliveDate", "IntitialGoliveDate");
             objbulk.ColumnMappings.Add("CompletedDate", "CompletedDate");
-            objbulk.ColumnMappings.Add("ProjectOwner", "ProjectOwner");
             objbulk.ColumnMappings.Add("AssigneeFullName", "AssigneeFullName");
             objbulk.ColumnMappings.Add("PerCompleted", "PerCompleted");
             objbulk.ColumnMappings.Add("MilestoneDueDate", "MilestoneDueDate");
@@ -3106,15 +3220,12 @@ namespace CWTDashboardAPI.Controllers
             objbulk.ColumnMappings.Add("CountryCode", "CountryCode");
             objbulk.ColumnMappings.Add("Client", "Client");
             objbulk.ColumnMappings.Add("RevenueVolumeUSD", "RevenueVolumeUSD");
-            objbulk.ColumnMappings.Add("MarketLeader", "MarketLeader");
             objbulk.ColumnMappings.Add("GlobalProjectManager", "GlobalProjectManager");
-            objbulk.ColumnMappings.Add("ProjectConsultant", "ProjectConsultant");
             objbulk.ColumnMappings.Add("GlobalCISOBTLead", "GlobalCISOBTLead");
             objbulk.ColumnMappings.Add("GlobalCISHRFeedSpecialist", "GlobalCISHRFeedSpecialist");
             objbulk.ColumnMappings.Add("GlobalCISPortraitLead", "GlobalCISPortraitLead");
             objbulk.ColumnMappings.Add("GoLiveMonth", "GoLiveMonth");
             objbulk.ColumnMappings.Add("GoLiveYear", "GoLiveYear");
-            objbulk.ColumnMappings.Add("BacklogStarted", "BacklogStarted");
             objbulk.ColumnMappings.Add("Quarter", "Quarter");
             objbulk.ColumnMappings.Add("CycleTime", "CycleTime");
             objbulk.ColumnMappings.Add("ExternalKickoffDuedate", "ExternalKickoffDuedate");
@@ -3158,7 +3269,6 @@ namespace CWTDashboardAPI.Controllers
             //tbl.Columns.Add(new DataColumn("ProjectStartDate", typeof(DateTime)));
             //tbl.Columns.Add(new DataColumn("IntitialGoliveDate", typeof(DateTime)));
             tbl.Columns.Add(new DataColumn("CompletedDate", typeof(DateTime)));
-            tbl.Columns.Add(new DataColumn("ProjectOwner", typeof(string)));
             tbl.Columns.Add(new DataColumn("AssigneeFullName", typeof(string)));
             tbl.Columns.Add(new DataColumn("MilestoneTitle", typeof(string)));
             tbl.Columns.Add(new DataColumn("Milestone__Record_ID_Key", typeof(string)));
@@ -3183,15 +3293,12 @@ namespace CWTDashboardAPI.Controllers
             tbl.Columns.Add(new DataColumn("CountryCode", typeof(string)));
             tbl.Columns.Add(new DataColumn("Client", typeof(string)));
             tbl.Columns.Add(new DataColumn("RevenueVolumeUSD", typeof(double)));
-            tbl.Columns.Add(new DataColumn("MarketLeader", typeof(string)));
             tbl.Columns.Add(new DataColumn("GlobalProjectManager", typeof(string)));
-            tbl.Columns.Add(new DataColumn("ProjectConsultant", typeof(string)));
             tbl.Columns.Add(new DataColumn("GlobalCISOBTLead", typeof(string)));
             tbl.Columns.Add(new DataColumn("GlobalCISHRFeedSpecialist", typeof(string)));
             tbl.Columns.Add(new DataColumn("GlobalCISPortraitLead", typeof(string)));
             tbl.Columns.Add(new DataColumn("GoLiveMonth", typeof(string)));
             tbl.Columns.Add(new DataColumn("GoLiveYear", typeof(string)));
-            tbl.Columns.Add(new DataColumn("BacklogStarted", typeof(string)));
             tbl.Columns.Add(new DataColumn("Quarter", typeof(string)));
             tbl.Columns.Add(new DataColumn("CycleTime", typeof(float)));
             tbl.Columns.Add(new DataColumn("PerCompleted", typeof(float)));
@@ -3228,7 +3335,6 @@ namespace CWTDashboardAPI.Controllers
                 //dr["ProjectStartDate"] = (object)r.ProjectStartDate ?? DBNull.Value;
                 //dr["IntitialGoliveDate"] = (object)r.IntitialGoliveDate ?? DBNull.Value;
                 dr["CompletedDate"] = (object)r.CompletedDate ?? DBNull.Value;
-                dr["ProjectOwner"] = r.ProjectOwner;
                 dr["AssigneeFullName"] = (object)r.AssigneeFullName ?? DBNull.Value;
                 dr["MilestoneTitle"] = r.MilestoneTitle;
                 dr["Milestone__Record_ID_Key"] = r.Milestone__Record_ID_Key;
@@ -3253,15 +3359,12 @@ namespace CWTDashboardAPI.Controllers
                 dr["CountryCode"] = (object)r.CountryCode ?? DBNull.Value;
                 dr["Client"] = (object)r.Client ?? DBNull.Value;
                 dr["RevenueVolumeUSD"] = r.RevenueVolumeUSD ?? 0;
-                dr["MarketLeader"] = r.MarketLeader;
                 dr["GlobalProjectManager"] = r.GlobalProjectManager;
-                dr["ProjectConsultant"] = r.ProjectConsultant;
                 dr["GlobalCISOBTLead"] = r.GlobalCISOBTLead;
                 dr["GlobalCISHRFeedSpecialist"] = r.GlobalCISHRFeedSpecialist;
                 dr["GlobalCISPortraitLead"] = r.GlobalCISPortraitLead;
                 dr["GoLiveMonth"] = (object)r.GoLiveMonth ?? DBNull.Value;
                 dr["GoLiveYear"] = (object)r.GoLiveYear ?? DBNull.Value;
-                dr["BacklogStarted"] = (object)r.BacklogStarted ?? DBNull.Value;
                 dr["Quarter"] = (object)r.Quarter ?? DBNull.Value;
                 //dr["CycleTime"] = (object)BusinessDaysUntil(r.GoLiveDate ?? TodayDate, r.TaskDueDate ?? TodayDate) ?? DBNull.Value;
                 dr["CycleTime"] = (object)r.CycleTime;
@@ -3321,7 +3424,6 @@ namespace CWTDashboardAPI.Controllers
             //objbulk.ColumnMappings.Add("ProjectStartDate", "ProjectStartDate");
             //objbulk.ColumnMappings.Add("IntitialGoliveDate", "IntitialGoliveDate");
             objbulk.ColumnMappings.Add("CompletedDate", "CompletedDate");
-            objbulk.ColumnMappings.Add("ProjectOwner", "ProjectOwner");
             objbulk.ColumnMappings.Add("AssigneeFullName", "AssigneeFullName");
             objbulk.ColumnMappings.Add("PerCompleted", "PerCompleted");
             objbulk.ColumnMappings.Add("MilestoneDueDate", "MilestoneDueDate");
@@ -3350,15 +3452,12 @@ namespace CWTDashboardAPI.Controllers
             objbulk.ColumnMappings.Add("CountryCode", "CountryCode");
             objbulk.ColumnMappings.Add("Client", "Client");
             objbulk.ColumnMappings.Add("RevenueVolumeUSD", "RevenueVolumeUSD");
-            objbulk.ColumnMappings.Add("MarketLeader", "MarketLeader");
             objbulk.ColumnMappings.Add("GlobalProjectManager", "GlobalProjectManager");
-            objbulk.ColumnMappings.Add("ProjectConsultant", "ProjectConsultant");
             objbulk.ColumnMappings.Add("GlobalCISOBTLead", "GlobalCISOBTLead");
             objbulk.ColumnMappings.Add("GlobalCISHRFeedSpecialist", "GlobalCISHRFeedSpecialist");
             objbulk.ColumnMappings.Add("GlobalCISPortraitLead", "GlobalCISPortraitLead");
             objbulk.ColumnMappings.Add("GoLiveMonth", "GoLiveMonth");
             objbulk.ColumnMappings.Add("GoLiveYear", "GoLiveYear");
-            objbulk.ColumnMappings.Add("BacklogStarted", "BacklogStarted");
             objbulk.ColumnMappings.Add("Quarter", "Quarter");
             objbulk.ColumnMappings.Add("CycleTime", "CycleTime");
             objbulk.ColumnMappings.Add("ExternalKickoffDuedate", "ExternalKickoffDuedate");
@@ -3389,12 +3488,12 @@ namespace CWTDashboardAPI.Controllers
         }
         public ActionResult WeeklyDelta(CLRData clrdata)
         {
-        //    var date = (from a in entity.ReportUpdatedOns
-        //                where a.ReportName == "WeeklyDelta"
-        //                select new {
-        //                    a.UpdatedOn
-        //                }).OrderByDescending(x=>x.UpdatedOn).ToList();
-        //    DateTime reportupdatedon = date.FirstOrDefault(x=>x.UpdatedOn).
+            //    var date = (from a in entity.ReportUpdatedOns
+            //                where a.ReportName == "WeeklyDelta"
+            //                select new {
+            //                    a.UpdatedOn
+            //                }).OrderByDescending(x=>x.UpdatedOn).ToList();
+            //    DateTime reportupdatedon = date.FirstOrDefault(x=>x.UpdatedOn).
             StoreOldOldData();
             var D_Status = "C-Closed,A-Active/Date Confirmed".Split(',');
             var Year = DateTime.Today.Date.Year.ToString();
@@ -3501,6 +3600,8 @@ namespace CWTDashboardAPI.Controllers
             return View("Index");
         }
         string D_CurrentMonth, D_CurrentYear, D_CurrentYearPrev, D_CurrentMonthPrev;
+
+        List<string> Clients = new List<string>();
         public void StorePreviousELt()
         {
             if(DateTime.Now.Day <= 11 && DateTime.Now.Month == 1)
@@ -3522,17 +3623,15 @@ namespace CWTDashboardAPI.Controllers
             var D_Status = "C-Closed,A-Active/Date Confirmed".Split(',');
             var otherstatus = "C-Closed,A-Active/Date Confirmed,N-Active/No Date Confirmed".Split(',');
             var Regions = "APAC,EMEA,LATAM,NORAM".Split(',');
-            var data = (from a in entity.CLRDatas
-                        where a.Status == "Active"
-                        where a.Client != null
-                        where a.Client != ""
-                        where a.OwnerShip != "Partner"
-                        where D_Status.Any(val => a.ProjectStatus.Equals(val))
-                        where Regions.Any(val => a.Region.Equals(val))
-                        where a.GoLiveMonth == D_CurrentMonthPrev
-                        where a.GoLiveYear == D_CurrentYearPrev
-                        select a).ToList();
-            var PriorEltReport = (from a in data
+
+            var PriorEltReport = (from a in entity.CLRDatas
+                                  where a.Status == "Active"
+                                  where a.Client != null
+                                  where a.Client != ""
+                                  where D_Status.Any(val => a.ProjectStatus.Equals(val))
+                                  where Regions.Any(val => a.Region.Equals(val))
+                                  where a.GoLiveMonth == D_CurrentMonthPrev
+                                  where a.GoLiveYear == D_CurrentYearPrev
                                   group a by a.Client into g
                                   select new
                                   {
@@ -3542,13 +3641,39 @@ namespace CWTDashboardAPI.Controllers
                                       LATAM = g.Where(x => x.Region == "LATAM").Sum(x => x.RevenueVolumeUSD) ?? 0,
                                       NORAM = g.Where(x => x.Region == "NORAM").Sum(x => x.RevenueVolumeUSD) ?? 0,
                                       Total = g.Sum(x => x.RevenueVolumeUSD) ?? 0,
-                                      NBVPriorMonth = entity.EltDeltaClients.FirstOrDefault(x => x.Client == g.Key && x.Month == D_CurrentMonthPrev)?.Revenue ?? 0,
+                                      NBVPriorMonth = entity.EltDeltaClients.Where(x => x.Client == g.Key && x.Month == D_CurrentMonthPrev && x.Year == D_CurrentYearPrev).Count() > 0 ? entity.EltDeltaClients.Where(x => x.Client == g.Key && x.Month == D_CurrentMonthPrev && x.Year == D_CurrentYearPrev).Sum(x => x.Revenue) : 0,
+                                      Workspace = entity.CLRDatas.FirstOrDefault(x => x.Client == g.Key && x.Status == "Active").Workspace_Title,
                                       TotalAccountVolume = entity.CLRDatas.Where(x => x.Client == g.Key && x.Status == "Active" && otherstatus.Any(val1 => x.ProjectStatus.Equals(val1))).Sum(x => x.RevenueVolumeUSD) ?? 0,
-                                      Comments = g.Where(x => x.Workspace__ELT_Overall_Comments != null)?.Select(x =>x.Workspace__ELT_Overall_Comments).Distinct(),
-                                      RegionComment = g.Select(x => x.Region).Distinct(),
-                                      RevenueComment = g.Select(x => x.RevenueVolumeUSD).Distinct(),
                                   }).ToList();
-
+            for (var i = 0; i < PriorEltReport.Count; i++)
+            {
+                Clients.Add(PriorEltReport[i].Client);
+            }
+            var clients = (from a in entity.EltDeltaClients
+                           where a.Month == D_CurrentMonthPrev
+                           where a.Year == D_CurrentYearPrev
+                           where a.Revenue > 0
+                           where !Clients.Any(val => a.Client.Equals(val))
+                           select a.Client).ToList();
+            var MovedClients = (from a in entity.EltDeltaClients
+                                where a.Month == D_CurrentMonthPrev
+                                where a.Year == D_CurrentYearPrev
+                                where a.Revenue > 0
+                                where !Clients.Any(val => a.Client.Equals(val))
+                                group a by a.Client into g
+                                select new
+                                {
+                                    Client = g.Key,
+                                    APAC = (double)0,
+                                    EMEA = (double)0,
+                                    LATAM = (double)0,
+                                    NORAM = (double)0,
+                                    Total = (double)0,
+                                    NBVPriorMonth = (from elt in g select elt.Revenue).Sum(),
+                                    Workspace = entity.CLRDatas.FirstOrDefault(x => x.Client == g.Key && x.Status == "Active").Workspace_Title,
+                                    TotalAccountVolume = entity.CLRDatas.Where(x => x.Client == g.Key && x.Status == "Active").Sum(x => x.RevenueVolumeUSD) ?? 0,
+                                });
+            var EltDeltaCLients = PriorEltReport.Concat(MovedClients);
             DataTable D_tbl = new DataTable();
             D_tbl.Columns.Add(new DataColumn("Client", typeof(string)));
             D_tbl.Columns.Add(new DataColumn("EMEA", typeof(float)));
@@ -3563,7 +3688,7 @@ namespace CWTDashboardAPI.Controllers
             D_tbl.Columns.Add(new DataColumn("Year", typeof(float)));
             D_tbl.Columns.Add(new DataColumn("Month", typeof(string)));
             D_tbl.Columns.Add(new DataColumn("InsertedOn", typeof(DateTime)));
-            foreach (var dc in PriorEltReport)
+            foreach (var dc in EltDeltaCLients)
             {
                 DataRow dr1 = D_tbl.NewRow();
                 dr1["Client"] = dc.Client;
@@ -3575,8 +3700,7 @@ namespace CWTDashboardAPI.Controllers
                 dr1["NBAPriorMonth"] = dc.NBVPriorMonth;
                 dr1["TotalAccountVolume"] = dc.TotalAccountVolume;
                 dr1["Delta"] = dc.Total - dc.NBVPriorMonth;
-                dr1["Comments"] = string.Join(", ", dc.Comments) == null || string.Join(", ", dc.Comments) == "" ? string.Join(", ", dc.RegionComment) + " " + string.Join(", ", dc.RevenueComment)
-                                    : string.Join(", ", dc.Comments);
+                dr1["Comments"] = "";
                 dr1["Year"] = D_CurrentYearPrev;
                 dr1["Month"] = D_CurrentMonthPrev;
                 dr1["InsertedOn"] = TodayDate;
@@ -3602,10 +3726,216 @@ namespace CWTDashboardAPI.Controllers
             D_objbulk.BulkCopyTimeout = 0;
             D_objbulk.WriteToServer(D_tbl);
             con.Close();
+
+            var ELTDeltaCLients = (from a in entity.EltDeltaClients
+                                   where a.Month == D_CurrentMonthPrev
+                                   where a.Year == D_CurrentYearPrev
+                                   where a.Revenue > 0
+                                   select a.Client).ToList();
+
+            var DeltaComments = (from a in entity.EltOldCLRDatas
+                                 where ELTDeltaCLients.Any(val => a.Client.Equals(val))
+                                 where a.GoLiveMonth == D_CurrentMonthPrev
+                                 where a.GoLiveYear == D_CurrentYearPrev
+                                 where a.RevenueVolumeUSD > 0
+                                 where a.Status == "Active"
+                                 where D_Status.Any(val1 => a.ProjectStatus.Equals(val1))
+                                 join b in entity.CLRDatas on a.RevenueID equals b.RevenueID into ab
+                                 from abc in ab.DefaultIfEmpty()
+                                 select new ELTDeltaComments
+                                 {
+                                     Client = a.Client,
+                                     RevenueID = abc.RevenueID,
+                                     ProjectStatus = a.ProjectStatus,
+                                     GoLiveMonth = a.GoLiveMonth,
+                                     GoLiveYear = a.GoLiveYear,
+                                     Country = a.Country,
+                                     Region = a.Region,
+                                     Workspace_Title = a.Workspace_Title,
+                                     PreviousVolume = a.RevenueVolumeUSD ?? 0,
+                                     CurrentVolume = abc.RevenueVolumeUSD ?? 0,
+                                     RevenueVolumeUSD = 0,
+                                     CurrentProjectStatus = abc.ProjectStatus,
+                                     CurrentMonth = abc.GoLiveMonth,
+                                     CurrentYear = abc.GoLiveYear,
+                                     Comments = "",
+                                     DeltaColor = ""
+                                 }).Distinct().ToList();
+            var RevenueIds = (from a in DeltaComments
+                              select a.RevenueID).ToList();
+            var OtherDeltaComments = (from a in entity.CLRDatas
+                                      where !RevenueIds.Any(val => a.RevenueID.Equals(val))
+                                      where a.GoLiveMonth == D_CurrentMonthPrev
+                                      where a.GoLiveYear == D_CurrentYearPrev
+                                      where a.RevenueVolumeUSD > 0
+                                      where a.Status == "Active"
+                                      where D_Status.Any(val1 => a.ProjectStatus.Equals(val1))
+                                      join b in entity.EltOldCLRDatas on a.RevenueID equals b.RevenueID into ab
+                                      from abc in ab.DefaultIfEmpty()
+                                      select new ELTDeltaComments
+                                      {
+                                          Client = a.Client,
+                                          RevenueID = a.RevenueID,
+                                          ProjectStatus = abc.ProjectStatus == null ? "---" : abc.ProjectStatus,
+                                          GoLiveMonth = abc.GoLiveMonth,
+                                          GoLiveYear = abc.GoLiveYear,
+                                          Country = a.Country,
+                                          Region = a.Region,
+                                          Workspace_Title = a.Workspace_Title,
+                                          PreviousVolume = abc.RevenueVolumeUSD ?? 0,
+                                          CurrentVolume = a.RevenueVolumeUSD ?? 0,
+                                          RevenueVolumeUSD = 0,
+                                          CurrentProjectStatus = a.ProjectStatus,
+                                          CurrentMonth = a.GoLiveMonth,
+                                          CurrentYear = a.GoLiveYear,
+                                          Comments = "",
+                                          DeltaColor = ""
+                                      }).Distinct().ToList();
+            var ELTDeltaComments = DeltaComments.Concat(OtherDeltaComments).ToList();
+            List<double> RemovableRecords = new List<double>();
+            foreach (var r in ELTDeltaComments)
+            {
+                var comments = "";
+                if (D_Status.Any(val1 => r.CurrentProjectStatus.Equals(val1)))
+                {
+                    if (!D_Status.Any(val1 => r.ProjectStatus.Equals(val1)))
+                    {
+                        r.DeltaColor = "green";
+                        r.RevenueVolumeUSD = r.CurrentVolume;
+                        comments = "Project Status Moved from " + r.ProjectStatus + " to " + r.CurrentProjectStatus;
+                    }
+                }
+                else
+                {
+                    r.DeltaColor = "red";
+                    r.RevenueVolumeUSD = r.PreviousVolume;
+                    comments = "Project Status Moved from " + r.ProjectStatus + " to " + r.CurrentProjectStatus;
+                }
+                if (r.GoLiveMonth != r.CurrentMonth)
+                {
+                    if (r.DeltaColor == "red")
+                    {
+                        r.DeltaColor = "red";
+                        r.RevenueVolumeUSD = r.PreviousVolume;
+                    }
+                    else
+                    {
+                        if (r.CurrentMonth == D_CurrentMonthPrev)
+                        {
+                            r.DeltaColor = "green";
+                            r.RevenueVolumeUSD = r.CurrentVolume;
+                        }
+                        else
+                        {
+                            r.DeltaColor = "red";
+                            r.RevenueVolumeUSD = r.PreviousVolume;
+                        }
+                    }
+                    if (comments != "")
+                    {
+                        comments += "\n";
+                    }
+                    comments += "Golive Date has been changed from " + r.GoLiveMonth + "-" + r.GoLiveYear + " to " + r.CurrentMonth + "-" + r.CurrentYear;
+                }
+                if (r.PreviousVolume != r.CurrentVolume)
+                {
+                    if (r.DeltaColor == "red")
+                    {
+                    }
+                    else
+                    {
+                        if (r.PreviousVolume < r.CurrentVolume)
+                        {
+                            r.DeltaColor = "green";
+                        }
+                        else
+                        {
+                            r.DeltaColor = "red";
+                        }
+                    }
+                    r.RevenueVolumeUSD = r.CurrentVolume - r.PreviousVolume;
+                    if (comments != "")
+                    {
+                        comments += "\n";
+                    }
+                    comments += "Volume has been updated from " + r.PreviousVolume + " to " + r.CurrentVolume;
+                }
+                r.Comments = comments;
+                if (comments == "")
+                {
+                    var count = ELTDeltaComments.Where(x => x.RevenueID == r.RevenueID).Count();
+                    if (count > 1)
+                    {
+                        for (var k = 0; k < count; k++)
+                        {
+                            RemovableRecords.Add(r.RevenueID);
+                        }
+                    }
+                    else
+                    {
+                        RemovableRecords.Add(r.RevenueID);
+                    }
+                }
+            }
+            for (int i = 0; i < RemovableRecords.Count; i++)
+            {
+                int index = ELTDeltaComments.FindIndex(a => a.RevenueID == RemovableRecords[i]);
+                ELTDeltaComments.RemoveAt(index);
+            }
+
+            DataTable D_tbl2 = new DataTable();
+            D_tbl2.Columns.Add(new DataColumn("Client", typeof(string)));
+            D_tbl2.Columns.Add(new DataColumn("WorkspaceTitle", typeof(string)));
+            D_tbl2.Columns.Add(new DataColumn("Month", typeof(string)));
+            D_tbl2.Columns.Add(new DataColumn("Year", typeof(float)));
+            D_tbl2.Columns.Add(new DataColumn("Revenue", typeof(float)));
+            D_tbl2.Columns.Add(new DataColumn("RevenueId", typeof(float)));
+            D_tbl2.Columns.Add(new DataColumn("Region", typeof(string)));
+            D_tbl2.Columns.Add(new DataColumn("Country", typeof(string)));
+            D_tbl2.Columns.Add(new DataColumn("Comment", typeof(string)));
+            D_tbl2.Columns.Add(new DataColumn("InsertedOn", typeof(DateTime)));
+            D_tbl2.Columns.Add(new DataColumn("Status", typeof(string)));
+            D_tbl2.Columns.Add(new DataColumn("DeltaColor", typeof(string)));
+            foreach (var dc in ELTDeltaComments)
+            {
+                DataRow dr12 = D_tbl2.NewRow();
+                dr12["Client"] = dc.Client;
+                dr12["WorkspaceTitle"] = dc.Workspace_Title;
+                dr12["Month"] = D_CurrentMonthPrev;
+                dr12["Year"] = D_CurrentYearPrev;
+                dr12["Revenue"] = dc.RevenueVolumeUSD;
+                dr12["RevenueId"] = dc.RevenueID;
+                dr12["Region"] = dc.Region;
+                dr12["Country"] = dc.Country;
+                dr12["Comment"] = dc.Comments;
+                dr12["InsertedOn"] = TodayDate;
+                dr12["Status"] = "Active";
+                dr12["DeltaColor"] = dc.DeltaColor;
+                D_tbl2.Rows.Add(dr12);
+            }
+            SqlBulkCopy D_objbulk2 = new SqlBulkCopy(con);
+            D_objbulk2.DestinationTableName = "ELTDeltaComments";
+            D_objbulk2.ColumnMappings.Add("Client", "Client");
+            D_objbulk2.ColumnMappings.Add("WorkspaceTitle", "WorkspaceTitle");
+            D_objbulk2.ColumnMappings.Add("Month", "Month");
+            D_objbulk2.ColumnMappings.Add("Year", "Year");
+            D_objbulk2.ColumnMappings.Add("Revenue", "Revenue");
+            D_objbulk2.ColumnMappings.Add("RevenueId", "RevenueId");
+            D_objbulk2.ColumnMappings.Add("Region", "Region");
+            D_objbulk2.ColumnMappings.Add("Country", "Country");
+            D_objbulk2.ColumnMappings.Add("Comment", "Comment");
+            D_objbulk2.ColumnMappings.Add("InsertedOn", "InsertedOn");
+            D_objbulk2.ColumnMappings.Add("Status", "Status");
+            D_objbulk2.ColumnMappings.Add("DeltaColor", "DeltaColor");
+            con.Open();
+            D_objbulk2.BatchSize = 100000;
+            D_objbulk2.BulkCopyTimeout = 0;
+            D_objbulk2.WriteToServer(D_tbl2);
+            con.Close();
         }
         public ActionResult ELTDelta(CLRData clrdata)
         {
-            StoreEltoldCLRData();
+            StorePreviousELt();
             if (DateTime.Now.Day > 11 && DateTime.Now.Month == 12)
             {
                 D_CurrentMonth = "Jan";
@@ -3621,13 +3951,12 @@ namespace CWTDashboardAPI.Controllers
                 D_CurrentYear = DateTime.Today.Date.Year.ToString();
                 D_CurrentMonth = DateTime.Now.ToString("MMM");
             }
-            StorePreviousELt();
+            StoreEltoldCLRData();
             var D_Status = "C-Closed,A-Active/Date Confirmed".Split(',');
             var Data = (from a in entity.CLRDatas
                         where a.Status == "Active"
                         where a.Client != null
                         where a.Client != ""
-                        where a.OwnerShip != "Partner"
                         where D_Status.Any(val => a.ProjectStatus.Equals(val))
                         where a.GoLiveMonth == D_CurrentMonth
                         where a.GoLiveYear == D_CurrentYear
@@ -3684,6 +4013,8 @@ namespace CWTDashboardAPI.Controllers
         public void StoreEltoldCLRData()
         {
             var data = (from a in entity.CLRDatas
+                        where a.RevenueID != 400000000000000
+                        where a.RevenueID < 600000000000000
                         select a).ToList();
             DataTable tbl = new DataTable();
             tbl.Columns.Add(new DataColumn("Client", typeof(string)));
@@ -3708,6 +4039,7 @@ namespace CWTDashboardAPI.Controllers
             tbl.Columns.Add(new DataColumn("Status", typeof(string)));
             tbl.Columns.Add(new DataColumn("ImplementationType", typeof(string)));
             tbl.Columns.Add(new DataColumn("DataSourceType", typeof(string)));
+            tbl.Columns.Add(new DataColumn("TaskRecordIdKey", typeof(string)));
             foreach (var r in data)
             {
                 DataRow dr = tbl.NewRow();
@@ -3732,6 +4064,7 @@ namespace CWTDashboardAPI.Controllers
                 dr["Status"] = r.Status;
                 dr["ImplementationType"] = r.ImplementationType;
                 dr["DataSourceType"] = r.DataSourceType;
+                dr["TaskRecordIdKey"] = r.Task__Task_Record_ID_Key;
                 tbl.Rows.Add(dr);
             }
             //ViewBag.Error4 = tbl.Rows;
@@ -3758,6 +4091,7 @@ namespace CWTDashboardAPI.Controllers
             objbulk.ColumnMappings.Add("Status", "Status");
             objbulk.ColumnMappings.Add("ImplementationType", "ImplementationType");
             objbulk.ColumnMappings.Add("DataSourceType", "DataSourceType");
+            objbulk.ColumnMappings.Add("TaskRecordIdKey", "TaskRecordIdKey");
             con.Open();
             string CLR = "Truncate Table EltOldCLRData";
             SqlCommand Com = new SqlCommand(CLR, con);
@@ -3869,20 +4203,20 @@ namespace CWTDashboardAPI.Controllers
             }
         }
         [HttpPost]
-        public ActionResult CRMImport(HttpPostedFileBase crmfile)
+        public ActionResult CRMImport(HttpPostedFileBase crm_file)
         {
-            if (crmfile.ContentLength == 0)
+            if (crm_file.ContentLength == 0)
             {
                 ViewBag.Error2 = "Please select the Excel File<br>";
                 return View("Index");
             }
             else
             {
-                if (crmfile.FileName.EndsWith("xls") || crmfile.FileName.EndsWith("xlsx"))
+                if (crm_file.FileName.EndsWith("xls") || crm_file.FileName.EndsWith("xlsx"))
                 {
-                    string filename = Guid.NewGuid() + Path.GetExtension(crmfile.FileName);
+                    string filename = Guid.NewGuid() + Path.GetExtension(crm_file.FileName);
                     string filepath = "/excelfolder/" + filename;
-                    crmfile.SaveAs(Path.Combine(Server.MapPath("/excelfolder"), filename));
+                    crm_file.SaveAs(Path.Combine(Server.MapPath("/excelfolder"), filename));
                     InsertCRMdata(filepath, filename);
                     ViewBag.Error2 = "Success";
                     return View("Index");

@@ -16,11 +16,9 @@
             overflow-x: hidden;
             padding-top: 20px;
         }
-
         .left {
             left: 0;
         }
-
         .right {
             right: 0;
         }
@@ -98,13 +96,27 @@
                 <div style="display:inline-block"><input class="buttonstyle" type="submit" value="Import" /></div>
                 <div style="display:inline-block">@Html.Raw(ViewBag.Error)</div>
             }
+            @using (Html.BeginForm("TestImeetImport", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div style="display:inline-block;margin-top: 30px;margin-left:50px"><input class="mainbutton" type="submit" value="TestImeetImport" /></div>
+                <div style="display:inline-block;margin-top: 30px">@Html.Raw(ViewBag.Error143)</div>
+            }
+            @if (ViewBag.RunningUser != null)
+            {
+                <div style="margin-top:20px; font-weight:bold;">
+                    Running User: @ViewBag.RunningUser
+                </div>
+            }
             <label class="labeltext"> CRM Import</label>
             @using (Html.BeginForm("CRMImport", "Imports", FormMethod.Post, new
             {
                 enctype = "multipart/form-data"
             }))
             {
-                <div class="choosefile"><input type="file" name="crmfile" /></div>
+                <div class="choosefile"><input type="file" name="crm_file" /></div>
                 <div style="display:inline-block"><input class="buttonstyle" type="submit" value="Import" /></div>
                 <div style="display:inline-block">@Html.Raw(ViewBag.Error2)</div>
             }
@@ -185,6 +197,14 @@
             {
                 <div style="display:inline-block;margin-top: 30px;margin-left:50px"><input class="mainbutton" type="submit" value="Generate CLR" /></div>
                 <div style="display:inline-block;margin-top: 30px">@Html.Raw(ViewBag.Error4)</div>
+            }
+            @using (Html.BeginForm("CLRActivity", "Imports", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div style="display:inline-block;margin-top: 30px;margin-left:50px"><input class="mainbutton" type="submit" value="CLR Activity" /></div>
+                <div style="display:inline-block;margin-top: 30px">@Html.Raw(ViewBag.Error22)</div>
             }
             @using (Html.BeginForm("GenerateTracker", "Imports", FormMethod.Post, new
             {

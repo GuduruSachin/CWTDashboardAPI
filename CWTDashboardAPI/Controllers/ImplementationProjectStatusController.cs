@@ -13,7 +13,7 @@ namespace CWTDashboardAPI.Controllers
         CWTDashboardEntities entity = new CWTDashboardEntities();
         Response re = new Response();
         IMPSFilters fi = new IMPSFilters();
-        int LevelCount, StatusCount, LeadersCount,GroupNameCount;
+        int LevelCount, StatusCount, LeadersCount,GroupNameCount, RegionsCount;
         string[] PLCstatus, PLClevels, PLCregions, PLCAssign_Report, PLCGroupName;
         [HttpPost]
         [Route("ProjectLevelCount")]
@@ -365,6 +365,91 @@ namespace CWTDashboardAPI.Controllers
             return re;
         }
 
+
+        string[] R_status, R_levels, R_regions, R_Assign_Report, R_GroupName;
+        [HttpPost]
+        [Route("RegionWiseCountIMPS")]
+        public Response RegionWiseCountIMPS(IMP imp)
+        {
+            if (imp.Milestone__Project_Status == null || imp.Workspace__Project_Level == null || imp.Milestone__Region == null || imp.Milestone__Assignee__Reports_to__Full_Name == null || imp.Task_Start_Date == null || imp.Group_Name == null || imp.Milestone__Project_Start_Date == null)
+            {
+                re.code = 100;
+                re.message = "Please select the values";
+                re.Data = null;
+            }
+            else
+            {
+                R_status = imp.Milestone__Project_Status.Split(',');
+                for (int i = 0; i < R_status.Count(); i++)
+                {
+                    if (R_status[i] == "")
+                    {
+                        R_status[i] = null;
+                    }
+                }
+                R_levels = imp.Workspace__Project_Level.Split(',');
+                for (int i = 0; i < R_levels.Count(); i++)
+                {
+                    if (R_levels[i] == "")
+                    {
+                        R_levels[i] = null;
+                    }
+                }
+                R_regions = imp.Milestone__Region.Split(',');
+                for (int i = 0; i < R_regions.Count(); i++)
+                {
+                    if (R_regions[i] == "")
+                    {
+                        R_regions[i] = null;
+                    }
+                }
+                R_Assign_Report = imp.Milestone__Assignee__Reports_to__Full_Name.Split(',');
+                for (int i = 0; i < R_Assign_Report.Count(); i++)
+                {
+                    if (R_Assign_Report[i] == "")
+                    {
+                        R_Assign_Report[i] = null;
+                    }
+                }
+                R_GroupName = imp.Group_Name.Split(',');
+                for (int i = 0; i < R_GroupName.Count(); i++)
+                {
+                    if (R_GroupName[i] == "")
+                    {
+                        R_GroupName[i] = null;
+                    }
+                }
+                var RegionsData = (from a in entity.IMPS
+                                      where a.Task_Start_Date >= imp.Task_Start_Date && a.Task_Start_Date <= imp.Milestone__Project_Start_Date
+                                      where R_GroupName.Any(val1 => a.Group_Name.Equals(val1))
+                                      where R_status.Any(val1 => a.Milestone__Project_Status.Equals(val1))
+                                      where R_levels.Any(val2 => a.Workspace__Project_Level.Equals(val2))
+                                      where R_regions.Any(val3 => a.Milestone__Region.Equals(val3))
+                                      where R_Assign_Report.Any(val5 => a.Milestone__Assignee__Reports_to__Full_Name.Equals(val5))
+                                      select a);
+                var Regions = (from a in RegionsData
+                                  group a by a.Milestone__Region into g
+                                  select new
+                                  {
+                                      Region = g.Key,
+                                      WorkspaceCount = RegionsData.Where(x => x.Milestone__Region == g.Key).Select(x => x.Workspace_Title).Count(),
+                                  }).OrderBy(x => x.Region);
+                RegionsCount = Regions.AsQueryable().Count();
+                if (RegionsCount.ToString() == "" || RegionsCount.ToString() == null || RegionsCount == 0)
+                {
+                    re.code = 100;
+                    re.message = "No Data Found";
+                    re.Data = Regions;
+                }
+                else
+                {
+                    re.code = 200;
+                    re.message = "Success";
+                    re.Data = Regions;
+                }
+            }
+            return re;
+        }
         [HttpPost]
         [Route("ImeetPSFilters")]
         public IMPSFilters ImeetPSFilters(IMP imp)

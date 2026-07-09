@@ -1,0 +1,151 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>index</title>
+</head>
+<body>
+    <div class="split left">
+        <div style="margin: 10px 0px 15px 70px;">
+            <div style="width: 100%;padding-left: 50px">
+                <label class="labeltextheader" style="display:inline-block"> CLR Generation</label>
+            </div>
+            @using (Html.BeginForm("iMeetImport", "DataImport", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div style="display:inline-block;margin-top: 30px;margin-left:50px"><input class="mainbutton" type="submit" value="iMeet Import" /></div>
+                <div style="display:inline-block;margin-top: 30px">@Html.Raw(ViewBag.iMeet_Error)</div>
+            }
+            @using (Html.BeginForm("RolesImport", "DataImport", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div style="display:inline-block;margin-top: 30px;margin-left:50px"><input class="mainbutton" type="submit" value="Roles Import" /></div>
+                <div style="display:inline-block;margin-top: 30px">@Html.Raw(ViewBag.Roles_Error)</div>
+            }
+            @using (Html.BeginForm("AssignePersonsImport", "Dataimport", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div style="display:inline-block;margin-top: 30px;margin-left:50px"><input class="mainbutton" type="submit" value="AssignePersons Import" /></div>
+                <div style="display:inline-block;margin-top: 30px">@Html.Raw(ViewBag.Assigne_Persons_Error)</div>
+            }
+            @using (Html.BeginForm("ProjectDueDateImport", "Dataimport", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div style="display:inline-block;margin-top: 30px;margin-left:50px"><input class="mainbutton" type="submit" value="Project Due Date Import" /></div>
+                <div style="display:inline-block;margin-top: 30px">@Html.Raw(ViewBag.Project_Due_Date_Error)</div>
+            }
+            @using (Html.BeginForm("IMPSImport", "Dataimport", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div style="display:inline-block;margin-top: 30px;margin-left:50px"><input class="mainbutton" type="submit" value="IMPS Import" /></div>
+                <div style="display:inline-block;margin-top: 30px">@Html.Raw(ViewBag.IMPS_Error)</div>
+            }
+            @using (Html.BeginForm("CTOImport", "Dataimport", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div style="display:inline-block;margin-top: 30px;margin-left:50px"><input class="mainbutton" type="submit" value="CTO Import" /></div>
+                <div style="display:inline-block;margin-top: 30px">@Html.Raw(ViewBag.CTO_Error)</div>
+            }
+            @using (Html.BeginForm("CRMImport", "Dataimport", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div style="display:inline-block;margin-top: 30px;margin-left:50px"><input class="mainbutton" type="submit" value="CRM Import" /></div>
+                <div style="display:inline-block;margin-top: 30px">@Html.Raw(ViewBag.CRM_Error)</div>
+            }
+            @using (Html.BeginForm("GeteSowData", "Dataimport", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div style="display:inline-block;margin-top: 30px;margin-left:50px"><input class="mainbutton" type="submit" value="Get eSOW & import to DB" /></div>
+                <div class="alert alert-danger">
+                    <strong>Error:</strong> @Html.Raw(ViewBag.eSowApiError)
+                </div>
+            }
+            @using (Html.BeginForm("SendReportsUpdatedSummary", "Dataimport", FormMethod.Post, new
+            {
+                enctype = "multipart/form-data"
+            }))
+            {
+                <div style="display:inline-block;margin-top: 30px;margin-left:50px"><input class="mainbutton" type="submit" value="Send Report Updated Summary" /></div>
+                <div style="display:inline-block;margin-top: 30px">@Html.Raw(ViewBag.Summary_Error)</div>
+            }
+        </div>
+    </div>
+    @*<div class="split right">
+        @{
+            var apiResponse = ViewBag.ApiResponse as CWTDashboardAPI.Models.eSowResponse;
+        }
+
+        @if (apiResponse != null)
+        {
+            <h2>API Response</h2>
+
+            <p>Total Count: @apiResponse.count</p>
+
+            <h3>Labels</h3>
+            <ul>
+                @foreach (var label in apiResponse.labels)
+                {
+                    <li>@label</li>
+                }
+            </ul>
+
+            <h3>Types</h3>
+            <ul>
+                @foreach (var type in apiResponse.types)
+                {
+                    <li>@type</li>
+                }
+            </ul>
+
+            <h3>Data</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>      <!-- Adjust to your Datum properties -->
+                        <th>Client</th>   <!-- Adjust to your Datum properties -->
+                        <th>Modified On</th>   <!-- Adjust to your Datum properties -->
+                        <th>Client Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in apiResponse.data)
+                    {
+                    <tr>
+                        <td>@item.id</td>   <!-- Adjust to your Datum properties -->
+                        <td>@item.Client</td>
+                        <td>@item.modifiedOn</td>
+                        <td>@item.ClientType</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No data available.</p>
+        }
+    </div>*@
+</body>
+</html>

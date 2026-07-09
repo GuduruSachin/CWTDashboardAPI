@@ -19,9 +19,17 @@ namespace CWTDashboardAPI.Controllers
         IMRCResponse imrs = new IMRCResponse();
         [HttpPost]
         [Route("NPSData")]
-        public NPSData NPSData(CLRData clr)
+        public NPSData NPSData(NpsImp npsImp)
         {
-            int CurrentYear = DateTime.Now.Year;
+            int CurrentYear;
+            if (npsImp.YearMonth == null || npsImp.YearMonth == "")
+            {
+                CurrentYear = DateTime.Now.Year;
+            }
+            else
+            {
+                CurrentYear = int.Parse(npsImp.YearMonth);
+            }
             var ClientTypes = "New,Existing".Split(',');
             var npsdata = (from a in entity.NpsImps
                            select new
@@ -331,6 +339,14 @@ namespace CWTDashboardAPI.Controllers
             }
         }
         [HttpPost]
+        [Route("NpsMaxRecipientId")]
+        public Response NpsMaxRecipientId(NpsImp npsImp)
+        {
+            var maxid = entity.SurveySentDetails.OrderByDescending(u => u.RecipientId).FirstOrDefault().RecipientId;
+            re.code = maxid;
+            return re;
+        }
+        [HttpPost]
         [Route("NpsViewData")]
         public NPSData NpsViewData(NpsImp npsImp)
         {
@@ -375,8 +391,11 @@ namespace CWTDashboardAPI.Controllers
                             a.Action,
                             InsertedBy = a.InsertedBy == null || a.InsertedBy == "" ? "" : entity.Users.FirstOrDefault(x => x.UID == a.InsertedBy).FirstName + " " + entity.Users.FirstOrDefault(x => x.UID == a.InsertedBy).LastName ?? "",
                             a.InsertedOn,
+                            RecipientId = entity.SurveySentDetails.Where(x => x.NpsId == a.NpsId).Count() > 0 ? entity.SurveySentDetails.FirstOrDefault(x => x.NpsId == a.NpsId).RecipientId+"" : "---",
                             UpdatedBy = a.UpdatedBy == null || a.UpdatedBy == "" ? "" : entity.Users.FirstOrDefault(x => x.UID == a.UpdatedBy).FirstName + " " + entity.Users.FirstOrDefault(x => x.UID == a.UpdatedBy).LastName ?? "",
-
+                            a.GlobalDigitalPM,
+                            a.RegionalDigitalPM,
+                            a.LocalDigitalPM,
                             a.UpdatedOn,
                         }).ToList().OrderByDescending(x => x.InsertedOn);
             nps.NPSViewData = data;

@@ -92,6 +92,11 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\microsoft.office.interop.outlook.15.0.4797.1004\lib\net20\Microsoft.Office.Interop.Outlook.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -228,9 +233,11 @@
     <Compile Include="Controllers\CapacityHierarchyController.cs" />
     <Compile Include="Controllers\CapacityManagementController.cs" />
     <Compile Include="Controllers\CapacityTrackerController.cs" />
+    <Compile Include="Controllers\CLRColumnController.cs" />
     <Compile Include="Controllers\ConfigController.cs" />
     <Compile Include="Controllers\CriticalTaskOverDueController.cs" />
     <Compile Include="Controllers\CRMTeamController.cs" />
+    <Compile Include="Controllers\DataImportController.cs" />
     <Compile Include="Controllers\DigitalReportController.cs" />
     <Compile Include="Controllers\ELTReportController.cs" />
     <Compile Include="Controllers\ErrorTrackerController.cs" />
@@ -248,6 +255,7 @@
     <Compile Include="Controllers\OnlineProjectController.cs" />
     <Compile Include="Controllers\PerformanceController.cs" />
     <Compile Include="Controllers\PrioritizationController.cs" />
+    <Compile Include="Controllers\PriorityReportController.cs" />
     <Compile Include="Controllers\ResourceAssignmentController.cs" />
     <Compile Include="Controllers\StageGateController.cs" />
     <Compile Include="Controllers\SteeringCommitteeController.cs" />
@@ -280,10 +288,19 @@
     <Compile Include="Models\CapacityHierarchyClass.cs" />
     <Compile Include="Models\CapacityResponse.cs" />
     <Compile Include="Models\CHFilter.cs" />
+    <Compile Include="Models\CLRActivity.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CLRBelowData.cs">
       <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CLRColumnsHiding.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CLRData.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CLRResourceUtilization.cs">
       <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CLRTracker.cs">
@@ -299,7 +316,7 @@
     <Compile Include="Models\CountryIsoCode.cs">
       <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CountryRegionCode.cs">
+    <Compile Include="Models\CountryISORegionCode.cs">
       <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CRMData.cs">
@@ -332,14 +349,20 @@
     <Compile Include="Models\DataiMeet.cs">
       <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Delta.cs" />
     <Compile Include="Models\DigitalTeam.cs">
       <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DigitalTeamModel.cs" />
+    <Compile Include="Models\DQSTest.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\EltDeltaClient.cs">
       <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ELTDeltaComment.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ELTDeltaComments.cs" />
     <Compile Include="Models\EltOldCLRData.cs">
       <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
@@ -348,16 +371,11 @@
       <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ErrorTrackerModel.cs" />
-    <Compile Include="Models\eSowData.cs">
-      <DependentUpon>CWTDashboard.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\eSOWFilters.cs" />
-    <Compile Include="Models\eSOWNew.cs">
-      <DependentUpon>CWTDashboard.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\esowNewData.cs">
       <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\eSowResponse.cs" />
     <Compile Include="Models\ETCountry.cs">
       <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
@@ -409,6 +427,7 @@
     <Compile Include="Models\MarketLeader.cs">
       <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MessageObject.cs" />
     <Compile Include="Models\Milestone.cs">
       <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
@@ -438,6 +457,9 @@
     <Compile Include="Models\OPTManager.cs">
       <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PowerAutomate.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PreviousMonthsElt.cs">
       <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
@@ -460,6 +482,7 @@
     <Compile Include="Models\ReportUpdatedOn.cs">
       <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RequestBody.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Models\RisksGap.cs">
       <DependentUpon>CWTDashboard.tt</DependentUpon>
@@ -477,10 +500,16 @@
     <Compile Include="Models\SteeringCommitteeClass.cs" />
     <Compile Include="Models\SteeringCommitteeData.cs" />
     <Compile Include="Models\SteeringCommitteeFilters.cs" />
+    <Compile Include="Models\SurveySentDetail.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TargetCycleTime.cs">
       <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_registration.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tracker.cs">
       <DependentUpon>CWTDashboard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
@@ -508,7 +537,11 @@
     <Compile Include="Models\Wavesdata.cs.designer.cs">
       <DependentUpon>Wavesdata.cs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\YesterdayCLR.cs">
+      <DependentUpon>CWTDashboard.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ApiService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -533,23 +566,6 @@
     <Content Include="Models\CWT.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>CWT.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\CWTDashboard.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CWTDashboard.edmx</DependentUpon>
-      <LastGenOutput>CWTDashboard.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\CWTDashboard.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CWTDashboard.edmx</DependentUpon>
-      <LastGenOutput>CWTDashboard.cs</LastGenOutput>
-    </Content>
-    <EntityDeploy Include="Models\CWTDashboard.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CWTDashboard.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\CWTDashboard.edmx.diagram">
-      <DependentUpon>CWTDashboard.edmx</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
     <Content Include="Content\bootstrap.rtl.css.map" />
@@ -586,7 +602,24 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EntityDeploy Include="Models\CWTDashboard.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CWTDashboard.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CWTDashboard.edmx.diagram">
+      <DependentUpon>CWTDashboard.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\CWTDashboard.pubxml" />
+    <Content Include="Models\CWTDashboard.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CWTDashboard.edmx</DependentUpon>
+      <LastGenOutput>CWTDashboard.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CWTDashboard.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CWTDashboard.edmx</DependentUpon>
+      <LastGenOutput>CWTDashboard.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -628,6 +661,7 @@
     <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.6.0.min.map" />
     <Content Include="Views\CRMTeam\Index.cshtml" />
+    <Content Include="Views\DataImport\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -642,7 +676,9 @@
     <Folder Include="Views\Performance\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

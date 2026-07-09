@@ -42,6 +42,11 @@ namespace CWTDashboardAPI.Models
         public Nullable<bool> DigitalReport { get; set; }
         public Nullable<bool> NPSEdit { get; set; }
         public Nullable<bool> PerformanceAnalysis { get; set; }
+        public Nullable<bool> SteeringCommittee { get; set; }
+        public Nullable<bool> SteeringCommitteeEdits { get; set; }
+        public Nullable<bool> DDO { get; set; }
+        public Nullable<bool> DDOHome { get; set; }
+        public Nullable<bool> PriorityReport { get; set; }
     
         public virtual User User { get; set; }
     }

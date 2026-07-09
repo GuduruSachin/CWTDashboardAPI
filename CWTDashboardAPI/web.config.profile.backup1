@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  For more information on how to configure your ASP.NET application, please visit
+  https://go.microsoft.com/fwlink/?LinkId=301879
+  --><configuration>
+  <configSections>
+  <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+  <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false"/>
+  </configSections>
+  <appSettings>
+    <add key="webpages:Version" value="3.0.0.0"/>
+    <add key="webpages:Enabled" value="false"/>
+    <add key="ClientValidationEnabled" value="true"/>
+    <add key="UnobtrusiveJavaScriptEnabled" value="true"/>
+    <add key="ServerDownloadsFolder" value="C:\Users\adm_uguduru\Downloads"/>
+  
+	<add key="Microsoft.VisualStudio.Enterprise.AspNetHelper.VsInstrLocation" value="C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Team Tools\Performance Tools\vsinstr.exe"/>
+	</appSettings>
+  <system.web>
+    <compilation debug="true" targetFramework="4.6.1" assemblyPostProcessorType="Microsoft.VisualStudio.Enterprise.Common.AspPerformanceInstrumenter, Microsoft.VisualStudio.Enterprise.AspNetHelper, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+    <httpRuntime targetFramework="4.6.1" maxRequestLength="512000" executionTimeout="3600"/>
+
+    <!--<identity impersonate="true" userName="CWT\SvcDashboardProject" password="FhNu_D9PzC=z" />-->
+  </system.web>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Antlr3.Runtime" publicKeyToken="eb42632606e9261f"/>
+        <bindingRedirect oldVersion="0.0.0.0-3.5.0.2" newVersion="3.5.0.2"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" culture="neutral" publicKeyToken="30ad4fe6b2a6aeed"/>
+        <bindingRedirect oldVersion="0.0.0.0-13.0.0.0" newVersion="13.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Optimization" publicKeyToken="31bf3856ad364e35"/>
+        <bindingRedirect oldVersion="1.0.0.0-1.1.0.0" newVersion="1.1.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35"/>
+        <bindingRedirect oldVersion="0.0.0.0-1.6.5135.21930" newVersion="1.6.5135.21930"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Http" publicKeyToken="31bf3856ad364e35" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-5.2.7.0" newVersion="5.2.7.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Net.Http.Formatting" publicKeyToken="31bf3856ad364e35" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-5.2.7.0" newVersion="5.2.7.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35"/>
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35"/>
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35"/>
+        <bindingRedirect oldVersion="1.0.0.0-5.2.7.0" newVersion="5.2.7.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Runtime.CompilerServices.Unsafe" publicKeyToken="b03f5f7f11d50a3a" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-5.0.0.0" newVersion="5.0.0.0"/>
+      </dependentAssembly>
+    
+			<dependentAssembly>
+				<assemblyIdentity name="Microsoft.VisualStudio.Enterprise.AspNetHelper" publicKeyToken="b03f5f7f11d50a3a" culture="neutral"/>
+				<codeBase version="15.0.0.0" href="file:///C:/Program%20Files%20(x86)/Microsoft%20Visual%20Studio/Shared/Common/VSPerfCollectionTools/Microsoft.VisualStudio.Enterprise.AspNetHelper.DLL"/></dependentAssembly>
+			<dependentAssembly>
+				<assemblyIdentity name="VsWebSite.Interop" publicKeyToken="b03f5f7f11d50a3a" culture="neutral"/>
+				<codeBase version="8.0.0.0" href="file:///C:/Program%20Files%20(x86)/Microsoft%20Visual%20Studio/Shared/Common/VSPerfCollectionTools/VsWebSite.Interop.DLL"/></dependentAssembly></assemblyBinding>
+  </runtime>
+  <connectionStrings>
+    <!--<add name="CWTDashboardEntities" connectionString="metadata=res://*/Models.CWTDashboard.csdl|res://*/Models.CWTDashboard.ssdl|res://*/Models.CWTDashboard.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=10.180.27.14;initial catalog=CWTDashboard;persist security info=True;MultipleActiveResultSets=True;App=EntityFramework&quot;trusted connection=yes;" providerName="System.Data.EntityClient"/>-->
+    <!--<add name="CWTEntities" connectionString="metadata=res://*/Models.CWT.csdl|res://*/Models.CWT.ssdl|res://*/Models.CWT.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=W0INHYD16430046;initial catalog=CWT;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+    <add name="CWTRPA_TestEntities" connectionString="metadata=res://*/Models.CWTNew.csdl|res://*/Models.CWTNew.ssdl|res://*/Models.CWTNew.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=10.180.27.124;initial catalog=CWTRPA_Test;persist security info=True;user id=CWTRPAPROP;password=P@s$INC9561955!;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+    <add name="CWT_DashboardEntities" connectionString="metadata=res://*/Models.CWT_Dashboard.csdl|res://*/Models.CWT_Dashboard.ssdl|res://*/Models.CWT_Dashboard.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=10.180.27.124;initial catalog=CWT_Dashboard;persist security info=True;user id=CWTRPAPROP;password=N3wPr0!-CHG179692;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />-->
+    <add name="CWTDashboardEntities" connectionString="metadata=res://*/Models.CWTDashboard.csdl|res://*/Models.CWTDashboard.ssdl|res://*/Models.CWTDashboard.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=VWSNG1DS00287,60321;initial catalog=CWTDashboard;persist security info=True;user id=CWTRPAPROP;password=N3wPr0!-CHG179692;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient"/>
+    <add name="con" connectionString="Data Source=VWSNG1DS00287,60321;Initial Catalog=CWTDashboard;user id=CWTRPAPROP;password=N3wPr0!-CHG179692;MultipleActiveResultSets=True;" providerName="System.Data.EntityClient"/>
+    
+  </connectionStrings>
+  <entityFramework>
+    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
+      <parameters>
+        <parameter value="mssqllocaldb"/>
+      </parameters>
+    </defaultConnectionFactory>
+    <providers>
+      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer"/>
+    </providers>
+  </entityFramework>
+  <system.webServer>
+    <security>
+      <requestFiltering>
+        <requestLimits maxAllowedContentLength="524288000"/>
+      </requestFiltering>
+    </security>
+    <handlers>
+      <remove name="ExtensionlessUrlHandler-Integrated-4.0"/>
+      <remove name="OPTIONSVerbHandler"/>
+      <remove name="TRACEVerbHandler"/>
+      <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="*" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0"/>
+    </handlers>
+  </system.webServer>
+  <system.codedom>
+    <compilers>
+      <compiler extension=".cs" language="c#;cs;csharp" warningLevel="4" compilerOptions="/langversion:7.0 /nowarn:1659;1699;1701;612;618" type="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.CSharpCodeProvider, Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+      <compiler extension=".vb" language="vb;vbs;visualbasic;vbscript" warningLevel="4" compilerOptions="/langversion:default /nowarn:41008,40000,40008 /define:_MYTYPE=\&quot;Web\&quot; /optionInfer+" type="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.VBCodeProvider, Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+    </compilers>
+  </system.codedom>
+</configuration>

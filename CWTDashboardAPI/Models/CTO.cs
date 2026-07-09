@@ -38,5 +38,7 @@ namespace CWTDashboardAPI.Models
         public string Milestone__Country { get; set; }
         public string Last_Comment { get; set; }
         public Nullable<double> RevenurID { get; set; }
+        public string TaskType { get; set; }
+        public string TaskRecordIdKey { get; set; }
     }
 }

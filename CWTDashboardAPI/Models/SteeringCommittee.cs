@@ -41,6 +41,12 @@ namespace CWTDashboardAPI.Models
         public string LastUpdatedBy { get; set; }
         public Nullable<System.DateTime> LastUpdatedDate { get; set; }
         public string Record_Status { get; set; }
+        public string PreviousStatus { get; set; }
+        public string KeyAccomplishmentsSinceLastUpdateKeyDeliverables { get; set; }
+        public string KeyUpcomingActivitiesKeyDeliverables { get; set; }
+        public string CombinedKeyDeliverableOne { get; set; }
+        public string CombinedKeyDeliverableTwo { get; set; }
+        public byte[] VerCol { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RisksGap> RisksGaps { get; set; }

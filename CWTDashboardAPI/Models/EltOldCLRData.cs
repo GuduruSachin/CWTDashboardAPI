@@ -36,5 +36,6 @@ namespace CWTDashboardAPI.Models
         public string Status { get; set; }
         public string ImplementationType { get; set; }
         public string DataSourceType { get; set; }
+        public string TaskRecordIdKey { get; set; }
     }
 }

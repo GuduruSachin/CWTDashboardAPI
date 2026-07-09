@@ -14,12 +14,12 @@ namespace CWTDashboardAPI.Controllers
         Response re = new Response();
         CTOFilters fi = new CTOFilters();
         int CTOCount, SWCTOCount, RWCTOCount, GNCTOCount;
-        string[] groupname, projectlevel, region, Assigne;
+        string[] groupname, projectlevel, region, Assigne, TaskType;
         [HttpPost]
         [Route("CriticalTaskOverDue")]
         public Response CriticalTaskOverDue(CTO cto)
         {
-            if (cto.Group_Name == null || cto.Workspace__Project_Level == null || cto.Milestone__Region == null || cto.Milestone__Assignee__Full_Name == null)
+            if (cto.Group_Name == null || cto.Workspace__Project_Level == null || cto.Milestone__Region == null)
             {
                 re.code = 100;
                 re.message = "Please select the values";
@@ -51,19 +51,27 @@ namespace CWTDashboardAPI.Controllers
                         region[i] = null;
                     }
                 }
-                Assigne = cto.Milestone__Assignee__Full_Name.Split(',');
-                for (int i = 0; i < Assigne.Count(); i++)
+                //Assigne = cto.Milestone__Assignee__Full_Name.Split(',');
+                //for (int i = 0; i < Assigne.Count(); i++)
+                //{
+                //    if (Assigne[i] == "")
+                //    {
+                //        Assigne[i] = null;
+                //    }
+                //}
+                TaskType = cto.TaskType.Split(',');
+                for (int i = 0; i < TaskType.Count(); i++)
                 {
-                    if (Assigne[i] == "")
+                    if (TaskType[i] == "")
                     {
-                        Assigne[i] = null;
+                        TaskType[i] = null;
                     }
                 }
                 var TaskOverdueList = (from a in entity.CTOes
                                        where groupname.Any(val3 => a.Group_Name.Equals(val3))
                                        where projectlevel.Any(val4 => a.Workspace__Project_Level.Equals(val4))
                                        where region.Any(val5 => a.Milestone__Region.Equals(val5))
-                                       where Assigne.Any(val5 => a.Milestone__Assignee__Full_Name.Equals(val5))
+                                       where TaskType.Any(val5 => a.TaskType.Equals(val5))
                                        select new
                                        {
                                            a.Milestone_Title_Country___Est_Go_Live_Date,
@@ -75,12 +83,10 @@ namespace CWTDashboardAPI.Controllers
                                            a.Milestone__Region,
                                            a.Milestone__Country,
                                            a.Milestone_Title,
-                                           a.Milestone__Assignee__Full_Name,
                                            a.Milestone_Due_Date,
                                            a.Milestone__Country_Status,
                                            a.Task_List_Title,
                                            a.Task_Title,
-                                           a.Task__Assignee__Full_Name,
                                            a.Task_Status,
                                            a.Task_Overdue,
                                            a.Task_Start_Date,
@@ -88,8 +94,15 @@ namespace CWTDashboardAPI.Controllers
                                            a.Workspace__Project_Level,
                                            a.Milestone__Project_Start_Date,
                                            a.Last_Comment,
+                                           a.TaskType,
+                                           //AssignePerson = (from b in entity.CTOes
+                                           //                 where b.RevenurID == a.RevenurID
+                                           //                 where b.Task_Title == a.Task_Title
+                                           //                 select new {
+                                           //                     b.Milestone__Assignee__Full_Name
+                                           //                 }).Distinct().ToList().OrderBy(x => x.Milestone__Assignee__Full_Name),
                                            OwnershipRevenue = entity.CLRDatas.FirstOrDefault(x => x.RevenueID == a.RevenurID).OwnerShip == "" || entity.CLRDatas.FirstOrDefault(x => x.RevenueID == a.RevenurID).OwnerShip == null ? "---" : entity.CLRDatas.FirstOrDefault(x => x.RevenueID == a.RevenurID).OwnerShip
-                                       }).ToList();
+                                       }).ToList().Distinct();
                 CTOCount = TaskOverdueList.AsQueryable().Count();
                 if (CTOCount.ToString() == "" || CTOCount.ToString() == null || CTOCount == 0)
                 {
@@ -135,7 +148,8 @@ namespace CWTDashboardAPI.Controllers
                                 a.Task_Due_Date,
                                 a.Workspace__Project_Level,
                                 a.Milestone__Project_Start_Date,
-                                a.Last_Comment
+                                a.Last_Comment,
+                                a.TaskType
                             }).ToList();
             re.code = 200;
             re.message = "Success";
@@ -160,6 +174,12 @@ namespace CWTDashboardAPI.Controllers
             //                                 a.Critical_Overdue,
             //                                 isSelected = true,
             //                             }).Distinct().OrderBy(x => x.Critical_Overdue);
+            var FilterTaskType = (from a in entity.CTOes
+                                   select new
+                                   {
+                                       a.TaskType,
+                                       isSelected = true,
+                                   }).Distinct().OrderBy(x => x.TaskType);
             var FilterGroupName = (from a in entity.CTOes
                                    select new
                                    {
@@ -193,6 +213,7 @@ namespace CWTDashboardAPI.Controllers
             fi.ProjectLevel = FilterProjectLevel;
             fi.Region = FilterRegion;
             fi.AssigneFullName = FilterAssignePerson;
+            fi.TaskType = FilterTaskType;
             return fi;
         }
 
@@ -277,12 +298,12 @@ namespace CWTDashboardAPI.Controllers
             return re;
         }
 
-        string[] RWGroupName, RWProjectLevel, RWRegion, RWAssigne;
+        string[] RWGroupName, RWProjectLevel, RWRegion, RWAssigne, RWTaskType;
         [HttpPost]
         [Route("RegionWiseCount")]
         public Response RegionWiseCount(CTO cto)
         {
-            if (cto.Group_Name == null || cto.Workspace__Project_Level == null || cto.Milestone__Region == null || cto.Milestone__Assignee__Full_Name == null)
+            if (cto.Group_Name == null || cto.Workspace__Project_Level == null || cto.Milestone__Region == null)
             {
                 re.code = 100;
                 re.message = "Please select the values";
@@ -314,19 +335,37 @@ namespace CWTDashboardAPI.Controllers
                         RWRegion[i] = null;
                     }
                 }
-                RWAssigne = cto.Milestone__Assignee__Full_Name.Split(',');
-                for (int i = 0; i < RWAssigne.Count(); i++)
+                //RWAssigne = cto.Milestone__Assignee__Full_Name.Split(',');
+                //for (int i = 0; i < RWAssigne.Count(); i++)
+                //{
+                //    if (RWAssigne[i] == "")
+                //    {
+                //        RWAssigne[i] = null;
+                //    }
+                //}
+                RWTaskType = cto.TaskType.Split(',');
+                for (int i = 0; i < RWTaskType.Count(); i++)
                 {
-                    if (RWAssigne[i] == "")
+                    if (RWTaskType[i] == "")
                     {
-                        RWAssigne[i] = null;
+                        RWTaskType[i] = null;
                     }
                 }
-                var RegionWiseCount = (from a in entity.CTOes
-                                       where RWRegion.Any(val => a.Milestone__Region.Equals(val))
-                                       where RWGroupName.Any(val => a.Group_Name.Equals(val))
-                                       where RWProjectLevel.Any(val => a.Workspace__Project_Level.Equals(val))
-                                       where RWAssigne.Any(val => a.Milestone__Assignee__Full_Name.Equals(val))
+                var data = (from a in entity.CTOes
+                            where RWRegion.Any(val => a.Milestone__Region.Equals(val))
+                            where RWGroupName.Any(val => a.Group_Name.Equals(val))
+                            where RWProjectLevel.Any(val => a.Workspace__Project_Level.Equals(val))
+                            //where RWAssigne.Any(val => a.Milestone__Assignee__Full_Name.Equals(val))
+                            where RWTaskType.Any(val => a.TaskType.Equals(val))
+                            select new
+                            {
+                                a.RevenurID,
+                                a.Task_Title,
+                                a.Milestone__Region,
+                                a.Milestone_Title_Country___Est_Go_Live_Date,
+                                a.Milestone__Country
+                            }).Distinct().ToList();
+                var RegionWiseCount = (from a in data
                                        group a by a.Milestone__Region into g
                                        select new
                                        {
@@ -350,12 +389,12 @@ namespace CWTDashboardAPI.Controllers
             return re;
         }
 
-        string[] GNGroupName, GNProjectLevel, GNRegion, GNAssigne;
+        string[] GNGroupName, GNProjectLevel, GNRegion, GNAssigne, GNTaskType;
         [HttpPost]
         [Route("GroupNameCountCTO")]
         public Response GroupNameCountCTO(CTO cto)
         {
-            if (cto.Group_Name == null || cto.Workspace__Project_Level == null || cto.Milestone__Region == null || cto.Milestone__Assignee__Full_Name == null)
+            if (cto.Group_Name == null || cto.Workspace__Project_Level == null || cto.Milestone__Region == null)
             {
                 re.code = 100;
                 re.message = "Please select the values";
@@ -387,21 +426,31 @@ namespace CWTDashboardAPI.Controllers
                         GNRegion[i] = null;
                     }
                 }
-                GNAssigne = cto.Milestone__Assignee__Full_Name.Split(',');
-                for (int i = 0; i < GNAssigne.Count(); i++)
+                GNTaskType = cto.TaskType.Split(',');
+                for (int i = 0; i < GNTaskType.Count(); i++)
                 {
-                    if (GNAssigne[i] == "")
+                    if (GNTaskType[i] == "")
                     {
-                        GNAssigne[i] = null;
+                        GNTaskType[i] = null;
                     }
                 }
-                var GroupNamesData = (from a in entity.CTOes
-                                       where GNRegion.Any(val => a.Milestone__Region.Equals(val))
-                                       where GNGroupName.Any(val => a.Group_Name.Equals(val))
-                                       where GNAssigne.Any(val => a.Milestone__Assignee__Full_Name.Equals(val))
-                                       where GNProjectLevel.Any(val => a.Workspace__Project_Level.Equals(val))
-                                       group a by a.Group_Name into g
-                                       select new
+                var data = (from a in entity.CTOes
+                            where GNRegion.Any(val => a.Milestone__Region.Equals(val))
+                            where GNGroupName.Any(val => a.Group_Name.Equals(val))
+                            where GNProjectLevel.Any(val => a.Workspace__Project_Level.Equals(val))
+                            where GNTaskType.Any(val => a.TaskType.Equals(val))
+                            select new
+                            {
+                                a.RevenurID,
+                                a.Task_Title,
+                                a.Milestone__Region,
+                                a.Group_Name,
+                                a.Milestone_Title_Country___Est_Go_Live_Date,
+                                a.Milestone__Country
+                            }).Distinct().ToList();
+                var GroupNamesData = (from a in data
+                                      group a by a.Group_Name into g
+                                      select new
                                        {
                                            Group_Name = g.Key == null || g.Key == "" ? "(Blank)" : g.Key,
                                            ProjectsCount = g.Count(),

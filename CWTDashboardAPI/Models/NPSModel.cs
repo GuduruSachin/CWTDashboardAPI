@@ -53,6 +53,9 @@ namespace CWTDashboardAPI.Models
                         auditLog(maxnumci, npsImp.NpsId, "", "NPS PM", vp.Email + "", npsImp.Email + "", "Email", npsImp.UpdatedBy);
                         auditLog(maxnumci, npsImp.NpsId, "", "NPS PM", vp.CustomerContactNumber + "", npsImp.CustomerContactNumber + "", "Customer Contact Number", npsImp.UpdatedBy);
                         auditLog(maxnumci, npsImp.NpsId, "", "NPS PM", vp.Company + "", npsImp.Company + "", "Company", npsImp.UpdatedBy);
+                        auditLog(maxnumci, npsImp.NpsId, "", "NPS PM", vp.GlobalDigitalPM + "", npsImp.GlobalDigitalPM + "", "Global Digital OBT Lead", npsImp.UpdatedBy);
+                        auditLog(maxnumci, npsImp.NpsId, "", "NPS PM", vp.RegionalDigitalPM + "", npsImp.RegionalDigitalPM + "", "Regional Digital OBT Lead", npsImp.UpdatedBy);
+                        auditLog(maxnumci, npsImp.NpsId, "", "NPS PM", vp.LocalDigitalPM + "", npsImp.LocalDigitalPM + "", "Local Digital OBT Lead", npsImp.UpdatedBy);
                         auditLog(maxnumci, npsImp.NpsId, "", "NPS PM", vp.GoLiveDate + "", npsImp.GoLiveDate + "", "Go Live Date", npsImp.UpdatedBy);
                         vp.ClientName = npsImp.ClientName;
                         vp.ClientType = npsImp.ClientType;
@@ -68,6 +71,9 @@ namespace CWTDashboardAPI.Models
                         vp.CustomerContactNumber = npsImp.CustomerContactNumber;
                         vp.Company = npsImp.Company;
                         vp.GoLiveDate = npsImp.GoLiveDate;
+                        vp.GlobalDigitalPM = npsImp.GlobalDigitalPM;
+                        vp.RegionalDigitalPM = npsImp.RegionalDigitalPM;
+                        vp.LocalDigitalPM = npsImp.LocalDigitalPM;
                         vp.UpdatedOn = DateTime.Now;
                         vp.UpdatedBy = npsImp.UpdatedBy;
                         if (entit.AuditLogs.Where(x => x.AuditEntryId == (long?)maxnumci).Count() > 0)
@@ -139,6 +145,9 @@ namespace CWTDashboardAPI.Models
                         auditLog(maxnum, npsImp.NpsId, "", "NPS Admin", vp.LocalProjectManager + "", npsImp.LocalProjectManager + "", "Local Project Manager", npsImp.UpdatedBy);
                         auditLog(maxnum, npsImp.NpsId, "", "NPS Admin", vp.GlobalProjectManager + "", npsImp.GlobalProjectManager + "", "Global Project Manager", npsImp.UpdatedBy);
                         auditLog(maxnum, npsImp.NpsId, "", "NPS Admin", vp.RegionalProjectManager + "", npsImp.RegionalProjectManager + "", "Regional Project Manager", npsImp.UpdatedBy);
+                        auditLog(maxnum, npsImp.NpsId, "", "NPS Admin", vp.GlobalDigitalPM + "", npsImp.GlobalDigitalPM + "", "Global Digital OBT Lead", npsImp.UpdatedBy);
+                        auditLog(maxnum, npsImp.NpsId, "", "NPS Admin", vp.RegionalDigitalPM + "", npsImp.RegionalDigitalPM + "", "Regional Digital OBT Lead", npsImp.UpdatedBy);
+                        auditLog(maxnum, npsImp.NpsId, "", "NPS Admin", vp.LocalDigitalPM + "", npsImp.LocalDigitalPM + "", "Local Digital OBT Lead", npsImp.UpdatedBy);
                         auditLog(maxnum, npsImp.NpsId, "", "NPS Admin", vp.Country + "", npsImp.Country + "", "Country", npsImp.UpdatedBy);
                         auditLog(maxnum, npsImp.NpsId, "", "NPS Admin", vp.Region + "", npsImp.Region + "", "Region", npsImp.UpdatedBy);
                         auditLog(maxnum, npsImp.NpsId, "", "NPS Admin", vp.Email + "", npsImp.Email + "", "Email Id", npsImp.UpdatedBy);
@@ -171,9 +180,12 @@ namespace CWTDashboardAPI.Models
                         vp.ClientName = npsImp.ClientName;
                         vp.ClientType = npsImp.ClientType;
                         vp.Language = npsImp.Language;
-                        vp.LocalProjectManager = npsImp.LocalProjectManager;
                         vp.GlobalProjectManager = npsImp.GlobalProjectManager;
                         vp.RegionalProjectManager = npsImp.RegionalProjectManager;
+                        vp.LocalProjectManager = npsImp.LocalProjectManager;
+                        vp.GlobalDigitalPM = npsImp.GlobalDigitalPM;
+                        vp.RegionalDigitalPM = npsImp.RegionalDigitalPM;
+                        vp.LocalDigitalPM = npsImp.LocalDigitalPM;
                         vp.Country = npsImp.Country;
                         vp.Region = npsImp.Region;
                         vp.Email = npsImp.Email;

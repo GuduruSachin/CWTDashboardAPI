@@ -108,5 +108,6 @@ namespace CWTDashboardAPI.Models
         public string NORAM_DQS { get; set; }
         public string DQS_Operations { get; set; }
         public string EltClientDelayDescription { get; set; }
+        public string Priority { get; set; }
     }
 }

@@ -283,7 +283,7 @@ namespace CWTDashboardAPI.Controllers
                                   select new
                                   {
                                       Manager = g.Key,
-                                      Leader = entity.CapacityHierarchies.FirstOrDefault(x=>x.Manager == g.Key).Leader,
+                                      Leader = entity.CapacityHierarchies.FirstOrDefault(x=>x.Manager == g.Key && x.ManagerStatus == "Active").Leader,
                                       ClientCount = FilteredCLRData.Where(x => x.GlobalProjectManager == g.Key).Select(x => x.Client).Count(),
                                       RevenueVolume = FilteredCLRData.Where(x => x.GlobalProjectManager == g.Key).Sum(x=>x.RevenueVolumeUSD) ?? 0,
                                   }).ToList();
@@ -297,10 +297,10 @@ namespace CWTDashboardAPI.Controllers
                                        select new
                                        {
                                            Manager = g.Key,
-                                           Leader = entity.CapacityHierarchies.FirstOrDefault(x => x.Manager == g.Key).Leader,
-                                           Role = entity.CapacityHierarchies.FirstOrDefault(x => x.Manager == g.Key).Level,
-                                           ProjectLevel = entity.CapacityHierarchies.FirstOrDefault(x => x.Manager == g.Key).PLevel,
-                                           Region = entity.CapacityHierarchies.FirstOrDefault(x => x.Manager == g.Key).Region,
+                                           Leader = entity.CapacityHierarchies.FirstOrDefault(x => x.Manager == g.Key && x.ManagerStatus == "Active").Leader,
+                                           Role = entity.CapacityHierarchies.FirstOrDefault(x => x.Manager == g.Key && x.ManagerStatus == "Active").Level,
+                                           ProjectLevel = entity.CapacityHierarchies.FirstOrDefault(x => x.Manager == g.Key && x.ManagerStatus == "Active").PLevel,
+                                           Region = entity.CapacityHierarchies.FirstOrDefault(x => x.Manager == g.Key && x.ManagerStatus == "Active").Region,
                                            //RelativeCapacity = 
                                            ProjectEffort = ((from b in FilteredCLRData
                                                                 where b.GlobalProjectManager == g.Key

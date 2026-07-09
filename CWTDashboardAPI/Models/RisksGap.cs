@@ -28,6 +28,12 @@ namespace CWTDashboardAPI.Models
         public string Status { get; set; }
         public string Record_Status { get; set; }
         public string Risks { get; set; }
+        public string Region { get; set; }
+        public string Country { get; set; }
+        public string RiskCategory { get; set; }
+        public int Impact { get; set; }
+        public int Likelihood { get; set; }
+        public string SupportNeededDetails { get; set; }
     
         public virtual SteeringCommittee SteeringCommittee { get; set; }
     }

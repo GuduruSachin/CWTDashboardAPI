@@ -54,6 +54,94 @@ namespace CWTDashboardAPI.Controllers
             }
             return re;
         }
+
+        [HttpPost]
+        [Route("GetCRMDataByUsingRevenueID")]
+        public Response GetCRMDataByUsingRevenueID(CLRData cLRData)
+        {
+            var Opportunity_ID = cLRData.Opportunity_ID;
+            var revenu_Ids = entity.CLRDatas.Where(x => x.Opportunity_ID == Opportunity_ID).Select(x => x.RevenueID).ToList();
+            var oldrevenu_Ids = entity.CLRBelowDatas.Where(x => x.Opportunity_ID == Opportunity_ID).Select(x => (double)x.RevenueID).ToList();
+            var totalrevenuIds = revenu_Ids.Concat(oldrevenu_Ids);
+            var Ids_rev = (from a in entity.CRMDatas
+                           where a.Opportunity_ID == Opportunity_ID
+                           where !totalrevenuIds.Contains((double)a.Revenue_Id)
+                           //where !oldrevenu_Ids.Contains((double)a.Revenue_Id)
+                           select a.Revenue_Id).ToList();
+            var Ids_rev_count = (from a in entity.CRMDatas
+                           where a.Opportunity_ID == Opportunity_ID
+                            where !totalrevenuIds.Contains((double)a.Revenue_Id)
+                            //where !oldrevenu_Ids.Contains((double)a.Revenue_Id)
+                           select a.Revenue_Id).Count();
+            if(Ids_rev_count > 0)
+            {
+                var id = Ids_rev[0];
+                var data = (from a in entity.CRMDatas
+                            where a.Revenue_Id == id
+                            select new
+                            {
+                                a.Revenue_Opportunity_Type,
+                                a.Close_Date,
+                                a.Revenue_Id,
+                                OldData = entity.CLRBelowDatas.Where(x => a.Revenue_Id == x.RevenueID).Count() > 0 ? true : false,
+                                a.Sales_Stage_Name,
+                                a.Revenue_Status,
+                                a.Opportunity_Scope,
+                                a.Line_Win_Probability,
+                                a.Opportunity_Total_Volume_USD,
+                                a.Region__Revenue_
+                            });
+                re.Data = data;
+                re.message = "Success";
+                re.code = 200;
+            }
+            else
+            {
+                re.Data = null;
+                re.message = "All the Revenue ID's are available in CLR with the opportunity id you have searched";
+                re.code = 100;
+            }
+            //var revenue_id = cLRData.RevenueID;
+            //var clr_count = entity.CLRDatas.Where(x => x.RevenueID == revenue_id).Select(x => x.RevenueID).Count();
+            //var crm_count = entity.CRMDatas.Where(x => x.Revenue_Id == revenue_id).Select(x => x.Revenue_Id).Count();
+            //var clrbelowdata_count = entity.CLRBelowDatas.Where(x => x.RevenueID == revenue_id).Select(x => x.RevenueID).Count();
+            //if (clr_count > 0)
+            //{
+            //    re.Data = null;
+            //    re.message = "Record already available in CLR";
+            //    re.code = 101;
+            //}else if(clrbelowdata_count > 0){
+            //    re.Data = null;
+            //    re.message = "Record already available in 2020 below Data";
+            //    re.code = 102;
+            //}else if (crm_count > 0){
+            //    var data = (from a in entity.CRMDatas
+            //                where a.Revenue_Id == revenue_id
+            //                select new
+            //                {
+            //                    a.Revenue_Opportunity_Type,
+            //                    a.Close_Date,
+            //                    a.Revenue_Id,
+            //                    OldData = entity.CLRBelowDatas.Where(x => a.Revenue_Id == x.RevenueID).Count() > 0 ? true : false,
+            //                    a.Sales_Stage_Name,
+            //                    a.Revenue_Status,
+            //                    a.Opportunity_Scope,
+            //                    a.Line_Win_Probability,
+            //                    a.Opportunity_Total_Volume_USD,
+            //                    a.Region__Revenue_
+            //                });
+            //    re.Data = data;
+            //    re.message = "Success";
+            //    re.code = 200;
+            //} else {
+            //    re.Data = null;
+            //    re.message = "Unable to find a record using this Revenue Id";
+            //    re.code = 100;
+            //}
+            
+            re.TargetCycleTimeData = Ids_rev;
+            return re;
+        }
         string[] CLR_GoliveYear, CLR_RecordStatus;
         [HttpPost]
         [Route("GetCLRManualData")]
@@ -82,6 +170,11 @@ namespace CWTDashboardAPI.Controllers
                     }
                 }
                 var CurrentYear = DateTime.Now.Year + "";
+                entity.Database.CommandTimeout = 999;
+                var AdhocProjects = (from a in entity.AdHocProjects
+                                     select a).AsEnumerable();
+                var CLRActivities = (from a in entity.CLRActivities
+                                     select a).AsEnumerable();
                 var Datalist4 = (from a in entity.CLRDatas
                                  where a.RevenueID > 600000000000000
                                  where CLR_GoliveYear.Any(val => a.GoLiveYear.Equals(val))
@@ -99,10 +192,13 @@ namespace CWTDashboardAPI.Controllers
                                      iMeet_Workspace_Title = "---",
                                      Implementation_Type = "---",
                                      Pipeline_status = "---",
-                                     Pipeline_comments = "---",
+                                     Pipeline_comments = AdhocProjects.FirstOrDefault(x => x.RevenueID == a.RevenueID).Pipeline_Comments ?? "---",
+                                     TXResourcing = "---",
+                                     Priority = AdhocProjects.FirstOrDefault(x => x.RevenueID == a.RevenueID).Priority ?? "---",
                                      //Service_configuration = "---",
                                      //OBT_Reseller___Direct = "---",
                                      OBT_Reseller___Direct = a.OBTReseller == "" || a.OBTReseller == null ? "---" : a.OBTReseller ?? "---",
+                                     abc.ExpectedDecisionDate,
                                      abc.Assignment_date,
                                      abc.ResourseRequestedDate,
                                      RevenueVolumeUSD = (double)0,
@@ -135,7 +231,7 @@ namespace CWTDashboardAPI.Controllers
                                      Milestone__Project_Notes = "---",
                                      Milestone__Closed_Loop_Owner = "---",
                                      Workspace__ELT_Overall_Status = "---",
-                                     Workspace__ELT_Overall_Comments = entity.AdHocProjects.FirstOrDefault(x => x.RevenueID == a.RevenueID).Comments ?? "---",
+                                     Workspace__ELT_Overall_Comments = AdhocProjects.FirstOrDefault(x => x.RevenueID == a.RevenueID).Comments ?? "---",
                                      Customer_Row_ID = (double)0,
                                      Opportunity_ID = (double)0,
                                      Account_Name = "---",
@@ -162,10 +258,10 @@ namespace CWTDashboardAPI.Controllers
                                      a.AwardedDate,
                                      a.ClosedDate,
                                      TaskStatus = "---",
-                                     ActivityType = entity.AdHocProjects.FirstOrDefault(x => x.RevenueID == a.RevenueID).ActivityType == "" ? "---" : entity.AdHocProjects.FirstOrDefault(x => x.RevenueID == a.RevenueID).ActivityType ?? "---",
+                                     ActivityType = AdhocProjects.FirstOrDefault(x => x.RevenueID == a.RevenueID).ActivityType == "" ? "---" : AdhocProjects.FirstOrDefault(x => x.RevenueID == a.RevenueID).ActivityType ?? "---",
                                      //GDS = a.GDS == "" ? "---" : a.GDS ?? "---",
-                                     DTID = entity.AdHocProjects.FirstOrDefault(x => x.RevenueID == a.RevenueID).AHID,
-                                     ComplexityScore = entity.AdHocProjects.FirstOrDefault(x => x.RevenueID == a.RevenueID).ComplexityScore ?? 0,
+                                     DTID = AdhocProjects.FirstOrDefault(x => x.RevenueID == a.RevenueID).AHID,
+                                     ComplexityScore = AdhocProjects.FirstOrDefault(x => x.RevenueID == a.RevenueID).ComplexityScore ?? 1,
                                      AccountOwner = "---",
                                      MilestoneType = "---",
                                      CycleTimeCategories = a.CycleTimeCategories == null || a.CycleTimeCategories == "" ? "---" : a.CycleTimeCategories,
@@ -197,6 +293,8 @@ namespace CWTDashboardAPI.Controllers
                                      LATAM_DQS = a.LATAM_DQS == "" ? "---" : a.LATAM_DQS ?? "---",
                                      NORAM_DQS = a.NORAM_DQS == "" ? "---" : a.NORAM_DQS ?? "---",
                                      DQS_Operations = a.DQS_Operations == "" ? "---" : a.DQS_Operations ?? "---",
+                                     //RecordHistory = ""
+                                     RecordHistory = CLRActivities.Where(x => x.Revenue_ID == a.RevenueID).Count() > 0 ? (DateTime?)CLRActivities.Where(x => x.Revenue_ID == a.RevenueID).OrderByDescending(x => x.UpdatedDate).FirstOrDefault().UpdatedDate : null
                                  }).ToList();
                 var Datalist1 = (from a in entity.CLRDatas
                                  where a.ProjectStatus != "P-Pipeline"
@@ -224,9 +322,12 @@ namespace CWTDashboardAPI.Controllers
                                      Implementation_Type = a.ImplementationType == "" ? "---" : a.ImplementationType ?? "---",
                                      Pipeline_status = abc.Pipeline_status == "" ? "---" : abc.Pipeline_status ?? "---",
                                      Pipeline_comments = abc.Pipeline_comments == "" ? "---" : abc.Pipeline_comments ?? "---",
+                                     TXResourcing = abc.TXResourcing == "" ? "---" : abc.TXResourcing ?? "---",
+                                     Priority = abc.Priority == "" ? "---" : abc.Priority ?? "---",
                                      //Service_configuration = abc.Service_configuration == "" ? "---" : abc.Service_configuration ?? "---",
                                      //OBT_Reseller___Direct = abc.OBT_Reseller___Direct == "" ? "---" : abc.OBT_Reseller___Direct ?? "---",
                                      OBT_Reseller___Direct = a.OBTReseller == "" || a.OBTReseller == null ? "---" : a.OBTReseller ?? "---",
+                                     abc.ExpectedDecisionDate,
                                      abc.Assignment_date,
                                      abc.ResourseRequestedDate,
                                      RevenueVolumeUSD = a.RevenueVolumeUSD ?? 0,
@@ -321,12 +422,10 @@ namespace CWTDashboardAPI.Controllers
                                      LATAM_DQS = a.LATAM_DQS == "" ? "---" : a.LATAM_DQS ?? "---",
                                      NORAM_DQS = a.NORAM_DQS == "" ? "---" : a.NORAM_DQS ?? "---",
                                      DQS_Operations = a.DQS_Operations == "" ? "---" : a.DQS_Operations ?? "---",
+                                     RecordHistory = (DateTime?)entity.CLRActivities.Where(x => x.Revenue_ID == a.RevenueID).OrderByDescending(x => x.UpdatedDate).FirstOrDefault().UpdatedDate == null ? null : (DateTime?)entity.CLRActivities.Where(x => x.Revenue_ID == a.RevenueID).OrderByDescending(x => x.UpdatedDate).FirstOrDefault().UpdatedDate
                                  }).ToList();
                 var Datalist3 = (from a in entity.CLRDatas
                                  where a.RevenueID == 400000000000000
-                                 //where a.Status == "Active"
-                                 //where a.GoLiveYear != "2020"
-                                 //where a.GoLiveYear != "2021"
                                  where CLR_GoliveYear.Any(val => a.GoLiveYear.Equals(val))
                                  where CLR_RecordStatus.Any(val => a.Status.Equals(val))
                                  //join c in entity.DigitalTeams on a.Task__Task_Record_ID_Key equals c.TaskRecordIdKey
@@ -344,9 +443,12 @@ namespace CWTDashboardAPI.Controllers
                                      Implementation_Type = a.ImplementationType == "" ? "---" : a.ImplementationType ?? "---",
                                      Pipeline_status = abc.Pipeline_status == "" ? "---" : abc.Pipeline_status ?? "---",
                                      Pipeline_comments = abc.Pipeline_comments == "" ? "---" : abc.Pipeline_comments ?? "---",
+                                     TXResourcing = abc.TXResourcing == "" ? "---" : abc.TXResourcing ?? "---",
+                                     Priority = abc.Priority == "" ? "---" : abc.Priority ?? "---",
                                      //Service_configuration = abc.Service_configuration == "" ? "---" : abc.Service_configuration ?? "---",
                                      //OBT_Reseller___Direct = abc.OBT_Reseller___Direct == "" ? "---" : abc.OBT_Reseller___Direct ?? "---",
                                      OBT_Reseller___Direct = a.OBTReseller == "" || a.OBTReseller == null ? "---" : a.OBTReseller ?? "---",
+                                     abc.ExpectedDecisionDate,
                                      abc.Assignment_date,
                                      abc.ResourseRequestedDate,
                                      RevenueVolumeUSD = a.RevenueVolumeUSD ?? 0,
@@ -440,6 +542,7 @@ namespace CWTDashboardAPI.Controllers
                                      LATAM_DQS = a.LATAM_DQS == "" ? "---" : a.LATAM_DQS ?? "---",
                                      NORAM_DQS = a.NORAM_DQS == "" ? "---" : a.NORAM_DQS ?? "---",
                                      DQS_Operations = a.DQS_Operations == "" ? "---" : a.DQS_Operations ?? "---",
+                                     RecordHistory = (DateTime?)entity.CLRActivities.Where(x => x.Revenue_ID == a.RevenueID && x.TaskRecordIDKey == a.Task__Task_Record_ID_Key).OrderByDescending(x => x.UpdatedDate).FirstOrDefault().UpdatedDate == null ? null : (DateTime?)entity.CLRActivities.Where(x => x.Revenue_ID == a.RevenueID && x.TaskRecordIDKey == a.Task__Task_Record_ID_Key).OrderByDescending(x => x.UpdatedDate).FirstOrDefault().UpdatedDate
                                  }).ToList();
                 var Datalist2 = (from a in entity.CLRDatas
                                  where a.ProjectStatus == "P-Pipeline" || a.ProjectStatus == "HP-High Potential" || a.ProjectStatus == "EP-Early Potential"
@@ -465,10 +568,12 @@ namespace CWTDashboardAPI.Controllers
                                      Implementation_Type = a.ImplementationType == "" ? "---" : a.ImplementationType ?? "---",
                                      Pipeline_status = abc.Pipeline_status == "" ? "---" : abc.Pipeline_status ?? "---",
                                      Pipeline_comments = abc.Pipeline_comments == "" ? "---" : abc.Pipeline_comments ?? "---",
+                                     TXResourcing = abc.TXResourcing == "" ? "---" : abc.TXResourcing ?? "---",
+                                     Priority = abc.Priority == "" ? "---" : abc.Priority ?? "---",
                                      //Service_configuration = abc.Service_configuration == "" ? "---" :abc.Service_configuration ?? "---",
                                      //OBT_Reseller___Direct = abc.OBT_Reseller___Direct == "" ? "---" :abc.OBT_Reseller___Direct ?? "---",
                                      OBT_Reseller___Direct = a.OBTReseller == "" || a.OBTReseller == null ? "---" : a.OBTReseller ?? "---",
-                                     //abc.Servicing_location,
+                                     abc.ExpectedDecisionDate,
                                      abc.Assignment_date,
                                      abc.ResourseRequestedDate,
                                      //abc.New_Business_volume__US__,
@@ -563,6 +668,7 @@ namespace CWTDashboardAPI.Controllers
                                      LATAM_DQS = a.LATAM_DQS == "" ? "---" : a.LATAM_DQS ?? "---",
                                      NORAM_DQS = a.NORAM_DQS == "" ? "---" : a.NORAM_DQS ?? "---",
                                      DQS_Operations = a.DQS_Operations == "" ? "---" : a.DQS_Operations ?? "---",
+                                     RecordHistory = (DateTime?)entity.CLRActivities.Where(x => x.Revenue_ID == a.RevenueID).OrderByDescending(x => x.UpdatedDate).FirstOrDefault().UpdatedDate == null ? null : (DateTime?)entity.CLRActivities.Where(x => x.Revenue_ID == a.RevenueID).OrderByDescending(x => x.UpdatedDate).FirstOrDefault().UpdatedDate
                                  }).ToList();
                 var Datalist = Datalist1.Concat(Datalist2).Concat(Datalist3).Concat(Datalist4);
                 CLRDataCount = Datalist.AsQueryable().Count();
@@ -576,7 +682,7 @@ namespace CWTDashboardAPI.Controllers
                 {
                     re.Data = Datalist.OrderBy(x => x.GoLiveDate);
                     re.code = 200;
-                    re.message = "Data Successfull - ";
+                    re.message = "Data Successfull";
                 }
             }
             return re;
@@ -598,6 +704,12 @@ namespace CWTDashboardAPI.Controllers
                                     Region = a.Region == null || a.Region == "" ? "---" : a.Region ?? "---",
                                     isSelected = true,
                                 }).Distinct().OrderBy(x => x.Region);
+            var FilterPriority = (from a in entity.ManualDatas
+                                select new
+                                {
+                                    Priority = a.Priority == null || a.Priority == "" ? "---" : a.Priority ?? "---",
+                                    isSelected = true,
+                                }).Distinct().OrderBy(x => x.Priority);
             var FilterQuarter = (from a in entity.CLRDatas
                                  select new
                                  {
@@ -765,6 +877,7 @@ namespace CWTDashboardAPI.Controllers
                              }).Distinct().OrderBy(x => x.ActivityType);
             var FilterDigitalTeam = (from a in entity.CapacityHierarchies
                                      where a.Level == "Digital"
+                                     where a.ManagerStatus == "Active"
                                      select new
                                       {
                                           Manager = a.Manager == null || a.Manager == "" ? "---" : a.Manager ?? "---",
@@ -841,6 +954,7 @@ namespace CWTDashboardAPI.Controllers
             CLR_F.FiltereSowStatus = FiltereSowStatus;
             CLR_F.FilterServiceConfiguration = FilterServiceConfiguration;
             CLR_F.CycleTimeCategories = FilterCycleTimeCategory;
+            CLR_F.FilterPriority = FilterPriority;
             CLR_F.code = 200;
             CLR_F.message = "Success";
             return CLR_F;
@@ -864,6 +978,206 @@ namespace CWTDashboardAPI.Controllers
                 re.message = "Data Success";
                 re.Data = CRMData;
             }
+            return re;
+        }
+        [HttpPost]
+        [Route("CLRActivityGenerating")]
+        public Response CLRActivityGenerating()
+        {
+            var data = (from a in entity.CLRDatas
+                        select a).ToList();
+            foreach (var r in data)
+            {
+                var yes_data = (from b in entity.YesterdayCLRs
+                                where b.RevenueID == r.RevenueID
+                                where b.TaskRecordIdKey == r.Task__Task_Record_ID_Key
+                                select b).ToList();
+                if (yes_data.Count > 0)
+                {
+                    if (yes_data[0].ProjectStatus != r.ProjectStatus)
+                    {
+                        DateTime TodayDate = DateTime.Now;
+                        entity.CLRActivities.Add(new CLRActivity
+                        {
+                            Client = r.Client,
+                            Revenue_ID = r.RevenueID,
+                            OldValue = yes_data[0].ProjectStatus,
+                            NewValue = r.ProjectStatus,
+                            ColumnName = "ProjectStatus",
+                            UpdatedDate = TodayDate,
+                            TaskRecordIDKey = r.Task__Task_Record_ID_Key
+                        });
+                        entity.SaveChanges();
+                    }
+                    if (yes_data[0].Sales_Stage_Name != r.Sales_Stage_Name)
+                    {
+                        DateTime Todays_Date = DateTime.Now;
+                        entity.CLRActivities.Add(new CLRActivity
+                        {
+                            Client = r.Client,
+                            Revenue_ID = r.RevenueID,
+                            OldValue = yes_data[0].Sales_Stage_Name,
+                            NewValue = r.Sales_Stage_Name,
+                            ColumnName = "Sales_Stage_Name",
+                            UpdatedDate = Todays_Date,
+                            TaskRecordIDKey = r.Task__Task_Record_ID_Key
+                        });
+                        entity.SaveChanges();
+                    }
+                }
+                else
+                {
+                    if (r.ProjectStatus == "P-Pipeline" || r.ProjectStatus == "HP-High Potential" || r.ProjectStatus == "EP-Early Potential")
+                    {
+                        DateTime TodayDate = DateTime.Now;
+                        entity.CLRActivities.Add(new CLRActivity
+                        {
+                            Client = r.Client,
+                            Revenue_ID = r.RevenueID,
+                            OldValue = "",
+                            NewValue = r.ProjectStatus,
+                            ColumnName = "ProjectStatus",
+                            UpdatedDate = TodayDate,
+                            TaskRecordIDKey = r.Task__Task_Record_ID_Key
+                        });
+                        entity.SaveChanges();
+                        DateTime Todays_Date = DateTime.Now;
+                        entity.CLRActivities.Add(new CLRActivity
+                        {
+                            Client = r.Client,
+                            Revenue_ID = r.RevenueID,
+                            OldValue = "",
+                            NewValue = r.Sales_Stage_Name,
+                            ColumnName = "Sales_Stage_Name",
+                            UpdatedDate = Todays_Date,
+                            TaskRecordIDKey = r.Task__Task_Record_ID_Key
+                        });
+                        entity.SaveChanges();
+                    }
+                }
+            }
+            
+            var RevCheck = (from a in entity.CLRDatas
+                            where a.RevenueID != 400000000000000
+                            group a by a.RevenueID into g
+                            where g.Count() > 1
+                            select g.Key).ToList();
+            for (int i = 0; i < RevCheck.Count; i++)
+            {
+                var revid = RevCheck[i];
+                var ClientCountry = (from a in entity.CLRDatas
+                                     where a.RevenueID == revid
+                                     select new
+                                     {
+                                         a.RevenueID,
+                                         a.Country,
+                                         a.Client,
+                                         a.GoLiveDate,
+                                         a.Task__Task_Record_ID_Key
+                                     }).Distinct().ToList();
+                if (ClientCountry.Count() > 1)
+                {
+                    var CLRIDData = (from a in entity.CLRDatas
+                                     where a.RevenueID == revid
+                                     select a.CLRID).ToList();
+                    for (int j = 0; j < CLRIDData.Count(); j++)
+                    {
+                        var CLRID = CLRIDData[j];
+                        CLRData Vp = (from s in entity.CLRDatas
+                                      where s.CLRID == CLRID
+                                      select s).FirstOrDefault();
+                        if (j == 0)
+                        {
+                            var Final_Revenue_Opportunity_Type = "Up-Sell(Add Offices/Countries),New Business,Re-Bid With Up-Sell".Split(',');
+                            var Revenuevolume = entity.CRMDatas.Where(x => x.Revenue_Id == revid && Final_Revenue_Opportunity_Type.Any(val => x.Opportunity_Type.Equals(val))).Count() > 0 ? entity.CRMDatas.FirstOrDefault(x => x.Revenue_Id == revid && Final_Revenue_Opportunity_Type.Any(val => x.Opportunity_Type.Equals(val)))?.Revenue_Total_Volume_USD : 0;
+                            Vp.RevenueVolumeUSD = Revenuevolume;
+                        }
+                        else
+                        {
+                            Vp.RevenueVolumeUSD = 0;
+                        }
+                        entity.SaveChanges();
+                    }
+                }
+                else
+                {
+                }
+            }
+            return re;
+        }
+
+        [HttpPost]
+        [Route("CLRActivityData")]
+        public Response CLRActivityData(CLRActivity cLRActivity)
+        {
+            var Data = (from a in entity.CLRActivities
+                        select new {
+                            a.Client,
+                            a.ColumnName,
+                            a.NewValue,
+                            a.OldValue,
+                            a.UpdatedDate,
+                            RevenueID = a.Revenue_ID,
+                            a.TaskRecordIDKey,
+                            Region = entity.CLRDatas.FirstOrDefault(x => x.RevenueID == a.Revenue_ID).Region,
+                            Country = entity.CLRDatas.FirstOrDefault(x => x.RevenueID == a.Revenue_ID).Country
+                        }).ToList();
+            if (Data.Count > 0)
+            {
+                re.code = 200;
+                re.message = "Data Success";
+                re.Data = Data;
+            }
+            else
+            {
+                re.code = 100;
+                re.message = "No data Available";
+                re.Data = null;
+            }
+            return re;
+        }
+
+        [HttpPost]
+        [Route("RecordHistoryData")]
+        public Response RecordHistoryData(CLRActivity cLRActivity)
+        {
+            var ProjectStatusActivityData = (from a in entity.CLRDatas
+                        where a.RevenueID == cLRActivity.Revenue_ID
+                        select new
+                        {
+                            RevenueID = a.RevenueID,
+                            EPDate_c = (DateTime?)entity.CLRActivities.FirstOrDefault(x => x.Revenue_ID == a.RevenueID && x.ColumnName == "ProjectStatus" && x.NewValue == "EP-Early Potential").UpdatedDate,
+                            HPDate_c = (DateTime?)entity.CLRActivities.FirstOrDefault(x => x.Revenue_ID == a.RevenueID && x.ColumnName == "ProjectStatus" && x.NewValue == "HP-High Potential").UpdatedDate,
+                            PDate_c = (DateTime?)entity.CLRActivities.FirstOrDefault(x => x.Revenue_ID == a.RevenueID && x.ColumnName == "ProjectStatus" && x.NewValue == "P-Pipeline").UpdatedDate,
+                            ExpectedDecision_c = (DateTime?)entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.RevenueID).ExpectedDecisionDate,
+                            Assignment_c = (DateTime?)entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.RevenueID).Assignment_date,
+                            ResourceRequested_c = (DateTime?)entity.ManualDatas.FirstOrDefault(x => x.Revenue_ID == a.RevenueID).ResourseRequestedDate,
+                            ProjectStart_c = (DateTime?)entity.CLRDatas.FirstOrDefault(x => x.RevenueID == a.RevenueID).ProjectStart_ForCycleTime,
+                            GoLive_c = (DateTime?)entity.CLRDatas.FirstOrDefault(x => x.RevenueID == a.RevenueID).GoLiveDate,
+                            CycleTime = entity.CLRDatas.FirstOrDefault(x => x.RevenueID == a.RevenueID).CycleTime
+                        }).Distinct().ToList();
+
+            var SalesStageNameActivityData = (from a in entity.CLRDatas
+                                              where a.RevenueID == cLRActivity.Revenue_ID
+                                              select new
+                                              {
+                                                  RevenueID = a.RevenueID,
+                                                  Withdrawn_c = (DateTime?)entity.CLRActivities.FirstOrDefault(x => x.Revenue_ID == a.RevenueID && x.ColumnName == "Sales_Stage_Name" && x.NewValue == "Withdrawn").UpdatedDate,
+                                                  NoGo_c = (DateTime?)entity.CLRActivities.FirstOrDefault(x => x.Revenue_ID == a.RevenueID && x.ColumnName == "Sales_Stage_Name" && x.NewValue == "No Go").UpdatedDate,
+                                                  ClosedLost_c = (DateTime?)entity.CLRActivities.FirstOrDefault(x => x.Revenue_ID == a.RevenueID && x.ColumnName == "Sales_Stage_Name" && x.NewValue == "Closed Lost").UpdatedDate,
+                                                  PresentationStage_c = (DateTime?)entity.CLRActivities.FirstOrDefault(x => x.Revenue_ID == a.RevenueID && x.ColumnName == "Sales_Stage_Name" && x.NewValue == "Presentation Stage").UpdatedDate,
+                                                  VerbalAward_c = (DateTime?)entity.CLRActivities.FirstOrDefault(x => x.Revenue_ID == a.RevenueID && x.ColumnName == "Sales_Stage_Name" && x.NewValue == "Verbal Award").UpdatedDate,
+                                                  Negotiations_c = (DateTime?)entity.CLRActivities.FirstOrDefault(x => x.Revenue_ID == a.RevenueID && x.ColumnName == "Sales_Stage_Name" && x.NewValue == "Negotiations").UpdatedDate,
+                                                  Shortlisted_c = (DateTime?)entity.CLRActivities.FirstOrDefault(x => x.Revenue_ID == a.RevenueID && x.ColumnName == "Sales_Stage_Name" && x.NewValue == "Shortlisted").UpdatedDate,
+                                                  Sold_c = (DateTime?)entity.CLRActivities.FirstOrDefault(x => x.Revenue_ID == a.RevenueID && x.ColumnName == "Sales_Stage_Name" && x.NewValue == "Sold").UpdatedDate,
+                                                  ProposalSubmitted_c = (DateTime?)entity.CLRActivities.FirstOrDefault(x => x.Revenue_ID == a.RevenueID && x.ColumnName == "Sales_Stage_Name" && x.NewValue == "Proposal Submitted").UpdatedDate,
+                                                  NeedsAreIdentified_c = (DateTime?)entity.CLRActivities.FirstOrDefault(x => x.Revenue_ID == a.RevenueID && x.ColumnName == "Sales_Stage_Name" && x.NewValue == "Needs are Identified").UpdatedDate,
+                                                  ContractSigned_c = (DateTime?)entity.CLRActivities.FirstOrDefault(x => x.Revenue_ID == a.RevenueID && x.ColumnName == "Sales_Stage_Name" && x.NewValue == "Contract Signed").UpdatedDate,
+                                              }).Distinct().ToList();
+            re.code = 200;
+            re.message = "";
+            re.ProjectStatusActivityData = ProjectStatusActivityData;
+            re.SalesStageNameActivityData = SalesStageNameActivityData;
             return re;
         }
         [HttpPost]

@@ -151,6 +151,10 @@ namespace CWTDashboardAPI.Models
                             {
                                 URA.NPS = true;
                             }
+                            if (userReportAccessTicket.ReportName == "PriorityReport")
+                            {
+                                URA.PriorityReport = true;
+                            }
                         }
                         entit.SaveChanges();
                     }
@@ -301,7 +305,11 @@ namespace CWTDashboardAPI.Models
                         URA.NPSEdit = userReportsAccess.NPSEdit;
                         URA.DigitalReport = userReportsAccess.DigitalReport;
                         URA.PerformanceAnalysis = userReportsAccess.PerformanceAnalysis;
-                        
+                        URA.SteeringCommittee = userReportsAccess.SteeringCommittee;
+                        URA.SteeringCommitteeEdits = userReportsAccess.SteeringCommitteeEdits;
+                        URA.DDO = userReportsAccess.DDO;
+                        URA.DDOHome = userReportsAccess.DDOHome;
+                        URA.PriorityReport = userReportsAccess.PriorityReport;
                         user.UserStatus = status[0];
                         user.AccountStatus = status[1];
                         user.JobType = status[2];

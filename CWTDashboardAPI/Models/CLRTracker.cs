@@ -84,5 +84,7 @@ namespace CWTDashboardAPI.Models
         public string GDS { get; set; }
         public Nullable<double> ComplexityScore { get; set; }
         public string TaskRecordIdKey { get; set; }
+        public Nullable<System.DateTime> MilestoneDueDateByLevel { get; set; }
+        public Nullable<System.DateTime> AssignmentDate { get; set; }
     }
 }

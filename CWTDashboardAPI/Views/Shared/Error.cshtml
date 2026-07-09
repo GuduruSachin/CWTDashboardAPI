@@ -1,13 +1,41 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null; // Remove this line if you're using a shared layout
+    Response.StatusCode = 500; // Optional: Set HTTP status code
+}
+
+<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Error</title>
+    <meta charset="utf-8" />
+    <title>Oops! Something went wrong</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .error-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #e74c3c;
+        }
+    </style>
 </head>
 <body>
-    <hgroup>
-        <h1>Error.</h1>
-        <h2>An error occurred while processing your request.</h2>
-    </hgroup>
+    <div class="error-container">
+        <h1>⚠ Hello Everyone — Sorry for the Inconvenience!</h1>
+        <p>Our site is currently experiencing issues or undergoing maintenance.</p>
+        <p>Please try again later. We appreciate your patience!</p>
+        <p>— The MyCWT Team</p>
+    </div>
 </body>
 </html>

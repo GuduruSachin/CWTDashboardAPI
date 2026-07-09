@@ -1,5 +1,6 @@
 ﻿using CWTDashboardAPI.Models;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -128,6 +129,46 @@ namespace CWTDashboardAPI.Controllers
                 re.message = "Success";
             }
             return re;
+        }
+
+        [HttpPost]
+        [Route("GetDirFiles")]
+        public Response GetDirFiles(CLRData cLRData)
+        {
+            string downloadsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
+
+            if (!Directory.Exists(downloadsPath))
+            {
+                re.code = 100;
+                re.message = "Downloads Folder not found";
+            }
+            else
+            {
+                var filesToDelete = Directory.GetFiles(downloadsPath, "*.xlsx", SearchOption.TopDirectoryOnly)
+                                     .Where(file =>
+                                     {
+                                         string fileName = Path.GetFileName(file);
+                                         bool startsWithClr = fileName.StartsWith("clr_imeet_3_0", StringComparison.OrdinalIgnoreCase);
+                                         DateTime lastModified = File.GetLastWriteTime(file);
+                                         bool isToday = lastModified.Date == DateTime.Today;
+                                         return startsWithClr && isToday;
+                                     }).OrderByDescending(file => File.GetLastWriteTime(file)).ToList();
+                if (filesToDelete.Any())
+                {
+                    var filename = Path.GetFileName(filesToDelete[0]);
+                    var filepath = filesToDelete[0]; // most recently modified file
+                    re.code = 200;
+                    re.message = "File Path : " + filepath + " File Name : " + filename;
+                    re.Data = filesToDelete;
+                }
+                else
+                {
+                    re.code = 101;
+                    re.message = "No matching files found today.";
+                }
+            }
+            return re;
+
         }
     }
 }

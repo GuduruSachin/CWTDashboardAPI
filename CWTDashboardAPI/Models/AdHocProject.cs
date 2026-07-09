@@ -38,5 +38,7 @@ namespace CWTDashboardAPI.Models
         public string UpdatedBy { get; set; }
         public string ProjectStatus { get; set; }
         public string GlobalDQSLead { get; set; }
+        public string Priority { get; set; }
+        public string Pipeline_Comments { get; set; }
     }
 }

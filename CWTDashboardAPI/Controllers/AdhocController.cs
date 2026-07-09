@@ -30,10 +30,11 @@ namespace CWTDashboardAPI.Controllers
                 manualdata.GoLiveDate = adHocProject.GoLiveDate;
                 manualdata.InsertedOn = DateTime.Now;
                 manualdata.ProjectStatus = adHocProject.ProjectStatus;
-                manualdata.Pipeline_comments = adHocProject.Comments;
                 manualdata.Status = adHocProject.Status;
                 manualdata.UpdateBy = adHocProject.InsertedBy;
                 manualdata.GlobalCISDQSLead = adHocProject.GlobalDQSLead;
+                manualdata.Pipeline_comments = adHocProject.Pipeline_Comments;
+                manualdata.Priority = adHocProject.Priority;
                 entity.ManualDatas.Add(manualdata);
                 CLRData clrdata = new CLRData();
                 clrdata.RevenueID = adHocProject.RevenueID ?? 0;

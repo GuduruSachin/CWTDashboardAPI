@@ -241,69 +241,74 @@ namespace CWTDashboardAPI.Controllers
             var ROYstatus = "A-Active/Date Confirmed,N-Active/No Date Confirmed".Split(',');
             var regions = clr.Region.Split(',');
             var PreviousMonths = (from a in entity.CLRDatas
-                                where PreMonths.Any(val1 => a.GoLiveMonth.Equals(val1))
-                                where a.GoLiveYear == CurrentYear
-                                where a.Status == "Active"
-                                where a.OwnerShip != "Partner"
-                                  where a.RevenueID < 600000000000000
+                                  where PreMonths.Any(val1 => a.GoLiveMonth.Equals(val1))
+                                  where a.GoLiveYear == CurrentYear
+                                  where a.Status == "Active"
+                                  //where a.CycleTime < 365
                                   where regions.Any(val => a.Region.Equals(val))
-                                where CurrentStatus.Any(val1 => a.ProjectStatus.Equals(val1))
-                                select a.RevenueVolumeUSD).ToList();
+                                  where CurrentStatus.Any(val1 => a.ProjectStatus.Equals(val1))
+                                  select a.RevenueVolumeUSD).ToList();
             var CurrentMonth = (from a in entity.CLRDatas
                                 where a.GoLiveMonth == Month
                                 where a.GoLiveYear == CurrentYear
                                 where a.Status == "Active"
-                                where a.OwnerShip != "Partner"
                                 where regions.Any(val => a.Region.Equals(val))
-                                where a.RevenueID < 600000000000000
+                                //where a.CycleTime < 365
                                 where CurrentStatus.Any(val1 => a.ProjectStatus.Equals(val1))
                                 select a.RevenueVolumeUSD).ToList();
             var NextMonth = (from a in entity.CLRDatas
-                                where a.GoLiveMonth == NM_Month
-                                where a.GoLiveYear == CurrentYear
-                                where a.Status == "Active"
-                                where a.OwnerShip != "Partner"
-                                where regions.Any(val => a.Region.Equals(val))
-                             where a.RevenueID < 600000000000000
+                             where a.GoLiveMonth == NM_Month
+                             where a.GoLiveYear == CurrentYear
+                             where a.Status == "Active"
+                             where regions.Any(val => a.Region.Equals(val))
+                             //where a.CycleTime < 365
                              where CurrentStatus.Any(val1 => a.ProjectStatus.Equals(val1))
-                                select a.RevenueVolumeUSD).ToList();
+                             select a.RevenueVolumeUSD).ToList();
+            var CurrentMonthNActive = (from a in entity.CLRDatas
+                                       where a.GoLiveMonth == Month
+                                       where a.GoLiveYear == CurrentYear
+                                       where a.Status == "Active"
+                                       where regions.Any(val => a.Region.Equals(val))
+                                       where a.ProjectStatus == "N-Active/No Date Confirmed"
+                                       //where a.CycleTime < 365
+                                       select a.RevenueVolumeUSD).ToList();
+            var NextMonthNActive = (from a in entity.CLRDatas
+                                    where a.GoLiveMonth == NM_Month
+                                    where a.GoLiveYear == CurrentYear
+                                    where a.Status == "Active"
+                                    where regions.Any(val => a.Region.Equals(val))
+                                    where a.ProjectStatus == "N-Active/No Date Confirmed"
+                                    //where a.CycleTime < 365
+                                    select a.RevenueVolumeUSD).ToList();
             var RemainingMonths = (from a in entity.CLRDatas
                                    where RoyMonths.Any(val1 => a.GoLiveMonth.Equals(val1))
                                    where a.GoLiveYear == CurrentYear
                                    where a.Status == "Active"
-                                   where a.OwnerShip != "Partner"
+                                   //where a.CycleTime < 365
                                    where regions.Any(val => a.Region.Equals(val))
                                    where ROYstatus.Any(val1 => a.ProjectStatus.Equals(val1))
-                                   where a.RevenueID < 600000000000000
                                    select a.RevenueVolumeUSD).ToList();
             var FutureYears = (from a in entity.CLRDatas
                                where a.GoLiveDate >= Nextyear
                                where a.Status == "Active"
-                               where a.OwnerShip != "Partner"
+                               //where a.CycleTime < 365
                                where regions.Any(val => a.Region.Equals(val))
-                               where a.RevenueID < 600000000000000
                                where ROYstatus.Any(val1 => a.ProjectStatus.Equals(val1))
                                select a.RevenueVolumeUSD);
             var Hold = (from a in entity.CLRDatas
-                                where a.Status == "Active"
-                                where a.OwnerShip != "Partner"
-                                where regions.Any(val => a.Region.Equals(val))
-                        where a.RevenueID < 600000000000000
+                        where a.Status == "Active"
+                        where regions.Any(val => a.Region.Equals(val))
                         where a.ProjectStatus == "H-Hold"
-                                select a.RevenueVolumeUSD);
+                        select a.RevenueVolumeUSD);
             var Pipeline = (from a in entity.CLRDatas
                             where a.Status == "Active"
-                            where a.OwnerShip != "Partner"
                             where regions.Any(val => a.Region.Equals(val))
-                            where a.RevenueID < 600000000000000
                             where a.ProjectStatus == "P-Pipeline"
                             select a.RevenueVolumeUSD);
             var HighPotential = (from a in entity.CLRDatas
-                                where a.Status == "Active"
-                                where a.OwnerShip != "Partner"
-                                where regions.Any(val => a.Region.Equals(val))
-                                where a.ProjectStatus == "HP-High Potential"
-                                 where a.RevenueID < 600000000000000
+                                 where a.Status == "Active"
+                                 where regions.Any(val => a.Region.Equals(val))
+                                 where a.ProjectStatus == "HP-High Potential"
                                  select a.RevenueVolumeUSD);
             var ExistingServiceCT = (from a in entity.CLRDatas
                                      where regions.Any(val => a.Region.Equals(val))
@@ -313,6 +318,7 @@ namespace CWTDashboardAPI.Controllers
                                      where a.ProjectStatus == "C-Closed"
                                      where a.GoLiveYear == CurrentYear
                                      where a.ProjectStart_ForCycleTime != null
+                                     where a.CycleTime <= 365
                                      select a.CycleTime).ToList();
             var ExistingAddChangeCT = (from a in entity.CLRDatas
                                        where regions.Any(val => a.Region.Equals(val))
@@ -322,6 +328,7 @@ namespace CWTDashboardAPI.Controllers
                                        where a.ProjectStatus == "C-Closed"
                                        where a.GoLiveYear == CurrentYear
                                        where a.ProjectStart_ForCycleTime != null
+                                       where a.CycleTime <= 365
                                        select a.CycleTime).ToList();
             var NewLocalCT = (from a in entity.CLRDatas
                               where regions.Any(val => a.Region.Equals(val))
@@ -331,6 +338,7 @@ namespace CWTDashboardAPI.Controllers
                               where a.ProjectStatus == "C-Closed"
                               where a.GoLiveYear == CurrentYear
                               where a.ProjectStart_ForCycleTime != null
+                              where a.CycleTime <= 365
                               select a.CycleTime).ToList();
             var NewGlobalCT = (from a in entity.CLRDatas
                                where regions.Any(val => a.Region.Equals(val))
@@ -340,6 +348,7 @@ namespace CWTDashboardAPI.Controllers
                                where a.ProjectStatus == "C-Closed"
                                where a.GoLiveYear == CurrentYear
                                where a.ProjectStart_ForCycleTime != null
+                               where a.CycleTime <= 365
                                select a.CycleTime).ToList();
             var OverallCT = (from a in entity.CLRDatas
                              where regions.Any(val => a.Region.Equals(val))
@@ -351,6 +360,7 @@ namespace CWTDashboardAPI.Controllers
                              where a.ProjectStatus == "C-Closed"
                              where a.GoLiveYear == CurrentYear
                              where a.ProjectStart_ForCycleTime != null
+                             where a.CycleTime <=365
                              select a.CycleTime).ToList();
             var CreationDate = "01-01-2020";
             var ownership = "WO,JV".Split(',');
@@ -432,12 +442,16 @@ namespace CWTDashboardAPI.Controllers
             h_re.PreMonthRecords = PreviousMonths.Count() + "";
             h_re.CurrentMonthVolume = CurrentMonth.Sum()+"";
             h_re.CurrentMonthRecords = CurrentMonth.Count()+"";
+            h_re.CurrentMonthNActiveVolume = CurrentMonthNActive.Sum() + "";
+            h_re.CurrentMonthNActiveRecords = CurrentMonthNActive.Count() + "";
             h_re.NextMonthVolume = NextMonth.Sum() + "";
             h_re.NextMonthRecords = NextMonth.Count() + "";
+            h_re.NextMonthNActiveVolume = NextMonthNActive.Sum() + "";
+            h_re.NextMonthNActiveRecords = NextMonthNActive.Count() + "";
             h_re.RoyMonthVolume = RemainingMonths.Sum() + "";
             h_re.RoyMonthRecords = RemainingMonths.Count() + "";
-            h_re.ExpectedCurrentMonthVolume = PreviousMonths.Sum() + CurrentMonth.Sum() + NextMonth.Sum() + RemainingMonths.Sum() + "";
-            h_re.ExpectedCurrentMonthRecords = PreviousMonths.Count() + CurrentMonth.Count() + NextMonth.Count() + RemainingMonths.Count() + "";
+            h_re.ExpectedCurrentMonthVolume = PreviousMonths.Sum() + CurrentMonth.Sum() + NextMonth.Sum() + RemainingMonths.Sum() + CurrentMonthNActive.Sum() + NextMonthNActive.Sum()+ "";
+            h_re.ExpectedCurrentMonthRecords = PreviousMonths.Count() + CurrentMonth.Count() + NextMonth.Count() + RemainingMonths.Count() + CurrentMonthNActive.Count() + NextMonthNActive.Count() + "";
             h_re.FutureYearsVolume = FutureYears.Sum() + "";
             h_re.FutureYearsRecords = FutureYears.Count() + "";
             h_re.HoldVolume = Hold.Sum() + "";
@@ -553,6 +567,7 @@ namespace CWTDashboardAPI.Controllers
                                   where PreMonths.Any(val1 => a.GoLiveMonth.Equals(val1))
                                   where a.GoLiveYear == CurrentYear
                                   where a.Status == "Active"
+                                  //where a.CycleTime < 365
                                   where regions.Any(val => a.Region.Equals(val))
                                   where Countries.Any(val => a.Country.Equals(val))
                                   where CurrentStatus.Any(val1 => a.ProjectStatus.Equals(val1))
@@ -561,6 +576,7 @@ namespace CWTDashboardAPI.Controllers
                                 where a.GoLiveMonth == Month
                                 where a.GoLiveYear == CurrentYear
                                 where a.Status == "Active"
+                                //where a.CycleTime < 365
                                 where regions.Any(val => a.Region.Equals(val))
                                 where Countries.Any(val => a.Country.Equals(val))
                                 where CurrentStatus.Any(val1 => a.ProjectStatus.Equals(val1))
@@ -569,14 +585,34 @@ namespace CWTDashboardAPI.Controllers
                              where a.GoLiveMonth == NM_Month
                              where a.GoLiveYear == CurrentYear
                              where a.Status == "Active"
+                             //where a.CycleTime < 365
                              where regions.Any(val => a.Region.Equals(val))
                              where Countries.Any(val => a.Country.Equals(val))
                              where CurrentStatus.Any(val1 => a.ProjectStatus.Equals(val1))
                              select a.RevenueVolumeUSD).ToList();
+            var CurrentMonthNActive = (from a in entity.CLRDatas
+                                       where a.GoLiveMonth == Month
+                                       where a.GoLiveYear == CurrentYear
+                                       where a.Status == "Active"
+                                       //where a.CycleTime < 365
+                                       where regions.Any(val => a.Region.Equals(val))
+                                       where Countries.Any(val => a.Country.Equals(val))
+                                       where a.ProjectStatus == "N-Active/No Date Confirmed"
+                                       select a.RevenueVolumeUSD).ToList();
+            var NextMonthNActive = (from a in entity.CLRDatas
+                                    where a.GoLiveMonth == NM_Month
+                                    where a.GoLiveYear == CurrentYear
+                                    where a.Status == "Active"
+                                    //where a.CycleTime < 365
+                                    where regions.Any(val => a.Region.Equals(val))
+                                    where Countries.Any(val => a.Country.Equals(val))
+                                    where a.ProjectStatus == "N-Active/No Date Confirmed"
+                                    select a.RevenueVolumeUSD).ToList();
             var RemainingMonths = (from a in entity.CLRDatas
                                    where RoyMonths.Any(val1 => a.GoLiveMonth.Equals(val1))
                                    where a.GoLiveYear == CurrentYear
                                    where a.Status == "Active"
+                                   //where a.CycleTime < 365
                                    where regions.Any(val => a.Region.Equals(val))
                                    where Countries.Any(val => a.Country.Equals(val))
                                    where ROYstatus.Any(val1 => a.ProjectStatus.Equals(val1))
@@ -584,6 +620,7 @@ namespace CWTDashboardAPI.Controllers
             var FutureYears = (from a in entity.CLRDatas
                                where a.GoLiveDate >= Nextyear
                                where a.Status == "Active"
+                               //where a.CycleTime < 365
                                where regions.Any(val => a.Region.Equals(val))
                                where Countries.Any(val => a.Country.Equals(val))
                                where ROYstatus.Any(val1 => a.ProjectStatus.Equals(val1))
@@ -615,6 +652,7 @@ namespace CWTDashboardAPI.Controllers
                                      where regions.Any(val => a.Region.Equals(val))
                                      where Countries.Any(val => a.Country.Equals(val))
                                      where a.ProjectStart_ForCycleTime != null
+                                     where a.CycleTime <= 365
                                      select a.CycleTime).ToList();
             var ExistingAddChangeCT = (from a in entity.CLRDatas
                                        where a.Status == "Active"
@@ -625,6 +663,7 @@ namespace CWTDashboardAPI.Controllers
                                        where regions.Any(val => a.Region.Equals(val))
                                        where Countries.Any(val => a.Country.Equals(val))
                                        where a.ProjectStart_ForCycleTime != null
+                                       where a.CycleTime <= 365
                                        select a.CycleTime).ToList();
             var NewLocalCT = (from a in entity.CLRDatas
                               where a.Status == "Active"
@@ -645,6 +684,7 @@ namespace CWTDashboardAPI.Controllers
                                where regions.Any(val => a.Region.Equals(val))
                                where Countries.Any(val => a.Country.Equals(val))
                                where a.ProjectStart_ForCycleTime != null
+                               where a.CycleTime <= 365
                                select a.CycleTime).ToList();
             var OverallCT = (from a in entity.CLRDatas
                              where a.Status == "Active"
@@ -657,6 +697,7 @@ namespace CWTDashboardAPI.Controllers
                              where regions.Any(val => a.Region.Equals(val))
                              where Countries.Any(val => a.Country.Equals(val))
                              where a.ProjectStart_ForCycleTime != null
+                             where a.CycleTime <= 365
                              select a.CycleTime).ToList();
             var CreationDate = "01-01-2020";
             var ownership = "WO,JV".Split(',');
@@ -739,13 +780,17 @@ namespace CWTDashboardAPI.Controllers
             h_re.PreMonthVolume = PreviousMonths.Sum() + "";
             h_re.PreMonthRecords = PreviousMonths.Count() + "";
             h_re.CurrentMonthVolume = CurrentMonth.Sum() + "";
+            h_re.CurrentMonthNActiveVolume = CurrentMonthNActive.Sum() + "";
             h_re.CurrentMonthRecords = CurrentMonth.Count() + "";
+            h_re.CurrentMonthNActiveRecords = CurrentMonthNActive.Count() + "";
             h_re.NextMonthVolume = NextMonth.Sum() + "";
+            h_re.NextMonthNActiveVolume = NextMonthNActive.Sum() + "";
             h_re.NextMonthRecords = NextMonth.Count() + "";
+            h_re.NextMonthNActiveRecords = NextMonthNActive.Count() + "";
             h_re.RoyMonthVolume = RemainingMonths.Sum() + "";
             h_re.RoyMonthRecords = RemainingMonths.Count() + "";
-            h_re.ExpectedCurrentMonthVolume = PreviousMonths.Sum() + CurrentMonth.Sum() + NextMonth.Sum() + RemainingMonths.Sum() + "";
-            h_re.ExpectedCurrentMonthRecords = PreviousMonths.Count() + CurrentMonth.Count() + NextMonth.Count() + RemainingMonths.Count() + "";
+            h_re.ExpectedCurrentMonthVolume = PreviousMonths.Sum() + CurrentMonth.Sum() + NextMonth.Sum() + RemainingMonths.Sum() + CurrentMonthNActive.Sum() + NextMonthNActive.Sum() + "";
+            h_re.ExpectedCurrentMonthRecords = PreviousMonths.Count() + CurrentMonth.Count() + NextMonth.Count() + RemainingMonths.Count() + CurrentMonthNActive.Count() + NextMonthNActive.Count() + "";
             h_re.FutureYearsVolume = FutureYears.Sum() + "";
             h_re.FutureYearsRecords = FutureYears.Count() + "";
             h_re.HoldVolume = Hold.Sum() + "";
@@ -826,7 +871,12 @@ namespace CWTDashboardAPI.Controllers
                                          a.C_HierarchyEdits,
                                          a.CLREdits,
                                          b.AccountStatus,
+                                         a.SteeringCommittee,
+                                         a.SteeringCommitteeEdits,
                                          Notifications = entity.UserReportAccessTickets.Where(x => x.TicketStatuts == "Requested" && x.UID != a.UID).Count(),
+                                         a.DDO,
+                                         a.DDOHome,
+                                         a.PriorityReport
                                      }).Distinct();
             var Username = entity.Users.FirstOrDefault(x => x.UID == userReportsAccess.UID).FirstName + " " + entity.Users.FirstOrDefault(x => x.UID == userReportsAccess.UID).LastName;
             var count = entity.NpsImps.Where(x => x.AssignLeaderForClosedLoop == Username && x.RecordStatus == "Action Required").Count();
@@ -1039,11 +1089,16 @@ namespace CWTDashboardAPI.Controllers
                                  b.JobType,
                                  a.UserAccessStatus,
                                  a.ResourceUtilization,
+                                 a.SteeringCommittee,
+                                 a.SteeringCommitteeEdits,
                                  a.Prospect,
                                  a.InsertedOn,
                                  a.UpdatedOn,
                                  a.UpdatedBy,
-                                 b.AccountStatus
+                                 b.AccountStatus,
+                                 a.DDO,
+                                 a.DDOHome,
+                                 a.PriorityReport
                              });
             re.code = 200;
             re.message = "Success";

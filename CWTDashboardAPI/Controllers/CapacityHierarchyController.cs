@@ -169,6 +169,37 @@ namespace CWTDashboardAPI.Controllers
                                      isSelected = true,
                                  }).Distinct().OrderBy(x => x.NPSComment).ToList();
             var FilteredData = FilterLeader.Concat(FilterManager).Distinct().OrderBy(x => x.GlobalProjectManager);
+
+            var FilteredGlobalCISOBTLead = (from a in entity.CapacityHierarchies
+                                            where a.Level == "Digital"
+                                            where a.ProjectLevel == "Global"
+                                            select new
+                                             {
+                                                 GlobalProjectManager = a.Manager,
+                                                 isSelected = true
+                                             }).Distinct();
+            var FilteredGlobalDigitalData = FilteredGlobalCISOBTLead.Distinct().OrderBy(x => x.GlobalProjectManager);
+
+            var FilteredRegionalCISOBTLead = (from a in entity.CapacityHierarchies
+                                              where a.Level == "Digital"
+                                              where a.ProjectLevel == "Regional"
+                                              select new
+                                            {
+                                                GlobalProjectManager = a.Manager,
+                                                isSelected = true
+                                            }).Distinct();
+            
+            var FilteredRegionalDigitalData = FilteredRegionalCISOBTLead.Distinct().OrderBy(x => x.GlobalProjectManager);
+
+            var FilteredLocalDigitalOBTLead = (from a in entity.CapacityHierarchies
+                                               where a.Level == "Digital"
+                                               where a.ProjectLevel == "Local"
+                                               select new
+                                            {
+                                                GlobalProjectManager = a.Manager,
+                                                isSelected = true
+                                            }).Distinct().OrderBy(x => x.GlobalProjectManager);
+            
             CLR_F.code = 200;
             CLR_F.message = "Success";
             CLR_F.FilterGlobalProjectManager = FilteredData;
@@ -177,6 +208,10 @@ namespace CWTDashboardAPI.Controllers
             CLR_F.NPSCommentOne = NPSCommentOne;
             CLR_F.NPSCommentTwo = NPSCommentTwo;
             CLR_F.NPSCommentThree = NPSCommentThree;
+            CLR_F.FilterGlobalDigitalData = FilteredGlobalDigitalData;
+            CLR_F.FilterRegionalDigitalData = FilteredRegionalDigitalData;
+            CLR_F.FilterLocalDigitalData = FilteredLocalDigitalOBTLead;
+
             return CLR_F;
         }
         [HttpPost]

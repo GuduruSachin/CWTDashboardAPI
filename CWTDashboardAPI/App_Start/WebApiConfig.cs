@@ -20,9 +20,10 @@ namespace CWTDashboardAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-            var cors = new EnableCorsAttribute("http://localhost:4200", "*", "*");
+            var cors = new EnableCorsAttribute("http://localhost:4200,http://10.180.27.32:8443", "*", "*");
 
             config.EnableCors(cors);
+            //config.EnableCors(cors1);
         }
     }
 }

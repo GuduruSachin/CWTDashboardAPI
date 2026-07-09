@@ -29,7 +29,6 @@ namespace CWTDashboardAPI.Models
 
         public virtual DbSet<CTO> CTOes { get; set; }
         public virtual DbSet<IMP> IMPS { get; set; }
-        public virtual DbSet<eSOWNew> eSOWs { get; set; }
         public virtual DbSet<StageGate> StageGates { get; set; }
     }
 }

@@ -16,7 +16,159 @@ namespace CWTDashboardAPI.Controllers
         Filters fi = new Filters();
         IMRCResponse imrs = new IMRCResponse();
 
-        string[] CV_Projectstatus,CV_ProjectLevel,CV_GoLiveYear, CV_GoLiveMonth, CV_Region, CV_ImplementationType, CV_Country, CV_Ownership;
+        string[] CV_Projectstatus,CV_ProjectLevel,CV_GoLiveYear, CV_GoLiveMonth, CV_Region, CV_ImplementationType, CV_Ownership;
+        //[HttpPost]
+        //[Route("ChartVolumeCycleTimeCounts")]
+        //public IMRCResponse ChartVolumeCycleTimeCounts(CLRData clr)
+        //{
+        //    if (clr.ProjectStatus == null || clr.ProjectLevel == null || clr.OwnerShip == null || clr.GoLiveYear == null || clr.GoLiveMonth == null || clr.Region == null || clr.ImplementationType == null)
+        //    {
+        //        re.Data = null;
+        //        re.code = 100;
+        //        re.message = "No Data found";
+        //    }
+        //    else
+        //    {
+        //        CV_Projectstatus = clr.ProjectStatus.Split(',');
+        //        for (int i = 0; i < CV_Projectstatus.Count(); i++)
+        //        {
+        //            if (CV_Projectstatus[i] == "" || CV_Projectstatus[i] == "---" || CV_Projectstatus[i] == "null")
+        //            {
+        //                CV_Projectstatus[i] = "---";
+        //            }
+        //        }
+        //        CV_ProjectLevel = clr.ProjectLevel.Split(',');
+        //        for (int i = 0; i < CV_ProjectLevel.Count(); i++)
+        //        {
+        //            if (CV_ProjectLevel[i] == "" || CV_ProjectLevel[i] == "---" || CV_ProjectLevel[i] == "null")
+        //            {
+        //                CV_ProjectLevel[i] = "---";
+        //            }
+        //        }
+        //        CV_GoLiveYear = clr.GoLiveYear.Split(',');
+        //        for (int i = 0; i < CV_GoLiveYear.Count(); i++)
+        //        {
+        //            if (CV_GoLiveYear[i] == "" || CV_GoLiveYear[i] == "---" || CV_GoLiveYear[i] == "null")
+        //            {
+        //                CV_GoLiveYear[i] = "---";
+        //            }
+        //        }
+        //        CV_GoLiveMonth = clr.GoLiveMonth.Split(',');
+        //        for (int i = 0; i < CV_GoLiveMonth.Count(); i++)
+        //        {
+        //            if (CV_GoLiveMonth[i] == "" || CV_GoLiveMonth[i] == "---" || CV_GoLiveMonth[i] == "null")
+        //            {
+        //                CV_GoLiveMonth[i] = "---";
+        //            }
+        //        }
+        //        CV_Region = clr.Region.Split(',');
+        //        for (int i = 0; i < CV_Region.Count(); i++)
+        //        {
+        //            if (CV_Region[i] == "" || CV_Region[i] == "---" || CV_Region[i] == "null")
+        //            {
+        //                CV_Region[i] = "---";
+        //            }
+        //        }
+        //        CV_ImplementationType = clr.ImplementationType.Split(',');
+        //        for (int i = 0; i < CV_ImplementationType.Count(); i++)
+        //        {
+        //            if (CV_ImplementationType[i] == "" || CV_ImplementationType[i] == "---" || CV_ImplementationType[i] == "null")
+        //            {
+        //                CV_ImplementationType[i] = "---";
+        //            }
+        //        }
+        //        //CV_Country = clr.Country.Split(',');
+        //        //for (int i = 0; i < CV_Country.Count(); i++)
+        //        //{
+        //        //    if (CV_Country[i] == "" || CV_Country[i] == "---" || CV_Country[i] == "null")
+        //        //    {
+        //        //        CV_Country[i] = "---";
+        //        //    }
+        //        //}
+        //        CV_Ownership = clr.OwnerShip.Split(',');
+        //        for (int i = 0; i < CV_Ownership.Count(); i++)
+        //        {
+        //            if (CV_Ownership[i] == "" || CV_Ownership[i] == "---" || CV_Ownership[i] == "null")
+        //            {
+        //                CV_Ownership[i] = "---";
+        //            }
+        //        }
+
+        //        var VolumeCycleData = (from a in entity.CLRDatas
+        //                               where a.Status == "Active"
+        //                               where CV_Projectstatus.Any(val => a.ProjectStatus.Equals(val))
+        //                               where CV_ProjectLevel.Any(val => a.ProjectLevel.Equals(val))
+        //                               where CV_GoLiveYear.Any(val => a.GoLiveYear.Equals(val))
+        //                               where CV_GoLiveMonth.Any(val => a.GoLiveMonth.Equals(val))
+        //                               where CV_Region.Any(val => a.Region.Equals(val))
+        //                               where CV_ImplementationType.Any(val => a.ImplementationType.Equals(val))
+        //                               where CV_Ownership.Any(val => a.OwnerShip.Equals(val))
+        //                               where a.RevenueID < 600000000000000
+        //                               //where CV_Country.Any(val => a.Country.Equals(val))
+        //                               select a);
+        //        var VolumeCountCycleTime = (from a in VolumeCycleData
+        //                                    group a by a.GoLiveMonth into g
+        //                                    select new
+        //                                    {
+        //                                        GoLiveMonth = g.Key,
+        //                                        Revenue_Total_Volume_USD = VolumeCycleData.Where(x => x.GoLiveMonth == g.Key).Sum(x => x.RevenueVolumeUSD),
+        //                                        ProjectsCount = VolumeCycleData.Where(x => x.GoLiveMonth == g.Key).Count(),
+        //                                        cycletimesum = VolumeCycleData.Where(x => x.ProjectStart_ForCycleTime != null && x.GoLiveMonth == g.Key).Sum(x => x.CycleTime),
+        //                                        cycletimeCount = VolumeCycleData.Where(x => x.ProjectStart_ForCycleTime != null && x.GoLiveMonth == g.Key).Count(),
+        //                                        Average = VolumeCycleData.Where(x => x.ProjectStart_ForCycleTime != null && x.GoLiveMonth == g.Key).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.ProjectStart_ForCycleTime != null && x.GoLiveMonth == g.Key).Count(),
+        //                                    }).AsEnumerable().OrderBy(x => DateTime.ParseExact(x.GoLiveMonth, "MMM", CultureInfo.InvariantCulture).Month);
+        //        //var VolumeCycleTime = (from a in entity.CLRDatas
+        //        //                       select new
+        //        //                       {
+        //        //                           January_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Jan").Sum(x => x.RevenueVolumeUSD) ?? 0,
+        //        //                           February_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Feb").Sum(x => x.RevenueVolumeUSD) ?? 0,
+        //        //                           March_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Mar").Sum(x => x.RevenueVolumeUSD) ?? 0,
+        //        //                           April_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Apr").Sum(x => x.RevenueVolumeUSD) ?? 0,
+        //        //                           May_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "May").Sum(x => x.RevenueVolumeUSD) ?? 0,
+        //        //                           June_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Jun").Sum(x => x.RevenueVolumeUSD) ?? 0,
+        //        //                           July_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Jul").Sum(x => x.RevenueVolumeUSD) ?? 0,
+        //        //                           August_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Aug").Sum(x => x.RevenueVolumeUSD) ?? 0,
+        //        //                           September_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Sep").Sum(x => x.RevenueVolumeUSD) ?? 0,
+        //        //                           October_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Oct").Sum(x => x.RevenueVolumeUSD) ?? 0,
+        //        //                           November_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Nov").Sum(x => x.RevenueVolumeUSD) ?? 0,
+        //        //                           December_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Dec").Sum(x => x.RevenueVolumeUSD) ?? 0,
+        //        //                           January_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Jan").Count(),
+        //        //                           February_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Feb").Count(),
+        //        //                           March_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Mar").Count(),
+        //        //                           April_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Apr").Count(),
+        //        //                           May_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "May").Count(),
+        //        //                           June_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Jun").Count(),
+        //        //                           July_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Jul").Count(),
+        //        //                           August_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Aug").Count(),
+        //        //                           September_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Sep").Count(),
+        //        //                           October_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Oct").Count(),
+        //        //                           November_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Nov").Count(),
+        //        //                           December_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Dec").Count(),
+        //        //                      }).Distinct();
+        //        var VolumeCycleTime2 = (from a in entity.CLRDatas
+        //                                select new
+        //                                {
+        //                                    January_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Jan" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Jan" && x.ProjectStart_ForCycleTime != null).Count() ?? 0,
+        //                                    February_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Feb" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Feb" && x.ProjectStart_ForCycleTime != null).Count() ?? 0,
+        //                                    March_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Mar" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Mar" && x.ProjectStart_ForCycleTime != null).Count() ?? 0,
+        //                                    April_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Apr" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Apr" && x.ProjectStart_ForCycleTime != null).Count() ?? 0,
+        //                                    May_A = VolumeCycleData.Where(x => x.GoLiveMonth == "May" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "May" && x.ProjectStart_ForCycleTime != null).Count() ?? 0,
+        //                                    June_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Jun" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Jun" && x.ProjectStart_ForCycleTime != null).Count() ?? 0,
+        //                                    //July_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Jul" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Jul" && x.ProjectStart_ForCycleTime != null).Count() ?? 0,
+        //                                    //August_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Aug" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Aug" && x.ProjectStart_ForCycleTime != null).Count() ?? 0,
+        //                                    //September_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Sep" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Sep" && x.ProjectStart_ForCycleTime != null).Count() ?? 0,
+        //                                    //October_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Oct" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Oct" && x.ProjectStart_ForCycleTime != null).Count() ?? 0,
+        //                                    //November_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Nov" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Nov" && x.ProjectStart_ForCycleTime != null).Count() ?? 0,
+        //                                    //December_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Dec" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Dec" && x.ProjectStart_ForCycleTime != null).Count() ?? 0,
+        //                                }).Distinct();
+        //        //.OrderBy(x=> x.GoLiveMonth == "Jan" ? 1 : x.GoLiveMonth == "Feb" ? 2 : x.GoLiveMonth == "Mar" ? 3 : x.GoLiveMonth == "Apr" ? 4 : x.GoLiveMonth == "May" ? 5 : x.GoLiveMonth == "Jun" ? 6 : x.GoLiveMonth == "Jul" ? 7 : x.GoLiveMonth == "Aug" ? 8 : x.GoLiveMonth == "Sep" ? 9 : x.GoLiveMonth == "Oct" ? 10 : x.GoLiveMonth == "Nov" ? 11 : x.GoLiveMonth == "Dec" ? 12 : 12 );
+        //        imrs.code = 200;
+        //        imrs.message = "Success";
+        //        imrs.Data = VolumeCycleTime2;
+        //        imrs.VolumeCountCycleTime = VolumeCountCycleTime;
+        //    }
+        //    return imrs;
+        //}
         [HttpPost]
         [Route("ChartVolumeCycleTimeCounts")]
         public IMRCResponse ChartVolumeCycleTimeCounts(CLRData clr)
@@ -77,14 +229,14 @@ namespace CWTDashboardAPI.Controllers
                         CV_ImplementationType[i] = "---";
                     }
                 }
-                CV_Country = clr.Country.Split(',');
-                for (int i = 0; i < CV_Country.Count(); i++)
-                {
-                    if (CV_Country[i] == "" || CV_Country[i] == "---" || CV_Country[i] == "null")
-                    {
-                        CV_Country[i] = "---";
-                    }
-                }
+                //CV_Country = clr.Country.Split(',');
+                //for (int i = 0; i < CV_Country.Count(); i++)
+                //{
+                //    if (CV_Country[i] == "" || CV_Country[i] == "---" || CV_Country[i] == "null")
+                //    {
+                //        CV_Country[i] = "---";
+                //    }
+                //}
                 CV_Ownership = clr.OwnerShip.Split(',');
                 for (int i = 0; i < CV_Ownership.Count(); i++)
                 {
@@ -93,7 +245,7 @@ namespace CWTDashboardAPI.Controllers
                         CV_Ownership[i] = "---";
                     }
                 }
-                
+
                 var VolumeCycleData = (from a in entity.CLRDatas
                                        where a.Status == "Active"
                                        where CV_Projectstatus.Any(val => a.ProjectStatus.Equals(val))
@@ -101,9 +253,10 @@ namespace CWTDashboardAPI.Controllers
                                        where CV_GoLiveYear.Any(val => a.GoLiveYear.Equals(val))
                                        where CV_GoLiveMonth.Any(val => a.GoLiveMonth.Equals(val))
                                        where CV_Region.Any(val => a.Region.Equals(val))
-                                       where CV_ImplementationType.Any(val => a.ImplementationType.Equals(val))
+                                       where CV_ImplementationType.Any(val => a.Revenue_Opportunity_Type.Equals(val))
                                        where CV_Ownership.Any(val => a.OwnerShip.Equals(val))
                                        where a.RevenueID < 600000000000000
+                                       //where a.CycleTime < 365
                                        //where CV_Country.Any(val => a.Country.Equals(val))
                                        select a);
                 var VolumeCountCycleTime = (from a in VolumeCycleData
@@ -117,54 +270,92 @@ namespace CWTDashboardAPI.Controllers
                                                 cycletimeCount = VolumeCycleData.Where(x => x.ProjectStart_ForCycleTime != null && x.GoLiveMonth == g.Key).Count(),
                                                 Average = VolumeCycleData.Where(x => x.ProjectStart_ForCycleTime != null && x.GoLiveMonth == g.Key).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.ProjectStart_ForCycleTime != null && x.GoLiveMonth == g.Key).Count(),
                                             }).AsEnumerable().OrderBy(x => DateTime.ParseExact(x.GoLiveMonth, "MMM", CultureInfo.InvariantCulture).Month);
+                var January_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Jan").Count();
+                var February_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Feb").Count();
+                var March_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Mar").Count();
+                var April_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Apr").Count();
+                var May_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "May").Count();
+                var June_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Jun").Count();
+                var July_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Jul").Count();
+                var August_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Aug").Count();
+                var September_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Sep").Count();
+                var October_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Oct").Count();
+                var November_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Nov").Count();
+                var December_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Dec").Count();
+                var January_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Jan").Sum(x => x.RevenueVolumeUSD) ?? 0;
+                var February_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Feb").Sum(x => x.RevenueVolumeUSD) ?? 0;
+                var March_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Mar").Sum(x => x.RevenueVolumeUSD) ?? 0;
+                var April_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Apr").Sum(x => x.RevenueVolumeUSD) ?? 0;
+                var May_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "May").Sum(x => x.RevenueVolumeUSD) ?? 0;
+                var June_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Jun").Sum(x => x.RevenueVolumeUSD) ?? 0;
+                var July_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Jul").Sum(x => x.RevenueVolumeUSD) ?? 0;
+                var August_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Aug").Sum(x => x.RevenueVolumeUSD) ?? 0;
+                var September_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Sep").Sum(x => x.RevenueVolumeUSD) ?? 0;
+                var October_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Oct").Sum(x => x.RevenueVolumeUSD) ?? 0;
+                var November_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Nov").Sum(x => x.RevenueVolumeUSD) ?? 0;
+                var December_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Dec").Sum(x => x.RevenueVolumeUSD) ?? 0;
+                var January_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Jan" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Jan" && x.ProjectStart_ForCycleTime != null).Count() ?? 0;
+                var February_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Feb" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Feb" && x.ProjectStart_ForCycleTime != null).Count() ?? 0;
+                var March_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Mar" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Mar" && x.ProjectStart_ForCycleTime != null).Count() ?? 0;
+                var April_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Apr" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Apr" && x.ProjectStart_ForCycleTime != null).Count() ?? 0;
+                var May_A = VolumeCycleData.Where(x => x.GoLiveMonth == "May" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "May" && x.ProjectStart_ForCycleTime != null).Count() ?? 0;
+                var June_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Jun" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Jun" && x.ProjectStart_ForCycleTime != null).Count() ?? 0;
+                var July_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Jul" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Jul" && x.ProjectStart_ForCycleTime != null).Count() ?? 0;
+                var August_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Aug" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Aug" && x.ProjectStart_ForCycleTime != null).Count() ?? 0;
+                var September_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Sep" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Sep" && x.ProjectStart_ForCycleTime != null).Count() ?? 0;
+                var October_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Oct" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Oct" && x.ProjectStart_ForCycleTime != null).Count() ?? 0;
+                var November_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Nov" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Nov" && x.ProjectStart_ForCycleTime != null).Count() ?? 0;
+                var December_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Dec" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Dec" && x.ProjectStart_ForCycleTime != null).Count() ?? 0;
+                                       
                 var VolumeCycleTime = (from a in entity.CLRDatas
                                        select new
                                        {
-                                           January_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Jan").Sum(x => x.RevenueVolumeUSD),
-                                           February_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Feb").Sum(x => x.RevenueVolumeUSD),
-                                           March_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Mar").Sum(x => x.RevenueVolumeUSD),
-                                           April_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Apr").Sum(x => x.RevenueVolumeUSD),
-                                           May_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "May").Sum(x => x.RevenueVolumeUSD),
-                                           June_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Jun").Sum(x => x.RevenueVolumeUSD),
-                                           July_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Jul").Sum(x => x.RevenueVolumeUSD),
-                                           August_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Aug").Sum(x => x.RevenueVolumeUSD),
-                                           September_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Sep").Sum(x => x.RevenueVolumeUSD),
-                                           October_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Oct").Sum(x => x.RevenueVolumeUSD),
-                                           November_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Nov").Sum(x => x.RevenueVolumeUSD),
-                                           December_RV = VolumeCycleData.Where(x => x.GoLiveMonth == "Dec").Sum(x => x.RevenueVolumeUSD),
-                                           January_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Jan").Count(),
-                                           February_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Feb").Count(),
-                                           March_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Mar").Count(),
-                                           April_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Apr").Count(),
-                                           May_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "May").Count(),
-                                           June_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Jun").Count(),
-                                           July_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Jul").Count(),
-                                           August_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Aug").Count(),
-                                           September_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Sep").Count(),
-                                           October_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Oct").Count(),
-                                           November_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Nov").Count(),
-                                           December_PC = VolumeCycleData.Where(x => x.GoLiveMonth == "Dec").Count(),
-                                           January_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Jan" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Jan" && x.ProjectStart_ForCycleTime != null).Count(),
-                                           February_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Feb" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Feb" && x.ProjectStart_ForCycleTime != null).Count(),
-                                           March_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Mar" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) /VolumeCycleData.Where(x => x.GoLiveMonth == "Mar" && x.ProjectStart_ForCycleTime != null).Count(),
-                                           April_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Apr" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Apr" && x.ProjectStart_ForCycleTime != null).Count(),
-                                           May_A = VolumeCycleData.Where(x => x.GoLiveMonth == "May" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "May" && x.ProjectStart_ForCycleTime != null).Count(),
-                                           June_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Jun" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) /VolumeCycleData.Where(x => x.GoLiveMonth == "Jun" && x.ProjectStart_ForCycleTime != null).Count(),
-                                           July_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Jul" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Jul" && x.ProjectStart_ForCycleTime != null).Count(),
-                                           August_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Aug" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Aug" && x.ProjectStart_ForCycleTime != null).Count(),
-                                           September_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Sep" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Sep" && x.ProjectStart_ForCycleTime != null).Count(),
-                                           October_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Oct" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Oct" && x.ProjectStart_ForCycleTime != null).Count(),
-                                           November_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Nov" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Nov" && x.ProjectStart_ForCycleTime != null).Count(),
-                                           December_A = VolumeCycleData.Where(x => x.GoLiveMonth == "Dec" && x.ProjectStart_ForCycleTime != null).Sum(x => x.CycleTime) / VolumeCycleData.Where(x => x.GoLiveMonth == "Dec" && x.ProjectStart_ForCycleTime != null).Count(),
+                                           January_RV = January_RV,
+                                           February_RV = February_RV,
+                                           March_RV = March_RV,
+                                           April_RV = April_RV,
+                                           May_RV = May_RV,
+                                           June_RV = June_RV,
+                                           July_RV = July_RV,
+                                           August_RV = August_RV,
+                                           September_RV = September_RV,
+                                           October_RV = October_RV,
+                                           November_RV = November_RV,
+                                           December_RV = December_RV,
+                                           January_PC = January_PC,
+                                           February_PC = February_PC,
+                                           March_PC = March_PC,
+                                           April_PC = April_PC,
+                                           May_PC = May_PC,
+                                           June_PC = June_PC,
+                                           July_PC = July_PC,
+                                           August_PC = August_PC,
+                                           September_PC = September_PC,
+                                           October_PC = October_PC,
+                                           November_PC = November_PC,
+                                           December_PC = December_PC,
+                                           January_A = January_A,
+                                           February_A = February_A,
+                                           March_A = March_A,
+                                           April_A = April_A,
+                                           May_A = May_A,
+                                           June_A = June_A,
+                                           July_A = July_A,
+                                           August_A = August_A,
+                                           September_A = September_A,
+                                           October_A = October_A,
+                                           November_A = November_A,
+                                           December_A = December_A
                                        }).Distinct();
-                                       //.OrderBy(x=> x.GoLiveMonth == "Jan" ? 1 : x.GoLiveMonth == "Feb" ? 2 : x.GoLiveMonth == "Mar" ? 3 : x.GoLiveMonth == "Apr" ? 4 : x.GoLiveMonth == "May" ? 5 : x.GoLiveMonth == "Jun" ? 6 : x.GoLiveMonth == "Jul" ? 7 : x.GoLiveMonth == "Aug" ? 8 : x.GoLiveMonth == "Sep" ? 9 : x.GoLiveMonth == "Oct" ? 10 : x.GoLiveMonth == "Nov" ? 11 : x.GoLiveMonth == "Dec" ? 12 : 12 );
                 imrs.code = 200;
                 imrs.message = "Success";
                 imrs.Data = VolumeCycleTime;
                 imrs.VolumeCountCycleTime = VolumeCountCycleTime;
+                //imrs.CycleTimeByCategories = VolumeCycleTime2;
             }
             return imrs;
         }
+
         [HttpPost]
         [Route("CycleTimeFilters")]
         public Filters CycleTimeFilters(CLRData clr)
@@ -288,6 +479,7 @@ namespace CWTDashboardAPI.Controllers
                                         where CT_GoLiveYear.Any(val => a.GoLiveYear.Equals(val))
                                         where CTT_Region.Any(val => a.Region.Equals(val))
                                         where a.ProjectStart_ForCycleTime != null
+                                        where a.CycleTime <= 365
                                         select a);
                 }
                 else
@@ -303,6 +495,7 @@ namespace CWTDashboardAPI.Controllers
                                        where CT_GoLiveYear.Any(val => a.GoLiveYear.Equals(val))
                                        where CTT_Region.Any(val => a.Region.Equals(val))
                                        where a.ProjectStart_ForCycleTime != null
+                                       where a.CycleTime <= 365
                                        select a);
                 }
                 //var VolumeCycleTime = (from a in entity.CLRDatas
@@ -341,6 +534,7 @@ namespace CWTDashboardAPI.Controllers
                                              where a.CycleTimeCategories != "0"
                                              where a.CycleTimeCategories != null
                                              where a.CycleTimeCategories != "New Global/regional/local"
+                                             where a.CycleTime <= 365
                                              group a by a.CycleTimeCategories into g
                                              select new CycleTimeCategories
                                              {
@@ -390,6 +584,7 @@ namespace CWTDashboardAPI.Controllers
                                                 where a.CycleTimeCategories != "0"
                                                 where a.CycleTimeCategories != null
                                                 where a.CycleTimeCategories != "New Global/regional/local"
+                                                where a.CycleTime <= 365
                                                 select new CycleTimeCategories
                                                 {
                                                     CycleTimeCategory = "Overall",
@@ -448,7 +643,8 @@ namespace CWTDashboardAPI.Controllers
                                          a.ProjectLevel,
                                          a.GoLiveDate,
                                          a.ProjectStart_ForCycleTime,
-                                         CycleTimeDelayCode = a.CycleTimeDelayCode == null || a.CycleTimeDelayCode == "" ? "---" : a.CycleTimeDelayCode ?? "---", 
+                                         CycleTimeDelayCode = a.CycleTimeDelayCode == null || a.CycleTimeDelayCode == "" ? "---" : a.CycleTimeDelayCode ?? "---",
+                                         EltClientDelayDescription = a.EltClientDelayDescription == null || a.EltClientDelayDescription == "" ? "---" : a.EltClientDelayDescription ?? "---",
                                          a.CycleTime,
                                          a.CycleTimeCategories,
                                          a.GoLiveYear,

@@ -10,6 +10,11 @@ namespace CWTDashboardAPI.Controllers
 {
     public class ELTReportController : ApiController
     {
+        //public ELTReportController(CWTDashboardEntities entities)
+        //{
+
+        //}
+        //private readonly CWTDashboardEntities entities;
         CWTDashboardEntities entity = new CWTDashboardEntities();
         Response re = new Response();
         EltResponce elt_re = new EltResponce();
@@ -29,31 +34,31 @@ namespace CWTDashboardAPI.Controllers
                                    where a.Status == "Active"
                                    where a.GoLiveMonth == Month
                                    where a.GoLiveYear == year
-                                   where a.OwnerShip != "Partner"
+                                   //where a.OwnerShip != "Partner"
                                    //where a.Backlog_Started == "Started"
                                    where status.Any(val1 => a.ProjectStatus.Equals(val1))
                                    group a by a.Client into g
                                    select new
                                    {
                                        Client = g.Key,
-                                       APAC = (from apac in g where apac.Region == "APAC" select apac.RevenueVolumeUSD).Sum(),
-                                       EMEA = (from emea in g where emea.Region == "EMEA" select emea.RevenueVolumeUSD).Sum(),
-                                       LATAM = (from latam in g where latam.Region == "LATAM" select latam.RevenueVolumeUSD).Sum(),
-                                       NORAM = (from noram in g where noram.Region == "NORAM" select noram.RevenueVolumeUSD).Sum(),
+                                       APAC = (from apac in g where apac.Region == "APAC" select apac.RevenueVolumeUSD).Sum() ?? 0,
+                                       EMEA = (from emea in g where emea.Region == "EMEA" select emea.RevenueVolumeUSD).Sum() ?? 0,
+                                       LATAM = (from latam in g where latam.Region == "LATAM" select latam.RevenueVolumeUSD).Sum() ?? 0,
+                                       NORAM = (from noram in g where noram.Region == "NORAM" select noram.RevenueVolumeUSD).Sum() ?? 0,
                                        CurrentMonth = (from cm in g select cm.RevenueVolumeUSD).Sum() ?? 0,
-                                       PriorMonthElt = entity.EltDeltaClients.Where(x => x.Client == g.Key && x.Month == Month).Select(x => x.Revenue).Distinct(),
+                                       PriorMonthElt = entity.EltDeltaClients.Where(x => x.Client == g.Key && x.Month == Month && x.Year == year).Count() > 0 ? entity.EltDeltaClients.Where(x => x.Client == g.Key && x.Month == Month && x.Year == year).Sum(x =>x.Revenue) : 0,
                                        Delta = 0,
                                        Status = "Started",
-                                       EltStatus = g.Where(x => x.Workspace__ELT_Overall_Status != null).Select(x => x.Workspace__ELT_Overall_Status).Distinct(),
-                                       Comments = g.Where(x => x.Workspace__ELT_Overall_Comments != null).Select(x => x.Workspace__ELT_Overall_Comments).Distinct(),
+                                       //EltStatus = g.Where(x => x.Workspace__ELT_Overall_Status != null).Select(x => x.Workspace__ELT_Overall_Status).Distinct(),
+                                       //Comments = g.Where(x => x.Workspace__ELT_Overall_Comments != null).Select(x => x.Workspace__ELT_Overall_Comments).Distinct(),
                                        //Comments = g.Where(cc => cc.Client == g.Key).Select(dd => new { UserName = g.Key, Role = string.Join(",", g.Select(ee => ee.iMeet_Milestone___Project_Status).ToList()) }),
-                                       RegionComment = g.Select(x => x.Region).Distinct(),
-                                       RevenueComment = g.Select(x => x.RevenueVolumeUSD).Distinct(),
+                                       //RegionComment = g.Select(x => x.Region).Distinct(),
+                                       //RevenueComment = g.Select(x => x.RevenueVolumeUSD).Distinct(),
                                        Workspace = g.FirstOrDefault(x => x.Client == g.Key && x.Status == "Active").Workspace_Title,
                                        //RegionComment = g.Select(x => x.Region__Opportunity_).Distinct(),
                                        //RevenueComment = g.Select(x => x.Revenue_Total_Volume_USD).Distinct(),
-                                       PreviousYear = entity.CLRDatas.Where(x1 => x1.GoLiveYear == PriorYear).Where(x2 => x2.BacklogStarted == "Started").Where(x3 => status.Any(x3s => x3s.Equals(x3.ProjectStatus))).Where(x4 => x4.Client == g.Key).Where(x5 =>x5.Status == "Active").Sum(x5 => x5.RevenueVolumeUSD),
-                                       TotalAcountVolume = entity.CLRDatas.Where(v1 => v1.Client == g.Key && v1.OwnerShip != "Partner" && v1.Status == "Active").Where(v2 => otherstatus.Any(v2s => v2s.Equals(v2.ProjectStatus))).Sum(x5 => x5.RevenueVolumeUSD),
+                                       //PreviousYear = entity.CLRDatas.Where(x1 => x1.GoLiveYear == PriorYear).Where(x2 => x2.BacklogStarted == "Started").Where(x3 => status.Any(x3s => x3s.Equals(x3.ProjectStatus))).Where(x4 => x4.Client == g.Key).Where(x5 =>x5.Status == "Active").Sum(x5 => x5.RevenueVolumeUSD),
+                                       TotalAcountVolume = entity.CLRDatas.Where(v1 => v1.Client == g.Key && v1.Status == "Active").Where(v2 => otherstatus.Any(v2s => v2s.Equals(v2.ProjectStatus))).Sum(x5 => x5.RevenueVolumeUSD) ?? 0,
                                    }).Where(x => x.CurrentMonth > 0).OrderByDescending(x => x.CurrentMonth).ToList();
             for(var i = 0; i < CurrentMonthELT.Count; i++)
             {
@@ -79,36 +84,191 @@ namespace CWTDashboardAPI.Controllers
                            where a.Revenue > 0
                            where !Clients.Any(val => a.Client.Equals(val))
                            select a.Client).ToList();
-            var data = (from a in entity.EltOldCLRDatas
-                        where a.GoLiveMonth == Month
-                        where a.GoLiveYear == year
-                        where a.RevenueVolumeUSD > 0
-                        where a.OwnerShip != "Partner"
-                        where a.Status == "Active"
-                        where clients.Any(val => a.Client.Equals(val))
-                        where status.Any(val1 => a.ProjectStatus.Equals(val1))
-                        select new
+            var MovedClients = (from a in entity.EltDeltaClients
+                                where a.Month == Month
+                                where a.Year == year
+                                where a.Revenue > 0
+                                where !Clients.Any(val => a.Client.Equals(val))
+                                group a by a.Client into g
+                                select new {
+                                    Client = g.Key,
+                                    APAC = (double)0,
+                                    EMEA = (double)0,
+                                    LATAM = (double)0,
+                                    NORAM = (double)0,
+                                    CurrentMonth = (double)0,
+                                    PriorMonthElt = (from elt in g select elt.Revenue).Sum(),
+                                    Delta = 0,
+                                    Status = "Started",
+                                    Workspace = entity.CLRDatas.FirstOrDefault(x => x.Client == g.Key && x.Status == "Active").Workspace_Title,
+                                    TotalAcountVolume = entity.CLRDatas.Where(x => x.Client == g.Key && x.Status == "Active").Sum(x => x.RevenueVolumeUSD) ?? 0,
+                                });
+
+            var ELTDeltaCLients = (from a in entity.EltDeltaClients
+                                   where a.Month == Month
+                                   where a.Year == year
+                                   where a.Revenue > 0
+                                   select a.Client).ToList();
+
+            var DeltaComments = (from a in entity.EltOldCLRDatas
+                                    where ELTDeltaCLients.Any(val => a.Client.Equals(val))
+                                    where a.GoLiveMonth == Month
+                                    where a.GoLiveYear == year
+                                    where a.RevenueVolumeUSD > 0
+                                    where a.Status == "Active"
+                                    where status.Any(val1 => a.ProjectStatus.Equals(val1))
+                                    join b in entity.CLRDatas on a.RevenueID equals b.RevenueID into ab
+                                    from abc in ab.DefaultIfEmpty()
+                                    select new ELTDeltaComments
+                                    {
+                                        Client = a.Client,
+                                        RevenueID = a.RevenueID,
+                                        ProjectStatus = a.ProjectStatus,
+                                        GoLiveMonth = a.GoLiveMonth,
+                                        GoLiveYear = a.GoLiveYear,
+                                        Country = a.Country,
+                                        Region = a.Region,
+                                        Workspace_Title = a.Workspace_Title,
+                                        PreviousVolume = a.RevenueVolumeUSD ?? 0,
+                                        CurrentVolume = abc.RevenueVolumeUSD ?? 0,
+                                        RevenueVolumeUSD = 0,
+                                        CurrentProjectStatus = abc.ProjectStatus,
+                                        CurrentMonth = abc.GoLiveMonth,
+                                        CurrentYear = abc.GoLiveYear,
+                                        Comments = "",
+                                        DeltaColor = ""
+                                    }).Distinct().ToList();
+            var RevenueIds = (from a in DeltaComments
+                          select a.RevenueID).ToList();
+            var OtherDeltaComments = (from a in entity.CLRDatas
+                                 where !RevenueIds.Any(val => a.RevenueID.Equals(val))
+                                 where a.GoLiveMonth == Month
+                                 where a.GoLiveYear == year
+                                 where a.RevenueVolumeUSD > 0
+                                 where a.Status == "Active"
+                                 where status.Any(val1 => a.ProjectStatus.Equals(val1))
+                                 join b in entity.EltOldCLRDatas on a.RevenueID equals b.RevenueID into ab
+                                 from abc in ab.DefaultIfEmpty()
+                                 select new ELTDeltaComments
+                                 {
+                                     Client = a.Client,
+                                     RevenueID = a.RevenueID,
+                                     ProjectStatus = abc.ProjectStatus,
+                                     GoLiveMonth = abc.GoLiveMonth,
+                                     GoLiveYear = abc.GoLiveYear,
+                                     Country = a.Country,
+                                     Region = a.Region,
+                                     Workspace_Title = a.Workspace_Title,
+                                     PreviousVolume = abc.RevenueVolumeUSD ?? 0,
+                                     CurrentVolume = a.RevenueVolumeUSD ?? 0,
+                                     RevenueVolumeUSD = 0,
+                                     CurrentProjectStatus = a.ProjectStatus,
+                                     CurrentMonth = a.GoLiveMonth,
+                                     CurrentYear = a.GoLiveYear,
+                                     Comments = "",
+                                     DeltaColor = ""
+                                 }).Distinct().ToList();
+            var ELTDeltaComments = DeltaComments.Concat(OtherDeltaComments).ToList();
+            //var ELTDeltaComments = DeltaComments.ToList();
+            List<double> RemovableRecords = new List<double>();
+            foreach (var r in ELTDeltaComments)
+            {
+                var comments = "";
+                if(status.Any(val1 => r.CurrentProjectStatus.Equals(val1)))
+                {
+                    if (!status.Any(val1 => r.ProjectStatus.Equals(val1)))
+                    {
+                        r.DeltaColor = "green";
+                        r.RevenueVolumeUSD = r.CurrentVolume;
+                        comments = "Project Status Moved from " + r.ProjectStatus + " to " + r.CurrentProjectStatus;
+                    }
+                }
+                else
+                {
+                    r.DeltaColor = "red";
+                    r.RevenueVolumeUSD = r.PreviousVolume;
+                    comments = "Project Status Moved from " + r.ProjectStatus + " to " + r.CurrentProjectStatus;
+                }
+                if (r.GoLiveMonth != r.CurrentMonth)
+                {
+                    if(r.DeltaColor == "red")
+                    {
+                        r.DeltaColor = "red";
+                        r.RevenueVolumeUSD = r.PreviousVolume;
+                    }
+                    else
+                    {
+                        if(r.CurrentMonth == Month)
                         {
-                            Workspace = entity.CLRDatas.FirstOrDefault(x => x.Client == a.Client && x.Status == "Active").Workspace_Title,
-                            a.Client,
-                            a.RevenueID,
-                            Revenue = a.RevenueVolumeUSD,
-                            a.ProjectStatus,
-                            Month = a.GoLiveMonth,
-                            Year = a.GoLiveYear,
-                            Comments = entity.CLRDatas.FirstOrDefault(x => x.Workspace__ELT_Overall_Comments != null && x.Client == a.Client && x.RevenueID == a.RevenueID).Workspace__ELT_Overall_Comments,
-                            CLRGoLiveMonth = entity.CLRDatas.FirstOrDefault(x => x.Client == a.Client && x.RevenueID == a.RevenueID).GoLiveMonth,
-                            CLRProjectStatus = entity.CLRDatas.FirstOrDefault(x => x.Client == a.Client && x.RevenueID == a.RevenueID).ProjectStatus,
-                            Country = entity.CLRDatas.FirstOrDefault(x => x.Client == a.Client && x.RevenueID == a.RevenueID).Country,
-                        }).ToList();
+                            r.DeltaColor = "green";
+                            r.RevenueVolumeUSD = r.CurrentVolume;
+                        }
+                        else
+                        {
+                            r.DeltaColor = "red";
+                            r.RevenueVolumeUSD = r.PreviousVolume;
+                        }
+                    }
+                    if (comments != "")
+                    {
+                        comments += "\n";
+                    }
+                    comments += "Golive Date has been changed from " + r.GoLiveMonth + "-"+ r.GoLiveYear + " to " + r.CurrentMonth + "-" + r.CurrentYear;
+                }
+                if (r.PreviousVolume != r.CurrentVolume)
+                {
+                    if(r.DeltaColor == "red")
+                    {
+                    }
+                    else
+                    {
+                        if (r.PreviousVolume < r.CurrentVolume)
+                        {
+                            r.DeltaColor = "green";
+                        }
+                        else
+                        {
+                            r.DeltaColor = "red";
+                        }
+                    }
+                    r.RevenueVolumeUSD = r.CurrentVolume - r.PreviousVolume;
+                    if (comments != "")
+                    {
+                        comments += "\n";
+                    }
+                    comments += "Volume has been updated from " + r.PreviousVolume + " to " + r.CurrentVolume;
+                }
+                r.Comments = comments;
+                if(comments == "")
+                {
+                    var count = ELTDeltaComments.Where(x => x.RevenueID == r.RevenueID).Count();
+                    if(count > 1)
+                    {
+                        for (var k = 0; k < count; k++)
+                        {
+                            RemovableRecords.Add(r.RevenueID);
+                        }
+                    }
+                    else
+                    {
+                        RemovableRecords.Add(r.RevenueID);
+                    }
+                }
+            }
+            for (int i = 0; i < RemovableRecords.Count; i++)
+            {
+                int index = ELTDeltaComments.FindIndex(a => a.RevenueID == RemovableRecords[i]);
+                ELTDeltaComments.RemoveAt(index);
+            }
             elt_re.code = 200;
             elt_re.message = "Success";
-            elt_re.TotalAmountMonth1 = CurrentMonthELT.Sum(x => x.CurrentMonth);
+            elt_re.TotalAmountMonth1 = CurrentMonthELT.Concat(MovedClients).Sum(x => x.CurrentMonth);
+            elt_re.TotalAmountPriorMonth1 = CurrentMonthELT.Concat(MovedClients).Sum(x => x.PriorMonthElt);
             elt_re.ColumnOne = Month + " " + year + " (Status:Active/Closed)";
             elt_re.ColumnYearName = PriorYear + " Started";
-            elt_re.Data = CurrentMonthELT.Take(25);
-            elt_re.YearMonth = data;
-            elt_re.GrandTotal = entity.EltDeltaClients.Where(x => x.Month == Month && x.Year == year).Sum(x => x.Revenue);
+            elt_re.Data = CurrentMonthELT.Concat(MovedClients);
+            elt_re.ELTDeltaComments = ELTDeltaComments.OrderBy(x => x.Client);
+            elt_re.GrandTotal = entity.EltDeltaClients.Where(x => x.Month == Month && x.Year == year).Count() > 0 ? entity.EltDeltaClients.Where(x => x.Month == Month && x.Year == year)?.Sum(x => x.Revenue) : (double)0;
             return elt_re;
         }
         string NM_Month, NM_Year;
@@ -133,7 +293,7 @@ namespace CWTDashboardAPI.Controllers
                                 where a.Status == "Active"
                                 where a.GoLiveMonth == NM_Month
                                 where a.GoLiveYear == NM_Year
-                                where a.OwnerShip != "Partner"
+                                //where a.OwnerShip != "Partner"
                                 where status.Any(val1 => a.ProjectStatus.Equals(val1))
                                 group a by a.Client into g
                                 select new
@@ -148,12 +308,13 @@ namespace CWTDashboardAPI.Controllers
                                     Comments = g.Where(x => x.Workspace__ELT_Overall_Comments != null).Select(x => x.Workspace__ELT_Overall_Comments).Distinct(),
                                     RegionComment = g.Select(x => x.Region).Distinct(),
                                     RevenueComment = g.Select(x => x.RevenueVolumeUSD).Distinct(),
-                                    PreviousYear = entity.CLRDatas.Where(x => x.GoLiveYear == PriorYear && x.BacklogStarted == "Started" && status.Any(xs => xs.Equals(x.ProjectStatus)) && x.Client == g.Key && x.Status == "Active").Sum(x5 => x5.RevenueVolumeUSD),
-                                    TotalAcountVolume = entity.CLRDatas.Where(v1 => v1.Client == g.Key && v1.OwnerShip != "Partner" && otherstatus.Any(v2s => v2s.Equals(v1.ProjectStatus))).Sum(x5 => x5.RevenueVolumeUSD),
+                                    PreviousYear = entity.CLRDatas.Where(x => x.GoLiveYear == PriorYear && status.Any(xs => xs.Equals(x.ProjectStatus)) && x.Client == g.Key && x.Status == "Active").Sum(x5 => x5.RevenueVolumeUSD),
+                                    TotalAcountVolume = entity.CLRDatas.Where(v1 => v1.Client == g.Key && otherstatus.Any(v2s => v2s.Equals(v1.ProjectStatus))).Sum(x5 => x5.RevenueVolumeUSD),
+                                    //&& v1.OwnerShip != "Partner"
                                 }).OrderByDescending(x => x.CurrentMonth);
             elt_re.code = 200;
             elt_re.message = "Success";
-            elt_re.TotalAmountMonth1 = NextMonthELT.Sum(x => x.CurrentMonth);
+            //elt_re.TotalAmountMonth1 = NextMonthELT.Sum(x => x.CurrentMonth);
             elt_re.ColumnYearName = PriorYear + " Started";
             elt_re.ColumnOne = NM_Month + " " + NM_Year + " (Status:Active/Closed)";
             //elt_re.Data = NextMonthELT.AsEnumerable()
@@ -166,7 +327,7 @@ namespace CWTDashboardAPI.Controllers
             //        Comments = string.Join(", ", x.Comments),
             //        TotalAcountVolume = x.TotalAcountVolume,
             //    }).Take(25).ToList();
-            elt_re.Data = NextMonthELT.Take(25);
+            elt_re.Data = NextMonthELT.ToList();
             return elt_re;
         }
         string[] months3, months4;
@@ -266,7 +427,7 @@ namespace CWTDashboardAPI.Controllers
             var CurrentMonthELT = (from a in entity.CLRDatas
                                    where a.Status == "Active"
                                    where otherstatus.Any(val => a.ProjectStatus.Equals(val))
-                                   where a.OwnerShip != "Partner"
+                                   //where a.OwnerShip != "Partner"
                                    where (a.GoLiveYear == Year1 && a.GoLiveMonth == Month1) || (a.GoLiveYear == Year2 && a.GoLiveMonth == Month2) || (a.GoLiveYear == Year3 && months3.Any(x => a.GoLiveMonth.Equals(x)))
                                    group a by a.Client into g
                                    select new
@@ -299,18 +460,18 @@ namespace CWTDashboardAPI.Controllers
                                        Comments = g.Where(x => x.Workspace__ELT_Overall_Comments != null).Select(x => x.Workspace__ELT_Overall_Comments).Distinct(),
                                        RegionComment = g.Select(x => x.Region).Distinct(),
                                        RevenueComment = g.Select(x => x.RevenueVolumeUSD).Distinct(),
-                                       PreviousYear = entity.CLRDatas.Where(x1 => x1.GoLiveYear == PriorYear && x1.BacklogStarted == "Started" && status.Any(x1s => x1s.Equals(x1.ProjectStatus)) && x1.Client == g.Key && x1.Status == "Active").Sum(x5 => x5.RevenueVolumeUSD),
-                                       TotalAcountVolume = entity.CLRDatas.Where(v1 => v1.Client == g.Key && v1.OwnerShip != "Partner" && v1.Status == "Active").Where(v2 => otherstatus.Any(v2s => v2s.Equals(v2.ProjectStatus))).Sum(x5 => x5.RevenueVolumeUSD),
+                                       PreviousYear = entity.CLRDatas.Where(x1 => x1.GoLiveYear == PriorYear && status.Any(x1s => x1s.Equals(x1.ProjectStatus)) && x1.Client == g.Key && x1.Status == "Active").Sum(x5 => x5.RevenueVolumeUSD),
+                                       TotalAcountVolume = entity.CLRDatas.Where(v1 => v1.Client == g.Key && v1.Status == "Active").Where(v2 => otherstatus.Any(v2s => v2s.Equals(v2.ProjectStatus))).Sum(x5 => x5.RevenueVolumeUSD),
                                    }).OrderByDescending(x => x.TotalVolume);
             elt_re.code = 200;
             elt_re.message = "Success";
-            elt_re.TotalAmountMonth1 = CurrentMonthELT.Sum(x => x.Monthone);
-            elt_re.TotalAmountMonth2 = CurrentMonthELT.Sum(x => x.Monthtwo);
+            //elt_re.TotalAmountMonth1 = CurrentMonthELT.Sum(x => x.Monthone);
+            //elt_re.TotalAmountMonth2 = CurrentMonthELT.Sum(x => x.Monthtwo);
             elt_re.ColumnOne = Month1 + " " + Year1 + " (Status:Active/Closed)";
             elt_re.ColumnTwo = Month2 + " " + Year2 + " (Status:Active/Closed)";
             elt_re.ColumnThree = "Remaining " + Year3 + "/TBC (Status:Active/Closed/N-Active)";
             elt_re.ColumnYearName = PriorYear + " Started";
-            elt_re.TotalAmountRemainingMonths = CurrentMonthELT.Sum(x => x.Month1_N) + CurrentMonthELT.Sum(x2 => x2.Month2_N) + CurrentMonthELT.Sum(x => x.RemainingTBC);
+            //elt_re.TotalAmountRemainingMonths = CurrentMonthELT.Sum(x => x.Month1_N) + CurrentMonthELT.Sum(x2 => x2.Month2_N) + CurrentMonthELT.Sum(x => x.RemainingTBC);
             elt_re.GrandTotal = elt_re.TotalAmountMonth1 + elt_re.TotalAmountMonth2 + elt_re.TotalAmountRemainingMonths;
             elt_re.Data = CurrentMonthELT.AsEnumerable()
                             .Select(x => new RestOfMonths
@@ -328,11 +489,14 @@ namespace CWTDashboardAPI.Controllers
                                 TotalAcountVolume = x.TotalAcountVolume,
                                 RegionComment = string.Join(", ", x.RegionComment),
                                 RevenueComment = string.Join(", ", x.RevenueComment),
-                            }).Take(25).ToList();
+                            }).ToList();
             //elt_re.Data = CurrentMonthELT;
             return elt_re;
         }
         int DataCount,PriorDataCount;
+
+        
+
         [HttpPost]
         [Route("PreviousMonthsEltYearMonth")]
         public EltResponce PreviousMonthsEltYearMonth(PreviousMonthsElt previousMonthsElt)
@@ -343,7 +507,7 @@ namespace CWTDashboardAPI.Controllers
                                  a.Month,
                                  a.Year,
                                  isSelected = true
-                             }).Distinct().ToList();
+                             }).Distinct().OrderByDescending(x => x.Year).ToList();
             DataCount = monthyear.AsQueryable().Count();
             if (DataCount.ToString() == "" || DataCount.ToString() == null || DataCount == 0)
             {
@@ -384,15 +548,37 @@ namespace CWTDashboardAPI.Controllers
                             a.InsertedOn
                         }).OrderByDescending(x => x.Total);
             PriorDataCount = PriorData.AsQueryable().Count();
+            var DeltaComments = (from a in entity.ELTDeltaComments
+                                 where a.Month == previousMonthsElt.Month
+                                 where a.Year == previousMonthsElt.Year
+                                 where a.Status == "Active"
+                                 select new
+                                 {
+                                     a.EltCommentsId,
+                                     a.Client,
+                                     a.RevenueId,
+                                     a.Revenue,
+                                     a.Month,
+                                     a.Year,
+                                     a.Country,
+                                     a.Region,
+                                     a.WorkspaceTitle,
+                                     a.Comment,
+                                     a.InsertedOn,
+                                     a.Status,
+                                     a.DeltaColor
+                                 }).Distinct().ToList();
             if (PriorDataCount.ToString() == "" || PriorDataCount.ToString() == null || PriorDataCount == 0)
             {
                 elt_re.Data = PriorData;
+                elt_re.ELTDeltaComments = DeltaComments;
                 elt_re.code = 100;
                 elt_re.message = "No Data found";
             }
             else
             {
                 elt_re.Data = PriorData;
+                elt_re.ELTDeltaComments = DeltaComments;
                 elt_re.code = 200;
                 elt_re.message = "Data Successfull";
             }

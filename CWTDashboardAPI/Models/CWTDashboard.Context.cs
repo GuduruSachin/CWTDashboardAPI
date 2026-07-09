@@ -25,68 +25,75 @@ namespace CWTDashboardAPI.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AssignePerson> AssignePersons { get; set; }
+        public virtual DbSet<AuditEntry> AuditEntries { get; set; }
+        public virtual DbSet<AuditLog> AuditLogs { get; set; }
+        public virtual DbSet<CandidateLeadsOne> CandidateLeadsOnes { get; set; }
+        public virtual DbSet<CapacityHierarchy> CapacityHierarchies { get; set; }
+        public virtual DbSet<CLRActivity> CLRActivities { get; set; }
+        public virtual DbSet<CLRBelowData> CLRBelowDatas { get; set; }
+        public virtual DbSet<CLRResourceUtilization> CLRResourceUtilizations { get; set; }
+        public virtual DbSet<CLRTracker> CLRTrackers { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<Config> Configs { get; set; }
+        public virtual DbSet<CRMData> CRMDatas { get; set; }
+        public virtual DbSet<DataiMeet> DataiMeets { get; set; }
+        public virtual DbSet<DigitalTeam> DigitalTeams { get; set; }
+        public virtual DbSet<DQSTest> DQSTests { get; set; }
+        public virtual DbSet<EltDeltaClient> EltDeltaClients { get; set; }
         public virtual DbSet<ErrorTracker> ErrorTrackers { get; set; }
         public virtual DbSet<ETCountry> ETCountries { get; set; }
         public virtual DbSet<ETManager> ETManagers { get; set; }
         public virtual DbSet<ETResource> ETResources { get; set; }
-        public virtual DbSet<OnlineProjectTracker> OnlineProjectTrackers { get; set; }
-        public virtual DbSet<OPTAssignedTo> OPTAssignedToes { get; set; }
-        public virtual DbSet<OPTManager> OPTManagers { get; set; }
         public virtual DbSet<GoLive> GoLives { get; set; }
-        public virtual DbSet<Milestone> Milestones { get; set; }
-        public virtual DbSet<eSOWNew> eSOWNews { get; set; }
-        public virtual DbSet<MonthWiseDelta> MonthWiseDeltas { get; set; }
-        public virtual DbSet<OPTCountry> OPTCountries { get; set; }
-        public virtual DbSet<tbl_registration> tbl_registration { get; set; }
-        public virtual DbSet<MarketLeader> MarketLeaders { get; set; }
-        public virtual DbSet<iMeetData> iMeetDatas { get; set; }
-        public virtual DbSet<Progression> Progressions { get; set; }
         public virtual DbSet<Hierarchy> Hierarchies { get; set; }
-        public virtual DbSet<ProjectType> ProjectTypes { get; set; }
-        public virtual DbSet<Prospect> Prospects { get; set; }
         public virtual DbSet<HostExternal> HostExternals { get; set; }
-        public virtual DbSet<LessonLearnt> LessonLearnts { get; set; }
-        public virtual DbSet<CLRBelowData> CLRBelowDatas { get; set; }
-        public virtual DbSet<ReportUpdatedOn> ReportUpdatedOns { get; set; }
-        public virtual DbSet<StageGate> StageGates { get; set; }
-        public virtual DbSet<ProjectDueDate> ProjectDueDates { get; set; }
-        public virtual DbSet<UsersUsageofReport> UsersUsageofReports { get; set; }
-        public virtual DbSet<OldCLRData> OldCLRDatas { get; set; }
-        public virtual DbSet<UserReportAccessTicket> UserReportAccessTickets { get; set; }
-        public virtual DbSet<PSD> PSDs { get; set; }
-        public virtual DbSet<OldOldCLRData> OldOldCLRDatas { get; set; }
-        public virtual DbSet<PreviousMonthsElt> PreviousMonthsElts { get; set; }
-        public virtual DbSet<CLRTracker> CLRTrackers { get; set; }
-        public virtual DbSet<Config> Configs { get; set; }
-        public virtual DbSet<CountryIsoCode> CountryIsoCodes { get; set; }
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<TargetCycleTime> TargetCycleTimes { get; set; }
-        public virtual DbSet<CandidateLeadsOne> CandidateLeadsOnes { get; set; }
-        public virtual DbSet<Comment> Comments { get; set; }
-        public virtual DbSet<UserReportsAccess> UserReportsAccesses { get; set; }
-        public virtual DbSet<AuditEntry> AuditEntries { get; set; }
-        public virtual DbSet<AuditLog> AuditLogs { get; set; }
-        public virtual DbSet<eSowData> eSowDatas { get; set; }
-        public virtual DbSet<CountryRegionCode> CountryRegionCodes { get; set; }
-        public virtual DbSet<AssignePerson> AssignePersons { get; set; }
-        public virtual DbSet<CapacityHierarchy> CapacityHierarchies { get; set; }
+        public virtual DbSet<iMeetData> iMeetDatas { get; set; }
         public virtual DbSet<IMP> IMPS { get; set; }
         public virtual DbSet<JiraData> JiraDatas { get; set; }
-        public virtual DbSet<AdHocProject> AdHocProjects { get; set; }
-        public virtual DbSet<esowNewData> esowNewDatas { get; set; }
-        public virtual DbSet<DigitalTeam> DigitalTeams { get; set; }
-        public virtual DbSet<CTO> CTOes { get; set; }
-        public virtual DbSet<EltDeltaClient> EltDeltaClients { get; set; }
-        public virtual DbSet<NpsImp> NpsImps { get; set; }
-        public virtual DbSet<EltOldCLRData> EltOldCLRDatas { get; set; }
-        public virtual DbSet<CRMData> CRMDatas { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<KnowledgeBase> KnowledgeBases { get; set; }
-        public virtual DbSet<ManualData> ManualDatas { get; set; }
-        public virtual DbSet<CLRData> CLRDatas { get; set; }
-        public virtual DbSet<DataiMeet> DataiMeets { get; set; }
+        public virtual DbSet<LessonLearnt> LessonLearnts { get; set; }
+        public virtual DbSet<MarketLeader> MarketLeaders { get; set; }
+        public virtual DbSet<Milestone> Milestones { get; set; }
+        public virtual DbSet<MonthWiseDelta> MonthWiseDeltas { get; set; }
+        public virtual DbSet<OldCLRData> OldCLRDatas { get; set; }
+        public virtual DbSet<OldOldCLRData> OldOldCLRDatas { get; set; }
+        public virtual DbSet<OnlineProjectTracker> OnlineProjectTrackers { get; set; }
+        public virtual DbSet<OPTAssignedTo> OPTAssignedToes { get; set; }
+        public virtual DbSet<OPTCountry> OPTCountries { get; set; }
+        public virtual DbSet<OPTManager> OPTManagers { get; set; }
+        public virtual DbSet<PowerAutomate> PowerAutomates { get; set; }
+        public virtual DbSet<PreviousMonthsElt> PreviousMonthsElts { get; set; }
+        public virtual DbSet<Progression> Progressions { get; set; }
+        public virtual DbSet<ProjectDueDate> ProjectDueDates { get; set; }
+        public virtual DbSet<ProjectType> ProjectTypes { get; set; }
+        public virtual DbSet<Prospect> Prospects { get; set; }
+        public virtual DbSet<PSD> PSDs { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<StageGate> StageGates { get; set; }
+        public virtual DbSet<TargetCycleTime> TargetCycleTimes { get; set; }
+        public virtual DbSet<tbl_registration> tbl_registration { get; set; }
+        public virtual DbSet<Tracker> Trackers { get; set; }
+        public virtual DbSet<UserReportAccessTicket> UserReportAccessTickets { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UsersUsageofReport> UsersUsageofReports { get; set; }
+        public virtual DbSet<Wave> Waves { get; set; }
+        public virtual DbSet<SurveySentDetail> SurveySentDetails { get; set; }
         public virtual DbSet<RisksGap> RisksGaps { get; set; }
         public virtual DbSet<SteeringCommittee> SteeringCommittees { get; set; }
-        public virtual DbSet<Wave> Waves { get; set; }
+        public virtual DbSet<CountryIsoCode> CountryIsoCodes { get; set; }
+        public virtual DbSet<CountryISORegionCode> CountryISORegionCodes { get; set; }
+        public virtual DbSet<ManualData> ManualDatas { get; set; }
+        public virtual DbSet<CLRColumnsHiding> CLRColumnsHidings { get; set; }
+        public virtual DbSet<UserReportsAccess> UserReportsAccesses { get; set; }
+        public virtual DbSet<YesterdayCLR> YesterdayCLRs { get; set; }
+        public virtual DbSet<AdHocProject> AdHocProjects { get; set; }
+        public virtual DbSet<NpsImp> NpsImps { get; set; }
+        public virtual DbSet<CTO> CTOes { get; set; }
+        public virtual DbSet<CLRData> CLRDatas { get; set; }
+        public virtual DbSet<EltOldCLRData> EltOldCLRDatas { get; set; }
+        public virtual DbSet<ELTDeltaComment> ELTDeltaComments { get; set; }
+        public virtual DbSet<ReportUpdatedOn> ReportUpdatedOns { get; set; }
+        public virtual DbSet<esowNewData> esowNewDatas { get; set; }
     }
 }

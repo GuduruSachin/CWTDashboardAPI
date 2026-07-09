@@ -12,11 +12,11 @@ namespace CWTDashboardAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CountryRegionCode
+    public partial class CountryISORegionCode
     {
-        public int RegionID { get; set; }
-        public string CountryISOCode { get; set; }
+        public int CountryID { get; set; }
+        public string CountryCode { get; set; }
+        public string CountryName { get; set; }
         public string Region { get; set; }
-        public string Country { get; set; }
     }
 }

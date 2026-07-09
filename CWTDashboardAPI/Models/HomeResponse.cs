@@ -17,9 +17,13 @@ namespace CWTDashboardAPI.Models
         public string PipelineVolume { get; set; }
         public string CurrentMonth { get; set; }
         public string CurrentMonthVolume { get; set; }
+        public string CurrentMonthNActiveVolume { get; set; }
         public string CurrentMonthRecords { get; set; }
+        public string CurrentMonthNActiveRecords { get; set; }
         public string NextMonthVolume { get; set; }
+        public string NextMonthNActiveVolume { get; set; }
         public string NextMonthRecords { get; set; }
+        public string NextMonthNActiveRecords { get; set; }
         public string PreMonthVolume { get; set; }
         public string PreMonthRecords { get; set; }
         public string RoyMonthVolume { get; set; }

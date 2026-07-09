@@ -17,5 +17,7 @@ namespace CWTDashboardAPI.Models
         public int ReportID { get; set; }
         public string ReportName { get; set; }
         public System.DateTime UpdatedOn { get; set; }
+        public Nullable<int> AvailableRows { get; set; }
+        public Nullable<int> UploadedRows { get; set; }
     }
 }

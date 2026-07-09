@@ -16,6 +16,7 @@ namespace CWTDashboardAPI.Models
         public object Region { get; set; }
         public object Country { get; set; }
         public object AssigneFullName { get; set; }
+        public object TaskType { get; set; }
     }
     public class CycleTimeCategories
     {

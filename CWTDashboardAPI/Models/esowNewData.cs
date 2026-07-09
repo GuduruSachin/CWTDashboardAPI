@@ -39,6 +39,6 @@ namespace CWTDashboardAPI.Models
         public string Account_Category { get; set; }
         public string implementationReady { get; set; }
         public string Direct_Reseller { get; set; }
-        public Nullable<double> OBT_Adoption_Rate { get; set; }
+        public string OBT_Adoption_Rate { get; set; }
     }
 }

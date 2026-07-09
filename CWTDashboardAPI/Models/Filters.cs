@@ -28,5 +28,7 @@ namespace CWTDashboardAPI.Models
         public object c_ImplementationType { get; set; }
         public object rp_ImplementationType { get; set; }
         public object Country { get; set; }
+        public object FilterOpportunity_Type { get; set; }
+        public object FilterPriority { get; set; }
     }
 }

@@ -83,6 +83,8 @@ namespace CWTDashboardAPI.Models
                         manualData.auditLog(adHocProject.RevenueID, "", "AdhocUpdate", vp.Country, adHocProject.Country, "Country", adHocProject.UpdatedBy);
                         manualData.auditLog(adHocProject.RevenueID, "", "AdhocUpdate", vp.Region, adHocProject.Region, "Region", adHocProject.UpdatedBy);
                         manualData.auditLog(adHocProject.RevenueID, "", "AdhocUpdate", vp.Comments, adHocProject.Comments, "Comments", adHocProject.UpdatedBy);
+                        manualData.auditLog(adHocProject.RevenueID, "", "AdhocUpdate", vp.Priority, adHocProject.Priority, "Priority", adHocProject.UpdatedBy);
+                        manualData.auditLog(adHocProject.RevenueID, "", "AdhocUpdate", vp.Pipeline_Comments, adHocProject.Pipeline_Comments, "Pipeline Comments", adHocProject.UpdatedBy);
                         manualData.auditLog(adHocProject.RevenueID, "", "AdhocUpdate", vp.GlobalCISOBTLead, adHocProject.GlobalCISOBTLead, "Global Digital OBT Lead", adHocProject.UpdatedBy);
                         manualData.auditLog(adHocProject.RevenueID, "", "AdhocUpdate", vp.RegionalCISOBTLead, adHocProject.RegionalCISOBTLead, "Regional Digital OBT Lead", adHocProject.UpdatedBy);
                         manualData.auditLog(adHocProject.RevenueID, "", "AdhocUpdate", vp.LocalDigitalOBTLead, adHocProject.LocalDigitalOBTLead, "Local Digital OBT Lead", adHocProject.UpdatedBy);
@@ -94,7 +96,7 @@ namespace CWTDashboardAPI.Models
                         manualData.auditLog(adHocProject.RevenueID, "", "AdhocUpdate", vp.ActivityType, adHocProject.ActivityType, "Activity Type", adHocProject.UpdatedBy);
                         manualData.auditLog(adHocProject.RevenueID, "", "AdhocUpdate", vp.Status, adHocProject.Status, "Status", adHocProject.UpdatedBy);
                         manualData.auditLog(adHocProject.RevenueID, "", "AdhocUpdate", vp.ProjectStatus, adHocProject.ProjectStatus, "Project Status", adHocProject.UpdatedBy);
-                        manualData.auditLog(adHocProject.RevenueID, "", "AdhocUpdate", vp.GlobalDQSLead, adHocProject.GlobalDQSLead, "Project Status", adHocProject.UpdatedBy);
+                        manualData.auditLog(adHocProject.RevenueID, "", "AdhocUpdate", vp.GlobalDQSLead, adHocProject.GlobalDQSLead, "Global DQS Lead", adHocProject.UpdatedBy);
                         vp.Client = adHocProject.Client;
                         vp.StartDate = adHocProject.StartDate;
                         vp.GoLiveDate = adHocProject.GoLiveDate;
@@ -115,7 +117,13 @@ namespace CWTDashboardAPI.Models
                         vp.ProjectStatus = adHocProject.ProjectStatus;
                         vp.UpdatedOn = DateTime.Now;
                         vp.UpdatedBy = adHocProject.UpdatedBy;
+                        vp.Priority = adHocProject.Priority;
+                        vp.Pipeline_Comments = adHocProject.Pipeline_Comments;
                         md.Status = adHocProject.Status;
+                        md.UpdateOn = DateTime.Now;
+                        md.UpdateBy = adHocProject.UpdatedBy;
+                        md.Pipeline_comments = adHocProject.Pipeline_Comments;
+                        md.Priority = adHocProject.Priority;
                         CLR.Region = adHocProject.Region;
                         CLR.Country = adHocProject.Country;
                         CLR.Client = adHocProject.Client;

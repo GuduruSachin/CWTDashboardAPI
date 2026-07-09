@@ -11,8 +11,10 @@ namespace CWTDashboardAPI.Models
         public int code { get; set; }
         public object Data { get; set; }
         public object YearMonth { get; set; }
+        public object ELTDeltaComments { get; set; }
         public string[] YearMonths { get; set; }
         public double? TotalAmountMonth1 { get; set; }
+        public double? TotalAmountPriorMonth1 { get; set; }
         public double? TotalAmountMonth2 { get; set; }
         public double? TotalAmountRemainingMonths { get; set; }
         public double? GrandTotal { get; set; }

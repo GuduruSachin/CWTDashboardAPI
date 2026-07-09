@@ -41,5 +41,8 @@ namespace CWTDashboardAPI.Models
         public string Project_Level { get; set; }
         public string GlobalCISDQSLead { get; set; }
         public Nullable<System.DateTime> ResourseRequestedDate { get; set; }
+        public Nullable<System.DateTime> ExpectedDecisionDate { get; set; }
+        public string TXResourcing { get; set; }
+        public string Priority { get; set; }
     }
 }

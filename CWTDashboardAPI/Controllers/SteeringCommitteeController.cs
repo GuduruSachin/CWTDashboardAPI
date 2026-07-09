@@ -24,7 +24,7 @@ namespace CWTDashboardAPI.Controllers
         [Route("SteeringCommitteeFilters")]
         public SteeringCommitteeFilters SteeringCommitteeFilters(SteeringCommittee clr)
         {
-            var RegionCountry = (from a in entity.CountryIsoCodes
+            var RegionCountry = (from a in entity.CountryISORegionCodes
                                  where a.CountryName != null
                                  where a.CountryName != ""
                                  select new
@@ -59,6 +59,8 @@ namespace CWTDashboardAPI.Controllers
         public IHttpActionResult SteeringCommitteeInsert(SteeringCommittee steeringCommittee)
         {
             DateTime TodayDate = DateTime.Now;
+            steeringCommittee.InsertedBy = steeringCommittee.InsertedBy;
+            steeringCommittee.LastUpdatedBy = steeringCommittee.InsertedBy;
             steeringCommittee.LastUpdatedDate = TodayDate;
             steeringCommittee.InsertedDate = TodayDate;
             steeringCommittee.Record_Status = "Active";
@@ -97,6 +99,8 @@ namespace CWTDashboardAPI.Controllers
             DateTime TodayDate = DateTime.Now;
             wave.LastUpdatedDate = TodayDate;
             wave.InsertedDate = TodayDate;
+            wave.InsertedBy = wave.InsertedBy;
+            wave.LastUpdatedBy = wave.InsertedBy;
             wave.Record_Status = "Active";
             entity.Waves.Add(wave);
             entity.SaveChanges();
@@ -128,6 +132,8 @@ namespace CWTDashboardAPI.Controllers
         public IHttpActionResult RiskGapInsert(RisksGap risksGap)
         {
             DateTime TodayDate = DateTime.Now;
+            risksGap.InsertedBy = risksGap.InsertedBy;
+            risksGap.LastUpdatedBy = risksGap.InsertedBy;
             risksGap.LastUpdatedDate = TodayDate;
             risksGap.InsertedDate = TodayDate;
             risksGap.Record_Status = "Active";
@@ -162,7 +168,7 @@ namespace CWTDashboardAPI.Controllers
         {
             if(steeringCommittee.SCID == null || steeringCommittee.LastUpdatedBy == null || steeringCommittee.LastUpdatedBy == "")
             {
-                sc_r.code = 200;
+                sc_r.code = 100;
                 sc_r.message = "Something went wrong please try again after sometime";
                 return Content(HttpStatusCode.OK, sc_r);
             }
@@ -193,18 +199,97 @@ namespace CWTDashboardAPI.Controllers
                         a.LastUpdatedBy = steeringCommittee.LastUpdatedBy;
                     });
                     entity.SaveChanges();
+                    ManualDataClass manualData = new ManualDataClass();
+                    manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", "Active", "Deleted", "Record_Status", steeringCommittee.LastUpdatedBy);
                     sc_r.code = 200;
                     sc_r.message = "Deleted Succesfully";
                     return Content(HttpStatusCode.OK, sc_r);
                 }
                 else
                 {
-                    sc_r.code = 200;
+                    sc_r.code = 100;
                     sc_r.message = "The Client you are trying to delete is not available in the data, please refresh the screen and try again.";
                     return Content(HttpStatusCode.OK, sc_r);
                 }
             }
         }
+
+        [HttpPost]
+        [Route("DeleteWave")]
+        public IHttpActionResult DeleteWave(Wave wave)
+        {
+            if (wave.WaveID == null || wave.LastUpdatedBy == null || wave.LastUpdatedBy == "")
+            {
+                sc_r.code = 100;
+                sc_r.message = "Something went wrong please try again after sometime";
+                return Content(HttpStatusCode.OK, sc_r);
+            }
+            else
+            {
+                var checkingW_id = entity.Waves.Where(x => x.WaveID == wave.WaveID).Count();
+                if (checkingW_id > 0)
+                {
+                    DateTime TodayDate = DateTime.Now;
+                    Wave sc_d = (from a in entity.Waves
+                                    where a.WaveID == wave.WaveID
+                                    select a).FirstOrDefault();
+                    sc_d.Record_Status = "Deleted";
+                    sc_d.LastUpdatedBy = wave.LastUpdatedBy;
+                    sc_d.LastUpdatedDate = TodayDate;
+                    entity.SaveChanges();
+                    ManualDataClass manualData = new ManualDataClass();
+                    manualData.auditLog(wave.WaveID, "", "WaveUpdate", "Active", "Deleted", "Record_Status", wave.LastUpdatedBy);
+                    sc_r.code = 200;
+                    sc_r.message = "Deleted Succesfully";
+                    return Content(HttpStatusCode.OK, sc_r);
+                }
+                else
+                {
+                    sc_r.code = 100;
+                    sc_r.message = "The Wave you are trying to delete is not available in the data, please refresh the screen and try again.";
+                    return Content(HttpStatusCode.OK, sc_r);
+                }
+            }
+        }
+
+        [HttpPost]
+        [Route("DeleteRiskGap")]
+        public IHttpActionResult DeleteRiskGap(RisksGap risksGap)
+        {
+            if (risksGap.RGID == null || risksGap.LastUpdatedBy == null || risksGap.LastUpdatedBy == "")
+            {
+                sc_r.code = 100;
+                sc_r.message = "Something went wrong please try again after sometime";
+                return Content(HttpStatusCode.OK, sc_r);
+            }
+            else
+            {
+                var checkingR_id = entity.RisksGaps.Where(x => x.RGID == risksGap.RGID).Count();
+                if (checkingR_id > 0)
+                {
+                    DateTime TodayDate = DateTime.Now;
+                    RisksGap sc_d = (from a in entity.RisksGaps
+                                 where a.RGID == risksGap.RGID
+                                 select a).FirstOrDefault();
+                    sc_d.Record_Status = "Deleted";
+                    sc_d.LastUpdatedBy = risksGap.LastUpdatedBy;
+                    sc_d.LastUpdatedDate = TodayDate;
+                    entity.SaveChanges();
+                    ManualDataClass manualData = new ManualDataClass();
+                    manualData.auditLog(risksGap.RGID, "", "RiskGapUpdate", "Active", "Deleted", "Record_Status", risksGap.LastUpdatedBy);
+                    sc_r.code = 200;
+                    sc_r.message = "Deleted Succesfully";
+                    return Content(HttpStatusCode.OK, sc_r);
+                }
+                else
+                {
+                    sc_r.code = 100;
+                    sc_r.message = "The Risk Gap you are trying to delete is not available in the data, please refresh the screen and try again.";
+                    return Content(HttpStatusCode.OK, sc_r);
+                }
+            }
+        }
+
         [HttpPost]
         [Route("KnowledgeBase")]
         public Response getKnowledgeBase(KnowledgeBase knowledgeBase)
@@ -235,6 +320,10 @@ namespace CWTDashboardAPI.Controllers
                     var data = (from a in entity.CLRDatas
                                 where a.Opportunity_ID == cLRData.Opportunity_ID
                                 where a.Status == "Active"
+                                //where (a.ProjectStatus == "P-Pipeline" || a.ProjectStatus == "HP-High Potential" || a.ProjectStatus == "EP-Early Potential") && (a.GlobalProjectManager != "---" || a.RegionalProjectManager != "---" || a.AssigneeFullName != "---")
+                                where a.ProjectStatus != "HP-High Potential"
+                                where a.ProjectStatus != "EP-Early Potential"
+                                where a.ProjectStatus != "P-Pipeline"
                                 select new {
                                     op_Account_Name = a.Account_Name,
                                     op_Regions = (from b in entity.CLRDatas
@@ -269,7 +358,6 @@ namespace CWTDashboardAPI.Controllers
             }
             return sc_r;
         }
-
         [HttpPost]
         [Route("SteeringCommitteeData")]
         public SteeringCommitteeData SteeringCommitteeData(SteeringCommitteeData steeringCommitteeData)
@@ -284,7 +372,7 @@ namespace CWTDashboardAPI.Controllers
                             a.ClientType,
                             a.ProjectLead,
                             a.ProjectStatus,
-                            a.ProjectTrend,
+                            a.PreviousStatus,
                             a.TotalBusineesVolume,
                             a.NewBusinessVolume,
                             Region = a.Region == "" ? "---" : a.Region ?? "---",
@@ -293,6 +381,8 @@ namespace CWTDashboardAPI.Controllers
                             CompletedKeyDeliverables = a.CompletedKeyDeliverables == "" ? "---" : a.CompletedKeyDeliverables ?? "---",
                             ScheduledKeyDeliverables = a.ScheduledKeyDeliverables == "" ? "---" : a.ScheduledKeyDeliverables ?? "---",
                             AdditionalNotes = a.AdditionalNotes == "" ? "---" : a.AdditionalNotes ?? "---",
+                            KeyAccomplishmentsSinceLastUpdateKeyDeliverables = a.KeyAccomplishmentsSinceLastUpdateKeyDeliverables == "" ? "" : a.KeyAccomplishmentsSinceLastUpdateKeyDeliverables ?? "",
+                            KeyUpcomingActivitiesKeyDeliverables = a.KeyUpcomingActivitiesKeyDeliverables == "" ? "" : a.KeyUpcomingActivitiesKeyDeliverables ?? "",
                             a.InsertedBy,
                             a.InsertedDate,
                             a.LastUpdatedBy,
@@ -311,9 +401,10 @@ namespace CWTDashboardAPI.Controllers
                                          w.Status,
                                          w.InsertedBy,
                                          w.InsertedDate,
-                                         w.LastUpdatedBy,
-                                         w.LastUpdatedDate
-                                     }),
+                                         LastUpdatedBy = w.LastUpdatedBy ?? "---",
+                                         w.LastUpdatedDate,
+                                         w.Waves
+                                     }).OrderBy(x => x.WaveID),
                             RiskGaps = (from rg in entity.RisksGaps
                                         where a.SCID == rg.SCID
                                         where rg.Record_Status == "Active"
@@ -321,17 +412,24 @@ namespace CWTDashboardAPI.Controllers
                                         {
                                             rg.RGID,
                                             rg.SCID,
+                                            rg.RiskCategory,
+                                            rg.Region,
+                                            rg.Country,
                                             RisksGaps = rg.RisksGaps == "" ? "---" : rg.RisksGaps ?? "---",
                                             MitigationPlan = rg.MitigationPlan == "" ? "---" : rg.MitigationPlan ?? "---",
                                             SteeringCommitteeSupportNeed = rg.SteeringCommitteeSupportNeed == "" ? "---" : rg.SteeringCommitteeSupportNeed ?? "---",
+                                            SupportNeededDetails = rg.SupportNeededDetails == "" ? "---" : rg.SupportNeededDetails ?? "---",
+                                            rg.Impact,
+                                            rg.Likelihood,
                                             rg.DueDate,
                                             Owner = rg.Owner == "" ? "---" : rg.Owner ?? "---",
                                             rg.Status,
                                             rg.InsertedDate,
                                             rg.InsertedBy,
-                                            rg.LastUpdatedBy,
-                                            rg.LastUpdatedDate
-                                        }),
+                                            LastUpdatedBy = rg.LastUpdatedBy ?? "---",
+                                            rg.LastUpdatedDate,
+                                            rg.Risks
+                                        }).OrderByDescending(x => x.Status),
                         }).OrderBy(x => x.RecordStatus);
             sc_r.Data = data;
             sc_r.message = "Success";

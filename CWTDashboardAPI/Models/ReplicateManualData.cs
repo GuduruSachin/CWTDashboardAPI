@@ -14,10 +14,13 @@ namespace CWTDashboardAPI.Models
         public string Implementation_Type { get; set; }
         public string Pipeline_status { get; set; }
         public string Pipeline_comments { get; set; }
+        public string TXResourcing { get; set; }
         public string Service_configuration { get; set; }
         public string OBT_Reseller___Direct { get; set; }
         public string Servicing_location { get; set; }
+        public Nullable<System.DateTime> ExpectedDecisionDate { get; set; }
         public Nullable<System.DateTime> Assignment_date { get; set; }
+        public Nullable<System.DateTime> ResourceRequest_date { get; set; }
         public Nullable<System.DateTime> _date { get; set; }
         public string EMEA_Country_to_charge { get; set; }
         public string EMEA_Client { get; set; }
@@ -47,10 +50,13 @@ namespace CWTDashboardAPI.Models
         public Boolean Implementation_Type_check { get; set; }
         public Boolean Pipeline_status_check { get; set; }
         public Boolean Pipeline_comments_check { get; set; }
+        public Boolean TXResourcing_check { get; set; }
         public Boolean Service_configuration_check { get; set; }
         public Boolean OBT_Reseller___Direct_check { get; set; }
         public Boolean Servicing_location_check { get; set; }
+        public Boolean ExpectedDecision_date_check { get; set; }
         public Boolean Assignment_date_check { get; set; }
+        public Boolean ResourceRequest_date_check { get; set; }
         public Boolean EMEA_Country_to_charge_check { get; set; }
         public Boolean EMEA_Client_check { get; set; }
         public Boolean EMEA_OBT_standard_fee_check { get; set; }

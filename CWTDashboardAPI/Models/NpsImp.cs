@@ -14,6 +14,12 @@ namespace CWTDashboardAPI.Models
     
     public partial class NpsImp
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public NpsImp()
+        {
+            this.SurveySentDetails = new HashSet<SurveySentDetail>();
+        }
+    
         public int NpsId { get; set; }
         public string ClientName { get; set; }
         public string Company { get; set; }
@@ -54,5 +60,11 @@ namespace CWTDashboardAPI.Models
         public string RecordStatus { get; set; }
         public string YearMonth { get; set; }
         public Nullable<double> OpprtunityId { get; set; }
+        public string GlobalDigitalPM { get; set; }
+        public string RegionalDigitalPM { get; set; }
+        public string LocalDigitalPM { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SurveySentDetail> SurveySentDetails { get; set; }
     }
 }

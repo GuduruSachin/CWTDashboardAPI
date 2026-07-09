@@ -44,25 +44,27 @@ namespace CWTDashboardAPI.Models
                         SteeringCommittee SC = (from s in entit.SteeringCommittees
                                         where s.SCID == steeringCommittee.SCID
                                         select s).FirstOrDefault();
-                        //ManualDataClass manualData = new ManualDataClass();
-                        //manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.RecordStatus, steeringCommittee.RecordStatus, "Record Status", steeringCommittee.LastUpdatedBy);
-                        //manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.ClientType, steeringCommittee.ClientType, "Client Type", steeringCommittee.LastUpdatedBy);
-                        //manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.ProjectLead, steeringCommittee.ProjectLead, "Project Lead", steeringCommittee.LastUpdatedBy);
-                        //manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.ProjectStatus, steeringCommittee.ProjectStatus, "Project Status", steeringCommittee.LastUpdatedBy);
-                        //manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.ProjectTrend, steeringCommittee.ProjectTrend, "Project Trend", steeringCommittee.LastUpdatedBy);
-                        //manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.TotalBusineesVolume + "", steeringCommittee.TotalBusineesVolume + "", "Total Businees Volume", steeringCommittee.LastUpdatedBy);
-                        //manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.NewBusinessVolume + "", steeringCommittee.NewBusinessVolume + "", "New Business Volume", steeringCommittee.LastUpdatedBy);
-                        //manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.Region, steeringCommittee.Region, "Region", steeringCommittee.LastUpdatedBy);
-                        //manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.Country, steeringCommittee.Country, "Country", steeringCommittee.LastUpdatedBy);
-                        //manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.CurrentState, steeringCommittee.CurrentState, "Current State", steeringCommittee.LastUpdatedBy);
-                        //manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.CompletedKeyDeliverables, steeringCommittee.CompletedKeyDeliverables, "Completed Key Deliverables", steeringCommittee.LastUpdatedBy);
-                        //manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.ScheduledKeyDeliverables, steeringCommittee.ScheduledKeyDeliverables, "Scheduled Key Deliverables", steeringCommittee.LastUpdatedBy);
-                        //manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.AdditionalNotes, steeringCommittee.AdditionalNotes, "Additional Notes", steeringCommittee.LastUpdatedBy);
+                        ManualDataClass manualData = new ManualDataClass();
+                        manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.RecordStatus, steeringCommittee.RecordStatus, "Record Status", steeringCommittee.LastUpdatedBy);
+                        manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.ClientType, steeringCommittee.ClientType, "Client Type", steeringCommittee.LastUpdatedBy);
+                        manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.ProjectLead, steeringCommittee.ProjectLead, "Project Lead", steeringCommittee.LastUpdatedBy);
+                        manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.ProjectStatus, steeringCommittee.ProjectStatus, "Project Status", steeringCommittee.LastUpdatedBy);
+                        manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.PreviousStatus, steeringCommittee.PreviousStatus, "Previous Status", steeringCommittee.LastUpdatedBy);
+                        manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.TotalBusineesVolume + "", steeringCommittee.TotalBusineesVolume + "", "Total Businees Volume", steeringCommittee.LastUpdatedBy);
+                        manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.NewBusinessVolume + "", steeringCommittee.NewBusinessVolume + "", "New Business Volume", steeringCommittee.LastUpdatedBy);
+                        manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.Region, steeringCommittee.Region, "Region", steeringCommittee.LastUpdatedBy);
+                        manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.Country, steeringCommittee.Country, "Country", steeringCommittee.LastUpdatedBy);
+                        manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.CurrentState, steeringCommittee.CurrentState, "Current State", steeringCommittee.LastUpdatedBy);
+                        manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.CompletedKeyDeliverables, steeringCommittee.CompletedKeyDeliverables, "Completed Key Deliverables", steeringCommittee.LastUpdatedBy);
+                        manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.ScheduledKeyDeliverables, steeringCommittee.ScheduledKeyDeliverables, "Scheduled Key Deliverables", steeringCommittee.LastUpdatedBy);
+                        manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.AdditionalNotes, steeringCommittee.AdditionalNotes, "Additional Notes", steeringCommittee.LastUpdatedBy);
+                        manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.KeyAccomplishmentsSinceLastUpdateKeyDeliverables, steeringCommittee.KeyAccomplishmentsSinceLastUpdateKeyDeliverables, "KeyAccomplishmentsSinceLastUpdateKeyDeliverables", steeringCommittee.LastUpdatedBy);
+                        manualData.auditLog(steeringCommittee.SCID, "", "SteeringCommitteeUpdate", SC.KeyUpcomingActivitiesKeyDeliverables, steeringCommittee.KeyUpcomingActivitiesKeyDeliverables, "KeyUpcomingActivitiesKeyDeliverables", steeringCommittee.LastUpdatedBy);
                         SC.RecordStatus = steeringCommittee.RecordStatus;
                         SC.ClientType = steeringCommittee.ClientType;
                         SC.ProjectLead = steeringCommittee.ProjectLead;
                         SC.ProjectStatus = steeringCommittee.ProjectStatus;
-                        SC.ProjectTrend = steeringCommittee.ProjectTrend;
+                        SC.PreviousStatus = steeringCommittee.PreviousStatus;
                         SC.TotalBusineesVolume = steeringCommittee.TotalBusineesVolume;
                         SC.NewBusinessVolume = steeringCommittee.NewBusinessVolume;
                         SC.Region = steeringCommittee.Region;
@@ -71,6 +73,10 @@ namespace CWTDashboardAPI.Models
                         SC.CompletedKeyDeliverables = steeringCommittee.CompletedKeyDeliverables;
                         SC.ScheduledKeyDeliverables = steeringCommittee.ScheduledKeyDeliverables;
                         SC.AdditionalNotes = steeringCommittee.AdditionalNotes;
+                        SC.KeyAccomplishmentsSinceLastUpdateKeyDeliverables = steeringCommittee.KeyAccomplishmentsSinceLastUpdateKeyDeliverables;
+                        SC.KeyUpcomingActivitiesKeyDeliverables = steeringCommittee.KeyUpcomingActivitiesKeyDeliverables;
+                        SC.CombinedKeyDeliverableOne = steeringCommittee.CombinedKeyDeliverableOne;
+                        SC.CombinedKeyDeliverableTwo = steeringCommittee.CombinedKeyDeliverableTwo;
                         SC.LastUpdatedBy = steeringCommittee.LastUpdatedBy;
                         DateTime TodayDate = DateTime.Now;
                         SC.LastUpdatedDate = TodayDate;
@@ -113,13 +119,12 @@ namespace CWTDashboardAPI.Models
                                                 where w.WaveID == wave.WaveID
                                                 where w.SCID == wave.SCID
                                                 select w).FirstOrDefault();
-                        //ManualDataClass manualData = new ManualDataClass();
-                        //manualData.auditLog(wave.WaveID, "", "WaveUpdate", SC_W.Region, wave.Region, "Region", wave.LastUpdatedBy);
-                        //manualData.auditLog(wave.WaveID, "", "WaveUpdate", SC_W.Country, wave.Country, "Country", wave.LastUpdatedBy);
-                        //manualData.auditLog(wave.WaveID, "", "WaveUpdate", SC_W.Scope, wave.Scope, "Scope", wave.LastUpdatedBy);
-                        //manualData.auditLog(wave.WaveID, "", "WaveUpdate", SC_W.GoLiveDate + "", wave.GoLiveDate + "", "GoLiveDate", wave.LastUpdatedBy);
-                        //manualData.auditLog(wave.WaveID, "", "WaveUpdate", SC_W.Status, wave.Status, "Status", wave.LastUpdatedBy);
-
+                        ManualDataClass manualData = new ManualDataClass();
+                        manualData.auditLog(wave.WaveID, "", "WaveUpdate", SC_W.Region, wave.Region, "Region", wave.LastUpdatedBy);
+                        manualData.auditLog(wave.WaveID, "", "WaveUpdate", SC_W.Country, wave.Country, "Country", wave.LastUpdatedBy);
+                        manualData.auditLog(wave.WaveID, "", "WaveUpdate", SC_W.Scope, wave.Scope, "Scope", wave.LastUpdatedBy);
+                        manualData.auditLog(wave.WaveID, "", "WaveUpdate", SC_W.GoLiveDate + "", wave.GoLiveDate + "", "GoLiveDate", wave.LastUpdatedBy);
+                        manualData.auditLog(wave.WaveID, "", "WaveUpdate", SC_W.Status, wave.Status, "Status", wave.LastUpdatedBy);
                         SC_W.Waves = wave.Waves;
                         SC_W.Region = wave.Region;
                         SC_W.Country = wave.Country;
@@ -168,17 +173,29 @@ namespace CWTDashboardAPI.Models
                                      where RG.RGID == riskgap.RGID
                                      where RG.SCID == riskgap.SCID
                                      select RG).FirstOrDefault();
-                        //ManualDataClass manualData = new ManualDataClass();
-                        //manualData.auditLog(riskgap.RGID, "", "RiskGapUpdate", SC_RG.RisksGaps, riskgap.RisksGaps, "RisksGaps", riskgap.LastUpdatedBy);
-                        //manualData.auditLog(riskgap.RGID, "", "RiskGapUpdate", SC_RG.MitigationPlan, riskgap.MitigationPlan, "MitigationPlan", riskgap.LastUpdatedBy);
-                        //manualData.auditLog(riskgap.RGID, "", "RiskGapUpdate", SC_RG.SteeringCommitteeSupportNeed, riskgap.SteeringCommitteeSupportNeed, "SteeringCommitteeSupportNeed", riskgap.LastUpdatedBy);
-                        //manualData.auditLog(riskgap.RGID, "", "RiskGapUpdate", SC_RG.DueDate + "", riskgap.DueDate + "", "DueDate", riskgap.LastUpdatedBy);
-                        //manualData.auditLog(riskgap.RGID, "", "RiskGapUpdate", SC_RG.Owner, riskgap.Owner, "Owner", riskgap.LastUpdatedBy);
-                        //manualData.auditLog(riskgap.RGID, "", "RiskGapUpdate", SC_RG.Status, riskgap.Status, "Status", riskgap.LastUpdatedBy);
+                        ManualDataClass manualData = new ManualDataClass();
+                        manualData.auditLog(riskgap.RGID, "", "RiskGapUpdate", SC_RG.RiskCategory, riskgap.RiskCategory, "RiskCategory", riskgap.LastUpdatedBy);
+                        manualData.auditLog(riskgap.RGID, "", "RiskGapUpdate", SC_RG.Region, riskgap.Region, "Region", riskgap.LastUpdatedBy);
+                        manualData.auditLog(riskgap.RGID, "", "RiskGapUpdate", SC_RG.Country, riskgap.Country, "Country", riskgap.LastUpdatedBy);
+                        manualData.auditLog(riskgap.RGID, "", "RiskGapUpdate", SC_RG.RisksGaps, riskgap.RisksGaps, "RisksGaps", riskgap.LastUpdatedBy);
+                        manualData.auditLog(riskgap.RGID, "", "RiskGapUpdate", SC_RG.MitigationPlan, riskgap.MitigationPlan, "MitigationPlan", riskgap.LastUpdatedBy);
+                        manualData.auditLog(riskgap.RGID, "", "RiskGapUpdate", SC_RG.SteeringCommitteeSupportNeed, riskgap.SteeringCommitteeSupportNeed, "SteeringCommitteeSupportNeed", riskgap.LastUpdatedBy);
+                        manualData.auditLog(riskgap.RGID, "", "RiskGapUpdate", SC_RG.SupportNeededDetails, riskgap.SupportNeededDetails, "SupportNeededDetails", riskgap.LastUpdatedBy);
+                        manualData.auditLog(riskgap.RGID, "", "RiskGapUpdate", SC_RG.Impact+"", riskgap.Impact+"", "Impact", riskgap.LastUpdatedBy);
+                        manualData.auditLog(riskgap.RGID, "", "RiskGapUpdate", SC_RG.Likelihood+"", riskgap.Likelihood+"", "Likelihood", riskgap.LastUpdatedBy);
+                        manualData.auditLog(riskgap.RGID, "", "RiskGapUpdate", SC_RG.DueDate + "", riskgap.DueDate + "", "DueDate", riskgap.LastUpdatedBy);
+                        manualData.auditLog(riskgap.RGID, "", "RiskGapUpdate", SC_RG.Owner, riskgap.Owner, "Owner", riskgap.LastUpdatedBy);
+                        manualData.auditLog(riskgap.RGID, "", "RiskGapUpdate", SC_RG.Status, riskgap.Status, "Status", riskgap.LastUpdatedBy);
                         SC_RG.Risks = riskgap.Risks;
+                        SC_RG.RiskCategory = riskgap.RiskCategory;
+                        SC_RG.Region = riskgap.Region;
+                        SC_RG.Country = riskgap.Country;
                         SC_RG.RisksGaps = riskgap.RisksGaps;
                         SC_RG.MitigationPlan = riskgap.MitigationPlan;
                         SC_RG.SteeringCommitteeSupportNeed = riskgap.SteeringCommitteeSupportNeed;
+                        SC_RG.SupportNeededDetails = riskgap.SupportNeededDetails;
+                        SC_RG.Impact = riskgap.Impact;
+                        SC_RG.Likelihood = riskgap.Likelihood;
                         SC_RG.DueDate = riskgap.DueDate;
                         SC_RG.Owner = riskgap.Owner;
                         SC_RG.Status = riskgap.Status;

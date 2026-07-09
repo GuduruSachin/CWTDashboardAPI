@@ -46,5 +46,9 @@ namespace CWTDashboardAPI.Models
         public object FiltereSowStatus { get; set; }
         public object FilterServiceConfiguration { get; set; }
         public object CycleTimeCategories { get; set; }
+        public object FilterPriority { get; set; }
+        public object FilterGlobalDigitalData { get; set; }
+        public object FilterRegionalDigitalData { get; set; }
+        public object FilterLocalDigitalData { get; set; }
     }
 }

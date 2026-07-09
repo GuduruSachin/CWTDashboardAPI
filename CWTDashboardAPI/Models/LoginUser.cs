@@ -40,5 +40,10 @@ namespace CWTDashboardAPI.Models
         public Boolean ResourceUtilization { get; set; }
         public Boolean Prospect { get; set; }
         public String UserAccessStatus { get; set; }
+        public Boolean SteeringCommittee { get; set; }
+        public Boolean SteeringCommitteeEdits { get; set; }
+        public Boolean DDO { get; set; }
+        public Boolean DDOHome { get; set; }
+        public Boolean PriorityReport { get; set; }
     }
 }
